@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermal Processes Map · AMP Unit 3</title>
+<meta name="description" content="Unit 3 overview: how EDM, Wire EDM, LBM, EBM, PAM and IBM remove material, and the answer skeleton for every 5-mark question.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0001">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L1</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 1 of 12 · ~12 min</p>
+<h1>One idea, six machines: how heat removes metal</h1>
+<p class="lede">Every Unit 3 process concentrates energy into a tiny spot until the material melts and vaporises. Only one of them, IBM, does something different.</p>
+<div class="meta"><span class="chip exam">CO3</span><span class="chip">End-sem 2025 Q3 (15 marks)</span><span class="chip">Tutorial 5 &amp; 6</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Place any Unit 3 process on a map with three questions, and know the 7-part skeleton that every full-marks answer in this unit follows.</p></div>
+
+<h2>The common chain</h2>
+<p>Each thermal process runs the same chain. An energy source is carried to the workpiece and focused onto a spot only micrometres to millimetres wide. The local temperature climbs past the melting point and often past boiling. The molten or vapour material is then thrown out by vapour pressure, by the collapse of a bubble, or by a gas jet.</p>
+<p>Because the tool never touches the work, <strong>hardness does not matter</strong>. What matters is how the work responds to heat: its conductivity, melting point and reflectivity.</p>
+
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Process</th><th>Energy carrier</th><th>Medium</th><th>Work must conduct?</th><th>How material leaves</th></tr></thead>
+<tbody>
+<tr><td><strong>EDM</strong></td><td>Electric spark</td><td>Dielectric liquid</td><td>Yes</td><td>Melts + vaporises; ejected when spark collapses</td></tr>
+<tr><td><strong>Wire EDM</strong></td><td>Spark from a moving wire</td><td>Deionised water</td><td>Yes</td><td>Same as EDM</td></tr>
+<tr><td><strong>LBM</strong></td><td>Photons (laser light)</td><td>Air / gas / any transparent path</td><td>No</td><td>Melts + vaporises; vapour and assist gas expel melt</td></tr>
+<tr><td><strong>EBM</strong></td><td>High-velocity electrons</td><td>Vacuum</td><td>No</td><td>Mainly vaporises; backing material blows melt out</td></tr>
+<tr><td><strong>PAM</strong></td><td>Plasma (ionised gas) jet</td><td>Gas</td><td>Transferred arc: yes. Non-transferred: no</td><td>Melts; high-velocity jet blows melt away</td></tr>
+<tr><td><strong>IBM</strong></td><td>Accelerated ions (Ar⁺)</td><td>Vacuum</td><td>No</td><td><strong>Sputtering</strong>: atoms knocked out one by one, no melting</td></tr>
+</tbody></table></div>
+<p class="small">Sources: Jain, <em>Advanced Machining Processes</em>, Ch 7–10; Jagadeesha, <em>Nontraditional Machining Processes</em>, Ch 6–8; Hudson, NASA TM X-73511 for IBM.</p>
+
+<div class="callout key"><span class="label">The three-question classifier</span>
+<ol>
+<li><strong>What carries the energy?</strong> Spark, photons, electrons, plasma or ions.</li>
+<li><strong>Must the work conduct electricity?</strong> Only EDM, Wire EDM and transferred-arc PAM need it.</li>
+<li><strong>Melting or knocking out?</strong> Everything melts and vaporises except IBM, which sputters atoms by momentum transfer.</li>
+</ol></div>
+
+<div class="callout warn"><span class="label">Trap</span>
+<p>The syllabus lists IBM under "thermal energy based" processes because it is a high-energy beam process like EBM. Its removal mechanism is <em>not</em> thermal. Saying so explicitly in an answer shows real understanding.</p></div>
+
+<h2>What every melting process leaves behind</h2>
+<p>When metal melts and refreezes on the surface, you get a <strong>recast layer</strong>. Under it sits a <strong>heat-affected zone (HAZ)</strong> that was heated but not melted. Both carry microcracks and residual tensile stress, so fatigue strength drops. Jain reports the endurance limit of spark-eroded steel is about 15% lower than turned steel, and notes that LBM also reduces fatigue strength (Jain, p.156 and p.193).</p>
+<p>So in any "limitations" list for EDM, Wire EDM, LBM, EBM or PAM, <strong>recast layer + HAZ</strong> is a guaranteed point. IBM is the exception: no melting means practically no HAZ.</p>
+
+<h2>How your exam asks Unit 3</h2>
+<p>From the November 2025 end-sem paper (Q3, attempt any 2 of 3, 5 marks each):</p>
+<ul>
+<li><strong>(a)</strong> EDM: principle, working and parameters with a neat sketch; influence of discharge current, pulse duration and dielectric on MRR and finish; applications and limitations. <em>Lessons 2–6.</em></li>
+<li><strong>(b)</strong> Compare PAM, EBM and IBM in principle, parameters and applications; suitability for micro- and nano-scale machining. <em>Lessons 9–12.</em></li>
+<li><strong>(c)</strong> EDM numerical: energy per spark, spark frequency and removal efficiency to MRR. <em>Lesson 6.</em></li>
+</ul>
+<p>Tutorial Sheet 5 &amp; 6 adds 20 numericals across all six processes. The MSE adds 2-mark "which process would you recommend, justify" scenarios. Lesson 12 drills those.</p>
+
+<h2>The answer skeleton (use it for every process)</h2>
+<ol class="steps">
+<li><strong>Principle</strong> in two lines: energy source, how it removes material.</li>
+<li><strong>Neat labelled sketch.</strong> Often worth a full mark on its own.</li>
+<li><strong>Working</strong> as numbered steps.</li>
+<li><strong>Equipment / elements</strong> with the function of each.</li>
+<li><strong>Process parameters</strong> and their effect on MRR, surface finish and accuracy.</li>
+<li><strong>Applications</strong>: 4–6 specific ones, not "used in industry".</li>
+<li><strong>Advantages and limitations</strong>: 4 each, in a two-column table if time is short.</li>
+</ol>
+<p>Each process lesson in this unit is built on this skeleton, so by Lesson 11 you will have filled it six times.</p>
+
+<h2>Check yourself</h2>
+<div class="recall" data-id="l1-r1">
+<p class="q">Without scrolling up: list the six Unit 3 processes. For each, say whether the workpiece must conduct electricity and whether material is removed by melting or by sputtering.</p>
+<div class="model">
+<ul>
+<li>EDM: must conduct · melting/vaporisation</li>
+<li>Wire EDM: must conduct · melting/vaporisation</li>
+<li>LBM: need not conduct · melting/vaporisation</li>
+<li>EBM: need not conduct · mainly vaporisation</li>
+<li>PAM: transferred arc must conduct, non-transferred need not · melting, blown out by jet</li>
+<li>IBM: need not conduct · sputtering (momentum transfer, no melting)</li>
+</ul></div></div>
+
+<div class="quiz">
+<p class="q">1. Which Unit 3 process removes material without melting it?</p>
+<ol class="opts">
+<li>Plasma arc machining</li>
+<li data-correct>Ion beam machining</li>
+<li>Electron beam machining</li>
+<li>Laser beam machining</li>
+</ol>
+<p class="why">IBM removes atoms by momentum transfer (sputtering). EBM and LBM vaporise material; PAM melts it and blows it out.</p>
+</div>
+
+<div class="quiz">
+<p class="q">2. Which set of processes needs an electrically conductive workpiece?</p>
+<ol class="opts">
+<li>EDM, WEDM, LBM, EBM</li>
+<li>LBM, EBM, IBM, PAM</li>
+<li data-correct>EDM, WEDM, transferred PAM</li>
+<li>All six thermal processes</li>
+</ol>
+<p class="why">The spark or the transferred arc must flow through the work. Light, electron beams and neutralised ion beams do not need a conductive target.</p>
+</div>
+
+<div class="quiz">
+<p class="q">3. Why must EBM run in a vacuum?</p>
+<ol class="opts">
+<li data-correct>Electrons scatter off air molecules</li>
+<li>Vacuum cools the workpiece faster</li>
+<li>Vacuum raises the dielectric strength</li>
+<li>Air would conduct the current</li>
+</ol>
+<p class="why">Collisions with gas molecules would scatter the beam and waste its energy. The vacuum also stops the hot filament oxidising (Jain, p.223).</p>
+</div>
+
+<div class="quiz">
+<p class="q">4. Which layer sits directly on the surface of an EDM'd part?</p>
+<ol class="opts">
+<li>Converted layer</li>
+<li>Parent metal</li>
+<li>Heat-affected zone</li>
+<li data-correct>Recast layer</li>
+</ol>
+<p class="why">Order from the surface down: recast (white) layer, HAZ, converted layer, unaffected parent metal. Lesson 6 has the sketch.</p>
+</div>
+
+<div class="quiz">
+<p class="q">5. Rank PAM, EBM and IBM from finest to coarsest feature size.</p>
+<ol class="opts">
+<li>PAM, then EBM, then IBM</li>
+<li>EBM, then IBM, then PAM</li>
+<li data-correct>IBM, then EBM, then PAM</li>
+<li>EBM, then PAM, then IBM</li>
+</ol>
+<p class="why">IBM removes atom layers (nanometres). EBM drills holes of tens of micrometres. PAM cuts kerfs millimetres wide. This ranking is the core of End-sem 2025 Q3(b).</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+V.K. Jain, <em>Advanced Machining Processes</em> (Allied, 2002), opening pages of Ch 7 (EDM, p.126) and Ch 10 (EBM, p.220). For a video overview, see the <a href="https://archive-elearn.nptel.ac.in/?p=20826">NPTEL Advanced Machining Processes course by Prof. Manas Das, IIT Guwahati</a>, weeks 5–6.</div>
+
+<div class="ask"><strong>Stuck or curious?</strong> Ask your teacher (Claude) anything from this lesson. For example: "Why exactly can't IBM melt the metal?" or "Give me three more classifier drills."</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager"><a class="next" href="0002-edm-principle-mechanism.html"><span>Next</span>EDM: principle and spark mechanism →</a></nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

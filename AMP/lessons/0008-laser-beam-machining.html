@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laser Beam Machining · AMP Unit 3</title>
+<meta name="description" content="LBM: how a laser is produced, types of lasers, mechanism of material removal, parameters, drilling and cutting, applications, limitations and tutorial numericals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0008">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L8</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 8 of 12 · ~25 min</p>
+<h1>Laser beam machining: light focused hot enough to boil diamond</h1>
+<p class="lede">A laser's light is one colour, in step and barely spreading, so a simple lens can squeeze it into a spot with enormous power density. That spot melts and vaporises almost anything.</p>
+<div class="meta"><span class="chip exam">CO3</span><span class="chip">Tutorial 5 &amp; 6: Q11–Q15</span><span class="chip">Tut Sheet I Q8 (reflective metals)</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Explain how a laser is produced (stimulated emission, population inversion, resonator), sketch an LBM setup, describe removal and parameters, and solve power, intensity and drilling-time problems.</p></div>
+
+<h2>Producing a laser</h2>
+<p><strong>LASER</strong> = Light Amplification by Stimulated Emission of Radiation.</p>
+<ol class="steps">
+<li><strong>Absorption.</strong> An atom absorbs a photon of the right frequency and jumps from a lower energy level q to a higher level p.</li>
+<li><strong>Spontaneous emission.</strong> An excited atom drops back on its own, emitting a photon in a random direction and phase.</li>
+<li><strong>Stimulated emission.</strong> A passing photon of the right frequency triggers an excited atom to emit a <em>clone</em> photon: same wavelength, phase, direction and energy. This is the basis of the laser.</li>
+<li><strong>Population inversion.</strong> Normally more atoms sit in the lower level, so absorption wins. A strong <strong>pumping</strong> source (flash lamp, electric discharge) pushes most atoms into the upper level. Now stimulated emission dominates and light is amplified.</li>
+<li><strong>Feedback (resonator).</strong> A fully reflecting mirror at one end and a partially reflecting mirror at the other bounce photons back and forth through the medium. Each pass stimulates more emission. A small fraction leaks out of the partial mirror as the beam.</li>
+</ol>
+<p>Pumping methods: <strong>optical</strong> (flash lamp, ruby and Nd:YAG), <strong>direct electron excitation</strong> in a gas discharge (argon, CO₂), and <strong>atom–atom collision</strong> (He–Ne) (Jagadeesha §8.2).</p>
+
+<div class="callout info"><span class="label">Why laser light focuses so well</span>
+<p>It is <strong>monochromatic</strong> (no colour-correction needed in the lens), <strong>coherent</strong> (waves in phase) and has <strong>low divergence</strong>. So a simple lens gives a tiny spot. Focused spot diameter ≈ focal length × divergence angle: \(W = f\theta\) (Jain, p.197).</p></div>
+
+<h2>Types of lasers used for machining</h2>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Laser</th><th>Medium and pumping</th><th>Wavelength</th><th>Mode</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Ruby</td><td>Al₂O₃ + ~0.05% Cr; flash lamp</td><td>0.69 µm</td><td>Pulsed, 1–2 Hz</td><td>Low efficiency (~1%); drilling, spot welding</td></tr>
+<tr><td>Nd:glass</td><td>Nd-doped glass; flash lamp</td><td>1.06 µm</td><td>Pulsed</td><td>Low repetition rate</td></tr>
+<tr><td>Nd:YAG</td><td>Nd in yttrium aluminium garnet; flash lamp</td><td>1.06 µm</td><td>Pulsed or CW</td><td>Most powerful solid-state; focuses very well (>10⁸ W/cm²); cuts brittle ceramics with small kerf and HAZ</td></tr>
+<tr><td>CO₂</td><td>CO₂ + N₂ + He gas; electric discharge</td><td>10.6 µm</td><td>CW or pulsed</td><td>High continuous power (~100 W per metre of tube; folded designs for more); best efficiency of these (~10–15%); cutting sheet metal and non-metals</td></tr>
+<tr><td>Excimer (KrF)</td><td>Rare gas–halide</td><td>0.248 µm (UV)</td><td>Pulsed, ns</td><td>Micromachining</td></tr>
+</tbody></table></div>
+<p class="small">Jain p.190–192; Jagadeesha §8.3 and Table 8.2. In a CO₂ laser, N₂ transfers discharge energy to CO₂ molecules and He cools the gas so it can be re-excited.</p>
+
+<h2>Working principle of LBM</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/lbm.svg" alt="Solid-state laser LBM: flash lamp around lasing rod between full and partial mirrors, beam turned by a 45 degree mirror, focused by a lens through an assist-gas nozzle onto the workpiece; inset of beam waist W = f theta and depth of focus."></div>
+<figcaption>LBM setup. Labels: flash lamp, lasing rod, 100% and partial mirrors, power supply, beam, mirror, focusing lens, assist gas nozzle, workpiece on CNC table.</figcaption>
+</figure>
+<ol class="steps">
+<li>The beam is focused to a spot near the work surface. For machining the power density must be about <strong>1.5 × 10⁶ to 1.5 × 10⁸ W/cm²</strong>; welding needs only 1.5 × 10⁴ to 1.5 × 10⁵ W/cm² (Jain, p.190).</li>
+<li>Part of the light is reflected, part absorbed, depending on the material's reflectivity and absorptivity at that wavelength.</li>
+<li>Absorbed energy heats a tiny volume past melting and boiling. Laser machining is a high-speed <strong>ablation</strong>: vapour forms so fast that its recoil pressure blasts the remaining melt out as droplets (Jagadeesha §8.4.1).</li>
+<li>A coaxial <strong>assist gas</strong> clears melt from the cut and keeps debris off the lens. O₂ adds exothermic oxidation and cuts steel faster but leaves an oxidised edge and larger HAZ; Ar or N₂ give clean edges for parts to be welded later (Jain, p.198).</li>
+</ol>
+
+<h2>Process parameters</h2>
+<ul>
+<li><strong>Power / pulse energy and pulse duration.</strong> High peak power (high energy in a short pulse) and high power density give good holes. Drilling time falls as energy per pulse rises. Pulse durations of 0.1–2.5 ms suit deep holes (Jain, p.194).</li>
+<li><strong>Repetition rate.</strong> Many low-energy, high-frequency pulses give better hole quality than one high-energy pulse.</li>
+<li><strong>Wavelength vs material absorptivity.</strong> Shorter wavelength is absorbed better by most metals.</li>
+<li><strong>Focal length, divergence, focal position.</strong> Low divergence and long focal length for deep holes; focus just below the surface for straight-sided holes; larger f gives a larger depth of focus.</li>
+<li><strong>Assist gas type and pressure; traverse speed.</strong> Faster feed gives a thinner HAZ.</li>
+<li><strong>Work properties.</strong> Reflectivity, thermal conductivity, melting and boiling points.</li>
+</ul>
+
+<h2>Capabilities</h2>
+<ul>
+<li><strong>Drilling</strong> (percussion): holes about 0.125–1.25 mm, depth-to-diameter up to 100:1 (Jain); taper, recast and HAZ (0.0025–0.1 mm). Repeatability about ±0.025 mm or ±10% of diameter. Holes larger than ~1.2 mm are <strong>trepanned</strong> (beam traces the outline) or contour-cut.</li>
+<li><strong>Cutting</strong>: omnidirectional, pierces anywhere, no force. An ~800 W laser cuts most metal plates up to ~3 mm.</li>
+<li><strong>Marking</strong>: ns pulses scanned by computer, up to 30 characters per second, grooves up to 0.25 mm deep.</li>
+<li>Overall machining efficiency is very low (Jain: usually below 1%).</li>
+</ul>
+
+<h2>Applications, advantages, limitations</h2>
+<ul>
+<li>Cooling holes in superalloy turbine blades and vanes; the most common small-hole drilling process for them (Jain, p.196).</li>
+<li>Holes in diamond wire-drawing dies; sapphire and ruby watch bearings.</li>
+<li>Cutting sheet metal, plastics, composites, ceramics; scribing silicon wafers; resistor trimming; marking; controlled fracture of brittle parts; micromachining.</li>
+</ul>
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>No contact, no force, no tool wear</li>
+<li>Any material, conductive or not, including diamond, ceramics, refractory metals</li>
+<li>Works through any transparent medium; reaches awkward spots</li>
+<li>Very small holes; easy CNC control of beam</li>
+<li>Small HAZ for short pulses</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Very low efficiency; high capital and running cost</li>
+<li><strong>Highly reflective, conductive metals (Al, Cu) are hard to machine</strong></li>
+<li>Tapered, not perfectly round holes; recast and HAZ; fatigue strength ↓</li>
+<li>Practically limited to thin sections</li>
+<li>Flash lamp life; strict eye-safety procedures</li>
+</ul></div>
+</div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l8-r1">
+<p class="q"><span class="marks">2 marks</span>Tutorial Sheet I, Q8: Why is LBM less suitable for drilling deep holes in reflective metals like aluminium or copper?</p>
+<div class="model">
+<ul>
+<li>Al and Cu <strong>reflect most</strong> of the incident laser radiation (especially CO₂'s 10.6 µm), so little energy is absorbed.</li>
+<li>Their <strong>high thermal conductivity</strong> carries absorbed heat away from the spot before it can reach melting and boiling, so efficiency collapses as the hole deepens.</li>
+<li>Jain notes this is why workholding tables for LBM are made of aluminium: the beam does not damage them.</li>
+<li>Better choices: EDM or EBM for deep holes in these metals.</li>
+</ul></div></div>
+
+<div class="numeric" data-answer="10.8" data-tol="0.02" data-unit="kW">
+<p class="q">Tutorial Q11. Required MRR = 100 mm³/s in aluminium (ρ = 2700 kg/m³). Energy per kg = 6.0 × 10⁶ J/kg; process efficiency 15%. What laser power is needed?</p>
+<div class="solution">
+\[ \dot m = 100\times10^{-9} \times 2700 = 2.7\times10^{-4}\ \text{kg/s} \]
+\[ P_{abs} = 2.7\times10^{-4} \times 6.0\times10^{6} = 1620 \text{ W}, \qquad P = \frac{1620}{0.15} = 10{,}800 \text{ W} = 10.8 \text{ kW} \]
+</div></div>
+
+<div class="numeric" data-answer="1.59e6" data-tol="0.02" data-unit="W/cm²">
+<p class="q">Tutorial Q12. A continuous laser of 500 W is focused to a spot of 0.20 mm diameter. Find the intensity.</p>
+<div class="solution">
+\[ A = \frac{\pi}{4}(0.020\ \text{cm})^2 = 3.14\times10^{-4}\ \text{cm}^2, \qquad I = \frac{500}{3.14\times10^{-4}} = 1.59\times10^{6}\ \text{W/cm}^2 \]
+<p>That is right at the lower edge of the machining range in Jain.</p>
+</div></div>
+
+<div class="numeric" data-answer="100" data-tol="0.01" data-unit="µm">
+<p class="q">Tutorial Q13. Thermal diffusivity α = 1 × 10⁻⁵ m²/s, pulse duration 1 ms. Thermal penetration ≈ √(αt). Express in microns.</p>
+<div class="solution">\[ \delta = \sqrt{10^{-5}\times10^{-3}} = \sqrt{10^{-8}} = 10^{-4}\ \text{m} = 100\ \mu\text{m} \]
+<p>Shorter pulses → thinner heated layer → smaller HAZ. That is why marking uses ns pulses.</p></div></div>
+
+<div class="numeric" data-answer="26.2" data-tol="0.02" data-unit="min">
+<p class="q">Tutorial Q14. Drill a 2.0 mm diameter through-hole in 5.0 mm thickness. Ablation removal rate = 0.01 mm³/s. How many minutes?</p>
+<div class="solution">
+\[ V = \frac{\pi}{4}(2)^2(5) = 15.71 \text{ mm}^3, \qquad t = \frac{15.71}{0.01} = 1571 \text{ s} = 26.2 \text{ min} \]
+<p class="small">A real 2 mm hole would be trepanned, removing only an annulus, which is much faster.</p>
+</div></div>
+
+<div class="numeric" data-answer="20" data-tol="0.01" data-unit="mJ">
+<p class="q">Tutorial Q15. Average power 200 W at 10 kHz repetition rate. Find the pulse energy.</p>
+<div class="solution">\[ E_p = \frac{P_{avg}}{f} = \frac{200}{10{,}000} = 0.02 \text{ J} = 20 \text{ mJ} \]</div></div>
+
+<div class="numeric" data-answer="1.02e9" data-tol="0.03" data-unit="W/cm²">
+<p class="q">Jagadeesha §8.4 example. A pulse of 20 J lasts 1 ms; beam divergence 0.002 rad; focusing lens f = 25 mm. Find the peak power density at the focal spot.</p>
+<div class="solution">
+\[ P_{peak} = \frac{20}{10^{-3}} = 20 \text{ kW}, \qquad W = f\theta = 25 \times 0.002 = 0.05 \text{ mm} \]
+\[ A = \frac{\pi}{4}(0.005\ \text{cm})^2 = 1.96\times10^{-5}\ \text{cm}^2, \qquad I = \frac{2\times10^4}{1.96\times10^{-5}} \approx 1.0\times10^{9}\ \text{W/cm}^2 \]
+<p>Enough to vaporise any known material, diamond included.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Population inversion means…</p>
+<ol class="opts">
+<li>More atoms in the ground state</li>
+<li>Photons travelling in the reverse direction</li>
+<li>Mirrors swapped at both tube ends</li>
+<li data-correct>More atoms in the upper level</li>
+</ol>
+<p class="why">Stimulated emission only outpaces absorption when the upper level holds more atoms than the lower one. Pumping creates this.</p>
+</div>
+<div class="quiz">
+<p class="q">2. Which assist gas gives the fastest cut in mild steel?</p>
+<ol class="opts">
+<li>Argon</li>
+<li data-correct>Oxygen</li>
+<li>Nitrogen</li>
+<li>Helium</li>
+</ol>
+<p class="why">Oxygen burns the steel exothermically, adding heat. The price: an oxidised edge and wider HAZ. Argon gives the cleanest edge.</p>
+</div>
+<div class="quiz">
+<p class="q">3. A hole larger than about 1.2 mm is usually made by…</p>
+<ol class="opts">
+<li data-correct>Trepanning the outline with beam</li>
+<li>One single high-energy percussion pulse</li>
+<li>Defocusing the beam far wider</li>
+<li>Switching to a ruby laser</li>
+</ol>
+<p class="why">The focused spot lacks power density for large holes, so the beam traces the outline and the slug drops out (Jain, p.198).</p>
+</div>
+<div class="quiz">
+<p class="q">4. Why can LBM work an aluminium fixture table without damaging it?</p>
+<ol class="opts">
+<li>Aluminium has a high melting point</li>
+<li>The beam is switched off there</li>
+<li data-correct>Aluminium reflects and conducts heat well</li>
+<li>Aluminium is coated with a ceramic</li>
+</ol>
+<p class="why">Al reflects most of the beam and conducts heat away fast, so it barely heats. The same property makes Al hard to laser machine.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 8 "Laser Beam Machining" (p.186–206). Jagadeesha Ch 8 §8.0–8.10 for lasing action, laser types, applications, advantages and disadvantages.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Why does Nd:YAG cut ceramics better than CO₂?" or "Is LBM's thermal damage really worse than EDM's?" (that last one is Jain's Review Q2(c)).</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0007-wire-edm.html"><span>Previous</span>← Wire EDM</a>
+<a class="next" href="0009-electron-beam-machining.html"><span>Next</span>Electron beam machining →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

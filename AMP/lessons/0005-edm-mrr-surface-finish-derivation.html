@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDM MRR and Finish · AMP Unit 3</title>
+<meta name="description" content="Derivation of MRR in the EDM RC circuit, the critical resistance, and the surface finish relation, with Jain's problems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0005">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L5</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 5 of 12 · ~20 min · Derivation</p>
+<h1>From one spark to MRR and surface finish</h1>
+<p class="lede">Energy per spark times sparks per second gives MRR. Crater size gives roughness. Two short derivations, both built on Lesson 4.</p>
+<div class="meta"><span class="chip exam">Derivation</span><span class="chip">Jain p.145–147</span><span class="chip">Jain Review Q9: "Derive the relationship for surface roughness"</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Derive MRR for the RC circuit and show that MRR ∝ 1/R<sub>c</sub>; explain critical resistance; derive the roughness relation; and use them in numericals.</p></div>
+
+<h2>Part A · MRR in the RC circuit</h2>
+<ol class="steps">
+<li>Rearrange (7.6) to get the charging time to reach \(V_b\):
+\[ t_c = R_cC\,\ln\!\left(\frac{1}{1 - V_b/V_0}\right) \]</li>
+<li>Discharge time is negligible, so spark frequency is
+\[ f_c = \frac{1}{t_c} = \frac{1}{R_cC\,\ln\!\left(\dfrac{1}{1-V_b/V_0}\right)} \]</li>
+<li>MRR is proportional to energy delivered per second:
+\[ \text{MRR} \propto \tfrac12 C V_b^2 \, f_c \]</li>
+<li>Substitute, with constant \(K_4\):
+<div class="formula boxed">\[ \text{MRR} = K_4\, C V_b^2 \cdot \frac{1}{R_cC\,\ln\!\left(\dfrac{1}{1 - V_b/V_0}\right)} = \frac{K_4\,V_b^2}{R_c\,\ln\!\left(\dfrac{1}{1 - V_b/V_0}\right)} \]</div></li>
+</ol>
+<p>Two readings follow:</p>
+<ul>
+<li><strong>MRR ∝ 1/R<sub>c</sub>.</strong> Lower the charging resistance and the capacitor recharges faster, so sparks come more often.</li>
+<li><strong>C cancels.</strong> A bigger capacitor stores more energy per spark but recharges more slowly. In this ideal model MRR does not depend on C. In practice a bigger C means bigger craters and a rougher surface, which is why C is the "finish" knob on RC machines.</li>
+</ul>
+
+<h3>Critical resistance</h3>
+<p>You cannot reduce R<sub>c</sub> forever. Below a minimum value the capacitor never "relaxes": current keeps flowing, the gap cannot deionise, and a <strong>continuous arc</strong> forms instead of discrete sparks. Arcs damage both tool and work. That minimum is the <strong>critical resistance</strong> (Jain, p.145–146):</p>
+<div class="formula">
+\[ R_{min} = \sqrt{\frac{L}{C}} \;\;\text{(theory, Bhattacharyya)}, \qquad R_{min} \ge 30\sqrt{\frac{L}{C}} \;\;\text{(experiments)} \]
+</div>
+<p>Here \(L\) is the inductance of the discharge circuit.</p>
+
+<h2>Part B · Surface finish</h2>
+<ol class="steps">
+<li>Each spark leaves a roughly spherical crater of depth \(h\). The CLA roughness \(H\) grows with \(h\) and falls with sparking frequency (more, smaller craters per unit time):
+\[ H \propto \frac{h}{f_c} \]</li>
+<li>Crater volume ∝ \(h^3\) and is proportional to spark energy:
+\[ h^3 \propto \tfrac12 C V_b^2 \quad\Rightarrow\quad h \propto C^{1/3} V_b^{2/3} \]</li>
+<li>So
+\[ H = \frac{K_5\, V_b^{2/3} C^{1/3}}{f_c} \]</li>
+<li>For an RC circuit \(f_c \propto R^{-m} C^{-n}\), giving
+\[ H = K_6\, V_b^{2/3}\, C^{\,n + 1/3}\, R^{m} \]</li>
+<li>Experiments fit better to
+<div class="formula boxed">\[ H = K_7\, V_b^{0.5}\, C^{0.31\text{–}0.36} \]</div></li>
+</ol>
+<div class="callout exam"><span class="label">What to conclude in words</span>
+<p>To improve surface finish: <strong>reduce capacitance</strong> (less energy per spark), <strong>reduce breakdown voltage</strong>, and <strong>raise sparking frequency</strong>. Every one of these also lowers MRR. That is why EDM is done in two stages: roughing at high energy, finishing at low energy (Jain, p.130).</p></div>
+
+<h2>Numericals</h2>
+<div class="numeric" data-answer="1.17" data-tol="0.02" data-unit="µm">
+<p class="q">Jain Problem 1. EDM on a metallic sheet with C = 15 µF, V<sub>b</sub> = 130 V and K = 4.0. Find the surface finish using the experimental relation.</p>
+<div class="solution">
+\[ H = K V_b^{0.5} C^{0.33} = 4.0 \times 130^{0.5} \times (15\times10^{-6})^{0.33} \]
+\[ = 4.0 \times 11.40 \times 0.02559 = 1.17\ \mu\text{m} \]
+<p class="small">Use C in farads, as Jain does.</p>
+</div></div>
+
+<div class="numeric" data-answer="0.444" data-tol="0.02" data-unit="(ratio)">
+<p class="q">Jain Self-Test 2(ii). While calculating MRR, a supply voltage of 60 V was used instead of the actual 40 V. The circuit is set for maximum power delivery. Find (actual MRR) ÷ (calculated MRR).</p>
+<div class="solution">
+<p>At maximum power, \(V_b = 0.72\,V_0\), so \(\ln(1/(1-V_b/V_0))\) is the same constant in both cases. Then MRR ∝ \(V_b^2\) ∝ \(V_0^2\):</p>
+\[ \frac{\text{MRR}_{actual}}{\text{MRR}_{calc}} = \left(\frac{40}{60}\right)^2 = 0.444 \]
+<p>Answer (b) 0.44.</p>
+</div></div>
+
+<div class="numeric" data-answer="6.72" data-tol="0.03" data-unit="min">
+<p class="q">Jain Review Q14. A through hole of 10 mm diameter is to be drilled in a 5 mm thick plate by EDM. R = 50 Ω, V<sub>s</sub> = 200 V, V<sub>b</sub> = 150 V, and K = 0.18 gives MRR in mm³/min. Estimate the machining time.</p>
+<div class="solution">
+\[ \text{MRR} = \frac{K V_b^2}{R\,\ln\!\left(\frac{1}{1 - V_b/V_s}\right)} = \frac{0.18 \times 150^2}{50 \times \ln 4} = \frac{4050}{69.31} = 58.4 \text{ mm}^3/\text{min} \]
+\[ V = \frac{\pi}{4}(10)^2(5) = 392.7 \text{ mm}^3, \qquad t = \frac{392.7}{58.4} = 6.72 \text{ min} \]
+<p class="small">The capacitance given in the question cancels out, exactly as shown in Part A. Ignoring overcut and tool wear.</p>
+</div></div>
+
+<div class="recall" data-id="l5-r1">
+<p class="q">Jain Self-Test (xvii)–(xviii). (a) The capacitor's charged voltage is raised from V<sub>1</sub> to V<sub>2</sub> = 4V<sub>1</sub>; what happens to Ra? (b) Instead, frequency is halved; what happens to Ra?</p>
+<div class="model">
+<p>(a) With the experimental relation \(H \propto V^{0.5}\): \(H_2 = \sqrt4\,H_1 = 2R_{a1}\). With the theoretical \(V^{2/3}\): \(4^{2/3} = 2.52 \approx 2.5\,R_{a1}\). Jain offers both 2R<sub>a1</sub> and 2.5R<sub>a1</sub> as options, so <strong>state which relation you use</strong>. The experimental one gives 2R<sub>a1</sub>.</p>
+<p>(b) \(H \propto 1/f\), so halving f doubles roughness: \(2R_{a1}\).</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. In the ideal RC model, MRR is proportional to…</p>
+<ol class="opts">
+<li>Capacitance C directly</li>
+<li data-correct>1 / R<sub>c</sub></li>
+<li>Square-root of C</li>
+<li>R<sub>c</sub> squared directly</li>
+</ol>
+<p class="why">C cancels between energy per spark (∝ C) and frequency (∝ 1/C). Only R<sub>c</sub> remains: MRR ∝ 1/R<sub>c</sub>.</p>
+</div>
+<div class="quiz">
+<p class="q">2. What happens if R<sub>c</sub> falls below the critical resistance?</p>
+<ol class="opts">
+<li>Sparks become too weak</li>
+<li>The dielectric stops ionising</li>
+<li data-correct>A continuous arc forms</li>
+<li>The servo retracts permanently</li>
+</ol>
+<p class="why">The capacitor cannot relax; current flows continuously and the gap never deionises. Arcing damages tool and work.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Which change improves EDM surface finish?</p>
+<ol class="opts">
+<li data-correct>Lower capacitance per spark</li>
+<li>Higher breakdown voltage setting</li>
+<li>Lower sparking frequency setting</li>
+<li>Higher peak current setting</li>
+</ol>
+<p class="why">Smaller C means less energy per spark, smaller craters and lower Ra. The other three all make craters bigger or fewer.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Crater depth h in the theory scales as…</p>
+<ol class="opts">
+<li>C V<sub>b</sub></li>
+<li>C<sup>½</sup> V<sub>b</sub></li>
+<li>C V<sub>b</sub><sup>2</sup></li>
+<li data-correct>C<sup>1/3</sup> V<sub>b</sub><sup>2/3</sup></li>
+</ol>
+<p class="why">Crater volume ∝ h³ ∝ energy ½CV<sub>b</sub>², so h ∝ (CV<sub>b</sub>²)<sup>1/3</sup>.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 7 "Material Removal Rate in RC Circuit" and "Surface Finish" (p.145–147), Problem 1 (p.169) and the Self-Test and Review Questions (p.173–176).</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Why is C the finish knob if MRR doesn't depend on it?" or "Give me two more RC numericals at exam difficulty."</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0004-edm-rc-circuit-max-power.html"><span>Previous</span>← RC circuit, max power</a>
+<a class="next" href="0006-edm-parameters-answer-numericals.html"><span>Next</span>EDM parameters, the full answer, numericals →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

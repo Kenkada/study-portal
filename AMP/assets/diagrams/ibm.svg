@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" role="img" aria-labelledby="t d">
+<title id="t">Ion beam machining (ion milling) setup</title>
+<desc id="d">An ion source: argon gas enters a discharge chamber with a hot cathode, anode and magnets; ions are extracted and accelerated by a screen grid and accelerator grid. A neutraliser filament adds electrons. The broad ion beam passes through a vacuum chamber and strikes the workpiece through a mask on a tiltable, rotating holder. Inset: an argon ion knocks surface atoms out (sputtering); yield S equals atoms removed per ion.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.6;fill:none}
+ .thin{stroke:#222;stroke-width:1.1;fill:none}
+ .ion{stroke:#7b2cbf;stroke-width:1.6;fill:none}
+ text{font-family:Inter,Arial,sans-serif;font-size:12.5px;fill:#222}
+ .sm{font-size:11px;fill:#444}
+ .b{font-weight:700}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b2cbf"/></marker></defs>
+<rect width="680" height="400" fill="#fff"/>
+<!-- vacuum chamber -->
+<rect x="20" y="40" width="460" height="230" rx="8" class="s" fill="#fbfbfb"/>
+<text x="30" y="32" class="b">Vacuum chamber (~10⁻⁵–10⁻⁶ torr)</text>
+<!-- ion source -->
+<rect x="40" y="80" width="110" height="140" class="s" fill="#efe6f7"/>
+<text x="50" y="100" class="b">Ion source</text>
+<path style="stroke:#c0392b" d="M60,130 l6,-10 l6,10 l6,-10 l6,10" class="s"/>
+<text x="50" y="150" class="sm">hot cathode</text>
+<text x="50" y="164" class="sm">e⁻ ionise Ar</text>
+<text x="50" y="178" class="sm">→ Ar⁺ plasma</text>
+<text x="50" y="206" class="sm">magnets</text>
+<line x1="0" y1="150" x2="38" y2="150" class="s" marker-end="url(#ar)"/>
+<text x="2" y="142" class="sm">Ar in</text>
+<line style="stroke:none" x1="20" y1="282" x2="20" y2="160" class="thin"/>
+<!-- grids -->
+<line x1="160" y1="85" x2="160" y2="215" stroke="#222" stroke-width="3" stroke-dasharray="10 4"/>
+<line x1="172" y1="85" x2="172" y2="215" stroke="#222" stroke-width="3" stroke-dasharray="10 4"/>
+<text x="140" y="236" class="sm">screen + accel grids</text>
+<text x="140" y="250" class="sm">≈ 0.3–2 kV (up to ~10 kV)</text>
+<!-- neutraliser -->
+<path style="stroke:#c0392b" d="M195,90 l5,-8 l5,8 l5,-8 l5,8" class="s"/>
+<text x="188" y="76" class="sm">neutraliser e⁻</text>
+<!-- beam -->
+<g class="ion">
+ <line x1="176" y1="110" x2="350" y2="110" marker-end="url(#ai)"/>
+ <line x1="176" y1="135" x2="350" y2="135" marker-end="url(#ai)"/>
+ <line x1="176" y1="160" x2="350" y2="160" marker-end="url(#ai)"/>
+ <line x1="176" y1="185" x2="350" y2="185" marker-end="url(#ai)"/>
+</g>
+<text x="230" y="208" class="sm">broad Ar⁺ beam</text>
+<!-- mask + work -->
+<rect x="355" y="96" width="8" height="24" fill="#555"/><rect x="355" y="146" width="8" height="28" fill="#555"/><rect x="355" y="194" width="8" height="12" fill="#555"/>
+<rect x="363" y="92" width="34" height="118" class="s" fill="#d8d3c6"/>
+<text x="404" y="110" class="sm">mask</text>
+<text x="404" y="124" class="sm">(photoresist /</text>
+<text x="404" y="138" class="sm">low-yield C)</text>
+<text x="404" y="168" class="b">workpiece</text>
+<text x="404" y="182" class="sm">on tilting,</text>
+<text x="404" y="196" class="sm">rotating holder</text>
+<line x1="480" y1="240" x2="530" y2="240" class="s" marker-end="url(#ar)"/>
+<text x="490" y="232" class="sm">to pumps</text>
+<!-- inset -->
+<rect style="stroke:#bbb" x="500" y="40" width="165" height="170" rx="6" class="s"/>
+<text x="510" y="60" class="b">Sputtering</text>
+<g fill="#cfc9bb" stroke="#999"><circle cx="530" cy="170" r="9"/><circle cx="550" cy="170" r="9"/><circle cx="570" cy="170" r="9"/><circle cx="590" cy="170" r="9"/><circle cx="610" cy="170" r="9"/><circle cx="630" cy="170" r="9"/><circle cx="540" cy="188" r="9"/><circle cx="560" cy="188" r="9"/><circle cx="580" cy="188" r="9"/><circle cx="600" cy="188" r="9"/><circle cx="620" cy="188" r="9"/></g>
+<circle cx="560" cy="90" r="6" fill="#7b2cbf"/><text x="512" y="94" class="sm">Ar⁺</text>
+<line x1="563" y1="98" x2="584" y2="156" class="ion" marker-end="url(#ai)"/>
+<circle cx="628" cy="110" r="8" fill="#cfc9bb" stroke="#999"/>
+<line x1="600" y1="158" x2="622" y2="120" class="thin" marker-end="url(#ar)"/>
+<text x="596" y="92" class="sm">ejected atom</text>
+<text x="510" y="206" class="sm">momentum transfer, no melting</text>
+<text x="20" y="320" class="sm">Atom-by-atom removal: removal rate ∝ ion current density × sputter yield; nm/min, very slow, extremely precise.</text>
+<text x="20" y="338" class="sm">Works on conductors and insulators (beam is neutralised); used for ion milling, polishing, thinning, IC patterning.</text>
+</svg>

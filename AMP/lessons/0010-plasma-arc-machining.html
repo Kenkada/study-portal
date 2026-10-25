@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plasma Arc Machining · AMP Unit 3</title>
+<meta name="description" content="PAM: plasma generation, transferred and non-transferred arcs, torch types, process parameters, performance, applications, safety, and tutorial numericals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0010">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L10</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 10 of 12 · ~22 min</p>
+<h1>Plasma arc machining: the fourth state of matter as a cutting torch</h1>
+<p class="lede">Squeeze an electric arc through a narrow nozzle with gas flowing round it. The gas becomes plasma at tens of thousands of degrees, leaves at hundreds of metres per second, and slices thick metal plate.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(b)</span><span class="chip">Tutorial 5 &amp; 6: Q16, Q17</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Explain plasma generation and removal, sketch and compare transferred and non-transferred arcs, describe the four torch types, state parameter effects and performance numbers, and solve the PAM numericals.</p></div>
+
+<h2>What plasma is</h2>
+<p>Heat a gas to about 2000 °C and its molecules split into atoms. Go to about 3000 °C and electrons start leaving some atoms: the gas is <strong>ionised</strong>. This glowing mix of free electrons, positive ions and neutral atoms is <strong>plasma</strong>, often called the <strong>fourth state of matter</strong>. It conducts electricity and responds to magnetic fields (Jain, p.207).</p>
+<p>Its heat comes from <strong>recombination</strong>: electrons and ions rejoining into atoms, and atoms into molecules, release their bonding energy as kinetic energy. Plasma temperature reaches about 11,000–30,000 °C (Jagadeesha §7.0); Jain quotes up to ~33,000 °C.</p>
+
+<h2>Principle and mechanism of removal</h2>
+<ol class="steps">
+<li>A DC arc is struck between a <strong>cathode</strong> (tungsten, or hafnium/zirconium in air torches) and an anode: either the nozzle or the work.</li>
+<li>Plasma gas flows around the electrode and through a <strong>constricting, water-cooled copper nozzle</strong>. Constriction raises current density, temperature and voltage, and gas leaves as a well-collimated jet at several hundred m/s (up to ~500 m/s).</li>
+<li>The work is heated by <strong>electron bombardment</strong> at the anode spot (transferred arc), <strong>convection</strong> from the hot plasma, <strong>recombination</strong> on its surface and, with oxygen, <strong>exothermic oxidation</strong>.</li>
+<li>Metal melts (some vaporises), and the jet's <strong>momentum blows the melt out</strong> of the kerf. Up to about 45% of torch power goes into removing metal (Jagadeesha §7.3).</li>
+</ol>
+
+<h2>Transferred vs non-transferred arc</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/pam.svg" alt="Two plasma torches: non-transferred arc between cathode and nozzle producing a plasma flame; transferred arc from cathode to the workpiece through a constricting nozzle."></div>
+<figcaption>Non-transferred (left) and transferred (right) plasma torches.</figcaption>
+</figure>
+<div class="table-wrap"><table class="wide compare">
+<thead><tr><th>Aspect</th><th>Non-transferred arc</th><th>Transferred arc</th></tr></thead>
+<tbody>
+<tr><td>Arc between</td><td>Cathode (−) and nozzle (+)</td><td>Cathode (−) and workpiece (+)</td></tr>
+<tr><td>Work in circuit?</td><td>No: conductive or non-conductive work</td><td>Yes: conductive work only</td></tr>
+<tr><td>Plasma form</td><td>Flame</td><td>Constricted arc column</td></tr>
+<tr><td>Thermal efficiency</td><td>~65–75% (nozzle absorbs anode heat)</td><td>~85–90% (anode heat goes into work)</td></tr>
+<tr><td>Penetration, MRR</td><td>Low</td><td>High: cuts thick plate</td></tr>
+<tr><td>Uses</td><td>Spraying, surfacing, non-metals, ceramics</td><td>Cutting, gouging, welding</td></tr>
+</tbody></table></div>
+<p class="small">Jain p.208–209; Jagadeesha §7.5.</p>
+
+<h2>Equipment and torch types</h2>
+<p>Elements: <strong>DC power supply</strong> (up to ~1000 A at ~200 V; 2–200 kW), <strong>gas supply</strong> (N₂, Ar, H₂, air and mixtures; up to ~1.4 MPa; roughly 2–11 m³/h), <strong>cooling water</strong> for both electrodes, <strong>control console</strong> and <strong>torch</strong> (Jain, p.209; Jagadeesha §7.4).</p>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Torch</th><th>How it works</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td>Air plasma</td><td>Compressed air is the plasma gas; Zr or Hf electrode (tungsten oxidises in seconds)</td><td>Cheap; fast on steel; but double arcing (electrode → nozzle → work) kills nozzles; tapered cut; oxidised edges on Al</td></tr>
+<tr><td>Oxygen-injected</td><td>N₂ plasma; O₂ injected downstream of the electrode</td><td>~25% faster on ferrous metals (exothermic burning); lower nozzle life; poor edge squareness. Used for mild steel</td></tr>
+<tr><td>Dual gas</td><td>N₂ plasma gas plus a secondary shielding gas (CO₂, O₂, Ar–H₂) chosen for the material</td><td>Sharp top corners; ceramic cup avoids double arcing</td></tr>
+<tr><td>Water-injected</td><td>Water (~1.2 MPa) injected radially or swirling; ~10% vaporises and constricts the plasma; ceramic lower nozzle</td><td>Square cut, less smoke, smaller HAZ, longer nozzle life, fewer oxides; swirl makes one edge almost perfectly straight</td></tr>
+</tbody></table></div>
+
+<h2>Parameters and their effects</h2>
+<ul>
+<li><strong>Current / power.</strong> More power cuts thicker plate faster. Power must rise together with <strong>gas flow rate</strong> (Jain, p.212).</li>
+<li><strong>Gas type and flow.</strong> Higher flow gives more jet momentum and better melt removal. Carbon and alloy steels: N₂–H₂ or air; stainless steel, aluminium and non-ferrous: Ar–H₂ or N₂–H₂.</li>
+<li><strong>Stand-off distance</strong> (~6–30 mm). Short SOD gives a narrow, intense arc and a better cut; too short invites double arcing from slag on the tip; long SOD needs more power.</li>
+<li><strong>Cutting speed and thickness.</strong> Speed falls as thickness rises:
+<div class="formula">\[ S\ (\text{m/min}) = \frac{25.4}{t\ (\text{mm})} \quad \text{at } I = 500 \text{ A} \tag{9.1} \]</div>
+As traverse speed increases, volumetric MRR rises to a maximum and then falls (Jain, p.211).</li>
+<li><strong>Nozzle diameter and torch design</strong> set power density.</li>
+</ul>
+<h3>Performance (Jain, p.211–212)</h3>
+<ul>
+<li>Plate up to ~150 mm thick.</li>
+<li>Tolerance ±0.8 mm for t &lt; 25 mm; ±3 mm for t &gt; 25 mm.</li>
+<li>Kerf 2.5–9.5 mm; taper 5–7° without swirl.</li>
+<li>Cut-edge roughness 5–75 µm; HAZ 0.75–5 mm.</li>
+</ul>
+
+<h2>Applications, advantages, limitations, safety</h2>
+<ul>
+<li>Profile cutting of <strong>stainless steel, aluminium, copper, titanium, nickel alloys</strong>: metals that oxy-fuel cutting cannot handle (high conductivity, refractory oxide skin).</li>
+<li>Thick plate cutting, cheaper than oxy-fuel for thick sections; stack cutting; multi-torch shape cutting from one plate.</li>
+<li>Bevelling pipe ends before welding; CNC punching/nibbling-type cutting on thin plate.</li>
+<li><strong>Plasma turning</strong> of hard materials (torch about 30° to the work); grooving hardened shafts; underwater cutting.</li>
+<li>Non-transferred: <strong>plasma spraying and surfacing</strong> of wear- and corrosion-resistant coatings.</li>
+</ul>
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>Very high cutting speed and MRR (mild steel up to ~10× oxy-fuel)</li>
+<li>Cuts any conductive metal, regardless of hardness</li>
+<li>Simple work holding; easily automated with CNC</li>
+<li>Non-transferred mode works on non-conductors too</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Poor accuracy, wide kerf, taper, dross/burr</li>
+<li>Large HAZ; metallurgically altered, hard edges</li>
+<li>Sharp corners difficult</li>
+<li>Smoke, noise, intense UV/IR radiation</li>
+</ul></div>
+</div>
+<div class="callout warn"><span class="label">Safety (often a 2-mark part)</span>
+<p>Eye protection (UV/IR can permanently damage eyes); full skin cover; electric-shock precautions (work, torch and water table are live); ventilation and fume extraction; ear protection against noise; gloves. Water tables and water mufflers reduce noise, smoke and UV (Jain, p.211; Jagadeesha §7.12).</p></div>
+
+<h2>Numericals</h2>
+<div class="numeric" data-answer="1500" data-tol="0.01" data-unit="mm/min">
+<p class="q">Tutorial Q16. Empirical relation: cutting speed (mm/min) = k × Power (W) ÷ thickness (mm). Power = 50 kW, thickness = 20 mm, k = 0.6. Find the cutting speed.</p>
+<div class="solution">\[ v = \frac{0.6 \times 50{,}000}{20} = 1500 \text{ mm/min} = 1.5 \text{ m/min} \]</div></div>
+
+<div class="numeric" data-answer="40" data-tol="0.01" data-unit="kW">
+<p class="q">Tutorial Q17. Plasma gas mass flow = 0.02 kg/s, c<sub>p</sub> ≈ 1000 J/kg·K, temperature rise ΔT = 2000 K. Find the power required.</p>
+<div class="solution">\[ P = \dot m\,c_p\,\Delta T = 0.02 \times 1000 \times 2000 = 40{,}000 \text{ W} = 40 \text{ kW} \]</div></div>
+
+<div class="numeric" data-answer="2" data-tol="0.01" data-unit="m/min">
+<p class="q">Using Jain's Eq 9.1, find the cutting speed for a 12.7 mm plate at 500 A.</p>
+<div class="solution">\[ S = \frac{25.4}{12.7} = 2.0 \text{ m/min} \]</div></div>
+
+<div class="numeric" data-answer="4.6" data-tol="0.03" data-unit="m/min">
+<p class="q">A 40 kW transferred-arc torch cuts 10 mm steel plate with a 3 mm kerf. 45% of torch power goes into melting. Assume steel needs u = ρ[c(T<sub>m</sub> − T<sub>0</sub>) + L<sub>f</sub>] with ρ = 7.8 × 10⁻³ g/mm³, c = 0.5 J/g·K, T<sub>m</sub> − T<sub>0</sub> = 1475 K, L<sub>f</sub> = 270 J/g. Estimate the cutting speed.</p>
+<div class="solution">
+\[ u = 7.8\times10^{-3}(0.5 \times 1475 + 270) = 7.86 \text{ J/mm}^3 \]
+\[ \text{MRR} = \frac{0.45 \times 40{,}000}{7.86} = 2290 \text{ mm}^3/\text{s} \]
+\[ v = \frac{\text{MRR}}{\text{kerf} \times t} = \frac{2290}{3 \times 10} = 76.3 \text{ mm/s} = 4.6 \text{ m/min} \]
+<p class="small">PAM only needs to melt (the jet blows the melt away), so u is far smaller than EBM's vaporisation energy. That is why PAM's MRR is so high.</p>
+</div></div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l10-r1">
+<p class="q"><span class="marks">5 marks</span>With a neat sketch, explain the working of PAM. Distinguish transferred and non-transferred arc modes, and list its advantages and limitations.</p>
+<div class="model">
+<p><strong>Sketch:</strong> torch with cathode, gas inlet, water-cooled constricting nozzle, plasma jet, work (+), DC supply. Draw both modes if time allows.</p>
+<p><strong>Working:</strong> arc between cathode and anode ionises the gas; constriction in the nozzle raises temperature (11,000–30,000 °C) and velocity (hundreds of m/s); work heated by electron bombardment, convection and recombination; melt blown out by the jet.</p>
+<p><strong>Modes:</strong> non-transferred (arc to nozzle; any work; ~65–75% efficiency; spraying) vs transferred (arc to work; conductive only; ~85–90% efficiency; cutting).</p>
+<p><strong>Advantages:</strong> very fast, thick plate, any conductive metal, easy automation. <strong>Limitations:</strong> wide kerf, taper, poor tolerance (±0.8–3 mm), large HAZ, dross, fumes, noise, radiation.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Why is tungsten avoided as the electrode in an air plasma torch?</p>
+<ol class="opts">
+<li>It melts at a low temperature</li>
+<li>It conducts electricity far too poorly</li>
+<li data-correct>It oxidises within a few seconds</li>
+<li>It reflects the plasma jet back</li>
+</ol>
+<p class="why">Oxygen in the air attacks tungsten, which lasts only seconds. Hafnium and zirconium resist oxidation (~2 h of cutting).</p>
+</div>
+<div class="quiz">
+<p class="q">2. Which mode can machine a ceramic workpiece?</p>
+<ol class="opts">
+<li data-correct>Non-transferred arc mode</li>
+<li>Transferred arc mode</li>
+<li>Oxygen-injected transferred mode</li>
+<li>Dual-gas transferred mode</li>
+</ol>
+<p class="why">Only the non-transferred arc keeps the work out of the circuit, so the work need not conduct. Its MRR is low.</p>
+</div>
+<div class="quiz">
+<p class="q">3. What does injected water do in a water-injected torch?</p>
+<ol class="opts">
+<li>Dissolves all the molten metal away</li>
+<li data-correct>Constricts the plasma and insulates nozzle</li>
+<li>Acts as the main plasma gas</li>
+<li>Cools only the top workpiece surface</li>
+</ol>
+<p class="why">About 10% of the water vaporises into a steam sheath that constricts the plasma and insulates the nozzle: squarer cuts, longer nozzle life, smaller HAZ, less smoke.</p>
+</div>
+<div class="quiz">
+<p class="q">4. As plate thickness doubles at fixed current, cutting speed…</p>
+<ol class="opts">
+<li>Roughly doubles</li>
+<li>Stays constant</li>
+<li>Roughly quadruples</li>
+<li data-correct>Roughly halves</li>
+</ol>
+<p class="why">S = 25.4/t at 500 A: speed is inversely proportional to thickness.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 9 "Plasma Arc Machining" (p.207–219). Jagadeesha Ch 7 for torch design, parameter list, capabilities, applications, advantages/disadvantages and safety precautions.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "What is double arcing and why does it destroy nozzles?" or "Compare PAM with oxy-fuel cutting for a 2-mark answer."</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0009-electron-beam-machining.html"><span>Previous</span>← Electron beam machining</a>
+<a class="next" href="0011-ion-beam-machining.html"><span>Next</span>Ion beam machining →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electron Beam Machining · AMP Unit 3</title>
+<meta name="description" content="EBM: principle, electron gun, vacuum and focusing system, process parameters, MRR and specific energy derivation, applications, EBM vs LBM, and tutorial numericals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0009">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L9</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 9 of 12 · ~22 min</p>
+<h1>Electron beam machining: drilling with electrons in a vacuum</h1>
+<p class="lede">Electrons accelerated to more than half the speed of light hit a spot a few hundredths of a millimetre wide. Their kinetic energy becomes heat, and the material vaporises.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(b)</span><span class="chip">Tutorial 5 &amp; 6: Q18, Q19</span><span class="chip">Jain Eq 10.1–10.2</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Sketch and explain an EBM system, state how each parameter shapes the hole, derive MRR from the specific energy of vaporisation, and compare EBM with LBM.</p></div>
+
+<h2>Principle</h2>
+<p>EBM (thermal type) uses a stream of high-velocity electrons. Electrons are boiled off a hot cathode, accelerated by a high voltage, focused magnetically and fired in <strong>pulses</strong> at the work. On impact their kinetic energy turns into heat, which <strong>melts and mainly vaporises</strong> a tiny volume. Everything happens in a <strong>vacuum</strong> (Jain, p.220–221).</p>
+<p>Unlike EDM, the work <strong>need not conduct</strong>: EBM machines metals, ceramics, plastics and even leather (Jain, p.224).</p>
+<div class="callout warn"><span class="label">Source conflict</span>
+<p>Jagadeesha's EBM-vs-LBM table says EBM can machine "only metals", but its own applications list includes perforating polythene sheets. Follow Jain (syllabus reading #2): <strong>EBM machines both conductors and non-conductors</strong>.</p></div>
+
+<h3>How a hole forms</h3>
+<ol class="steps">
+<li>The beam strikes and locally heats the surface; material melts and vaporises at the impact point.</li>
+<li>The beam drills a narrow <strong>vapour capillary</strong> surrounded by molten metal.</li>
+<li>The beam breaks through into a <strong>backing material</strong> (synthetic or organic) under the work.</li>
+<li>The backing vaporises violently; its high-pressure gas blows the molten metal out of the hole.</li>
+</ol>
+<p>Non-circular holes: deflect the beam around the outline by computer, or keep the beam still and move the CNC table (Jain, p.221).</p>
+
+<h2>The EBM system</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/ebm.svg" alt="EBM column: tungsten filament cathode, grid cup bias, anode, aperture, magnetic lens, deflection coils, optical viewing port, vacuum chamber with workpiece and backing material on a CNC table, HV DC supply up to 150 kV."></div>
+<figcaption>EBM system. Labels: cathode filament, grid (bias) cup, anode, magnetic lens, deflection coils, viewing optics, vacuum chamber, workpiece, backing material, vacuum pumps, HV supply.</figcaption>
+</figure>
+<ol class="steps">
+<li><strong>Electron gun.</strong> A tungsten or tantalum filament cathode heated to ~2000 °C emits electrons (thermionic emission). The negatively biased <strong>grid cup</strong> controls beam current and acts as the switch that makes pulses. The <strong>anode</strong> accelerates electrons to about 50–80% of the speed of light (Jagadeesha §8.13).</li>
+<li><strong>Power supply.</strong> Accelerating voltage up to about 150 kV. Powerful guns run around 12 kW with pulse energies up to ~120 J (Jain, p.222–223).</li>
+<li><strong>Beam control.</strong> An aperture strips stray electrons; a <strong>magnetic lens</strong> focuses the beam; <strong>deflection coils</strong> steer it.</li>
+<li><strong>Vacuum system.</strong> 10⁻⁴–10⁻⁵ torr. Why: electrons would collide with and scatter off air molecules and lose energy; the hot filament would oxidise; and the vacuum keeps metal vapour from contaminating the column.</li>
+<li><strong>Viewing optics and CNC table</strong> to position the beam precisely.</li>
+</ol>
+
+<h2>Process parameters</h2>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Parameter</th><th>Range</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td>Beam current</td><td>100 µA – 1 A</td><td>Sets energy per pulse; more energy drills faster</td></tr>
+<tr><td>Pulse duration</td><td>50 µs – 10 ms (Jain)</td><td>Longer pulses: wider and deeper holes, thicker HAZ and recast (normally ≤ 0.025 mm)</td></tr>
+<tr><td>Lens current</td><td>—</td><td>Sets working distance (gun to focal point) and spot size, hence hole diameter</td></tr>
+<tr><td>Focal point position</td><td>below top surface</td><td>Controls hole shape along its axis: straight or tapered</td></tr>
+<tr><td>Deflection signals</td><td>field ≲ 6 mm</td><td>Sweep the beam to cut non-circular shapes</td></tr>
+<tr><td>Accelerating voltage</td><td>50–150 kV</td><td>Beam power P = V × I; higher voltage permits deeper, narrower holes</td></tr>
+</tbody></table></div>
+<p class="small">Jain p.223; Jagadeesha §8.14 and Table 8.4.</p>
+
+<h2>Derivation: MRR from specific energy</h2>
+<ol class="steps">
+<li>A fraction \(\eta\) (cutting efficiency) of beam power \(P\) actually vaporises material. If \(W\) is the energy needed to vaporise unit volume:
+<div class="formula boxed">\[ \text{MRR} = \frac{\eta\,P}{W} \tag{10.1} \]</div></li>
+<li>To vaporise unit volume starting at \(T_i\): heat the solid to melting, melt it, heat the liquid to boiling, then boil it:
+<div class="formula boxed">\[ W = \rho\left[c_s(T_m - T_i) + L_f + c_l(T_b - T_m) + L_v\right] \tag{10.2} \]</div>
+Jain writes the bracket terms directly as energy per unit volume (J/cm³). Specific heats are taken as constant.</li>
+<li>Cutting efficiency \(\eta\) is usually below 20% (Jain, p.224).</li>
+</ol>
+
+<div class="numeric" data-answer="4.68" data-tol="0.03" data-unit="mm³/s">
+<p class="q">Worked example. A 2 kW beam drills steel at 15% efficiency. Assume: ρ = 7.8 × 10⁻³ g/mm³, c<sub>s</sub> = 0.5 J/g·K, c<sub>l</sub> = 0.82 J/g·K, T<sub>i</sub> = 25 °C, T<sub>m</sub> = 1500 °C, T<sub>b</sub> = 2860 °C, L<sub>f</sub> = 270 J/g, L<sub>v</sub> = 6100 J/g. Find MRR.</p>
+<div class="solution">
+\[ \frac{W}{\rho} = 0.5(1475) + 270 + 0.82(1360) + 6100 = 737.5 + 270 + 1115.2 + 6100 = 8223 \text{ J/g} \]
+\[ W = 7.8\times10^{-3} \times 8223 = 64.1 \text{ J/mm}^3 \]
+\[ \text{MRR} = \frac{0.15 \times 2000}{64.1} = 4.68 \text{ mm}^3/\text{s} \]
+<p class="small">Note that L<sub>v</sub> is about three-quarters of the total. Vaporising costs far more than melting.</p>
+</div></div>
+
+<div class="numeric" data-answer="0.56" data-tol="0.02" data-unit="mm">
+<p class="q">Tutorial Q18. Beam power 2 kW, spot diameter 0.5 mm, pulse duration 0.01 s. 30% of beam power goes to vaporisation. Material ρ = 7800 kg/m³, L ≈ 7.0 × 10⁶ J/kg. Estimate penetration per pulse.</p>
+<div class="solution">
+\[ E = 0.3 \times 2000 \times 0.01 = 6 \text{ J}, \qquad m = \frac{6}{7.0\times10^6} = 8.57\times10^{-7}\ \text{kg} \]
+\[ V = \frac{m}{\rho} = 1.099\times10^{-10}\ \text{m}^3 = 0.1099\ \text{mm}^3 \]
+\[ A = \frac{\pi}{4}(0.5)^2 = 0.1963\ \text{mm}^2, \qquad \text{depth} = \frac{0.1099}{0.1963} = 0.56 \text{ mm} \]
+</div></div>
+
+<div class="numeric" data-answer="10000" data-tol="0.01" data-unit="µA">
+<p class="q">Tutorial Q19. Required beam power 1.5 kW at an accelerating voltage of 150 kV. Find the beam current in µA.</p>
+<div class="solution">\[ I = \frac{P}{V} = \frac{1500}{150{,}000} = 0.01 \text{ A} = 10 \text{ mA} = 10{,}000\ \mu\text{A} \]</div></div>
+
+<h2>Capabilities and applications</h2>
+<ul>
+<li>Holes of about <strong>0.1–1.4 mm</strong> diameter, up to ~10 mm deep, aspect ratio up to about 15:1 (Jain, p.224). Off-axis (inclined) holes are possible. A small burr can remain at the entry side.</li>
+<li><strong>Mass perforation</strong>: hundreds to thousands of holes per part, e.g. thousands of &lt;1 mm holes in thin turbine-engine combustor domes, and in a 5 mm cobalt-alloy fibre spinning head, about 100× faster than EDM (Jain, p.224–225).</li>
+<li>Filters and screens for food processing; spinnerets for synthetic fibres; wire-drawing die holes.</li>
+<li>Cooling holes in turbine blades; metering holes in diesel injector nozzles; fine gas orifices for nuclear reactors.</li>
+<li><strong>Electron-beam lithography</strong>: pattern generation for integrated circuits.</li>
+</ul>
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>Any material: conductive or not, any hardness</li>
+<li>Very fine, precise holes and slots; very fast for small holes</li>
+<li>No force, no tool wear; thin and fragile parts safe</li>
+<li>Beam steered electronically: easy automation</li>
+<li>Small HAZ and recast for short pulses</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Very high equipment cost; skilled operator</li>
+<li>Vacuum pump-down time is non-productive</li>
+<li>Work size limited by the chamber</li>
+<li>X-rays produced: lead shielding needed</li>
+<li>Thin sections only (~10 mm); taper; recast, burr</li>
+<li>Low MRR; high specific energy</li>
+</ul></div>
+</div>
+
+<h2>EBM vs LBM</h2>
+<div class="table-wrap"><table class="wide compare">
+<thead><tr><th>Aspect</th><th>EBM</th><th>LBM</th></tr></thead>
+<tbody>
+<tr><td>Energy carrier</td><td>High-velocity electrons (KE → heat)</td><td>Photons (absorbed light → heat)</td></tr>
+<tr><td>Medium</td><td>Vacuum essential</td><td>Air, gas, any transparent medium</td></tr>
+<tr><td>Materials</td><td>Any; reflectivity irrelevant</td><td>Any non-reflective; Al and Cu difficult</td></tr>
+<tr><td>Beam steering</td><td>Magnetic deflection: very fast patterns</td><td>Mirrors / CNC table</td></tr>
+<tr><td>Efficiency</td><td>Higher</td><td>Very low (&lt;1% machining)</td></tr>
+<tr><td>Hazard</td><td>X-rays</td><td>Eye and skin radiation</td></tr>
+<tr><td>Cost, throughput</td><td>Higher cost; batch-limited by vacuum chamber</td><td>Lower cost; works in open air</td></tr>
+</tbody></table></div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l9-r1">
+<p class="q"><span class="marks">5 marks</span>With a neat sketch, explain the generation and control of the electron beam in EBM, and list four applications.</p>
+<div class="model">
+<p><strong>Sketch:</strong> filament cathode, grid cup, anode, aperture, magnetic lens, deflection coils, vacuum chamber, work with backing, HV supply.</p>
+<p><strong>Generation:</strong> tungsten/tantalum filament heated (~2000 °C) emits electrons thermionically; the anode at up to ~150 kV accelerates them to ~0.5–0.8 c. The negatively biased grid cup controls beam current and pulses the beam.</p>
+<p><strong>Control:</strong> aperture removes stray electrons; magnetic lens (lens current) focuses the beam and sets spot size and working distance; deflection coils sweep it to cut shapes. Vacuum (10⁻⁴–10⁻⁵ torr) prevents scattering and filament oxidation. CNC table and optical viewing for positioning.</p>
+<p><strong>Applications:</strong> perforating thin sheets (filters, combustor domes), spinneret holes, turbine blade cooling holes, diesel injector metering holes, wire-drawing dies, EB lithography for ICs.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. What role does the grid cup play in the electron gun?</p>
+<ol class="opts">
+<li data-correct>Controls current and pulses the beam</li>
+<li>Focuses the beam to a spot</li>
+<li>Accelerates the electrons to full speed</li>
+<li>Deflects the beam around hole outlines</li>
+</ol>
+<p class="why">The negatively biased grid (Wehnelt) cup limits how many electrons pass, so it sets beam current and switches the beam on and off in pulses.</p>
+</div>
+<div class="quiz">
+<p class="q">2. In MRR = ηP/W, the biggest part of W comes from…</p>
+<ol class="opts">
+<li>Heating the solid to melting</li>
+<li>The latent heat of fusion</li>
+<li>Heating the liquid to boiling</li>
+<li data-correct>The latent heat of vaporisation</li>
+</ol>
+<p class="why">For steel, L<sub>v</sub> ≈ 6100 J/g out of about 8200 J/g total. Vaporising dominates.</p>
+</div>
+<div class="quiz">
+<p class="q">3. What is the backing material for?</p>
+<ol class="opts">
+<li>Cooling the work after drilling</li>
+<li data-correct>Vaporising to expel molten metal</li>
+<li>Insulating the table from current</li>
+<li>Absorbing X-rays from the beam</li>
+</ol>
+<p class="why">When the beam breaks through, the backing vaporises; its high-pressure gas blows the melt out of the hole and protects the table.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Main productivity drawback of EBM?</p>
+<ol class="opts">
+<li>Electrode wear needing very frequent replacement</li>
+<li>Very slow drilling of small holes</li>
+<li data-correct>Vacuum pump-down time for each batch</li>
+<li>Only conductive materials can be cut</li>
+</ol>
+<p class="why">Every batch needs the chamber evacuated, which is non-productive time. Small holes themselves are drilled very fast.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 10 "Electron Beam Machining" (p.220–227), including Eqs 10.1–10.2 and the problem list. Jagadeesha §8.11–8.17 for the gun details, parameters table, applications and the advantages/limitations lists.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Why does EBM produce X-rays?" or "Set me a specific-energy problem for titanium."</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0008-laser-beam-machining.html"><span>Previous</span>← Laser beam machining</a>
+<a class="next" href="0010-plasma-arc-machining.html"><span>Next</span>Plasma arc machining →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

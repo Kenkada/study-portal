@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="t d">
+<title id="t">Laser beam machining setup (solid-state laser)</title>
+<desc id="d">A flash lamp pumps a ruby or Nd:YAG rod inside a reflective cavity between a fully reflecting mirror and a partially reflecting output mirror. The emitted beam is turned by a 45 degree mirror, focused by a lens through a coaxial assist-gas nozzle to a small spot on the workpiece on a CNC table. An inset shows the focused waist: spot diameter W equals focal length times divergence.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.6;fill:none}
+ .thin{stroke:#222;stroke-width:1.1;fill:none}
+ .beam{stroke:#d62828;stroke-width:3;fill:none}
+ text{font-family:Inter,Arial,sans-serif;font-size:12.5px;fill:#222}
+ .sm{font-size:11px;fill:#444}
+ .b{font-weight:700}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect width="680" height="440" fill="#fff"/>
+<!-- cavity -->
+<rect x="60" y="50" width="340" height="110" rx="10" class="s" fill="#f6f6f6"/>
+<text x="70" y="44" class="sm">reflective pumping cavity</text>
+<rect x="110" y="92" width="240" height="26" rx="4" fill="#f4b6b6" class="s"/>
+<text x="180" y="110" class="b">lasing rod</text>
+<path style="stroke:#888" d="M120,80 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0" class="thin"/>
+<path style="stroke:#888" d="M120,132 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0 q10,-16 20,0 q10,16 20,0" class="thin"/>
+<text x="120" y="152" class="sm">xenon flash lamp (optical pumping)</text>
+<line x1="85" y1="70" x2="85" y2="140" stroke="#222" stroke-width="6"/>
+<text x="20" y="190" class="sm">100% mirror</text>
+<line x1="375" y1="70" x2="375" y2="140" stroke="#222" stroke-width="3" stroke-dasharray="4 3"/>
+<text x="330" y="190" class="sm">partial mirror (output)</text>
+<!-- power -->
+<rect x="150" y="200" width="150" height="46" rx="4" class="s" fill="#f1f1f1"/>
+<text x="225" y="220" text-anchor="middle" class="b">Power supply</text>
+<text x="225" y="236" text-anchor="middle" class="sm">capacitor bank → lamp</text>
+<line x1="225" y1="200" x2="225" y2="160" class="thin"/>
+<!-- beam -->
+<line x1="375" y1="105" x2="520" y2="105" class="beam"/>
+<line x1="500" y1="85" x2="540" y2="125" stroke="#222" stroke-width="4"/>
+<text x="545" y="100" class="sm">45° mirror</text>
+<line x1="520" y1="105" x2="520" y2="210" class="beam"/>
+<!-- lens -->
+<ellipse cx="520" cy="220" rx="40" ry="9" class="s" fill="#dff1ff"/>
+<text x="566" y="224" class="sm">focusing lens (f)</text>
+<!-- nozzle -->
+<path d="M480,240 L500,320 L540,320 L560,240" class="s" fill="#eee"/>
+<path style="stroke-width:2" d="M520,229 L512,318 M520,229 L528,318" class="beam"/>
+<line x1="600" y1="270" x2="556" y2="270" class="s" marker-end="url(#ar)"/>
+<text x="566" y="262" class="sm">assist gas</text>
+<text x="566" y="288" class="sm">O₂ / N₂ / Ar</text>
+<!-- work -->
+<rect x="400" y="340" width="240" height="40" class="s" fill="#d8d3c6"/>
+<path d="M514,340 L517,372 L523,372 L526,340 Z" fill="#fff" class="thin"/>
+<text x="406" y="400" class="b">Workpiece</text>
+<text x="406" y="414" class="sm">on CNC table; focus just below the top surface</text>
+<!-- inset: waist -->
+<rect style="stroke:#bbb" x="20" y="270" width="340" height="150" rx="6" class="s"/>
+<text x="30" y="290" class="b">Focusing: beam waist</text>
+<path d="M40,320 L200,346 L320,330" class="thin"/>
+<path d="M40,390 L200,356 L320,374" class="thin"/>
+<line style="stroke-dasharray:3 3" x1="60" y1="318" x2="60" y2="392" class="thin"/>
+<text x="66" y="410" class="sm">beam dia. D</text>
+<line x1="200" y1="346" x2="200" y2="356" stroke="#d62828" stroke-width="2"/>
+<text x="206" y="318" class="sm">waist W = f·θ</text>
+<line x1="170" y1="364" x2="232" y2="364" class="thin" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="164" y="384" class="sm">depth of focus Δf</text>
+<text x="210" y="404" class="sm">longer f → larger Δf</text>
+</svg>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDM Spark Mechanism · AMP Unit 3</title>
+<meta name="description" content="Principle of electric discharge machining and the step-by-step mechanism of material removal by a single spark, with a neat sketch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0002">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L2</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 2 of 12 · ~15 min</p>
+<h1>EDM: what one spark actually does</h1>
+<p class="lede">Thousands of tiny sparks per second, each blasting a crater out of the workpiece. Learn the sequence once and you can explain EDM in any question.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(a)</span><span class="chip">"Explain the mechanism with a neat sketch"</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Draw the EDM setup and explain the mechanism of material removal in six numbered steps, including why the workpiece erodes more than the tool.</p></div>
+
+<h2>Principle in two lines</h2>
+<p><strong>Electric discharge machining (EDM)</strong> removes electrically conductive material by rapid, repetitive spark discharges between a shaped tool electrode and the workpiece. The two are separated by a small gap filled with a dielectric liquid. Each spark melts and partly vaporises a tiny volume, leaving a crater. Millions of overlapping craters reproduce the tool's shape in the work (Jain, p.127; Jagadeesha, §6.0–6.1).</p>
+<p>It is a <strong>thermoelectric</strong> process: electrical energy becomes heat at the spark. There is no contact and no cutting force, so the work can be as hard as you like. It only has to conduct.</p>
+
+<figure>
+<div class="sheet"><img src="../assets/diagrams/edm-setup.svg" alt="Die-sinking EDM setup: pulsed DC generator connected to a servo-fed tool (negative) and workpiece (positive) in a dielectric tank, with pump, filter and gap-voltage feedback."></div>
+<figcaption>Die-sinking EDM. Draw this for any EDM principle question. The labels that earn marks: tool (−), work (+), dielectric, spark gap, servo feed, pulsed DC generator, pump and filter.</figcaption>
+</figure>
+
+<h3>Basic requirements</h3>
+<ul>
+<li>Tool and workpiece must both be <strong>electrically conductive</strong>.</li>
+<li>A small, steady <strong>gap</strong> must be held by a servo. Jain quotes 12–50 µm in operation; Jagadeesha gives 0.01–0.5 mm as the general range.</li>
+<li><strong>Dielectric</strong> must flow through the gap to insulate, cool and flush.</li>
+<li>The power supply must deliver <strong>pulsed DC</strong> with controlled energy, duration and frequency.</li>
+<li>The dielectric must be <strong>filtered</strong> to remove debris.</li>
+</ul>
+
+<h2>The mechanism, one spark at a time</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/edm-mechanism.svg" alt="Four panels showing ionisation, plasma channel, melt and vapour bubble, and ejection leaving a crater."></div>
+<figcaption>The four stages of a single discharge. In the exam, a two-panel version (before and after) is enough if time is short.</figcaption>
+</figure>
+<ol class="steps">
+<li><strong>Field concentrates.</strong> Pulsed DC (Jain gives a typical 80–100 V at about 5 kHz) is applied across the gap. The electric field is strongest where the gap is narrowest, at a surface high spot.</li>
+<li><strong>Dielectric breaks down.</strong> Electrons are pulled from the cathode (cold emission) and accelerate towards the anode. They collide with dielectric molecules and knock out more electrons. Ionisation avalanches.</li>
+<li><strong>Plasma channel forms.</strong> A narrow, highly conductive channel bridges the gap. Electrons stream to the anode, positive ions to the cathode. Their kinetic energy turns to heat. The channel reaches roughly 10,000 °C (Jagadeesha, §6.3).</li>
+<li><strong>Melting under pressure.</strong> A small volume of both electrodes melts and some vaporises. The dielectric vaporises too, so pressure in the channel shoots up (Jain gives about 200 atm). That pressure stops the superheated melt from boiling away.</li>
+<li><strong>Pulse off: collapse and ejection.</strong> The current stops, pressure drops instantly, and the superheated metal flashes to vapour and explodes out of the crater. Cool dielectric rushes in, quenches the debris into tiny spheres and flushes it away.</li>
+<li><strong>Repeat.</strong> The dielectric deionises. The next spark strikes at the next-narrowest point. Craters spread over the whole face, and the servo feeds the tool to keep the gap constant. The cavity becomes a replica of the tool, slightly oversize.</li>
+</ol>
+
+<div class="callout info"><span class="label">What the debris tells you</span>
+<p>EDM debris is a mix of irregular particles (melt that refroze) and hollow spheres (condensed vapour). That is direct evidence that both melting and vaporisation happen (Jain, p.127–128).</p></div>
+
+<h2>Why the work wears more than the tool</h2>
+<p>In <strong>normal (straight) polarity</strong> the tool is negative and the work positive. Electrons are light and arrive at the anode very fast, early in each short pulse, dumping concentrated heat into the work. Heavy positive ions are slower to reach the cathode tool. So in short pulses most of the heat lands on the work. Jain puts it simply: how much each electrode loses depends on the kinetic energy delivered by electrons (to the anode) and ions (to the cathode).</p>
+<p><strong>Reverse polarity</strong> (tool +, work −) is used for particular tool and work pairs, for example graphite electrodes on low-wear settings (Jagadeesha, §6.6.7). Tool wear never reaches zero, so roughing and finishing tools are often separate.</p>
+
+<div class="callout exam"><span class="label">Write it like this</span>
+<p>"Since electrons have far smaller mass than ions, they reach the anode (workpiece) quickly and deliver most of the spark energy there during short pulses. Hence with tool −ve and work +ve, the workpiece erodes much more than the tool."</p></div>
+
+<h2>Numbers worth remembering</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Quantity</th><th>Typical value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Spark gap (IEG)</td><td>12–50 µm in operation</td><td>Jain p.147</td></tr>
+<tr><td>Gap voltage</td><td>80–100 V pulsed DC</td><td>Jain p.129</td></tr>
+<tr><td>Spark temperature</td><td>~10,000 °C</td><td>Jagadeesha §6.3</td></tr>
+<tr><td>Channel pressure</td><td>~200 atm</td><td>Jain p.130</td></tr>
+<tr><td>Volumetric MRR</td><td>0.1–10 mm³/min per ampere</td><td>Jain p.154</td></tr>
+<tr><td>Accuracy</td><td>±0.025 to ±0.127 mm; ±2.5 µm possible</td><td>Jain p.154</td></tr>
+<tr><td>Surface finish</td><td>0.8–3.1 µm Ra; 0.18–0.25 µm on new machines</td><td>Jain p.155</td></tr>
+<tr><td>Small-hole aspect ratio</td><td>up to 100:1 with careful flushing</td><td>Jain p.154</td></tr>
+</tbody></table></div>
+
+<h2>Practise the answer</h2>
+<div class="recall" data-id="l2-r1">
+<p class="q"><span class="marks">5 marks</span>Explain the mechanism of material removal in EDM with a neat sketch.</p>
+<div class="model">
+<p><strong>Sketch:</strong> the setup above, plus a small inset of a plasma channel between tool (−) and work (+).</p>
+<ol>
+<li>Pulsed DC is applied across a small gap filled with dielectric. The field is highest at the narrowest gap.</li>
+<li>Electrons are cold-emitted from the cathode, collide with dielectric molecules and cause an ionisation avalanche.</li>
+<li>A conductive plasma channel forms. Electrons bombard the anode (work), ions the cathode (tool). KE becomes heat, ~10,000 °C.</li>
+<li>A small volume melts and partly vaporises. Dielectric vapour raises channel pressure (~200 atm), holding the superheated melt.</li>
+<li>At pulse-off the pressure collapses; the melt explodes out, leaving a crater. Fresh dielectric quenches and flushes the debris.</li>
+<li>The next spark occurs at the next-narrowest gap. The servo maintains the gap; overlapping craters reproduce the tool shape.</li>
+</ol>
+<p>Add one line on polarity: work +ve erodes more because light electrons deliver energy to the anode faster than ions to the cathode.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Where does the next spark strike?</p>
+<ol class="opts">
+<li>At the tool's centre</li>
+<li>At a random point</li>
+<li data-correct>At the narrowest gap</li>
+<li>Where dielectric flows fastest</li>
+</ol>
+<p class="why">The field is strongest where the gap is smallest, so breakdown happens there first. After that crater forms, the next-narrowest point takes over, which is why craters spread evenly.</p>
+</div>
+<div class="quiz">
+<p class="q">2. What does the high pressure in the plasma channel do?</p>
+<ol class="opts">
+<li data-correct>Holds superheated melt from boiling</li>
+<li>Pushes the tool away upward</li>
+<li>Cools the crater walls quickly</li>
+<li>Raises the dielectric's breakdown voltage</li>
+</ol>
+<p class="why">Pressure (~200 atm) suppresses boiling during the pulse. When the pulse ends and pressure drops, the superheated melt flashes off explosively. That is the main ejection event.</p>
+</div>
+<div class="quiz">
+<p class="q">3. In normal polarity, why does the work erode more than the tool?</p>
+<ol class="opts">
+<li>The tool is always much harder</li>
+<li>Dielectric always protects the tool surface</li>
+<li>The work has lower melting point</li>
+<li data-correct>Electrons heat the anode work faster</li>
+</ol>
+<p class="why">Light, fast electrons deliver energy to the anode (work +) early in the pulse; heavy ions reach the cathode (tool −) more slowly. Material hardness plays no part.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Hollow spherical particles in EDM debris come from…</p>
+<ol class="opts">
+<li>Broken bits of tool</li>
+<li data-correct>Condensed metal vapour droplets</li>
+<li>Carbon from cracked dielectric</li>
+<li>Abrasive added to dielectric</li>
+</ol>
+<p class="why">Vaporised metal condenses into hollow spheres; refrozen melt gives irregular particles. Together they show both vaporisation and melting occur.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, <em>Advanced Machining Processes</em>, Ch 7: Introduction and "Working Principle of EDM" (p.126–131). Jagadeesha, <em>Nontraditional Machining Processes</em>, §6.1–6.3 for the numbered-step version used in VTU answers.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Why doesn't the spark always hit the same spot?" or "Explain cold emission vs thermionic emission." Your teacher (Claude) is here for any follow-up.</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0001-thermal-processes-map.html"><span>Previous</span>← Thermal processes map</a>
+<a class="next" href="0003-edm-machine-dielectric-flushing.html"><span>Next</span>EDM machine, dielectric and flushing →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

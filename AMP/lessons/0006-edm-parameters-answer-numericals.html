@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDM Parameters and Numericals · AMP Unit 3</title>
+<meta name="description" content="Effect of EDM process parameters on MRR and finish, surface integrity, applications, advantages and limitations, EDM vs ECM, the full end-sem model answer and tutorial numericals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0006">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L6</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 6 of 12 · ~30 min</p>
+<h1>EDM in full: parameters, damage, uses, and the numbers</h1>
+<p class="lede">This lesson closes EDM. By the end you can write End-sem 2025 Q3(a) for 5/5 and solve every EDM numerical on Tutorial Sheet 5 &amp; 6.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(a), Q3(c)</span><span class="chip">Tutorial 5 &amp; 6: Q1, Q2, Q5, Q7, Q8</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>State how current, pulse duration, frequency, voltage, gap and dielectric change MRR and finish; describe the EDM'd surface layers; and turn energy-per-spark data into MRR.</p></div>
+
+<h2>Effect of process parameters</h2>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Parameter ↑</th><th>MRR</th><th>Surface roughness</th><th>Other effects</th></tr></thead>
+<tbody>
+<tr><td><strong>Discharge (peak) current</strong></td><td>↑ bigger crater per spark</td><td>↑ rougher</td><td>More tool wear and overcut (Jain Fig 7.11a–b)</td></tr>
+<tr><td><strong>Pulse on-time (duration)</strong></td><td>Past a short optimum, ↓ (unsteady machining above ~20 µs in Jain's data)</td><td>↑ rougher, wider craters</td><td>Relative electrode wear ↓; deeper HAZ and longer microcracks (above ~800 µs, abnormally long cracks)</td></tr>
+<tr><td><strong>Pulse off-time</strong></td><td>Too long: ↓ (idle). Too short: arcing</td><td>—</td><td>Needed for deionisation and flushing between sparks</td></tr>
+<tr><td><strong>Spark frequency</strong> (same current)</td><td>roughly same energy rate</td><td>↓ smoother: energy shared by more, smaller craters</td><td>Used for finishing (Jain Fig 7.11c)</td></tr>
+<tr><td><strong>Gap / breakdown voltage</strong></td><td>↑ more energy per spark</td><td>↑ rougher</td><td>Larger gap → lower accuracy. Smaller gap → lower MRR, better finish and accuracy</td></tr>
+<tr><td><strong>Dielectric</strong></td><td>DI water &gt; hydrocarbon oil; good flushing can raise MRR ~10×</td><td>Clean, well-flushed gap gives better finish</td><td>Water: more tool wear, corrosion risk, no fire risk, thinner recast. Small debris contamination shortens ignition delay; heavy contamination causes arcs and shorts</td></tr>
+<tr><td><strong>Polarity / electrode</strong></td><td>Normal polarity for most work</td><td>Copper gives better finish than brass</td><td>Graphite on reverse polarity for low-wear settings</td></tr>
+</tbody></table></div>
+<p class="small">Sources: Jain p.147–153 (Figs 7.11–7.16); Jagadeesha §6.17–6.18.</p>
+
+<div class="callout exam"><span class="label">The rule behind the table</span>
+<p>Anything that puts <strong>more energy into one spark</strong> (current, voltage, on-time, capacitance) makes bigger craters: <strong>more MRR, rougher surface, deeper damage</strong>. Anything that splits the same energy into <strong>more, smaller sparks</strong> (frequency) improves finish. That one sentence answers most "effect of parameters" questions.</p></div>
+
+<h2>Surface integrity: what EDM leaves behind</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/edm-surface-layers.svg" alt="Cross-section of an EDM'd surface: recast white layer, heat affected zone, converted layer, parent metal."></div>
+<figcaption>Layers below an EDM'd surface (after Jain Fig 7.17).</figcaption>
+</figure>
+<ul>
+<li><strong>Recast (white) layer</strong>: melt that was not flushed and refroze. About 2.5–50 µm thick, very hard (~65 HRC, martensitic on steel), brittle, porous, with microcracks. Remove it before service.</li>
+<li><strong>Heat-affected zone</strong>: about 25 µm. Heated but not melted; residual tensile stress and grain-boundary cracks.</li>
+<li><strong>Converted layer</strong>: grain structure changed from the original.</li>
+</ul>
+<p>Consequence: the endurance limit of spark-eroded steel was about <strong>15% lower</strong> than turned steel (Jain, p.156). Remedies: low-energy finishing passes (below about 3 µs pulses microcracks are hardly seen), removing the recast layer, and <strong>shot peening</strong>, which restores fatigue strength. The craters themselves give a non-directional <strong>matte</strong> surface that holds lubricant, which is good for dies.</p>
+
+<h2>Applications</h2>
+<ul>
+<li>Dies and moulds in <strong>hardened steel and carbide</strong>: forging, die-casting, plastic injection moulding, stamping, extrusion and wire-drawing dies. About 80–90% of EDM work is tool and die making (Jagadeesha §6.14).</li>
+<li><strong>Small, deep holes</strong> down to ~50 µm: fuel injector nozzles, cooling holes in turbine blades, aspect ratios up to 100:1.</li>
+<li><strong>Removing broken taps, drills and studs</strong> from expensive parts.</li>
+<li>Shapes that cutting tools cannot make: square and D-holes, splines, narrow slots, blind keyways.</li>
+<li><strong>Thin, fragile parts</strong>: no cutting force.</li>
+<li>Machining <strong>after heat treatment</strong>, so distortion from hardening is avoided.</li>
+</ul>
+
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>Any conductive material, regardless of hardness</li>
+<li>Complex shapes reproduced from a soft, easily made tool</li>
+<li>No cutting force: thin and fragile work is safe</li>
+<li>Burr-free; good accuracy and repeatability</li>
+<li>Can be done after hardening</li>
+<li>Runs unattended once set up</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Work and tool must be electrically conductive</li>
+<li>Low MRR (0.1–10 mm³/min per ampere)</li>
+<li>Tool wear: overcut, corner rounding, extra electrodes</li>
+<li>Recast layer, HAZ, microcracks; fatigue strength ↓</li>
+<li>Sharp internal corners impossible (radius ≈ gap)</li>
+<li>High power consumption; fire risk with oil dielectric</li>
+</ul></div>
+</div>
+
+<h2>EDM vs ECM (Unit 2 link)</h2>
+<div class="table-wrap"><table class="wide compare">
+<thead><tr><th>Aspect</th><th>EDM</th><th>ECM</th></tr></thead>
+<tbody>
+<tr><td>Principle</td><td>Spark erosion: melting and vaporisation</td><td>Anodic dissolution (Faraday's laws)</td></tr>
+<tr><td>Medium</td><td>Dielectric (insulator until breakdown)</td><td>Electrolyte (conductor)</td></tr>
+<tr><td>Power</td><td>Pulsed DC (typically 80–100 V at the gap)</td><td>Continuous low-voltage DC (5–25 V), very high current</td></tr>
+<tr><td>Tool wear</td><td>Yes</td><td>Practically none</td></tr>
+<tr><td>Heat / surface damage</td><td>Recast layer, HAZ, microcracks</td><td>No thermal damage, stress-free</td></tr>
+<tr><td>MRR</td><td>Low</td><td>High (much higher than EDM)</td></tr>
+<tr><td>Accuracy, finish</td><td>Better dimensional control</td><td>Good finish; overcut harder to control</td></tr>
+<tr><td>Tool design</td><td>Simpler</td><td>Complex (gap varies with flow)</td></tr>
+</tbody></table></div>
+<p class="small">After Jagadeesha Table 6.8 and Jain Ch 11.</p>
+
+<h2>The full-marks answer</h2>
+<div class="recall" data-id="l6-r1">
+<p class="q"><span class="marks">5 marks</span>End-sem Nov 2025, Q3(a): Explain the principle, working and process parameters of EDM with a neat sketch. Discuss the influence of discharge current, pulse duration and dielectric on MRR and surface finish. Highlight its industrial applications and limitations.</p>
+<div class="model">
+<p><strong>Principle (½ mark).</strong> EDM removes conductive material by controlled, repetitive spark discharges between a tool electrode and the workpiece separated by a dielectric. Each spark melts and vaporises a tiny crater.</p>
+<p><strong>Sketch (1 mark).</strong> Pulsed DC generator; servo-fed tool (−); work (+) in dielectric tank; spark gap; pump and filter.</p>
+<p><strong>Working (1 mark).</strong> (1) Field concentrates at the narrowest gap. (2) Dielectric ionises; plasma channel at ~10,000 °C. (3) Local melting and vaporisation under high channel pressure. (4) At pulse-off, pressure collapses and melt is ejected; dielectric quenches and flushes debris. (5) Servo keeps the gap; craters reproduce the tool shape.</p>
+<p><strong>Parameters (1½ marks).</strong> Voltage, peak current, pulse on/off time, frequency, gap, polarity, dielectric and flushing.</p>
+<ul>
+<li><em>Discharge current ↑</em>: larger crater per spark, so MRR ↑ but roughness ↑ and tool wear ↑.</li>
+<li><em>Pulse duration ↑</em>: wider, deeper craters, so finish worsens; beyond an optimum MRR falls; relative electrode wear falls; HAZ and cracks deepen.</li>
+<li><em>Dielectric</em>: deionised water gives higher MRR and cooling but more tool wear; oil gives lower wear. Effective flushing raises MRR many-fold and improves finish; contaminated gaps cause arcs.</li>
+</ul>
+<p><strong>Applications (½ mark).</strong> Dies and moulds in hardened steel/carbide, fine deep holes (injector nozzles, turbine cooling holes), broken-tap removal, complex shapes, fragile parts.</p>
+<p><strong>Limitations (½ mark).</strong> Conductive materials only; low MRR; tool wear and overcut; recast layer and HAZ reduce fatigue strength; sharp corners difficult.</p>
+</div></div>
+
+<h2>Numericals</h2>
+<div class="callout info"><span class="label">One method for every "energy → MRR" problem</span>
+\[ \text{Power to removal} = \eta \times (\text{energy per spark}) \times f \quad\text{or}\quad \eta \times V I \times \text{duty} \]
+\[ \dot m = \frac{\text{Power to removal}}{u\ (\text{J/kg})}, \qquad \text{MRR} = \frac{\dot m}{\rho} \]
+<p>Keep everything in SI (W, J/kg, kg/m³) until the last line, then convert m³/s → mm³/min (× 10⁹ × 60).</p></div>
+
+<div class="numeric" data-answer="29.3" data-tol="0.02" data-unit="mm³/min">
+<p class="q">Tutorial Q1. Pulse current 5 A, discharge voltage 120 V, on-time 100 µs, period 500 µs (duty 0.2). 20% of the electrical energy goes into removal. Steel: latent heat (vaporisation + heating) ≈ 6.3 × 10⁶ J/kg, density 7800 kg/m³. Estimate MRR.</p>
+<div class="solution">
+\[ P_{avg} = V I \times \text{duty} = 120 \times 5 \times 0.2 = 120 \text{ W} \]
+\[ P_{rem} = 0.2 \times 120 = 24 \text{ W}, \qquad \dot m = \frac{24}{6.3\times10^6} = 3.81\times10^{-6}\ \text{kg/s} \]
+\[ \text{MRR} = \frac{3.81\times10^{-6}}{7800} = 4.88\times10^{-10}\ \text{m}^3/\text{s} = 0.488 \text{ mm}^3/\text{s} = 29.3 \text{ mm}^3/\text{min} \]
+</div></div>
+
+<div class="numeric" data-answer="0.394" data-tol="0.02" data-unit="mm">
+<p class="q">Tutorial Q2. A single spark releases 0.6 J; 50% goes into melting. Effective melting energy ≈ 3.0 × 10⁵ J/kg; steel density 7800 kg/m³. Treat the crater as a hemisphere. Find the crater radius.</p>
+<div class="solution">
+\[ m = \frac{0.5 \times 0.6}{3.0\times10^5} = 1.0\times10^{-6}\ \text{kg}, \qquad V = \frac{m}{\rho} = 1.282\times10^{-10}\ \text{m}^3 = 0.1282\ \text{mm}^3 \]
+\[ \tfrac{2}{3}\pi r^3 = 0.1282 \;\Rightarrow\; r = \left(\frac{3 \times 0.1282}{2\pi}\right)^{1/3} = 0.394 \text{ mm} \]
+</div></div>
+
+<div class="numeric" data-answer="0.447" data-tol="0.02" data-unit="µm">
+<p class="q">Tutorial Q5. Ra ∝ √(energy per pulse). E = 0.8 J and k = 0.5 µm/√J. Find Ra.</p>
+<div class="solution">\[ R_a = k\sqrt{E} = 0.5\sqrt{0.8} = 0.447\ \mu\text{m} \]</div></div>
+
+<div class="numeric" data-answer="360" data-tol="0.01" data-unit="J/mm³">
+<p class="q">Tutorial Q7. MRR = 50 mm³/min with 300 W going into the workpiece. Find the specific energy.</p>
+<div class="solution">\[ u = \frac{P}{\text{MRR}} = \frac{300\ \text{J/s}}{50/60\ \text{mm}^3/\text{s}} = 360\ \text{J/mm}^3 \]</div></div>
+
+<div class="numeric" data-answer="0.06" data-tol="0.02" data-unit="mm (radial)">
+<p class="q">Tutorial Q8. Electrode diameter 6.00 mm; machined hole 6.12 mm. Find the overcut (per side). Then express it as a percentage of electrode diameter.</p>
+<div class="solution">
+\[ \text{Overcut (radial)} = \frac{6.12 - 6.00}{2} = 0.06 \text{ mm} = \frac{0.06}{6.00}\times100 = 1\% \]
+<p>If the examiner means diametral overcut: 0.12 mm = 2%. Overcut is normally quoted per side; state your convention.</p>
+</div></div>
+
+<div class="numeric" data-answer="7.33" data-tol="0.03" data-unit="mm³/min">
+<p class="q">End-sem Nov 2025, Q3(c). Discharge energy per spark E = 0.5 × 10⁻³ J at 20,000 sparks/s. Removal efficiency 60%; work density 7.8 g/cm³. Find MRR in mm³/s and mm³/min. <em>The paper gives no specific energy, and says missing data may be assumed. Assume the steel value from the tutorial sheet, u ≈ 6.3 × 10⁶ J/kg.</em></p>
+<div class="solution">
+\[ P_{rem} = 0.6 \times 0.5\times10^{-3} \times 20000 = 6 \text{ W} \]
+\[ \dot m = \frac{6}{6.3\times10^6} = 9.52\times10^{-7}\ \text{kg/s}, \qquad \text{MRR} = \frac{9.52\times10^{-7}}{7800} = 1.22\times10^{-10}\ \text{m}^3/\text{s} \]
+\[ = 0.122 \text{ mm}^3/\text{s} = 7.33 \text{ mm}^3/\text{min} \]
+<div class="callout warn"><span class="label">Exam move</span>
+<p>Write the assumption in a box: "Assume energy to remove 1 kg of steel (heating + melting + vaporisation) ≈ 6.3 MJ/kg". If you assume melting only (3 × 10⁵ J/kg), the same method gives 2.56 mm³/s = 154 mm³/min. Either is acceptable if stated. The method is what earns the marks.</p></div>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Increasing discharge current in EDM…</p>
+<ol class="opts">
+<li>Lowers MRR and improves finish</li>
+<li data-correct>Raises MRR and worsens finish</li>
+<li>Raises MRR and improves finish</li>
+<li>Lowers MRR and worsens finish</li>
+</ol>
+<p class="why">More current puts more energy into each spark: bigger craters, more material, rougher surface.</p>
+</div>
+<div class="quiz">
+<p class="q">2. The recast layer on an EDM'd die is…</p>
+<ol class="opts">
+<li>Soft, ductile and stress-free</li>
+<li>Thick, tough and crack-free</li>
+<li>Annealed, smooth and porous</li>
+<li data-correct>Hard, brittle and microcracked</li>
+</ol>
+<p class="why">Rapidly quenched melt: about 65 HRC, brittle, porous, microcracked. It lowers fatigue life and should be removed.</p>
+</div>
+<div class="quiz">
+<p class="q">3. To get a fine finish without losing much accuracy, you would…</p>
+<ol class="opts">
+<li data-correct>Use low energy, high frequency</li>
+<li>Use high energy, low frequency</li>
+<li>Use high current, long pulses</li>
+<li>Use large capacitance, high voltage</li>
+</ol>
+<p class="why">Small energy per spark gives small craters; high frequency keeps material moving. This is the finishing setting.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Which application is EDM NOT suited to?</p>
+<ol class="opts">
+<li>Removing broken taps from dies</li>
+<li>Machining hardened steel mould cavities</li>
+<li data-correct>Cutting glass and ceramic plates</li>
+<li>Drilling fuel injector nozzle holes</li>
+</ol>
+<p class="why">Glass and most ceramics are insulators, so no spark can form. Use LBM, USM or AJM instead.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 7 "Process Variables", "Dielectric Pollution", "Process Characteristics" and "Applications" (p.147–160). Jagadeesha §6.11–6.20 for the advantages/limitations lists and the EDM–ECM table.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Mark my answer to Q3(a)" (paste what you wrote), or "Why does MRR fall with very long pulses?"</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0005-edm-mrr-surface-finish-derivation.html"><span>Previous</span>← MRR and finish derivation</a>
+<a class="next" href="0007-wire-edm.html"><span>Next</span>Wire EDM →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

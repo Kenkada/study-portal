@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" role="img" aria-labelledby="t d">
+<title id="t">Non-transferred and transferred plasma arc torches</title>
+<desc id="d">Left: non-transferred arc. The arc burns between the tungsten or hafnium cathode and the water-cooled copper nozzle (anode); the plasma emerges as a flame and the workpiece is not in the circuit. Right: transferred arc. The arc runs from the cathode to the electrically conductive workpiece (anode); the nozzle constricts it. Gas enters around the electrode in both.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.6;fill:none}
+ .thin{stroke:#222;stroke-width:1.1;fill:none}
+ text{font-family:Inter,Arial,sans-serif;font-size:12.5px;fill:#222}
+ .sm{font-size:11px;fill:#444}
+ .b{font-weight:700}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect width="660" height="420" fill="#fff"/>
+<text x="40" y="28" class="b">(a) Non-transferred arc</text>
+<text x="370" y="28" class="b">(b) Transferred arc</text>
+<!-- torch A -->
+<g>
+ <path d="M90,50 L90,200 L130,250 L150,250 L190,200 L190,50" class="s" fill="#eef4f8"/>
+ <rect x="132" y="50" width="16" height="140" class="s" fill="#bbb"/>
+ <path d="M132,190 L140,205 L148,190" class="s" fill="#bbb"/>
+ <text x="40" y="70" class="sm">gas in</text>
+ <line x1="60" y1="80" x2="88" y2="80" class="s" marker-end="url(#ar)"/>
+ <path d="M140,206 L136,248 M140,206 L144,248" stroke="#f39c12" stroke-width="2.5"/>
+ <path d="M130,252 Q140,320 150,252" fill="#f39c12" opacity=".75"/>
+ <text x="160" y="300" class="sm">plasma flame</text>
+ <rect x="70" y="340" width="140" height="30" class="s" fill="#d8d3c6"/>
+ <text x="76" y="390" class="sm">work: conductive OR non-conductive</text>
+ <text x="22" y="130" class="sm">cathode (−)</text>
+ <text x="196" y="230" class="sm">nozzle = anode (+)</text>
+ <polyline points="140,50 140,36 250,36 250,215 192,215" class="thin"/>
+ <rect x="236" y="100" width="28" height="40" class="s" fill="#fff"/><text x="241" y="125" class="sm">DC</text>
+ <text x="40" y="410" class="sm">Efficiency ≈ 65–75%; low MRR; spraying, non-metals.</text>
+</g>
+<!-- torch B -->
+<g>
+ <path d="M420,50 L420,200 L460,250 L480,250 L520,200 L520,50" class="s" fill="#eef4f8"/>
+ <rect x="462" y="50" width="16" height="140" class="s" fill="#bbb"/>
+ <path d="M462,190 L470,205 L478,190" class="s" fill="#bbb"/>
+ <text x="370" y="70" class="sm">gas in</text>
+ <line x1="390" y1="80" x2="418" y2="80" class="s" marker-end="url(#ar)"/>
+ <path d="M470,206 L466,250 L462,338 M470,206 L474,250 L478,338" stroke="#f39c12" stroke-width="2.5"/>
+ <path d="M462,250 L456,338 L484,338 L478,250 Z" fill="#f39c12" opacity=".55"/>
+ <text x="490" y="300" class="sm">constricted arc</text>
+ <text x="490" y="313" class="sm">≈ 11,000–30,000 °C</text>
+ <rect x="390" y="340" width="160" height="30" class="s" fill="#d8d3c6"/>
+ <text x="396" y="360" class="sm">work = anode (+)</text>
+ <text x="526" y="120" class="sm">cathode (−)</text>
+ <text x="526" y="134" class="sm">W / Hf / Zr</text>
+ <text x="526" y="224" class="sm">water-cooled</text>
+ <text x="526" y="237" class="sm">Cu nozzle</text>
+ <polyline points="470,50 470,36 625,36 625,355 550,355" class="thin"/>
+ <rect x="611" y="100" width="28" height="40" class="s" fill="#fff"/><text x="616" y="125" class="sm">DC</text>
+ <text x="370" y="410" class="sm">Efficiency ≈ 85–90%; conductive work only; cutting.</text>
+</g>
+</svg>

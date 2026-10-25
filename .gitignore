@@ -1,0 +1,26 @@
+# Whitelist: publish ONLY the study portal.
+# Everything else in this folder (textbook PDFs, past papers, personal notes,
+# other course materials) stays on this computer and never reaches GitHub.
+/*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/assets/
+
+# Each course publishes only its site files.
+!/AMP/
+/AMP/*
+!/AMP/index.html
+!/AMP/lessons/
+!/AMP/reference/
+!/AMP/assets/
+
+# To add a course later (e.g. MD), copy the four lines above and change AMP to MD.
+
+# Never publish source documents, even if one lands inside a published folder.
+*.pdf
+*.jpeg
+*.jpg
+*.docx
+*.pptx

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" role="img" aria-labelledby="t d">
+<title id="t">RC relaxation generator and its voltage waveform</title>
+<desc id="d">Left: DC source V0 charges capacitor C through resistance Rc; capacitor discharges across the tool-workpiece gap. Right: capacitor voltage rises exponentially to the breakdown voltage Vb during charging time tc, then collapses during the short discharge time td, repeating as a sawtooth.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.7;fill:none}
+ .thin{stroke:#222;stroke-width:1.1;fill:none}
+ .dash{stroke:#666;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+ text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#222}
+ .sm{font-size:11.5px;fill:#444}
+ .b{font-weight:700}
+ .it{font-style:italic}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect width="700" height="330" fill="#fff"/>
+<!-- source -->
+<line x1="40" y1="70" x2="40" y2="140" class="s"/>
+<line x1="22" y1="140" x2="58" y2="140" class="s"/>
+<line style="stroke-width:3" x1="30" y1="152" x2="50" y2="152" class="s"/>
+<line x1="40" y1="152" x2="40" y2="250" class="s"/>
+<text x="62" y="146" class="b it">V₀</text>
+<text x="8" y="136" class="sm">+</text><text x="10" y="166" class="sm">−</text>
+<!-- top wire with Rc -->
+<line x1="40" y1="70" x2="80" y2="70" class="s"/>
+<polyline points="80,70 88,58 100,82 112,58 124,82 136,58 148,82 156,70" class="s"/>
+<line x1="156" y1="70" x2="200" y2="70" class="s"/>
+<text x="104" y="48" class="b it">R<tspan font-size="10" dy="3">c</tspan></text>
+<!-- capacitor -->
+<line x1="200" y1="70" x2="200" y2="148" class="s"/>
+<line x1="180" y1="148" x2="220" y2="148" class="s"/>
+<line x1="180" y1="162" x2="220" y2="162" class="s"/>
+<line x1="200" y1="162" x2="200" y2="250" class="s"/>
+<text x="226" y="160" class="b it">C</text>
+<text x="148" y="160" class="sm it">V<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"></tspan></text>
+<!-- to gap -->
+<line x1="200" y1="70" x2="300" y2="70" class="s"/>
+<line x1="300" y1="70" x2="300" y2="112" class="s"/>
+<rect x="282" y="112" width="36" height="40" class="s" fill="#e6c29b"/>
+<text x="326" y="134" class="sm">tool (−)</text>
+<polyline points="294,152 300,157 293,160 301,165" stroke="#c0392b" stroke-width="2" fill="none"/>
+<rect x="268" y="165" width="64" height="30" class="s" fill="#d8d3c6"/>
+<text x="338" y="185" class="sm">work (+)</text>
+<line x1="300" y1="195" x2="300" y2="250" class="s"/>
+<line x1="40" y1="250" x2="300" y2="250" class="s"/>
+<!-- loop labels -->
+<path d="M95,190 a28,28 0 1,1 40,0" class="thin" marker-end="url(#ar)"/>
+<text x="84" y="226" class="sm">charging (i<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"></tspan>)</text>
+<path d="M232,210 a24,24 0 1,1 34,0" class="thin" marker-end="url(#ar)"/>
+<text x="214" y="240" class="sm">discharging (i<tspan font-size="9" dy="3">d</tspan><tspan dy="-3"></tspan>)</text>
+<text x="20" y="290" class="sm">Polarity shown: normal (tool −, work +).</text>
+<text x="20" y="306" class="sm">Dielectric fills the gap; it breaks down when V<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"></tspan> reaches V<tspan font-size="9" dy="3">b</tspan><tspan dy="-3"></tspan>.</text>
+<!-- graph -->
+<line x1="420" y1="260" x2="680" y2="260" class="s" marker-end="url(#ar)"/>
+<line x1="420" y1="260" x2="420" y2="40" class="s" marker-end="url(#ar)"/>
+<text x="664" y="280" class="sm it">t</text>
+<text x="396" y="44" class="sm it">V<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"></tspan></text>
+<line x1="420" y1="70" x2="670" y2="70" class="dash"/>
+<text x="400" y="74" class="b it" font-size="12">V₀</text>
+<line x1="420" y1="112" x2="670" y2="112" class="dash"/>
+<text x="400" y="116" class="b it" font-size="12">V<tspan font-size="9" dy="3">b</tspan><tspan dy="-3"></tspan></text>
+<path style="stroke:#1d5a8c" d="M420,260 C445,170 470,128 492,112 L498,256 C522,170 547,128 569,112 L575,256 C599,170 624,128 646,112 L652,256" class="s"/>
+<line x1="420" y1="285" x2="492" y2="285" class="thin" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="436" y="302" class="sm">t<tspan font-size="9" dy="3">c</tspan><tspan dy="-3"></tspan> (charging = idle)</text>
+<line x1="520" y1="150" x2="497" y2="180" class="thin" marker-end="url(#ar)"/>
+<text x="512" y="146" class="sm">t<tspan font-size="9" dy="3">d</tspan><tspan dy="-3"></tspan>: fast discharge</text>
+</svg>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC Circuit Derivation · AMP Unit 3</title>
+<meta name="description" content="Derivation for the EDM relaxation (RC) circuit: charging voltage and current, energy per spark, and the maximum power condition Vb ≈ 0.72 V0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0004">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L4</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 4 of 12 · ~25 min · Derivation</p>
+<h1>The RC circuit: why sparks fire at 72% of supply voltage</h1>
+<p class="lede">One differential equation, one integral, one maximisation. This is the most-asked EDM derivation.</p>
+<div class="meta"><span class="chip exam">Derivation</span><span class="chip">Jain Eqs 7.1–7.17</span><span class="chip">VTU June 2012: "Derive V<sub>b</sub> = 0.72 V<sub>0</sub>"</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Derive the charging voltage and current of the relaxation circuit, the energy per spark, and the condition for maximum power delivery, ending at \(V_b \approx 0.72\,V_0\).</p></div>
+
+<h2>Set-up and symbols</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/rc-circuit.svg" alt="RC relaxation circuit: DC source V0, charging resistor Rc, capacitor C across the tool-work gap; and a sawtooth graph of capacitor voltage rising to Vb then dropping."></div>
+<figcaption>Draw both halves in the exam: the circuit and the sawtooth V<sub>c</sub>–t graph.</figcaption>
+</figure>
+<p>A DC source \(V_0\) charges capacitor \(C\) through resistance \(R_c\). The capacitor is connected across the tool–work gap. When its voltage reaches the <strong>breakdown voltage</strong> \(V_b\) of the dielectric, it discharges as a spark, then recharges. Symbols follow Jain:</p>
+<ul>
+<li>\(V_{ct}\): capacitor voltage at time \(t\); \(i_{ct}\): charging current</li>
+<li>\(\tau = R_c C\): time constant</li>
+<li>\(\tau_c\): charging (idle) time; discharge time is much shorter</li>
+</ul>
+
+<h2>Part A · Charging voltage and current</h2>
+<ol class="steps">
+<li>Current through \(R_c\) (Ohm's law):
+\[ i_{ct} = \frac{V_0 - V_{ct}}{R_c} \tag{7.1} \]</li>
+<li>Same current charges the capacitor:
+\[ i_{ct} = C\,\frac{dV_{ct}}{dt} \tag{7.2} \]</li>
+<li>Equate and separate variables:
+\[ \frac{dV_{ct}}{V_0 - V_{ct}} = \frac{dt}{R_c C} \tag{7.3} \]</li>
+<li>Integrate:
+\[ -\ln(V_0 - V_{ct}) = \frac{t}{R_c C} - K_1 \]
+\[ \Rightarrow\; \ln(V_0 - V_{ct}) = -\frac{t}{R_c C} + K_1 \tag{7.4} \]</li>
+<li>Boundary condition \(V_{ct} = 0\) at \(t = 0\) gives \(K_1 = \ln V_0\). Substitute and take exponentials:
+<div class="formula boxed">\[ V_{ct} = V_0\left(1 - e^{-t/R_c C}\right) \tag{7.6} \]</div></li>
+<li>Put (7.6) into (7.1):
+<div class="formula boxed">\[ i_{ct} = \frac{V_0}{R_c}\, e^{-t/R_c C} \tag{7.7} \]</div></li>
+</ol>
+<div class="callout warn"><span class="label">Textbook slip</span>
+<p>Jain says the time constant is when the capacitor reaches "0.638 V<sub>0</sub>". Put \(t = R_cC\) in (7.6): \(1 - e^{-1} = 0.632\). Write <strong>0.632 V<sub>0</sub></strong> (63.2%).</p></div>
+
+<h2>Part B · Energy and average power</h2>
+<ol class="steps">
+<li>Energy delivered into the capacitor (later dumped into the gap) in time \(dt\):
+\[ dE = i_{ct}\,V_{ct}\,dt = \frac{V_0^2}{R_c}\left(e^{-t/\tau} - e^{-2t/\tau}\right)dt \tag{7.8} \]</li>
+<li>Integrate from 0 to \(t\) with \(E = 0\) at \(t = 0\):
+\[ E = \frac{V_0^2\,\tau}{R_c}\left[\frac{1}{2} + \frac{1}{2}e^{-2t/\tau} - e^{-t/\tau}\right] \tag{7.10} \]</li>
+<li>Average power if charging lasts \(\tau_c\). Put \(x = \tau_c/\tau\):
+<div class="formula boxed">\[ P_{avg} = \frac{E}{\tau_c} = \frac{V_0^2}{R_c\,x}\left[\frac{1}{2} + \frac{1}{2}e^{-2x} - e^{-x}\right] \tag{7.11} \]</div></li>
+</ol>
+<div class="callout info"><span class="label">Sanity check you can quote</span>
+<p>Since \(\tau/R_c = C\), equation (7.10) equals \(\tfrac12 C V_0^2 (1-e^{-x})^2 = \tfrac12 C V_{ct}^2\). It is simply the energy stored in the capacitor. At breakdown, the <strong>energy per spark</strong> is</p>
+\[ W_d = \tfrac{1}{2}\,C\,V_b^2 \tag{7.17} \]</div>
+
+<h2>Part C · Condition for maximum power</h2>
+<p>Why not let the capacitor charge fully to \(V_0\)? That takes infinite time, so power (energy per unit time) goes to zero. Very short charging gives tiny energy per spark. The best is in between.</p>
+<ol class="steps">
+<li>Write \(g(x) = \tfrac12 - e^{-x} + \tfrac12 e^{-2x}\), so \(P_{avg} \propto g(x)/x\).</li>
+<li>Set the derivative to zero (7.12):
+\[ \frac{d}{dx}\left(\frac{g}{x}\right) = 0 \;\Rightarrow\; x\,g'(x) = g(x) \]
+\[ \Rightarrow\; x\left(e^{-x} - e^{-2x}\right) = \tfrac12 - e^{-x} + \tfrac12 e^{-2x} \]</li>
+<li>This is transcendental. Solve by trial:
+<div class="table-wrap"><table>
+<thead><tr><th class="num">x</th><th class="num">LHS</th><th class="num">RHS</th></tr></thead>
+<tbody>
+<tr><td class="num">1.00</td><td class="num">0.2325</td><td class="num">0.1998</td></tr>
+<tr><td class="num">1.20</td><td class="num">0.2526</td><td class="num">0.2442</td></tr>
+<tr><td class="num"><strong>1.26</strong></td><td class="num"><strong>0.2560</strong></td><td class="num"><strong>0.2566</strong></td></tr>
+<tr><td class="num">1.30</td><td class="num">0.2577</td><td class="num">0.2646</td></tr>
+</tbody></table></div>
+So \(x = \tau_c / R_cC \approx 1.26\).</li>
+<li>Substitute in (7.6):
+<div class="formula boxed">\[ V_b = V_0\left(1 - e^{-1.26}\right) \approx 0.72\,V_0 \tag{7.13} \]</div></li>
+</ol>
+<div class="callout exam"><span class="label">Conclusion line for the answer</span>
+<p>"Maximum power is delivered to the gap when the capacitor discharges at about 72% of the supply voltage, i.e. the breakdown voltage (set by the gap) should be \(V_b \approx 0.72\,V_0\)." Jagadeesha reaches the same result as 0.716 V<sub>0</sub>.</p></div>
+
+<h2>Discharge (one line)</h2>
+<p>During discharge through the spark resistance \(R_s\), with \(V_{ct} = V_{co}\) at \(t = 0\):</p>
+\[ V_{ct} = V_{co}\,e^{-t/R_s C}, \qquad i_d = \frac{V_{co}}{R_s}\,e^{-t/R_s C} \tag{7.16} \]
+<p>\(R_s\) is tiny, so discharge is far quicker than charging. That is the sawtooth.</p>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l4-r1">
+<p class="q"><span class="marks">5 marks</span>Close the notes. Derive the condition for maximum power delivery in the RC relaxation circuit of EDM.</p>
+<div class="model">
+<ol>
+<li>Sketch circuit and V<sub>c</sub>–t sawtooth.</li>
+<li>\(i = (V_0 - V_c)/R_c = C\,dV_c/dt\) ⇒ \(V_c = V_0(1 - e^{-t/R_cC})\), \(i = (V_0/R_c)e^{-t/R_cC}\).</li>
+<li>\(dE = i V_c\,dt\) ⇒ \(E = (V_0^2\tau/R_c)[\tfrac12 + \tfrac12 e^{-2t/\tau} - e^{-t/\tau}]\).</li>
+<li>\(P_{avg} = E/\tau_c = (V_0^2/R_c x)[\tfrac12 + \tfrac12 e^{-2x} - e^{-x}]\), \(x = \tau_c/\tau\).</li>
+<li>\(dP_{avg}/dx = 0\) ⇒ \(x \approx 1.26\).</li>
+<li>\(V_b = V_0(1-e^{-1.26}) \approx 0.72\,V_0\). Energy per spark \(= \tfrac12 C V_b^2\).</li>
+</ol></div></div>
+
+<div class="numeric" data-answer="0.32" data-tol="0.01" data-unit="J">
+<p class="q">Jagadeesha Problem 6.1. In an RC generator the capacitor charges to 80 V before discharge, and C = 100 µF. Find the spark energy.</p>
+<div class="solution">
+\[ E = \tfrac12 C V^2 = \tfrac12 \times 100\times10^{-6} \times 80^2 = 0.32 \text{ J} \]
+</div></div>
+
+<div class="numeric" data-answer="4.153" data-tol="0.02" data-unit="Ω">
+<p class="q">Jagadeesha Problem 6.2. Open-circuit voltage 100 V, capacitor charges to 70 V in an idle (charging) time of 500 µs, C = 100 µF. Find the charging resistance R<sub>c</sub>.</p>
+<div class="solution">
+\[ 70 = 100\left(1 - e^{-t/R_cC}\right) \Rightarrow e^{-t/R_cC} = 0.3 \Rightarrow \frac{t}{R_cC} = \ln\frac{1}{0.3} = 1.204 \]
+\[ R_c = \frac{500\times10^{-6}}{100\times10^{-6} \times 1.204} = 4.15\ \Omega \]
+<p class="small">The book prints 6.02 Ω; the algebra gives 4.15 Ω.</p>
+</div></div>
+
+<div class="numeric" data-answer="2.518" data-tol="0.02" data-unit="ms">
+<p class="q">Jagadeesha Problem 6.3. The generator is set for maximum power (V<sub>c</sub> = 0.716 V<sub>0</sub>). R<sub>c</sub> = 10 Ω, C = 200 µF. Find the idle (charging) time.</p>
+<div class="solution">
+\[ 0.716 = 1 - e^{-t/R_cC} \Rightarrow t = R_cC\ln\frac{1}{0.284} = (10)(200\times10^{-6})(1.259) = 2.52\times10^{-3}\text{ s} \]
+<p class="small">t ≈ 2.52 ms. The book prints 1.588 ms, which does not follow from its own numbers. Note that \(t/R_cC = 1.26\) here, exactly the optimum x.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. At t = R<sub>c</sub>C, the capacitor voltage is…</p>
+<ol class="opts">
+<li>72% of supply</li>
+<li data-correct>63.2% of supply</li>
+<li>50% of supply</li>
+<li>100% of supply</li>
+</ol>
+<p class="why">\(1 - e^{-1} = 0.632\). The 72% value belongs to the maximum-power condition at \(x = 1.26\).</p>
+</div>
+<div class="quiz">
+<p class="q">2. Why not let the capacitor charge all the way to V<sub>0</sub>?</p>
+<ol class="opts">
+<li>The dielectric would quickly boil away</li>
+<li>The spark would become too weak</li>
+<li>The tool would wear far faster</li>
+<li data-correct>Charging time becomes infinite, power zero</li>
+</ol>
+<p class="why">Full charge needs infinite time. Power is energy per unit time, so it drops to zero. Maximum power lies at an intermediate voltage.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Energy released in one RC spark is…</p>
+<ol class="opts">
+<li data-correct>½ C V<sub>b</sub>²</li>
+<li>½ C V<sub>0</sub>²</li>
+<li>½ R<sub>c</sub> V<sub>b</sub>²</li>
+<li>V<sub>b</sub>² / R<sub>c</sub></li>
+</ol>
+<p class="why">The capacitor's stored energy at breakdown, Jain Eq 7.17.</p>
+</div>
+<div class="quiz">
+<p class="q">4. For maximum power, the ratio τ<sub>c</sub>/R<sub>c</sub>C is about…</p>
+<ol class="opts">
+<li>0.72</li>
+<li>0.63</li>
+<li data-correct>1.26</li>
+<li>2.00</li>
+</ol>
+<p class="why">Solving \(x(e^{-x}-e^{-2x}) = \tfrac12 - e^{-x} + \tfrac12 e^{-2x}\) gives x ≈ 1.26, which produces V<sub>b</sub> ≈ 0.72 V<sub>0</sub>.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 7 "Analysis of R-C Circuits" and "Power Delivered to the Discharging Circuit" (p.141–145, Eqs 7.1–7.17). Jagadeesha §6.5.4–6.5.7 and worked Problems 6.1–6.4 (mind the errata noted above).</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Show me how to differentiate g(x)/x step by step" or "Why does the spark resistance stay so small?"</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0003-edm-machine-dielectric-flushing.html"><span>Previous</span>← EDM machine and flushing</a>
+<a class="next" href="0005-edm-mrr-surface-finish-derivation.html"><span>Next</span>Derivation: MRR, critical R, surface finish →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

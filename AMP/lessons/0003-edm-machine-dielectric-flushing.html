@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDM Machine Elements · AMP Unit 3</title>
+<meta name="description" content="EDM equipment: pulse generators, dielectric functions and requirements, electrode materials and wear, servo control and flushing methods.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0003">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L3</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 3 of 12 · ~20 min</p>
+<h1>The EDM machine: five subsystems, one job each</h1>
+<p class="lede">Generator, dielectric, electrode, servo and flushing. Each exists to keep sparks clean, separate and repeatable.</p>
+<div class="meta"><span class="chip exam">"Equipment" part of every EDM answer</span><span class="chip">Tutorial 5 &amp; 6: Q4, Q6</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Name each EDM subsystem with its function, list the functions and requirements of a dielectric, choose an electrode material with reasons, and sketch two flushing methods.</p></div>
+
+<h2>1 · Power supply (pulse generator)</h2>
+<p>The generator turns mains AC into <strong>pulsed DC</strong>. It sets the gap voltage, peak current, pulse on-time, pulse off-time, frequency and polarity. It also senses the gap voltage and signals the servo. A cut-off circuit kills the power if an arc or short circuit forms (Jain, p.131–133).</p>
+<div class="formula">
+\[ \text{Duty cycle} = \frac{t_{on}}{t_{on}+t_{off}}, \qquad P_{avg} = V \, I \times \text{duty cycle} \]
+</div>
+<p>Four gap states can occur in any pulse: <strong>normal discharge, arc, short circuit, open circuit</strong>. Only the first removes material usefully.</p>
+
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Generator</th><th>How it works</th><th>Strength</th><th>Weakness</th></tr></thead>
+<tbody>
+<tr><td>Rotary impulse</td><td>Motor-generator set gives sinusoidal pulses</td><td>Simple, historical</td><td>Uncontrolled waveform, frequent arcing, high tool wear</td></tr>
+<tr><td>Relaxation (RC)</td><td>DC source charges a capacitor through a resistor; it discharges across the gap</td><td>Simple, cheap, fine finish possible</td><td>Low MRR (long charging time), very high peak current, high tool wear; current, duration and energy cannot be set independently</td></tr>
+<tr><td>Transistorised pulse</td><td>Power transistors switch DC into square pulses</td><td>Independent control of t<sub>on</sub>, t<sub>off</sub>, current; high MRR; low tool wear</td><td>Costlier electronics</td></tr>
+</tbody></table></div>
+<p class="small">Jain p.130–131; Jagadeesha §6.5. The RC circuit gets a full derivation in Lessons 4 and 5.</p>
+
+<h2>2 · Dielectric system</h2>
+<p>Dielectric fluid, reservoir, pump, filters and delivery nozzles.</p>
+<div class="grid2">
+<div class="box"><h4>Functions</h4>
+<ol>
+<li><strong>Insulate</strong> the gap until breakdown voltage is reached.</li>
+<li><strong>Ionise</strong> quickly at breakdown, concentrating the spark into a narrow channel.</li>
+<li><strong>Deionise</strong> the gap right after each spark.</li>
+<li><strong>Cool and quench</strong> the tool, work and debris.</li>
+<li><strong>Flush</strong> debris out of the gap.</li>
+</ol></div>
+<div class="box"><h4>Requirements</h4>
+<ul>
+<li>High dielectric strength</li>
+<li>Short ignition delay; fast deionisation</li>
+<li>Low viscosity, good fluidity</li>
+<li>High flash point (no fire)</li>
+<li>Good cooling capacity</li>
+<li>Non-toxic, non-corrosive, cheap</li>
+</ul></div>
+</div>
+<p><strong>Common dielectrics:</strong> kerosene and paraffin, transformer oil, EDM-grade hydrocarbon oils, and deionised (DI) water. DI water gives higher MRR and better cooling but higher electrode wear and a corrosion risk. It is standard in Wire EDM and small-hole drilling (Jain, p.134). Debris is filtered out down to about 2–5 µm before recirculation.</p>
+
+<h2>3 · Tool electrode</h2>
+<p>A good electrode material has <strong>high electrical and thermal conductivity, a high melting point, low wear, easy machinability and low cost</strong>. Copper and graphite dominate because they are easy to shape (Jain, p.136).</p>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th>Material</th><th>Why use it</th><th>Watch out</th></tr></thead>
+<tbody>
+<tr><td>Graphite</td><td>Easy to machine, low wear, high MRR; vaporises (~3600 °C) instead of melting. Main choice with pulse generators</td><td>Brittle, abrasive dust; fine grades needed for detail</td></tr>
+<tr><td>Copper (electrolytic)</td><td>Best surface finish; good conductor</td><td>Higher wear than graphite at high current</td></tr>
+<tr><td>Copper–tungsten</td><td>Very low wear; small holes and slots, fine die contours</td><td>Expensive, hard to shape</td></tr>
+<tr><td>Brass</td><td>Cheap; stable plasma</td><td>High wear (zinc); not for 3D cavities</td></tr>
+<tr><td>Tungsten, silver–tungsten</td><td>Very low wear; fine holes, sharp corners</td><td>Costly</td></tr>
+</tbody></table></div>
+<div class="formula">
+\[ \text{Wear ratio} = \frac{\text{volume of tool eroded}}{\text{volume of work eroded}} \]
+</div>
+<p>Jain gives a range from 0.05:1 to 100:1 depending on materials, settings and operation (p.138). Wear is worst at <strong>corners and edges</strong>, where the field is strongest, so tools round off and holes taper.</p>
+<div class="callout warn"><span class="label">Definition clash</span>
+<p>Jagadeesha defines "volume wear" the other way round in one place (work ÷ tool). In an answer, <strong>write the formula you are using</strong>. Tutorial Q4 uses tool ÷ work, the same as Jain.</p></div>
+<p><strong>Overcut</strong> is the clearance between tool and machined hole on each side, roughly the spark gap. Design the tool undersize by the overcut. <strong>Electrode refeeding</strong> brings the tool back to a reference point after each hole, so length lost to wear does not make later holes shallower (Jain, p.139).</p>
+
+<h2>4 · Servo system</h2>
+<p>The servo holds the gap constant. The generator senses gap voltage and compares it with a reference:</p>
+<ul>
+<li><strong>Gap too wide</strong> (voltage high, no sparks): advance the tool.</li>
+<li><strong>Gap bridged by debris or short circuit</strong> (voltage collapses): retract until flushing clears it.</li>
+</ul>
+<p>It needs <strong>sensitivity to tiny movements</strong>, <strong>enough force</strong> to move the ram, electrode and flushing loads, and <strong>no hunting or backlash</strong>. Electro-hydraulic servos respond in about 2 ms and are preferred to electromechanical ones (Jagadeesha, §6.4.5). Modern CNC-EDM adds adaptive control, orbiting, automatic tool changers and automatic electrode zeroing (Jain, p.139–140).</p>
+
+<h2>5 · Flushing</h2>
+<p>Debris left in the gap bridges it, causing <strong>arcs and short circuits</strong>, low MRR and poor finish. Good flushing can raise MRR by a factor of about 10 (Jain, p.135, citing Koshy et al.). Blind cavities are the hardest to flush.</p>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/edm-flushing.svg" alt="Four flushing methods: pressure through tool, suction through workpiece, side jet flushing, and pulsed retraction of the electrode."></div>
+<figcaption>Flushing methods (after Jain Fig 7.7 and Jagadeesha §6.10). Sketch any two in an answer.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Method</th><th>Use it when</th><th>Side effect</th></tr></thead>
+<tbody>
+<tr><td>Pressure (injection) through tool or work</td><td>Blind cavities; most effective</td><td>Debris rising past the tool sides causes side sparks, so walls taper. Through-tool flushing can leave a central spike.</td></tr>
+<tr><td>Suction through tool or work</td><td>Fine finish and parallel walls needed</td><td>Must still let enough clean fluid into the gap</td></tr>
+<tr><td>Side / jet</td><td>No hole can be drilled in tool or work</td><td>Least effective</td></tr>
+<tr><td>Pulsed with electrode retraction</td><td>Deep cavities; limiting electrode wear</td><td>Some time lost to retraction</td></tr>
+</tbody></table></div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l3-r1">
+<p class="q"><span class="marks">5 marks</span>Write a note on the dielectric fluid used in EDM: its functions, requirements, and two common examples.</p>
+<div class="model">
+<p><strong>Functions:</strong> (1) insulates the gap until breakdown; (2) ionises to form and concentrate the spark channel; (3) deionises the gap after each discharge; (4) cools tool and work and quenches the debris; (5) flushes debris out of the gap.</p>
+<p><strong>Requirements:</strong> high dielectric strength; short ignition delay and rapid deionisation; low viscosity; high flash point; good cooling; chemically inert and non-corrosive; non-toxic; cheap and available.</p>
+<p><strong>Examples:</strong> kerosene or paraffin and EDM hydrocarbon oils for die-sinking; deionised water for Wire EDM and small holes (higher MRR and cooling, but more electrode wear and corrosion risk). The fluid is filtered to ~2–5 µm and recirculated.</p>
+</div></div>
+
+<div class="numeric" data-answer="200" data-tol="0.01" data-unit="W">
+<p class="q">Tutorial 5–6, Q6. Discharge current 10 A, voltage 200 V, duty cycle 0.1. Find the average input power.</p>
+<div class="solution">
+\[ P_{avg} = V I \times \text{duty} = 200 \times 10 \times 0.1 = 200 \text{ W} \]
+<p>The 2000 W is only delivered during t<sub>on</sub>; averaged over the cycle it is 200 W.</p>
+</div></div>
+
+<div class="numeric" data-answer="2.688" data-tol="0.02" data-unit="g">
+<p class="q">Tutorial 5–6, Q4. Machined volume 1000 mm³, electrode wear ratio 0.3 (tool volume = 0.3 × machined volume), copper electrode with density 8.96 g/cm³. Find the mass of electrode consumed.</p>
+<div class="solution">
+\[ V_{tool} = 0.3 \times 1000 = 300 \text{ mm}^3 = 0.300 \text{ cm}^3 \]
+\[ m = \rho V = 8.96 \times 0.300 = 2.688 \text{ g} \]
+<p>Unit trap: 1 cm³ = 1000 mm³.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Which is NOT a function of the dielectric?</p>
+<ol class="opts">
+<li>Deionising the gap after sparks</li>
+<li>Flushing debris from the gap</li>
+<li>Concentrating spark energy into channels</li>
+<li data-correct>Conducting current between sparks continuously</li>
+</ol>
+<p class="why">A dielectric must insulate between sparks. If it conducted continuously you would get an arc, not a train of sparks.</p>
+</div>
+<div class="quiz">
+<p class="q">2. Main drawback of the RC relaxation generator?</p>
+<ol class="opts">
+<li>Cannot machine any hardened steel parts</li>
+<li data-correct>Low MRR from long charging time</li>
+<li>Needs deionised water as the dielectric</li>
+<li>Produces only very large deep craters</li>
+</ol>
+<p class="why">Most of each cycle is spent charging the capacitor, so sparking time is a small fraction. Peak currents are also very high, raising tool wear.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Which flushing method gives the most parallel walls?</p>
+<ol class="opts">
+<li>Side jet flushing</li>
+<li>Pressure through tool</li>
+<li data-correct>Suction through workpiece</li>
+<li>Pressure through workpiece</li>
+</ol>
+<p class="why">Suction draws clean fluid in from the sides and pulls debris away, so there is little side sparking and little taper.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Why do EDM electrodes wear most at corners?</p>
+<ol class="opts">
+<li data-correct>Electric field is strongest there</li>
+<li>Corners receive less flushing fluid</li>
+<li>Corners use a softer material</li>
+<li>Servo pushes harder on edges</li>
+</ol>
+<p class="why">Field concentrates at sharp edges and corners, so more sparks occur there. Corners round off and holes taper.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 7 "EDM Machine" (p.131–141): power supply, dielectric system, electrodes, servo, CNC-EDM, flushing Fig 7.7. Jagadeesha §6.4–6.10 for the VTU-style lists (dielectric requirements, electrode materials, flushing).</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Why does graphite vaporise instead of melting?" or "Quiz me on electrode materials with scenarios."</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0002-edm-principle-mechanism.html"><span>Previous</span>← EDM spark mechanism</a>
+<a class="next" href="0004-edm-rc-circuit-max-power.html"><span>Next</span>Derivation: RC circuit and V<sub>b</sub> ≈ 0.72 V<sub>0</sub> →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

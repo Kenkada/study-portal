@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ion Beam Machining · AMP Unit 3</title>
+<meta name="description" content="IBM: sputtering principle, ion source and equipment, sputter yield, derivation of the removal rate, parameters, applications, limitations, and Tutorial Q20.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0011">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L11</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 11 of 12 · ~18 min</p>
+<h1>Ion beam machining: sandblasting with atoms</h1>
+<p class="lede">Fire argon ions at a surface and they knock its atoms out, one collision at a time. Nothing melts. Removal is painfully slow, and precise to the nanometre.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(b)</span><span class="chip">Tutorial 5 &amp; 6: Q20</span></div>
+
+<div class="callout warn"><span class="label">Source note</span>
+<p>Neither Jain nor Jagadeesha covers IBM in depth. This lesson rests on a primary NASA technical memo (Hudson, 1976) for equipment and data, and on first-principles counting for the removal-rate formula. El-Hofy's <em>Advanced Machining Processes</em> (syllabus reading #8) has a full IBM chapter. If your class notes use a different-looking formula, ask your teacher to reconcile it.</p></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Explain sputtering and the IBM setup, derive the removal rate from ion current density and sputter yield, solve Tutorial Q20, and say where IBM fits against EBM and PAM.</p></div>
+
+<h2>Principle: sputtering</h2>
+<p>In IBM a beam of <strong>inert-gas ions</strong>, usually argon (sometimes xenon), is accelerated in a vacuum and directed at the work. Each ion transfers energy and momentum to surface atoms by collision. When a surface atom gains enough energy to break its bonds, it is ejected. This is <strong>sputtering</strong>. Material comes off <strong>atom by atom, by momentum transfer, with no melting</strong>. The process is also called ion milling, ion etching or ion polishing.</p>
+<p>The <strong>sputter yield S</strong> is the average number of atoms ejected per incident ion. It depends on ion energy and mass, the angle of incidence, and the target material's binding energy.</p>
+<div class="callout key"><span class="label">Say this in Q3(b)</span>
+<p>"Although listed among thermal-energy processes, IBM removes material by <strong>physical sputtering</strong> (momentum transfer), not by melting. So it leaves practically no heat-affected zone or recast layer."</p></div>
+
+<h2>Equipment</h2>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/ibm.svg" alt="IBM: ion source with hot cathode and magnets ionising argon, extraction grids, neutraliser, broad ion beam crossing a vacuum chamber to a masked workpiece on a tilting rotating holder; inset showing an argon ion knocking an atom out of a lattice."></div>
+<figcaption>Broad-beam IBM setup. Labels: gas inlet, discharge chamber with cathode and magnets, screen and accelerator grids, neutraliser, ion beam, mask, workpiece holder (tilt and rotate), vacuum pumps.</figcaption>
+</figure>
+<ol class="steps">
+<li><strong>Ion source.</strong> Argon is fed into a discharge chamber. Electrons from a hot cathode, confined by magnets, ionise the gas into a plasma.</li>
+<li><strong>Extraction and acceleration.</strong> A pair of perforated grids pulls ions out and accelerates them into a broad, uniform beam. NASA's 8 cm sources ran at 300–2000 V and 10–200 mA beam current (Hudson, 1976). General texts quote ion energies up to about 10 keV.</li>
+<li><strong>Neutraliser.</strong> A filament adds electrons to the beam so insulating work does not charge up. That is why IBM can machine insulators.</li>
+<li><strong>Vacuum chamber.</strong> Ions must travel without colliding with gas molecules (NASA's facility pumped to 10⁻⁷ torr).</li>
+<li><strong>Work holder and mask.</strong> A mask of photoresist or a low-yield material such as carbon protects areas that must stay. The holder tilts (sets angle of incidence) and rotates (evens out removal).</li>
+</ol>
+
+<h2>Derivation: removal rate</h2>
+<p>This is the same counting logic as Faraday's law in ECM (Unit 2), with "atoms per ion" in place of "1 ÷ valency".</p>
+<ol class="steps">
+<li>Ion current density \(J\) (A/m²). Each ion carries charge \(e\), so ion flux \(= J/e\) ions per m² per s.</li>
+<li>Each ion ejects \(S\) atoms: atom flux \(= SJ/e\).</li>
+<li>Divide by Avogadro's number \(N_A\) for moles; note \(eN_A = F = 96{,}485\) C/mol:
+\[ \text{mol flux} = \frac{S J}{e N_A} = \frac{S J}{F} \]</li>
+<li>Multiply by molar mass \(M\) (kg/mol) for mass flux; divide by density \(\rho\) for thickness per second:
+<div class="formula boxed">\[ \dot h = \frac{J\,S\,M}{\rho\,F} \quad (\text{m/s, with SI units}) \]</div></li>
+</ol>
+<p>Removal rate rises in proportion to <strong>ion current density</strong> and <strong>sputter yield</strong>. Yield in turn rises with ion energy and is larger at oblique incidence than at normal incidence, which is why holders tilt.</p>
+
+<div class="numeric" data-answer="22.3" data-tol="0.02" data-unit="nm/min">
+<p class="q">Tutorial Q20. Ion current density 1 mA/cm², sputter yield 0.5 atoms/ion for Fe (M = 56 g/mol), density 7.8 g/cm³. Estimate the thickness removal rate in nm/min.</p>
+<div class="solution">
+\[ J = 1\ \text{mA/cm}^2 = 10\ \text{A/m}^2 \]
+\[ \dot h = \frac{10 \times 0.5 \times 0.056}{7800 \times 96{,}485} = 3.72\times10^{-10}\ \text{m/s} = 0.372\ \text{nm/s} = 22.3\ \text{nm/min} \]
+<p>Unit traps: mA/cm² → A/m² multiply by 10; g/mol → kg/mol; g/cm³ → kg/m³.</p>
+</div></div>
+
+<div class="numeric" data-answer="44.8" data-tol="0.02" data-unit="min">
+<p class="q">At the Q20 rate, how long does it take to mill a 1 µm deep feature?</p>
+<div class="solution">\[ t = \frac{1000\ \text{nm}}{22.3\ \text{nm/min}} = 44.8\ \text{min} \]
+<p>NASA's measured rate for stainless steel at 1000 V and 100 mA was 2100 Å/min (210 nm/min). Drilling holes 0.9 mm deep through a carbon mask took <strong>75 hours</strong> (Hudson, 1976). IBM is for nanometres and micrometres, never bulk removal.</p></div></div>
+
+<h2>Parameters</h2>
+<ul>
+<li><strong>Ion energy</strong> (accelerating voltage): higher energy, higher yield. Too high adds heating and subsurface damage. NASA chose ~500 eV as a good compromise for sputtering work.</li>
+<li><strong>Beam current density</strong>: removal rate directly proportional.</li>
+<li><strong>Angle of incidence</strong>: yield is larger at oblique angles; tangential beams preferentially sputter high points, which is how ion polishing works.</li>
+<li><strong>Ion species</strong> (mass): Ar is standard; Xe heavier. Reactive ions (e.g., oxygen on diamond) add chemical etching and can remove much faster.</li>
+<li><strong>Target material</strong> (binding energy, yield) and <strong>mask material</strong> (should have a low yield, e.g. carbon).</li>
+<li><strong>Work rotation</strong>: NASA's polished samples came out grooved, so they recommended rotating the sample.</li>
+</ul>
+
+<h2>Applications</h2>
+<ul>
+<li><strong>Ion milling of microelectronics</strong>: patterning thin films and ICs through photoresist masks; higher resolution than chemical etching and no chemical contamination (Hudson, 1976).</li>
+<li>Diffraction gratings and laser reflection holograms on silicon.</li>
+<li>Cleaning substrates before thin-film deposition; preparing clean surfaces for research.</li>
+<li><strong>Ion polishing</strong> and figuring of optics (aspheric lenses); sharpening diamond tools and microtome knives.</li>
+<li>Thinning specimens for electron microscopy.</li>
+<li>Drilling arrays of irregular-shaped holes through masks; surface texturing (e.g., for implants).</li>
+<li>Focused ion beam (FIB, usually Ga⁺) does maskless micro- and nano-machining in the same way.</li>
+</ul>
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>Any material: metals, ceramics, semiconductors, insulators</li>
+<li>Atomic-level precision; nano features; excellent finish</li>
+<li>No melting: no HAZ, no recast, no burr</li>
+<li>No mechanical force; no chemicals</li>
+<li>Directional: vertical walls through masks</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Extremely low MRR (nm/min)</li>
+<li>Costly vacuum equipment; skilled operation</li>
+<li>Masks also erode; redeposition of sputtered atoms</li>
+<li>Ion implantation and lattice damage near surface</li>
+<li>Only for tiny volumes: finishing and patterning</li>
+</ul></div>
+</div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l11-r1">
+<p class="q"><span class="marks">3 marks</span>Explain the principle of ion beam machining. Why is it suitable for nano-scale machining?</p>
+<div class="model">
+<p><strong>Principle:</strong> argon ions from an ion source are accelerated by grids (hundreds of eV to ~10 keV) in vacuum and neutralised. They strike the work and transfer momentum to surface atoms, which are ejected (sputtering). Removal is atom by atom; sputter yield S = atoms ejected per ion. Removal rate \(\dot h = JSM/(\rho F)\).</p>
+<p><strong>Nano suitability:</strong> removal per ion is a few atoms, so depth is controlled to nanometres; no melting, so no HAZ or recast; directional beam with masks gives sharp vertical walls; works on insulators and semiconductors. The price is a very low rate (nm/min).</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Material removal in IBM occurs by…</p>
+<ol class="opts">
+<li>Melting and vapour expulsion</li>
+<li>Anodic dissolution of atoms</li>
+<li data-correct>Momentum transfer ejecting atoms</li>
+<li>Abrasive grains hitting surface</li>
+</ol>
+<p class="why">Ions knock atoms out by collision (sputtering). No melting, no electrochemistry, no abrasive.</p>
+</div>
+<div class="quiz">
+<p class="q">2. Why does an IBM system include a neutraliser?</p>
+<ol class="opts">
+<li data-correct>So insulating work does not charge</li>
+<li>To slow ions before they arrive</li>
+<li>To ionise more argon gas atoms</li>
+<li>To cool the target during milling</li>
+</ol>
+<p class="why">Without added electrons, an insulating target would build up positive charge and repel the beam. Neutralising the beam lets IBM machine insulators.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Doubling ion current density at fixed energy makes removal rate…</p>
+<ol class="opts">
+<li>Decrease to half</li>
+<li>Remain exactly unchanged</li>
+<li data-correct>Increase roughly two-fold</li>
+<li>Increase about four-fold</li>
+</ol>
+<p class="why">\(\dot h = JSM/(\rho F)\): directly proportional to J when S is unchanged.</p>
+</div>
+<div class="quiz">
+<p class="q">4. A mask for IBM should ideally have…</p>
+<ol class="opts">
+<li>High sputter yield</li>
+<li>High electrical conductivity</li>
+<li>Low melting point</li>
+<li data-correct>Low sputter yield</li>
+</ol>
+<p class="why">The mask must survive while the exposed work is milled. NASA used carbon masks on stainless steel because carbon sputters much more slowly.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+<a href="https://ntrs.nasa.gov/citations/19770005904">W.R. Hudson, <em>Nonpropulsive Applications of Ion Beams</em>, NASA TM X-73511 (1976)</a>: ion sources, ion beam polishing, drilling and milling with measured rates. For the textbook treatment, El-Hofy, <em>Advanced Machining Processes</em> (McGraw-Hill), ion beam machining section.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "How is the IBM rate formula related to Faraday's law in ECM?" or "What's the difference between IBM and FIB?"</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0010-plasma-arc-machining.html"><span>Previous</span>← Plasma arc machining</a>
+<a class="next" href="0012-compare-and-choose.html"><span>Next</span>Compare and choose: exam drill →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

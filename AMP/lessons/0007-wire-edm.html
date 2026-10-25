@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wire EDM · AMP Unit 3</title>
+<meta name="description" content="Wire EDM: principle, the four machine systems, stratified wire, wire bowing, parameters, applications, comparison with die-sinking EDM, and tutorial numericals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0007">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L7</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 7 of 12 · ~20 min</p>
+<h1>Wire EDM: a spark that cuts like a bandsaw</h1>
+<p class="lede">Same physics as EDM, but the electrode is a thin wire fed continuously and steered by CNC. It cuts any 2D contour, and tilted ones too, through hardened conductive plate.</p>
+<div class="meta"><span class="chip exam">CO3</span><span class="chip">Tutorial 5 &amp; 6: Q3, Q9, Q10</span><span class="chip">Tut Sheet I Q11 (carbide dies)</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Sketch a Wire EDM machine, explain its four systems and the stratified wire, compare it with die-sinking EDM, and compute kerf, taper and cutting time.</p></div>
+
+<h2>Principle</h2>
+<p>A wire of <strong>0.05–0.30 mm diameter</strong> is the tool electrode. <strong>Deionised water</strong> is the dielectric, jetted into the cutting zone by nozzles. Sparks between wire and work melt and partly vaporise material, exactly as in EDM. A CNC table moves the work along the programmed path while fresh wire keeps arriving, and a constant gap is kept by adaptive control (Jain, p.165; Jagadeesha §6.23).</p>
+<figure>
+<div class="sheet"><img src="../assets/diagrams/wedm.svg" alt="Wire EDM: supply spool, tension rollers, upper guide with nozzle, wire through workpiece, lower guide, take-up spool, pulse generator connected to wire and workpiece, CNC table, plan-view inset of kerf."></div>
+<figcaption>Wire EDM. Labels that earn marks: supply and take-up spools, tensioners, diamond/sapphire guides, DI water nozzles, wire (−), work (+), CNC X–Y table, U–V axes.</figcaption>
+</figure>
+
+<h2>The four systems</h2>
+<ol class="steps">
+<li><strong>Power supply.</strong> Much higher pulse frequency than die-sinking EDM (Jain gives about 1 MHz), so craters are tiny and the finish is better. The thin wire limits current to roughly 20 A (Jain) or 20–30 A (Jagadeesha).</li>
+<li><strong>Dielectric system.</strong> DI water: low viscosity (flushes a narrow kerf), no fire hazard, high cooling rate (very thin recast layer), high MRR. Higher wire wear does not matter because wire is used once. Delivered as a coaxial stream along the wire; filtered at ~5 µm; additives limit rusting.</li>
+<li><strong>Positioning system.</strong> CNC X–Y table in adaptive mode. If the wire nears the work or debris bridges the gap, it backs off and re-establishes cutting conditions. Extra <strong>U–V axes</strong> move the upper guide to tilt the wire for taper and draft cuts. Jain quotes about ±10°; some machines reach 20–30°.</li>
+<li><strong>Wire drive system.</strong> Delivers fresh wire continuously and keeps it under tension so it runs straight. This cuts taper, streaks, vibration marks and wire breaks. Wire passes through sapphire or diamond guides and tensioning rollers to the take-up spool. Modern machines auto-thread the wire after a break.</li>
+</ol>
+
+<h3>Wire materials and the stratified wire</h3>
+<p>Larger wires (0.15–0.30 mm) are brass or copper; very fine ones are molybdenum or steel. The wire is used <strong>once</strong>, because sparking on its leading side leaves it no longer round (Jain, p.167).</p>
+<p>A <strong>stratified wire</strong> has a copper core with a thin zinc (or zinc-alloy) coating. Zinc melts and vaporises well below copper's melting point, so the coating absorbs heat as it boils off and the core stays cooler. The wire can carry heavier sparks without breaking, giving <strong>higher MRR and cutting speed</strong> (Jain, p.168).</p>
+
+<h3>Wire bowing</h3>
+<p>Gas bubbles from sparks in the ~0.025 mm gap press on the wire and make it <strong>bow</strong>. A bowed wire lags at bends and rounds sharp corners. The remedy is a guide and feed system that holds <strong>higher wire tension</strong> (Jain, p.169).</p>
+
+<h2>Parameters and performance</h2>
+<ul>
+<li>Same electrical parameters as EDM: voltage, current, on-time, off-time, frequency, plus <strong>wire tension, wire speed</strong> (up to ~40 mm/s, Jain) and <strong>flushing pressure</strong>.</li>
+<li>Linear cutting rate depends on <strong>work thickness</strong>, not on how complex the contour is. So rates are quoted as area cut per unit time: Jagadeesha gives about 18,000 mm²/h for 50 mm tool steel and 45,000 mm²/h for 150 mm aluminium.</li>
+<li>Accuracy about ±7 µm or better; finish down to ~0.1 µm on finish passes. The tiny craters retain lubricant, raising die life (Jain, p.169).</li>
+</ul>
+<div class="formula">
+\[ \text{kerf } b = d_{wire} + 2\times\text{overcut}, \qquad \text{MRR} = b \times t \times v_f, \qquad \text{area rate} = t \times v_f \]
+<p class="small">t = work thickness, v<sub>f</sub> = feed (cutting speed) along the path.</p>
+</div>
+
+<h2>Applications</h2>
+<ul>
+<li><strong>Punch and die sets</strong> for stamping, fine blanking and extrusion: punch, die, punch plate and stripper from one CNC program with accurately controlled clearance.</li>
+<li><strong>Carbide, PCD and CBN tools</strong>, form tools and gauges.</li>
+<li>Thick conductive plate (200–300 mm), titanium and superalloy parts, gears and splines.</li>
+<li>Medical and dental parts, prototypes, thin and delicate sections.</li>
+<li>Electrodes for die-sinking EDM.</li>
+</ul>
+<div class="grid2">
+<div class="box pro"><h4>Advantages</h4>
+<ul>
+<li>No tool to design or make: the wire is the tool</li>
+<li>Any 2D contour; taper and ruled 3D surfaces with U–V</li>
+<li>No cutting force; any conductive hardness</li>
+<li>High accuracy, fine finish, thin recast layer</li>
+<li>Die cost cut by 30–70% (Jagadeesha)</li>
+<li>Unattended running; simulated CNC programs</li>
+</ul></div>
+<div class="box con"><h4>Limitations</h4>
+<ul>
+<li>Conductive work only</li>
+<li>Through-cuts only; internal profiles need a start hole</li>
+<li>Slow compared with conventional cutting</li>
+<li>High capital cost; wire is consumed continuously</li>
+<li>Wire breakage, bowing at corners</li>
+<li>Internal corner radius ≥ half the kerf</li>
+</ul></div>
+</div>
+
+<h2>Wire EDM vs die-sinking EDM</h2>
+<div class="table-wrap"><table class="wide compare">
+<thead><tr><th>Aspect</th><th>Wire EDM</th><th>Die-sinking EDM</th></tr></thead>
+<tbody>
+<tr><td>Tool</td><td>Continuously fed wire, Ø0.05–0.3 mm, used once</td><td>Shaped electrode (Cu, graphite, Cu–W), made per job</td></tr>
+<tr><td>Dielectric</td><td>DI water jetted to the cutting zone</td><td>Hydrocarbon oil; work submerged in a tank</td></tr>
+<tr><td>Motion</td><td>CNC X–Y (+ U–V taper)</td><td>Servo feed along Z (+ orbiting)</td></tr>
+<tr><td>Typical job</td><td>Through contours: punches, dies, profiles</td><td>Blind 3D cavities: moulds, forging dies</td></tr>
+<tr><td>Frequency</td><td>Very high (~1 MHz); low current</td><td>Lower; currents up to hundreds of A</td></tr>
+<tr><td>Tool wear concern</td><td>None for accuracy (fresh wire)</td><td>Major: overcut, corner wear, multiple electrodes</td></tr>
+</tbody></table></div>
+
+<h2>Practise</h2>
+<div class="recall" data-id="l7-r1">
+<p class="q"><span class="marks">2–3 marks</span>Tutorial Sheet I, Q11: Explain why Wire EDM is preferred for cutting tool and die profiles in carbide materials.</p>
+<div class="model">
+<ul>
+<li>Carbide is extremely hard, so conventional cutting is impractical and grinding complex profiles is slow. Wire EDM's removal does not depend on hardness, only on conductivity, which cemented carbide has (cobalt binder).</li>
+<li>Die profiles are through-contours, exactly what a CNC-steered wire cuts. Punch and die come from the same program with controlled clearance.</li>
+<li>Fresh wire means no tool-wear error; accuracy of a few µm and fine finish; thin recast layer thanks to water cooling.</li>
+<li>No cutting force, so delicate sections and sharp details survive.</li>
+</ul></div></div>
+
+<div class="numeric" data-answer="0.0573" data-tol="0.02" data-unit="degrees">
+<p class="q">Tutorial Q10. Top kerf 0.200 mm, bottom kerf 0.180 mm, plate thickness 10 mm. Find the taper half-angle.</p>
+<div class="solution">
+\[ \tan\theta = \frac{(0.200 - 0.180)/2}{10} = 0.001 \;\Rightarrow\; \theta = 0.0573^\circ \]
+<p>Each side narrows by 0.010 mm over 10 mm depth.</p>
+</div></div>
+
+<div class="numeric" data-answer="40" data-tol="0.02" data-unit="min">
+<p class="q">A 50 mm thick tool-steel punch has a contour length of 240 mm. The machine cuts at an area rate of 18,000 mm²/h (Jagadeesha's figure for 50 mm tool steel). How long does the cut take?</p>
+<div class="solution">
+\[ v_f = \frac{\text{area rate}}{t} = \frac{18000}{50} = 360 \text{ mm/h} \]
+\[ \text{time} = \frac{240}{360} = 0.667 \text{ h} = 40 \text{ min} \]
+</div></div>
+
+<div class="numeric" data-answer="90" data-tol="0.02" data-unit="mm³/min">
+<p class="q">Same cut: wire 0.25 mm, overcut 0.025 mm per side, feed 6 mm/min, thickness 50 mm. Find the volumetric MRR.</p>
+<div class="solution">
+\[ b = 0.25 + 2(0.025) = 0.30 \text{ mm}, \qquad \text{MRR} = 0.30 \times 50 \times 6 = 90 \text{ mm}^3/\text{min} \]
+</div></div>
+
+<div class="numeric" data-answer="120000" data-tol="0.01" data-unit="mm³/h">
+<p class="q">Tutorial Q3. Cutting a plate of thickness 10 mm and width 100 mm at a cutting speed of 2 mm/min. Find the volume removed per hour.</p>
+<div class="solution">
+<p>Read as a feed of 2 mm/min across a 10 mm × 100 mm cross-section (MRR = area × feed):</p>
+\[ \text{MRR} = 10 \times 100 \times 2 = 2000 \text{ mm}^3/\text{min} = 1.2\times10^5 \text{ mm}^3/\text{h} \]
+<div class="callout warn"><span class="label">Ambiguous question</span>
+<p>For a genuine wire cut you would need the kerf: MRR = b × t × v<sub>f</sub>. If the instructor meant that, the 100 mm width only tells you the cut length (50 min to cross the plate). Write your interpretation in one line before calculating.</p></div>
+</div></div>
+
+<div class="numeric" data-answer="10" data-tol="0.01" data-unit="mm">
+<p class="q">Tutorial Q9. Wire wear ratio (WRR) = 0.02, contour length 500 mm, wire Ø 0.20 mm, brass density 8500 kg/m³. Find the wire length consumed (as the sheet defines it). The mass is in the solution.</p>
+<div class="solution">
+\[ L = \text{WRR} \times \text{contour} = 0.02 \times 500 = 10 \text{ mm} \]
+\[ V = \frac{\pi}{4}(0.20)^2 \times 10 = 0.314 \text{ mm}^3, \qquad m = 0.314\times10^{-9} \times 8500 = 2.67\times10^{-6} \text{ kg} = 0.00267 \text{ g} \]
+<p class="small">This follows the sheet's definition. In a real machine the wire is fed continuously (mm/s) and every millimetre is used once, so actual consumption is far larger.</p>
+</div></div>
+
+<h2>Quick check</h2>
+<div class="quiz">
+<p class="q">1. Why is deionised water the usual Wire EDM dielectric?</p>
+<ol class="opts">
+<li>It lowers wire wear the most</li>
+<li data-correct>Low viscosity flushes the narrow kerf</li>
+<li>It conducts current to the wire</li>
+<li>It allows very large spark energy</li>
+</ol>
+<p class="why">Low viscosity reaches the tiny kerf, it cools fast (thin recast) and there is no fire risk. It actually increases wire wear, which does not matter because the wire is used once.</p>
+</div>
+<div class="quiz">
+<p class="q">2. What does the zinc coating on stratified wire do?</p>
+<ol class="opts">
+<li>Prevents the wire from rusting</li>
+<li>Makes the wire much stiffer</li>
+<li data-correct>Vaporises first, keeping core cooler</li>
+<li>Insulates the wire from sparks</li>
+</ol>
+<p class="why">Zinc boils off at a lower temperature than copper melts, absorbing heat. The core survives heavier sparks, so MRR and speed rise.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Which job suits die-sinking EDM rather than Wire EDM?</p>
+<ol class="opts">
+<li>Stamping punch from hardened plate</li>
+<li>Carbide form tool outer profile</li>
+<li>Extrusion die through-hole profile opening</li>
+<li data-correct>Blind cavity in forging die</li>
+</ol>
+<p class="why">A wire must pass right through the work, so it can only make through-cuts. A blind 3D cavity needs a shaped sinking electrode.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Wire bowing during cutting is reduced by…</p>
+<ol class="opts">
+<li data-correct>Higher wire tension</li>
+<li>Lower flushing pressure</li>
+<li>Thicker workpiece plates</li>
+<li>Reverse wire polarity</li>
+</ol>
+<p class="why">Gas bubbles push the wire sideways; more tension keeps it straight and reduces lag at corners.</p>
+</div>
+<div data-scoreboard></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, Ch 7(C) "Wire Electric Discharge Machining" (p.165–169). Jagadeesha §6.23 for the equipment list, Wire EDM vs EDM table, applications, advantages and limitations.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "How is a taper die cut with U–V axes?" or "Why do internal corners always have a radius?"</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0006-edm-parameters-answer-numericals.html"><span>Previous</span>← EDM in full</a>
+<a class="next" href="0008-laser-beam-machining.html"><span>Next</span>Laser beam machining →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

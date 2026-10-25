@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare and Choose · AMP Unit 3</title>
+<meta name="description" content="Unit 3 capstone: master comparison of EDM, Wire EDM, LBM, EBM, PAM and IBM, the End-sem 2025 Q3(b) model answer, a process-selection method and an interleaved scenario drill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../../assets/portal.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-course="amp" data-lesson="0012">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Unit 3 · L12</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="../reference/unit3-process-sheets.html">Process sheets</a>
+</header>
+<main>
+<p class="kicker">Unit 3 · Lesson 12 of 12 · ~30 min · Exam drill</p>
+<h1>Compare and choose: the questions that test understanding</h1>
+<p class="lede">Anyone can memorise six processes. Marks go to the student who can pick the right one for a part and defend it in three lines.</p>
+<div class="meta"><span class="chip exam">End-sem 2025 Q3(b)</span><span class="chip">MSE-style scenarios</span><span class="chip">Tut Sheet I Q7, Q10, Q12–Q14</span></div>
+
+<div class="callout key"><span class="label">Your win today</span>
+<p>Write the PAM–EBM–IBM comparison for full marks, and choose and justify a process for any part in under a minute, including when the right answer is <em>not</em> a thermal process.</p></div>
+
+<h2>The master table</h2>
+<div class="table-wrap"><table class="wide">
+<thead><tr><th></th><th>EDM</th><th>Wire EDM</th><th>LBM</th><th>EBM</th><th>PAM</th><th>IBM</th></tr></thead>
+<tbody>
+<tr><td><strong>Energy</strong></td><td>Spark</td><td>Spark from wire</td><td>Photons</td><td>Electrons</td><td>Plasma jet</td><td>Ar⁺ ions</td></tr>
+<tr><td><strong>Medium</strong></td><td>Dielectric oil</td><td>DI water</td><td>Air / gas</td><td>Vacuum</td><td>Gas</td><td>Vacuum</td></tr>
+<tr><td><strong>Work</strong></td><td>Conductive</td><td>Conductive</td><td>Any non-reflective</td><td>Any</td><td>Conductive (transferred)</td><td>Any</td></tr>
+<tr><td><strong>Removal</strong></td><td>Melt + vaporise</td><td>Melt + vaporise</td><td>Melt + vaporise (ablation)</td><td>Mainly vaporise</td><td>Melt, blown by jet</td><td>Sputtering</td></tr>
+<tr><td><strong>Best at</strong></td><td>3D cavities, dies, fine deep holes</td><td>Through-contours, punch/die</td><td>Small holes, thin-sheet cutting, marking</td><td>Mass perforation, fine holes</td><td>Thick plate cutting</td><td>Nano patterning, polishing</td></tr>
+<tr><td><strong>MRR</strong></td><td>Low</td><td>Low–moderate</td><td>Low</td><td>Low (fast per hole)</td><td>Very high</td><td>Extremely low (nm/min)</td></tr>
+<tr><td><strong>Accuracy</strong></td><td>±0.025 mm (±2.5 µm best)</td><td>~±7 µm</td><td>±0.025 mm or ±10% Ø</td><td>Very high</td><td>±0.8 to ±3 mm</td><td>Nanometre</td></tr>
+<tr><td><strong>Thermal damage</strong></td><td>Recast 2.5–50 µm, HAZ</td><td>Thin recast</td><td>HAZ 0.0025–0.1 mm</td><td>Recast ≤ 0.025 mm</td><td>HAZ 0.75–5 mm</td><td>None (some ion damage)</td></tr>
+<tr><td><strong>Main limit</strong></td><td>Tool wear; conductive only</td><td>Through-cuts only</td><td>Reflective metals; taper</td><td>Vacuum, X-rays, cost</td><td>Poor accuracy, wide kerf</td><td>Painfully slow</td></tr>
+</tbody></table></div>
+<p class="small">Numbers from Jain Ch 7–10, Jagadeesha Ch 6–8 and Hudson (1976). Full per-process cards: <a href="../reference/unit3-process-sheets.html">Unit 3 process sheets</a>.</p>
+
+<h2>End-sem Nov 2025, Q3(b)</h2>
+<div class="recall" data-id="l12-r1">
+<p class="q"><span class="marks">5 marks</span>Compare and contrast Plasma Arc Machining (PAM), Electron Beam Machining (EBM) and Ion Beam Machining (IBM) in terms of principles, parameters and applications. Discuss their suitability for micro- and nano-scale machining.</p>
+<div class="model">
+<div class="table-wrap"><table class="wide compare">
+<thead><tr><th></th><th>PAM</th><th>EBM</th><th>IBM</th></tr></thead>
+<tbody>
+<tr><td>Principle</td><td>Arc-heated gas ionised to plasma (11,000–30,000 °C) in a constricted nozzle; melts work; jet blows melt out</td><td>Electrons accelerated (50–150 kV) and focused; KE → heat; material vaporised</td><td>Ar⁺ ions accelerated in vacuum; momentum transfer sputters atoms; no melting</td></tr>
+<tr><td>Medium</td><td>Gas (N₂, Ar, H₂, air)</td><td>Vacuum 10⁻⁴–10⁻⁵ torr</td><td>High vacuum</td></tr>
+<tr><td>Key parameters</td><td>Current/power, gas type and flow, stand-off distance, cutting speed, nozzle size</td><td>Beam current, pulse duration, lens current (focus/spot), deflection, voltage</td><td>Ion energy, current density, incidence angle, ion species, mask</td></tr>
+<tr><td>Work</td><td>Conductive (transferred arc)</td><td>Any material</td><td>Any material (beam neutralised)</td></tr>
+<tr><td>Scale / accuracy</td><td>Kerf 2.5–9.5 mm; ±0.8–3 mm</td><td>Holes 0.1–1.4 mm, slots ~25 µm</td><td>nm to µm features</td></tr>
+<tr><td>Rate</td><td>Very high</td><td>Low (but fast for small holes)</td><td>Extremely low (nm/min)</td></tr>
+<tr><td>Thermal damage</td><td>Large HAZ (0.75–5 mm)</td><td>Small recast/HAZ</td><td>None</td></tr>
+<tr><td>Applications</td><td>Cutting thick SS/Al/Ti plate, bevelling, plasma spraying</td><td>Perforating sheets, spinnerets, cooling and injector holes, EB lithography</td><td>Ion milling of ICs, gratings, optics figuring, TEM thinning, tool sharpening</td></tr>
+</tbody></table></div>
+<p><strong>Suitability.</strong> <em>PAM</em> is unsuitable for micro or nano work: wide kerf, mm-level tolerance and a large HAZ make it a macro cutting process. <em>EBM</em> is well suited to <strong>micro-machining</strong>: fine, electronically steerable spot, holes of tens of µm, no tool wear. Its recast/HAZ and vacuum batches limit nano work, although EB lithography reaches sub-micron patterns. <em>IBM</em> is the best for <strong>nano-scale</strong> machining: atom-by-atom removal, nm depth control, no HAZ, works on any material. It is too slow for anything larger.</p>
+</div></div>
+
+<h2>A method for choosing</h2>
+<ol class="steps">
+<li><strong>Is the work electrically conductive?</strong> No → EDM, Wire EDM and transferred-arc PAM are out. Think LBM, EBM, IBM, or Unit 1 processes (USM, AJM, AWJM).</li>
+<li><strong>Is any heat damage acceptable?</strong> No → leave the thermal family: ECM (conductive) or AWJM/USM (non-conductive). Heat-sensitive composites go to AWJM.</li>
+<li><strong>What is the feature?</strong> Blind 3D cavity → die-sink EDM. Through-contour in plate → Wire EDM. Many tiny holes in thin sheet → EBM or LBM. Thick plate profile → PAM. Nano pattern or finishing → IBM.</li>
+<li><strong>Any material trap?</strong> Reflective, conductive Al/Cu → avoid LBM. Very large part → avoid EBM/IBM (vacuum chamber). Tight tolerance → avoid PAM.</li>
+<li><strong>Volume and cost.</strong> Mass perforation favours EBM; one-off dies favour EDM/Wire EDM; open-air flexibility favours LBM.</li>
+</ol>
+
+<h2>Scenario drill (MSE style, 2 marks each)</h2>
+<p>Answer from memory: process + two or three reasons. Some answers come from Units 1–2 on purpose.</p>
+
+<div class="recall" data-id="l12-s1">
+<p class="q">S1 · Tut I Q7. Part: 4 mm thick copper alloy, intricate internal contours, thermal distortion must be minimised. Which AMP?</p>
+<div class="model"><p><strong>Wire EDM.</strong> Copper alloy conducts; internal through-contours are exactly what a CNC wire cuts (start hole + profile); DI water cooling gives a very thin recast layer and no distortion from force or bulk heating. LBM is poor on reflective copper; PAM's HAZ and kerf are far too large.</p></div></div>
+
+<div class="recall" data-id="l12-s2">
+<p class="q">S2 · Tut I Q10. High-volume production of precision fuel-injector holes in hardened steel. Justify.</p>
+<div class="model"><p><strong>EDM (micro-EDM drilling).</strong> Hardened steel conducts; EDM drills small, deep, burr-free holes with consistent size and good finish regardless of hardness, and is a standard method for injector nozzles (Jagadeesha §6.13). Mention alternatives: EBM is listed for diesel injector metering holes and is faster per hole (Jain, p.225), and LBM is faster still, but both leave more recast/HAZ and taper.</p></div></div>
+
+<div class="recall" data-id="l12-s3">
+<p class="q">S3 · Tut I Q13. A turbine blade in Inconel needs high-precision cooling holes. Which AMP?</p>
+<div class="model"><p><strong>LBM (percussion drilling)</strong> is the most commonly used method for turbine-blade cooling holes (Jain, p.196): fast, any angle, no tool. If precision and minimal recast matter most, <strong>EDM drilling</strong> (Jain's self-test lists it for 0.5 mm holes with L/D up to 75) or ECM/STEM (Unit 2) are preferred. A strong answer names the trade-off.</p></div></div>
+
+<div class="recall" data-id="l12-s4">
+<p class="q">S4 · Tut I Q12. Cut heat-sensitive CFRP panels. Which AMP and why?</p>
+<div class="model"><p><strong>Abrasive water jet machining</strong> (Unit 1). It is a cold process with no HAZ, so no resin burning or delamination from heat, and CFRP is non-conductive anyway. Thermal processes (LBM, PAM) would char the matrix; EDM cannot cut it.</p></div></div>
+
+<div class="recall" data-id="l12-s5">
+<p class="q">S5 · Tut I Q14. Machine a complex ceramic component without thermal damage or tool wear.</p>
+<div class="model"><p><strong>AJM / AWJM</strong> (Unit 1): non-thermal erosion and no shaped tool to wear. Ceramics are non-conductive (no EDM/ECM). LBM and EBM cause thermal cracking. USM fits brittle ceramics too but its tool wears, which the question rules out.</p></div></div>
+
+<div class="recall" data-id="l12-s6">
+<p class="q">S6. A fabrication shop must profile-cut 60 mm stainless-steel plates quickly. Oxy-fuel fails. Why, and what instead?</p>
+<div class="model"><p><strong>Transferred-arc PAM.</strong> Stainless steel forms a refractory oxide skin and conducts heat well, so the oxy-fuel reaction cannot sustain the cut. Plasma at 11,000–30,000 °C melts it directly at high speed; thick plate up to ~150 mm. Accept the wide kerf and HAZ, which are fine for fabrication.</p></div></div>
+
+<div class="recall" data-id="l12-s7">
+<p class="q">S7. Ten thousand 0.3 mm holes in a 1 mm thick nickel-alloy combustor liner.</p>
+<div class="model"><p><strong>EBM.</strong> Built for mass perforation of thin sheets: very fine spot, electronic beam deflection, holes in microseconds (Jain cites thousands of &lt;1 mm holes in combustor domes; 100× faster than EDM for a spinning head). LBM is the open-air alternative.</p></div></div>
+
+<div class="recall" data-id="l12-s8">
+<p class="q">S8. Mill a 200 nm deep diffraction grating on silicon, or thin a specimen for an electron microscope.</p>
+<div class="model"><p><strong>IBM.</strong> Atom-by-atom sputtering gives nm depth control; no melting or HAZ; directional milling through a photoresist mask gives sharp walls; works on semiconductors and insulators. Its slowness does not matter at this scale.</p></div></div>
+
+<div class="recall" data-id="l12-s9">
+<p class="q">S9. A tap has broken inside an expensive hardened die. How do you remove it?</p>
+<div class="model"><p><strong>EDM.</strong> A tubular or shaped electrode erodes the hardened tap without force, so the die is not damaged. A classic EDM application (Jain, p.159).</p></div></div>
+
+<div class="recall" data-id="l12-s10">
+<p class="q">S10. A blind, intricate 3D cavity in a hardened H13 forging die.</p>
+<div class="model"><p><strong>Die-sinking EDM.</strong> A graphite or copper electrode shaped as the cavity's negative is sunk after hardening, so no heat-treatment distortion. Wire EDM cannot make blind cavities.</p></div></div>
+
+<h2>Interleaved quick-fire</h2>
+<div class="quiz">
+<p class="q">1. Cut 80 mm thick stainless-steel plate quickly:</p>
+<ol class="opts"><li>EBM</li><li>IBM</li><li data-correct>PAM</li><li>LBM</li></ol>
+<p class="why">Thick plate and speed: transferred-arc PAM. The others are thin-section processes.</p>
+</div>
+<div class="quiz">
+<p class="q">2. Pattern a 1 µm feature on a silicon wafer with no heat damage:</p>
+<ol class="opts"><li data-correct>IBM</li><li>PAM</li><li>EDM</li><li>WEDM</li></ol>
+<p class="why">Nanometre control and no HAZ: IBM.</p>
+</div>
+<div class="quiz">
+<p class="q">3. Square through-profile in a carbide punch plate:</p>
+<ol class="opts"><li>LBM</li><li>PAM</li><li>IBM</li><li data-correct>WEDM</li></ol>
+<p class="why">Conductive carbide, through-contour, tight tolerance: Wire EDM.</p>
+</div>
+<div class="quiz">
+<p class="q">4. Deep, accurate holes in a pure copper block:</p>
+<ol class="opts"><li>LBM</li><li data-correct>EDM</li><li>PAM</li><li>IBM</li></ol>
+<p class="why">Copper reflects lasers and conducts heat away. EDM does not care about reflectivity.</p>
+</div>
+<div class="quiz">
+<p class="q">5. Machine a heat-sensitive glass-fibre composite panel:</p>
+<ol class="opts"><li>EBM</li><li>LBM</li><li data-correct>AWJM</li><li>PAM</li></ol>
+<p class="why">Non-thermal is the deciding constraint: abrasive water jet (Unit 1).</p>
+</div>
+<div class="quiz">
+<p class="q">6. Perforate thousands of fine holes in thin sheet, fastest:</p>
+<ol class="opts"><li data-correct>EBM</li><li>EDM</li><li>WEDM</li><li>IBM</li></ol>
+<p class="why">Electronically deflected beam drilling holes in microseconds: EBM's signature application.</p>
+</div>
+<div data-scoreboard></div>
+
+<h2>Your revision schedule for Unit 3</h2>
+<div class="callout exam"><span class="label">Spaced retrieval, not rereading</span>
+<ul>
+<li><strong>Tomorrow:</strong> open each lesson and do only the "Practise" recall boxes. Rate yourself honestly.</li>
+<li><strong>Day 3:</strong> solve the whole numerical list on the <a href="../reference/unit3-formula-sheet.html">formula sheet</a> without looking at solutions.</li>
+<li><strong>Day 7:</strong> timed: End-sem 2025 Q3 (a), (b), (c) in 30 minutes, with sketches.</li>
+<li><strong>Day 14 and the week before the exam:</strong> scenario drill (this lesson) mixed with Units 4–5.</li>
+</ul>
+<p>Anything you rated "Missed it" goes first in the next session.</p></div>
+
+<div class="source"><span class="label">Primary source</span>
+Jain, review and self-test questions at the end of Ch 7–10; Jagadeesha's comparison tables (§6.20–6.23, §8.10, Table 8.5). Tutorial Sheet I for the scenario style your department uses.</div>
+
+<div class="ask"><strong>Ask your teacher:</strong> "Give me 10 new scenarios mixing Units 1–3" or "Mark my Q3(b) answer" (paste what you wrote).</div>
+
+<div class="done-box" data-done-slot></div>
+<nav class="pager">
+<a href="0011-ion-beam-machining.html"><span>Previous</span>← Ion beam machining</a>
+<a class="next" href="../index.html"><span>Unit 3 complete</span>Back to the AMP course →</a>
+</nav>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

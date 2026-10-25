@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMP Glossary · Unit 3</title>
+<meta name="description" content="Canonical terms for Unit 3 thermal processes used across every AMP lesson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../../assets/portal.css">
+<style>
+ dl.gloss dt { font-family: var(--sans); font-weight: 700; margin-top: 1.1rem; }
+ dl.gloss dd { margin: .2rem 0 0; }
+ dl.gloss .avoid { font-family: var(--sans); font-size: .82rem; color: var(--ink-3); font-style: italic; }
+</style>
+</head>
+<body data-course="amp">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Glossary</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Reference · Glossary</p>
+<h1>AMP glossary: Unit 3</h1>
+<p class="lede">The words every lesson uses, defined once. Use these exact terms in answers; examiners reward precise vocabulary.</p>
+
+<h2>Spark processes (EDM, Wire EDM)</h2>
+<dl class="gloss">
+<dt>Inter-electrode gap (IEG)</dt><dd>The small dielectric-filled gap between tool and workpiece across which sparks occur, typically 12–50 µm in operation.<br><span class="avoid">Avoid: spark distance, clearance</span></dd>
+<dt>Dielectric</dt><dd>The insulating liquid in the IEG that breaks down to form the spark channel, then deionises, cools and flushes. Kerosene, EDM oil, deionised water.<br><span class="avoid">Avoid: coolant, electrolyte (that is ECM)</span></dd>
+<dt>Breakdown voltage (V<sub>b</sub>)</dt><dd>Gap voltage at which the dielectric ionises and a spark forms. For maximum power in an RC circuit, V<sub>b</sub> ≈ 0.72 V<sub>0</sub>.</dd>
+<dt>Ignition delay</dt><dd>Time between voltage application and dielectric breakdown.</dd>
+<dt>Normal (straight) polarity</dt><dd>Tool negative, workpiece positive. Reverse polarity: tool positive, workpiece negative.</dd>
+<dt>Pulse on-time, off-time, duty cycle</dt><dd>On-time: spark duration. Off-time: pause for deionisation and flushing. Duty cycle = t<sub>on</sub> / (t<sub>on</sub> + t<sub>off</sub>).</dd>
+<dt>Relaxation (RC) generator</dt><dd>Power supply in which a capacitor charges through a resistor and discharges across the gap, giving a sawtooth voltage.</dd>
+<dt>Critical resistance</dt><dd>Smallest charging resistance that still lets the RC circuit relax into discrete sparks; below it a continuous arc forms.</dd>
+<dt>Arc</dt><dd>A sustained, uncontrolled discharge at one spot; damages tool and work. Caused by debris or too-low resistance.</dd>
+<dt>Wear ratio</dt><dd>Volume of tool eroded ÷ volume of work eroded (Jain's definition). Relative electrode wear (REW) is the same, expressed in %.<br><span class="avoid">State the direction you use; some texts invert it.</span></dd>
+<dt>Overcut</dt><dd>Radial clearance between tool and machined feature, roughly equal to the spark gap. Diametral overcut is twice this.</dd>
+<dt>Flushing</dt><dd>Forcing clean dielectric through the gap to remove debris: pressure, suction, side/jet, or pulsed with electrode retraction.</dd>
+<dt>Recast (white) layer</dt><dd>Melt that refroze on the machined surface: hard, brittle, porous, microcracked.</dd>
+<dt>Heat-affected zone (HAZ)</dt><dd>Layer below the surface that was heated but not melted, with altered properties and residual stress.</dd>
+<dt>Converted layer</dt><dd>Zone below the HAZ where grain structure has changed from the parent metal.</dd>
+<dt>Electrode refeeding</dt><dd>Returning the tool to a reference point after each hole so length lost to wear does not make later holes shallower.</dd>
+<dt>Kerf</dt><dd>Width of material removed by a cut: wire diameter plus twice the overcut in Wire EDM.</dd>
+<dt>Stratified wire</dt><dd>Copper-core wire with a zinc coating that vaporises first, keeping the core cool so the wire carries more energy.</dd>
+<dt>Wire bowing</dt><dd>Sideways bending of the wire by gas-bubble pressure; causes lag at corners. Reduced by higher tension.</dd>
+<dt>U–V axes</dt><dd>Extra CNC axes that move the upper wire guide to tilt the wire for taper cutting.</dd>
+</dl>
+
+<h2>Beam and plasma processes (LBM, EBM, PAM, IBM)</h2>
+<dl class="gloss">
+<dt>Stimulated emission</dt><dd>Emission of a photon identical to a passing photon by an excited atom; the basis of the laser.</dd>
+<dt>Population inversion</dt><dd>State in which more atoms occupy a higher energy level than a lower one, so stimulated emission outpaces absorption.</dd>
+<dt>Pumping</dt><dd>Supplying energy to create population inversion: flash lamp (optical), electrical discharge, or atom–atom collision.</dd>
+<dt>Resonator (optical cavity)</dt><dd>Fully and partially reflecting mirrors that feed photons back through the medium; the partial mirror lets the beam out.</dd>
+<dt>Power density (intensity)</dt><dd>Beam power ÷ spot area, W/cm². Decides whether a beam heats, welds or machines.</dd>
+<dt>Beam divergence (θ)</dt><dd>Angular spread of a beam; focused spot diameter W = fθ.</dd>
+<dt>Depth of focus</dt><dd>Length along the beam over which the waist diameter stays nearly constant; larger for longer focal length.</dd>
+<dt>Assist gas</dt><dd>Gas jet coaxial with a laser beam that clears melt and protects the lens; O₂ adds exothermic heat, Ar/N₂ give clean edges.</dd>
+<dt>Trepanning</dt><dd>Making a large hole by tracing its outline with the beam (or electrode) instead of removing the whole volume.</dd>
+<dt>Thermionic emission</dt><dd>Release of electrons from a hot cathode; the electron source in an EBM gun.</dd>
+<dt>Grid (bias) cup</dt><dd>Negatively biased electrode in the EBM gun that controls beam current and switches the beam into pulses.</dd>
+<dt>Backing material</dt><dd>Sacrificial layer under the EBM workpiece that vaporises at breakthrough and blows molten metal out of the hole.</dd>
+<dt>Specific energy (W)</dt><dd>Energy needed to remove unit volume. For EBM: W = ρ[c<sub>s</sub>(T<sub>m</sub> − T<sub>i</sub>) + L<sub>f</sub> + c<sub>l</sub>(T<sub>b</sub> − T<sub>m</sub>) + L<sub>v</sub>].</dd>
+<dt>Plasma</dt><dd>Ionised gas of free electrons, ions and neutral atoms; electrically conductive; the "fourth state of matter".</dd>
+<dt>Transferred arc</dt><dd>Plasma arc running from cathode to the (conductive) workpiece; high efficiency; used for cutting.</dd>
+<dt>Non-transferred arc</dt><dd>Plasma arc running from cathode to the nozzle; the work is outside the circuit, so it may be non-conductive.</dd>
+<dt>Double arcing</dt><dd>Arc jumping electrode → nozzle → workpiece; destroys nozzles in air plasma torches.</dd>
+<dt>Stand-off distance (SOD)</dt><dd>Distance from nozzle tip to work surface.</dd>
+<dt>Sputtering</dt><dd>Ejection of surface atoms by momentum transfer from impinging ions; IBM's removal mechanism. No melting.</dd>
+<dt>Sputter yield (S)</dt><dd>Average number of target atoms ejected per incident ion.</dd>
+<dt>Neutraliser</dt><dd>Electron source that neutralises the ion beam so insulating targets do not charge up.</dd>
+</dl>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

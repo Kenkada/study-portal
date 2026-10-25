@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 3 Process Sheets · AMP</title>
+<meta name="description" content="One revision card per Unit 3 process: principle, sketch, parameters, key numbers, applications, advantages and limitations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../../assets/portal.css">
+<style>
+ section.card-sheet { border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem; margin: 1.6rem 0; background: var(--paper); break-inside: avoid; }
+ section.card-sheet h2 { border-top: 0; margin-top: 0; padding-top: 0; font-size: 1.3rem; }
+ section.card-sheet h4 { margin: .9rem 0 .2rem; }
+ section.card-sheet ul { margin: .2rem 0; font-size: .95rem; }
+ .toc { display: flex; flex-wrap: wrap; gap: .4rem; font-family: var(--sans); font-size: .85rem; }
+ .toc a { border: 1px solid var(--rule); border-radius: 999px; padding: .2rem .7rem; text-decoration: none; }
+ .principle { font-size: 1rem; }
+ @media print { section.card-sheet { page-break-after: always; } }
+</style>
+</head>
+<body data-course="amp">
+<header class="topbar">
+  <nav class="crumbs"><a href="../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">AMP</a><span class="sep">/</span><span>Process sheets</span></nav>
+  <span class="spacer"></span>
+  <a class="pill" href="unit3-formula-sheet.html">Formulas</a>
+</header>
+<main>
+<p class="kicker">Reference · Unit 3</p>
+<h1>Process sheets: one card per process</h1>
+<p class="lede">The 7-part answer skeleton, filled in for each process. Use these the night before, after you have done the lessons.</p>
+<nav class="toc"><a href="#edm">EDM</a><a href="#wedm">Wire EDM</a><a href="#lbm">LBM</a><a href="#ebm">EBM</a><a href="#pam">PAM</a><a href="#ibm">IBM</a></nav>
+
+<section class="card-sheet" id="edm">
+<h2>EDM: electric discharge machining</h2>
+<p class="principle"><strong>Principle.</strong> Controlled, repetitive sparks across a dielectric-filled gap between tool (−) and work (+) melt and vaporise craters; the tool shape is reproduced.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/edm-setup.svg" alt="EDM setup sketch."></div></figure>
+<h4>Working</h4><ul><li>Field at narrowest gap → ionisation → plasma channel ~10,000 °C</li><li>Melting under ~200 atm channel pressure → pulse-off collapse ejects melt</li><li>Dielectric quenches and flushes; servo holds gap; craters overlap</li></ul>
+<h4>Elements</h4><ul><li>Pulsed DC generator (RC or transistor) · dielectric system (pump, filter) · electrode (graphite, Cu, Cu–W, brass) · servo · flushing</li></ul>
+<h4>Parameters</h4><ul><li>Current ↑ / voltage ↑ / on-time ↑ / C ↑ → MRR ↑, Ra ↑, damage ↑</li><li>Frequency ↑ → finer finish · gap ↓ → better accuracy, lower MRR</li><li>DI water: MRR ↑, tool wear ↑ · good flushing: MRR up to ~10×</li></ul>
+<h4>Key numbers</h4><ul><li>IEG 12–50 µm · 80–100 V · MRR 0.1–10 mm³/min·A · ±0.025 mm · Ra 0.8–3.1 µm · recast 2.5–50 µm · L/D up to 100:1</li></ul>
+<h4>Derivations</h4><ul><li>V<sub>b</sub> ≈ 0.72 V<sub>0</sub> · MRR ∝ 1/R<sub>c</sub> · H = K V<sub>b</sub><sup>0.5</sup>C<sup>0.33</sup> (<a href="../lessons/0004-edm-rc-circuit-max-power.html">L4</a>, <a href="../lessons/0005-edm-mrr-surface-finish-derivation.html">L5</a>)</li></ul>
+<h4>Applications</h4><ul><li>Hardened dies and moulds · fine deep holes (injectors, cooling holes) · broken taps · splines, D-holes · fragile parts</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>Any conductive hardness</li><li>No force; complex shapes</li><li>Burr-free; after hardening</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Conductive only; low MRR</li><li>Tool wear, overcut</li><li>Recast, HAZ, fatigue ↓15%</li></ul></div></div>
+</section>
+
+<section class="card-sheet" id="wedm">
+<h2>Wire EDM</h2>
+<p class="principle"><strong>Principle.</strong> A continuously fed wire (Ø0.05–0.3 mm) is the electrode; sparks in deionised water cut a CNC-programmed through-contour.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/wedm.svg" alt="Wire EDM sketch."></div></figure>
+<h4>Four systems</h4><ul><li>Power supply (~1 MHz, ≤ ~20–30 A) · DI water dielectric (coaxial jets, 5 µm filter) · CNC X–Y + U–V positioning (adaptive) · wire drive (tension, diamond/sapphire guides)</li></ul>
+<h4>Specials</h4><ul><li>Stratified wire: Zn coat vaporises first → core cooler → more energy, faster cutting</li><li>Wire bowing from gas bubbles → higher tension</li><li>Cutting rate depends on thickness, not complexity</li></ul>
+<h4>Key numbers</h4><ul><li>Accuracy ~±7 µm · Ra ~0.1 µm finish pass · 18,000 mm²/h (50 mm steel) · kerf = d + 2·overcut</li></ul>
+<h4>Applications</h4><ul><li>Punch/die sets · carbide, PCD, CBN tools · extrusion dies · gears · medical parts · EDM electrodes</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>No tool to make</li><li>Any 2D contour; tapers</li><li>Die cost −30–70%</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Through-cuts only</li><li>Slow; costly; wire breaks</li><li>Conductive only</li></ul></div></div>
+</section>
+
+<section class="card-sheet" id="lbm">
+<h2>LBM: laser beam machining</h2>
+<p class="principle"><strong>Principle.</strong> A monochromatic, coherent, low-divergence beam is focused to a tiny spot (10⁶–10⁸ W/cm²); absorbed energy melts and vaporises material, which vapour pressure and assist gas expel.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/lbm.svg" alt="LBM sketch."></div></figure>
+<h4>Laser production</h4><ul><li>Absorption → spontaneous → <strong>stimulated emission</strong> · pumping → <strong>population inversion</strong> · resonator mirrors (100% + partial)</li></ul>
+<h4>Types</h4><ul><li>Ruby 0.69 µm (pulsed, ~1%) · Nd:YAG 1.06 µm (pulsed/CW, fine focus) · CO₂ 10.6 µm (high CW power, ~10–15%)</li></ul>
+<h4>Parameters</h4><ul><li>Power/pulse energy, pulse duration (0.1–2.5 ms deep holes), rep rate, wavelength vs absorptivity, focal length and focus position (W = fθ), assist gas, speed</li></ul>
+<h4>Key numbers</h4><ul><li>Holes 0.125–1.25 mm, L/D to 100:1 · HAZ 0.0025–0.1 mm · repeatability ±0.025 mm or ±10% · efficiency &lt;1% · &gt;1.2 mm holes trepanned</li></ul>
+<h4>Applications</h4><ul><li>Turbine cooling holes · diamond dies, jewel bearings · sheet cutting · marking · scribing wafers · resistor trimming</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>Any material; no contact</li><li>Through transparent media</li><li>Tiny holes; easy CNC</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Reflective Al, Cu difficult</li><li>Very low efficiency; cost</li><li>Taper, recast, thin sections</li></ul></div></div>
+</section>
+
+<section class="card-sheet" id="ebm">
+<h2>EBM: electron beam machining</h2>
+<p class="principle"><strong>Principle.</strong> Electrons from a hot cathode, accelerated (50–150 kV) and magnetically focused in vacuum, strike the work in pulses; KE → heat vaporises material; backing material blows out the melt.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/ebm.svg" alt="EBM sketch."></div></figure>
+<h4>System</h4><ul><li>Gun (W/Ta filament ~2000 °C, grid cup pulses beam, anode) · HV supply · aperture, magnetic lens, deflection coils · vacuum 10⁻⁴–10⁻⁵ torr · viewing optics · CNC table</li></ul>
+<h4>Parameters</h4><ul><li>Beam current 100 µA–1 A (energy/pulse) · pulse 50 µs–10 ms (hole size, HAZ) · lens current (focus, spot) · focal position (hole shape) · deflection (shapes)</li></ul>
+<h4>Derivation</h4><ul><li>MRR = ηP/W; W = ρ[c<sub>s</sub>ΔT<sub>s</sub> + L<sub>f</sub> + c<sub>l</sub>ΔT<sub>l</sub> + L<sub>v</sub>]; η &lt; 20% (<a href="../lessons/0009-electron-beam-machining.html">L9</a>)</li></ul>
+<h4>Key numbers</h4><ul><li>Holes 0.1–1.4 mm, depth ~10 mm, L/D ~15:1 · recast ≤ 0.025 mm</li></ul>
+<h4>Applications</h4><ul><li>Mass perforation (combustor domes, filters) · spinnerets · injector metering holes · cooling holes · wire-drawing dies · EB lithography</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>Any material</li><li>Very fine, very fast holes</li><li>Electronic steering</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Vacuum time; chamber size</li><li>X-rays; very costly</li><li>Thin work; taper, recast</li></ul></div></div>
+</section>
+
+<section class="card-sheet" id="pam">
+<h2>PAM: plasma arc machining</h2>
+<p class="principle"><strong>Principle.</strong> A DC arc ionises gas flowing through a constricting nozzle; the plasma jet (11,000–30,000 °C, hundreds of m/s) melts the work and blows the melt out.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/pam.svg" alt="PAM sketch."></div></figure>
+<h4>Modes</h4><ul><li><strong>Transferred</strong>: arc to work (+), conductive only, 85–90% efficient, cutting · <strong>Non-transferred</strong>: arc to nozzle, any work, 65–75%, spraying</li></ul>
+<h4>Torches</h4><ul><li>Air (Zr/Hf electrode) · oxygen-injected (+25% speed on steel) · dual gas (sharp top edge) · water-injected (square cut, small HAZ)</li></ul>
+<h4>Parameters</h4><ul><li>Current/power (with matching gas flow) · gas type and flow · SOD 6–30 mm · speed S = 25.4/t at 500 A</li></ul>
+<h4>Key numbers</h4><ul><li>Up to 150 mm plate · ±0.8 mm (t &lt; 25) / ±3 mm · kerf 2.5–9.5 mm · taper 5–7° · Ra 5–75 µm · HAZ 0.75–5 mm</li></ul>
+<h4>Applications</h4><ul><li>SS, Al, Ti, Cu plate cutting · stack cutting · pipe bevelling · plasma turning · underwater cutting · spraying and surfacing</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>Very fast; thick plate</li><li>Metals oxy-fuel can't cut</li><li>Easy CNC automation</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Poor accuracy; wide kerf</li><li>Large HAZ; dross</li><li>Fumes, noise, UV</li></ul></div></div>
+</section>
+
+<section class="card-sheet" id="ibm">
+<h2>IBM: ion beam machining</h2>
+<p class="principle"><strong>Principle.</strong> Inert-gas ions (Ar⁺) accelerated in vacuum strike the surface and eject atoms by momentum transfer (<strong>sputtering</strong>); no melting.</p>
+<figure><div class="sheet"><img src="../assets/diagrams/ibm.svg" alt="IBM sketch."></div></figure>
+<h4>Equipment</h4><ul><li>Ion source (discharge chamber, hot cathode, magnets) · extraction/acceleration grids (0.3–2 kV; up to ~10 keV) · neutraliser · vacuum chamber · mask · tilting, rotating holder</li></ul>
+<h4>Derivation</h4><ul><li>ḣ = JSM/(ρF): ∝ current density × sputter yield (<a href="../lessons/0011-ion-beam-machining.html">L11</a>)</li></ul>
+<h4>Parameters</h4><ul><li>Ion energy · current density · incidence angle (oblique ↑ yield) · ion species · target and mask materials · rotation</li></ul>
+<h4>Key numbers</h4><ul><li>nm/min (Tut Q20: 22.3 nm/min) · NASA: SS at 210 nm/min; 0.9 mm holes took 75 h</li></ul>
+<h4>Applications</h4><ul><li>Ion milling of ICs and thin films · gratings, holograms · optics figuring, polishing · TEM thinning · diamond tool sharpening · cleaning</li></ul>
+<div class="grid2"><div class="box pro"><h4>Advantages</h4><ul><li>Any material; nm precision</li><li>No HAZ, recast or force</li><li>Directional, chemical-free</li></ul></div><div class="box con"><h4>Limitations</h4><ul><li>Extremely slow</li><li>Costly vacuum system</li><li>Mask erosion; redeposition</li></ul></div></div>
+</section>
+</main>
+<script src="../../assets/learn.js"></script>
+</body>
+</html>

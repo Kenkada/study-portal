@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 460" role="img" aria-labelledby="t d">
+<title id="t">Four stages of a single EDM spark</title>
+<desc id="d">1: field concentrates at the narrowest gap and the dielectric ionises. 2: a plasma channel forms; electrons hit the anode work, ions hit the cathode tool. 3: high-pressure channel holds superheated melt; a vapour bubble grows. 4: at pulse-off the pressure collapses, molten metal is ejected, leaving a crater and debris.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.5;fill:none}
+ text{font-family:Inter,Arial,sans-serif;font-size:12.5px;fill:#222}
+ .sm{font-size:11px;fill:#444}
+ .b{font-weight:700}
+</style>
+<rect width="540" height="460" fill="#fff"/>
+<g id="frame">
+ <rect style="stroke:#bbb" x="10" y="10" width="255" height="215" rx="6" class="s"/>
+ <rect style="stroke:#bbb" x="275" y="10" width="255" height="215" rx="6" class="s"/>
+ <rect style="stroke:#bbb" x="10" y="235" width="255" height="215" rx="6" class="s"/>
+ <rect style="stroke:#bbb" x="275" y="235" width="255" height="215" rx="6" class="s"/>
+</g>
+<!-- panel 1 -->
+<text x="22" y="32" class="b">1 · Field + ionisation</text>
+<path d="M40,50 L235,50 L235,100 L150,100 L140,110 L130,100 L40,100 Z" fill="#e6c29b" class="s"/>
+<text x="46" y="70" class="sm">tool (−)</text>
+<rect x="40" y="140" width="195" height="55" fill="#d8d3c6" class="s"/>
+<text x="46" y="188" class="sm">work (+)</text>
+<rect x="40" y="100" width="195" height="40" fill="#dcecf7" opacity=".6"/>
+<g fill="#1d5a8c"><circle cx="138" cy="118" r="2.4"/><circle cx="146" cy="126" r="2.4"/><circle cx="132" cy="130" r="2.4"/><circle cx="150" cy="114" r="2.4"/></g>
+<text x="160" y="124" class="sm">e⁻ cold-emitted,</text>
+<text x="160" y="137" class="sm">collide → ions</text>
+<text x="22" y="214" class="sm">Spark starts where the gap is smallest.</text>
+<!-- panel 2 -->
+<text x="287" y="32" class="b">2 · Plasma channel</text>
+<path d="M305,50 L500,50 L500,100 L415,100 L405,110 L395,100 L305,100 Z" fill="#e6c29b" class="s"/>
+<rect x="305" y="140" width="195" height="55" fill="#d8d3c6" class="s"/>
+<rect x="305" y="100" width="195" height="40" fill="#dcecf7" opacity=".6"/>
+<rect x="398" y="108" width="14" height="32" fill="#f39c12" opacity=".85"/>
+<text x="420" y="113" class="sm">≈ 8,000–12,000 °C</text>
+<text x="420" y="125" class="sm">e⁻ → work (+)</text>
+<text x="420" y="137" class="sm">ions → tool (−)</text>
+<text x="287" y="214" class="sm">Electrons heat the anode (work) most.</text>
+<!-- panel 3 -->
+<text x="22" y="257" class="b">3 · Melt + vapour bubble</text>
+<path d="M40,275 L235,275 L235,325 L150,325 L140,335 L130,325 L40,325 Z" fill="#e6c29b" class="s"/>
+<rect x="40" y="365" width="195" height="55" fill="#d8d3c6" class="s"/>
+<rect x="40" y="325" width="195" height="40" fill="#dcecf7" opacity=".6"/>
+<ellipse cx="140" cy="350" rx="40" ry="20" fill="#fff" stroke="#888" stroke-dasharray="3 3"/>
+<rect x="134" y="333" width="12" height="32" fill="#f39c12" opacity=".85"/>
+<path d="M118,365 Q140,392 162,365 Z" fill="#e74c3c" opacity=".75"/>
+<text x="188" y="350" class="sm">bubble,</text>
+<text x="188" y="362" class="sm">p ≈ 200 atm</text>
+<text x="22" y="440" class="sm">High pressure stops the melt boiling off.</text>
+<!-- panel 4 -->
+<text x="287" y="257" class="b">4 · Pulse off: ejection</text>
+<path d="M305,275 L500,275 L500,325 L415,325 L405,335 L395,325 L305,325 Z" fill="#e6c29b" class="s"/>
+<path d="M305,365 L383,365 Q405,392 427,365 L500,365 L500,420 L305,420 Z" fill="#d8d3c6" class="s"/>
+<rect x="305" y="325" width="195" height="40" fill="#dcecf7" opacity=".6"/>
+<g fill="#555"><circle cx="372" cy="345" r="3"/><circle cx="440" cy="340" r="2.5"/><circle cx="455" cy="352" r="2"/><circle cx="360" cy="333" r="2"/></g>
+<text x="440" y="392" class="sm">crater</text>
+<text x="452" y="330" class="sm">debris</text>
+<text x="287" y="440" class="sm">Cool dielectric rushes in; melt explodes out.</text>
+</svg>

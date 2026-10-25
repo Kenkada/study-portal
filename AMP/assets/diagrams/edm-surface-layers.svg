@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 260" role="img" aria-labelledby="t d">
+<title id="t">Layers below an EDM'd surface</title>
+<desc id="d">Cross-section: cratered top surface, recast (white) layer, heat affected zone, converted layer, then unaffected parent metal.</desc>
+<style>
+ .s{stroke:#222;stroke-width:1.4;fill:none}
+ text{font-family:Inter,Arial,sans-serif;font-size:12.5px;fill:#222}
+ .sm{font-size:11px;fill:#444}
+ .b{font-weight:700}
+</style>
+<rect width="620" height="260" fill="#fff"/>
+<path d="M20,40 Q40,22 60,40 Q80,58 100,40 Q120,24 140,40 Q160,56 180,40 Q200,22 220,40 Q240,58 260,40 Q280,26 300,40 L300,240 L20,240 Z" fill="#cfc9bb"/>
+<path d="M20,40 Q40,22 60,40 Q80,58 100,40 Q120,24 140,40 Q160,56 180,40 Q200,22 220,40 Q240,58 260,40 Q280,26 300,40 L300,72 L20,72 Z" fill="#fbfbfb" stroke="#222" stroke-width="1.2"/>
+<path d="M60,48 l6,14 M150,46 l-4,16 M232,50 l5,12" stroke="#c0392b" stroke-width="1.2"/>
+<rect x="20" y="72" width="280" height="38" fill="#f1d9b8"/>
+<rect x="20" y="110" width="280" height="40" fill="#e3d7c3"/>
+<rect x="20" y="150" width="280" height="90" fill="#cfc9bb"/>
+<line x1="20" y1="72" x2="300" y2="72" class="s"/><line x1="20" y1="110" x2="300" y2="110" class="s"/><line x1="20" y1="150" x2="300" y2="150" class="s"/>
+<rect style="stroke:none" x="20" y="22" width="280" height="218" class="s" fill="none"/>
+<line x1="300" y1="56" x2="330" y2="56" class="s"/>
+<text x="336" y="52" class="b">Recast (white) layer</text>
+<text x="336" y="66" class="sm">resolidified melt · 2.5–50 µm · very hard (~65 HRC), brittle, porous, microcracks</text>
+<line x1="300" y1="91" x2="330" y2="91" class="s"/>
+<text x="336" y="88" class="b">Heat affected zone (HAZ)</text>
+<text x="336" y="102" class="sm">≈ 25 µm · heated, not melted · residual tensile stress, grain-boundary cracks</text>
+<line x1="300" y1="130" x2="330" y2="130" class="s"/>
+<text x="336" y="127" class="b">Converted layer</text>
+<text x="336" y="141" class="sm">grain structure changed from the original</text>
+<line x1="300" y1="195" x2="330" y2="195" class="s"/>
+<text x="336" y="192" class="b">Parent metal</text>
+<text x="336" y="206" class="sm">unaffected</text>
+<text x="60" y="16" class="sm">non-directional cratered (matte) surface</text>
+</svg>
