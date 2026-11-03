@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bevel Gears</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 46</p>
+<h1>Bevel gears</h1>
+<p class="meta">About 40 minutes · Bhandari Ch. 19</p>
+<div class="win"><b>Your win:</b> you can name the bevel gear types and terms, and use Tredgold's approximation to get the formative number of teeth z/cos γ. You can find the three tooth-force components at the mean radius and derive the Lewis equation for bevel gears, including the bevel factor (1 − b/A₀), by integrating along the face. Then you can rate a bevel pair for bending and pitting.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 43–45)</span>
+<details class="recall"><summary>Formative teeth of a helical gear, and why we need them?</summary><div>z′ = z/cos³ψ. The tooth strength is that of the equivalent spur gear in the normal plane, so Y is read at z′.</div></details>
+<details class="recall"><summary>Ratio factor Q for external spur gears?</summary><div>Q = 2z<sub>g</sub>/(z<sub>g</sub> + z<sub>p</sub>).</div></details>
+<details class="recall"><summary>Separating (radial) force on a spur gear?</summary><div>P<sub>r</sub> = P<sub>t</sub> tan α.</div></details>
+</div>
+
+<h2>1. Types and uses (§19.1)</h2>
+<p>Bevel gears transmit power between <b>intersecting</b> shafts, almost always at 90° (<a class="bk" data-p="711"></a>–713).</p>
+<ul>
+<li><b>Straight</b> bevel: simple to design and make, noisy at high speed. <b>Spiral</b> bevel: smooth, quiet and stronger, but costly. The comparison is the same as spur against helical.</li>
+<li>By pitch angle: external (under 90°), <b>crown</b> (exactly 90°, the bevel equivalent of a rack) and internal (over 90°).</li>
+<li><b>Miter</b> gears: an identical pair at 90°, each with a 45° pitch angle, so a 1:1 ratio. <b>Zerol</b>: spiral teeth with zero spiral angle. <b>Skew</b> bevel: straight teeth on non-intersecting shafts. <b>Face</b> gears: a spur or helical pinion on a disc gear.</li>
+<li><b>Hypoid</b> gears: spiral-type teeth on offset, non-intersecting shafts. The pitch surfaces are hyperboloids, so there is sliding, which needs EP oil and gives 96–98% efficiency against 98–99% for bevels. Used in <b>automobile differentials</b>: the offset drops the drive shaft and lowers the car's centre of gravity.</li>
+</ul>
+
+<h2>2. Terminology and Tredgold's approximation (§19.2)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 240" role="img" aria-label="Half section of a bevel gear pair with pitch cone, back cone and force components">
+  <line x1="120" y1="200" x2="520" y2="200" class="dash"/>
+  <line x1="120" y1="200" x2="120" y2="20" class="dash"/>
+  <text x="440" y="216" class="small">pinion axis</text>
+  <text x="126" y="30" class="small">gear axis</text>
+  <line x1="120" y1="200" x2="280" y2="80" class="ln"/>
+  <line x1="280" y1="80" x2="280" y2="200" class="thin"/>
+  <line x1="280" y1="80" x2="120" y2="80" class="thin"/>
+  <text x="286" y="150" class="small">D<tspan dy="3" font-size="9">p</tspan><tspan dy="-3">/2</tspan></text>
+  <text x="176" y="74" class="small">D<tspan dy="3" font-size="9">g</tspan><tspan dy="-3">/2</tspan></text>
+  <line x1="280" y1="80" x2="370" y2="200" class="dash"/>
+  <text x="372" y="190" class="small">back cone, r<tspan dy="3" font-size="9">b</tspan></text>
+  <line x1="228.8" y1="118.4" x2="280" y2="80" class="acc"/>
+  <text transform="translate(141,178) rotate(-36.87)" class="small halo">A₀ (cone distance)</text>
+  <text x="222" y="134" class="acc small halo">face b</text>
+  <path d="M170,200 A50,50 0 0 0 160,170" class="thin"/>
+  <text x="172" y="190" class="small">γ</text>
+  <circle cx="120" cy="200" r="3" class="fill-ink"/><text x="104" y="216" class="small">O</text>
+  <circle cx="254.4" cy="99.2" r="6" class="ln"/><circle cx="254.4" cy="99.2" r="1.8" class="fill-ink"/>
+  <text x="232" y="94" class="small">P<tspan dy="3" font-size="9">t</tspan></text>
+  <line x1="254.4" y1="99.2" x2="296.4" y2="155.2" class="acc"/>
+  <polygon points="287,149 297,156 297,144" class="fill-acc"/>
+  <line x1="254.4" y1="99.2" x2="296.4" y2="99.2" class="blu"/><polygon points="288,94.2 297,99.2 288,104.2" class="dotb"/>
+  <line x1="296.4" y1="99.2" x2="296.4" y2="155.2" class="grn"/><polygon points="291.4,146 301.4,146 296.4,156" class="fill-ink"/>
+  <text x="300" y="94" class="blu small halo">P<tspan dy="3" font-size="9">a</tspan><tspan dy="-3"> = P</tspan><tspan dy="3" font-size="9">s</tspan><tspan dy="-3"> sin γ</tspan></text>
+  <text x="302" y="132" class="grn small halo">P<tspan dy="3" font-size="9">r</tspan><tspan dy="-3"> = P</tspan><tspan dy="3" font-size="9">s</tspan><tspan dy="-3"> cos γ</tspan></text>
+  <text x="196" y="178" class="acc small halo">P<tspan dy="3" font-size="9">s</tspan><tspan dy="-3"> = P</tspan><tspan dy="3" font-size="9">t</tspan><tspan dy="-3"> tan α (⊥ pitch line)</tspan></text>
+  <text x="420" y="60" class="small">drawn to scale for Ex. 19.1:</text>
+  <text x="420" y="76" class="small">D<tspan dy="3" font-size="9">p</tspan><tspan dy="-3"> = 150, D</tspan><tspan dy="3" font-size="9">g</tspan><tspan dy="-3"> = 200, b = 40 mm</tspan></text>
+  <text x="420" y="92" class="small">γ = 36.87°, r<tspan dy="3" font-size="9">m</tspan><tspan dy="-3"> = 63 mm</tspan></text>
+  <text x="420" y="108" class="small">⊙ = force out of the page</text>
+</svg>
+<figcaption>A half section of a 90° pair. The pitch cones meet at the cone centre O. Everything is specified at the <b>large end</b>. The resultant force acts at the middle of the face, at radius r<sub>m</sub>. The separating force P<sub>s</sub> is perpendicular to the pitch line and splits into radial and axial parts on the pinion (Bhandari Figs 19.6–19.10, <a class="bk" data-p="713"></a>–717).</figcaption>
+</figure>
+<ul>
+<li><b>Pitch cone</b>, with its apex the <b>cone centre</b> O. <b>Cone distance</b> A₀ is the length of a pitch-cone element. <b>Pitch angle</b> γ (pinion) or Γ (gear) is measured between the pitch line and the gear's own axis. Face angle = γ + addendum angle. Root angle = γ − dedendum angle. The <b>back cone</b> has elements perpendicular to the pitch cone. The tooth shrinks towards O, so m, D, h<sub>a</sub> and h<sub>f</sub> are quoted at the <b>large end</b>.</li>
+<li>The true involute profile lies on a sphere. <b>Tredgold's approximation</b> replaces the sphere by the back cone, a tangent cone that can be unrolled flat. That turns the large end into an equivalent spur gear of radius r<sub>b</sub> = D/(2 cos γ), so \(\boxed{z' = \dfrac{z}{\cos\gamma}}\) (Eqs 19.1–19.2).</li>
+</ul>
+<div class="formula"><span class="label">Geometry of a 90° pair (Eqs 19.3–19.6)</span>
+\[ \tan\gamma = \frac{z_p}{z_g},\quad \tan\Gamma = \frac{z_g}{z_p},\quad \gamma + \Gamma = 90°,\quad A_0 = \sqrt{\Big(\frac{D_p}{2}\Big)^2 + \Big(\frac{D_g}{2}\Big)^2} \]
+<p>Proof of the first: in the right triangle formed by O and the large-end pitch point, the two legs are D<sub>p</sub>/2 and D<sub>g</sub>/2, so tan γ = D<sub>p</sub>/D<sub>g</sub> = mz<sub>p</sub>/mz<sub>g</sub>.</p>
+</div>
+
+<h2>3. Force analysis (§19.3)</h2>
+<div class="formula"><span class="label">Pinion components, at the middle of the face (Eqs 19.7–19.10)</span>
+\[ r_m = \frac{D_p}{2} - \frac{b\sin\gamma}{2},\quad P_t = \frac{M_t}{r_m},\quad P_r = P_t\tan\alpha\cos\gamma,\quad P_a = P_t\tan\alpha\sin\gamma \]
+</div>
+<p>Derivation: the separating force P<sub>s</sub> = P<sub>t</sub> tan α is perpendicular to the pitch line. That line makes γ with the pinion axis, so P<sub>s</sub> splits into P<sub>s</sub> cos γ perpendicular to the axis (radial) and P<sub>s</sub> sin γ along it (axial). For a 90° pair, the <b>gear's radial force = the pinion's axial force</b> and the <b>gear's axial force = the pinion's radial force</b>. Both thrusts push the gears <b>away from the cone centre</b>, apart from each other (<a class="bk" data-p="716"></a>–717).</p>
+
+<h2>4. Derivation: Lewis equation for bevel gears (§19.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(S_b = mb\sigma_bY\Big(1 - \dfrac{b}{A_0}\Big)\) (Eq. 19.11).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The tooth section shrinks linearly towards O. Take a slice of width dx at distance x from O. Its module is \(m_x = m\dfrac{x}{A_0}\) and its pitch radius is \(r_x = R\dfrac{x}{A_0}\), where R and m are the large-end values.</li>
+<li>Lewis for the slice: \(d(S_b) = m_x\,dx\,\sigma_bY = \dfrac{m\sigma_bY}{A_0}x\,dx\). Its torque contribution is \(dM_t = r_x\,d(S_b) = \dfrac{m\sigma_bYR}{A_0^2}x^2\,dx\).</li>
+<li>Integrate over the face, from A₀ − b to A₀: \(M_t = \dfrac{m\sigma_bYR}{A_0^2}\cdot\dfrac{A_0^3 - (A_0 - b)^3}{3} = m\sigma_bYRb\Big(1 - \dfrac{b}{A_0} + \dfrac{b^2}{3A_0^2}\Big)\).</li>
+<li>Define S<sub>b</sub> as the equivalent force at the large-end radius, S<sub>b</sub> = M<sub>t</sub>/R. With b ≤ A₀/3 the last term is at most 1/27, so drop it: \(\boxed{S_b = mb\sigma_bY\Big(1 - \dfrac{b}{A_0}\Big)}\). The bracket is the <b>bevel factor</b>, and Y is read at z′ = z/cos γ.</li>
+<li>Because S<sub>b</sub> is referred to the large end, compare it with \(P_t = 2M_t/D_p\), the large-end tangential force, <b>not</b> with M<sub>t</sub>/r<sub>m</sub>. Choose b = 10m or A₀/3, whichever is smaller (Eq. 19.13).</li>
+</ol>
+</div></div>
+
+<h2>5. Wear strength and effective load (§19.5–19.6)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(S_w = \dfrac{0.75\,bQD_pK}{\cos\gamma}\) with \(Q = \dfrac{2z_g}{z_g + z_p\tan\gamma}\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Apply Buckingham to the formative pair. The formative pinion diameter is \(2r_b = D_p/\cos\gamma\), so S<sub>w</sub> = bQ(D<sub>p</sub>/cos γ)K.</li>
+<li>Formative teeth: z′<sub>p</sub> = z<sub>p</sub>/cos γ and z′<sub>g</sub> = z<sub>g</sub>/cos Γ = z<sub>g</sub>/sin γ. Then \(Q = \dfrac{2z_g'}{z_g' + z_p'} = \dfrac{2z_g/\sin\gamma}{z_g/\sin\gamma + z_p/\cos\gamma} = \dfrac{2z_g}{z_g + z_p\tan\gamma}\).</li>
+<li>One of a bevel pair is usually overhung. It deflects, and only about <b>three-quarters of the face</b> carries load, hence the factor 0.75. K = 0.16(BHN/100)² for steel at 20° (<a class="bk" data-p="722"></a>).</li>
+</ol>
+</div></div>
+<ul>
+<li>Large-end force: P<sub>t</sub> = 2M<sub>t</sub>/D<sub>p</sub>. Velocity factor: 6/(6 + v) for cut teeth and 5.6/(5.6 + √v) for generated teeth. P<sub>eff</sub> = C<sub>s</sub>P<sub>t</sub>/C<sub>v</sub>.</li>
+<li>Buckingham: \(P_d = \dfrac{21v(Ceb + P_t)}{21v + \sqrt{Ceb + P_t}}\), P<sub>eff</sub> = C<sub>s</sub>P<sub>t</sub> + P<sub>d</sub>, with C = 11 400 for steel. Error e from Table 19.1: Class 1 (well-cut commercial) 0.050 mm up to 4 mm module. Class 2 (cut with great care) 0.025 mm. Class 3 (ground and lapped) <b>0.0125 mm</b> up to 5 mm module (<a class="bk" data-p="723"></a>).</li>
+<li><b>Spiral bevel</b> (§19.7): spiral angle usually 35°, face-contact ratio over 1.25, at least 12 pinion teeth. Choose the hand so the thrust <b>separates</b> the gears. Teeth are always ground. They give gradual contact, more load capacity and higher speeds (<a class="bk" data-p="727"></a>–728).</li>
+</ul>
+
+<h2>6. Worked example (Bhandari Ex. 19.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 19.4</b> (<a class="bk" data-p="723"></a>): 20-tooth pinion, 30-tooth gear, 20°, m = 4, b = 20 mm, steel 50C4 (S<sub>ut</sub> = 750), Class 3 teeth, 400 BHN, pinion at 500 rpm with 2.5 kW, starting torque 150%. Factors of safety in bending and pitting?</div>
+<div class="ex-body">
+<ol class="steps">
+<li>tan γ = 20/30, so γ = 33.69° and z′ = 20/cos γ = 24.04, giving Y = 0.3371. D<sub>p</sub> = 80, D<sub>g</sub> = 120 and A₀ = √(40² + 60²) = 72.11 mm.</li>
+<li>S<sub>b</sub> = 4(20)(250)(0.3371)(1 − 20/72.11) = <b>4872 N</b>.</li>
+<li>Q = 60/(30 + 20 tan 33.69°) = 1.385 and K = 0.16(4)² = 2.56. S<sub>w</sub> = 0.75(20)(1.385)(80)(2.56)/cos 33.69° = <b>5113 N</b>.</li>
+<li>M<sub>t</sub> = 47 746.5 N·mm, so P<sub>t</sub> = 2M<sub>t</sub>/D<sub>p</sub> = 1193.7 N. v = 2.094 m/s and e = 0.0125 mm. P<sub>d</sub> = 21(2.094)(2850 + 1193.7)/[21(2.094) + √4043.7] = 1653.3 N. P<sub>eff</sub> = 1.5(1193.7) + 1653.3 = 3443.7 N.</li>
+<li>(fs) in bending = 4872/3443.7 = <b>1.41</b>. (fs) in pitting = 5113/3443.7 = <b>1.48</b>.</li>
+</ol>
+</div></div>
+
+<h2>7. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="1103.4" data-tol="1" data-unit="N">
+<p class="q">Ex. 19.1 (<a class="bk" data-p="717"></a>): 7.5 kW at 300 rpm, 20°, D<sub>p</sub> = 150, D<sub>g</sub> = 200, b = 40 mm. Radial component on the pinion?</p>
+<details class="sol"><p>M<sub>t</sub> = 238 732 N·mm. γ = tan⁻¹0.75 = 36.87°, r<sub>m</sub> = 75 − 20 sin 36.87° = 63 mm, so P<sub>t</sub> = 3789.4 N. P<sub>r</sub> = 3789.4 tan 20° cos 36.87° = <b>1103.4 N</b> and P<sub>a</sub> = 827.5 N. On the gear these swap: radial 827.5 N, axial 1103.4 N.</p></details>
+</div>
+<div class="num" data-answer="380.84" data-tol="1" data-unit="N">
+<p class="q">Ex. 19.2 (<a class="bk" data-p="718"></a>): gear G delivers 5 kW at 500 rpm, D<sub>p</sub> = 100, D<sub>g</sub> = 200, b = 20. On the gear shaft, bearings A and B are 150 mm apart and the gear's mid-face plane is 54.47 mm from B. Reaction at A in the plane of the tangential force?</p>
+<details class="sol"><p>n<sub>p</sub> = 1000 rpm, M<sub>t</sub> = 47 746.5 N·mm, γ = 26.57°, r<sub>m</sub> = 45.53 mm, P<sub>t</sub> = 1048.75 N, pinion P<sub>r</sub> = 341.4 and P<sub>a</sub> = 170.7 N. On the gear: radial 170.7 N and axial 341.4 N, acting at r<sub>m</sub>(gear) = 100 − 10 sin 63.43° = 91.06 mm. Moments about B: R<sub>AZ</sub>(150) = 1048.75(54.47), so R<sub>AZ</sub> = <b>380.84 N</b> and R<sub>BZ</sub> = 667.91 N. In the other plane the gear's thrust gives a moment 341.4 × 91.06: R<sub>AY</sub> = 145.25, R<sub>BY</sub> = 315.99, and bearing B takes the thrust, 341.4 N.</p></details>
+</div>
+<div class="num" data-answer="1.55" data-tol="1.5" data-unit="">
+<p class="q">Ex. 19.5 (<a class="bk" data-p="724"></a>): 24/32 teeth, 12.5 kW at 1440 rpm (starting 150%), 20°, steel S<sub>ut</sub> = 750, Class 3. The preliminary design gives m = 3.73; Bhandari takes <b>m = 5</b> (to allow for dynamic load), so A₀ = 100 and b = 33 mm. Correct factor of safety in bending, with Buckingham?</p>
+<details class="sol"><p>γ = 36.87° and z′ = 30, so Y = 0.358. S<sub>b</sub> = 5(33)(250)(0.358)(1 − 0.33) = 9894 N. D<sub>p</sub> = 120, P<sub>t</sub> = 1381.6 N, v = 9.048 m/s, e = 0.0125. P<sub>d</sub> = 4313.3 N and P<sub>eff</sub> = 1.5(1381.6) + 4313.3 = 6385.6 N. (fs) = <b>1.55</b>. For (fs) = 2 in wear: Q = 1.28, so BHN = 410.</p></details>
+</div>
+<div class="num" data-answer="1.39" data-tol="1.5" data-unit="">
+<p class="q">Ex. 19.6 (<a class="bk" data-p="726"></a>): 21/28 teeth, 5 kW at 1440 rpm, C<sub>s</sub> = 1.5, steel S<sub>ut</sub> = 750 at 380 BHN, error 10 μm, m = 4, b = 20. Factor of safety against pitting?</p>
+<details class="sol"><p>D<sub>p</sub> = 84 and D<sub>g</sub> = 112, A₀ = 70, γ = 36.87°. Q = 56/(28 + 21 × 0.75) = 1.28 and K = 0.16(3.8)² = 2.3104. S<sub>w</sub> = 0.75(20)(1.28)(84)(2.3104)/0.8 = 4657.8 N. P<sub>t</sub> = 789.5 N, v = 6.333 m/s, P<sub>d</sub> = 2166.8 N, so P<sub>eff</sub> = 3351 N. (fs) = <b>1.39</b>. Bending: z′ = 26.25, Y = 0.345, S<sub>b</sub> = 4928.6 N, (fs) = 1.47.</p></details>
+</div>
+
+<h2>8. GATE corner</h2>
+<div class="mcq" data-correct="1">
+<p class="q">A pair of bevel gears on shafts at 90° has 20 and 30 teeth. The pitch angle of the pinion is:</p>
+<ol class="opts"><li>33.69°</li><li>41.81°</li><li>48.19°</li><li>56.31°</li></ol>
+<div class="why">tan γ = 20/30. The gear's pitch angle is 56.31°, and the other two come from sin⁻¹ and cos⁻¹ of 2/3.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">Tredgold's approximation for bevel gears replaces the spherical tooth profile by a spur gear developed on the:</p>
+<ol class="opts"><li>pitch cone</li><li>root cone</li><li>back cone</li><li>face cone</li></ol>
+<div class="why">The back cone is tangent to the sphere at the large end and can be unrolled flat. Its radius r<sub>b</sub> = D/2cos γ gives z′ = z/cos γ.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">In a pair of bevel gears with shafts at right angles, the axial force on the pinion equals the:</p>
+<ol class="opts">
+<li>tangential force on the gear tooth</li>
+<li>radial force acting on the gear</li>
+<li>axial force acting on the gear</li>
+<li>separating force divided by cos γ</li>
+</ol>
+<div class="why">The pinion axis is perpendicular to the gear axis, so the pinion's axial direction is the gear's radial direction (Fig. 19.10).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Hypoid gears are mainly used in automobile differentials because they:</p>
+<ol class="opts">
+<li>run with straight teeth on parallel shafts</li>
+<li>need no special lubricant despite sliding</li>
+<li>give the highest efficiency of any gear pair</li>
+<li>let the drive shaft sit below the axle centre</li>
+</ol>
+<div class="why">The offset axes lower the propeller shaft and the car's centre of gravity. Hypoids need EP oil and are slightly less efficient (§19.1).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Bearing-load questions use P<sub>t</sub> = M<sub>t</sub>/r<sub>m</sub>. Strength checks use P<sub>t</sub> = 2M<sub>t</sub>/D<sub>p</sub> at the large end. Do not mix them.</li>
+<li>r<sub>m</sub> = D<sub>p</sub>/2 − (b sin γ)/2, using the <b>pinion's</b> γ for the pinion. For the gear use Γ.</li>
+<li>Y at z′ = z/cos γ (not cos³), and remember the bevel factor (1 − b/A₀).</li>
+<li>Wear: 0.75bQD<sub>p</sub>K/cos γ, with Q = 2z<sub>g</sub>/(z<sub>g</sub> + z<sub>p</sub> tan γ).</li>
+<li>Face width: the smaller of 10m and A₀/3.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari Ch. 19, <a class="bk" data-p="711">pp. 711–728</a> (Examples 19.1–19.6).</li>
+<li>Your course slides list bevel gears only under gear selection (<a class="ppt" data-p="811">pp. 811–812</a>), so use Bhandari.</li>
+<li>NPTEL Machine Design II (IIT Madras), bevel gears (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want to see why the bevel factor is (1 − b/A₀) and not just 1? Ask me and I'll show how much strength the thin inner end of the tooth loses.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

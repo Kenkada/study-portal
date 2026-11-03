@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chain Drives</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 32</p>
+<h1>Roller chain drives</h1>
+<p class="meta">About 30 minutes · Bhandari Ch. 14</p>
+<div class="win"><b>Your win:</b> you can derive the sprocket pitch diameter and the polygonal (chordal) speed variation, select a roller chain from power ratings, and find the number of links and the exact centre distance. You'll also know why a sprocket has an odd number of teeth and a chain an even number of links.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 30–31)</span>
+<details class="recall"><summary>Velocity ratio limits: flat belt, V-belt, chain?</summary><div>About 4:1, 7:1, and up to 10–15:1 (Bhandari recommends &lt; 6–7:1 per stage for chains).</div></details>
+<details class="recall"><summary>Which side is kept on top in a horizontal belt drive?</summary><div>The slack side (for chains it's the opposite: see below).</div></details>
+</div>
+
+<h2>1. Chains: features and applications</h2>
+<p>A chain is a series of links joined by pins, running on toothed sprockets. It sits between belts and gears (<a class="bk" data-p="544"></a>). <b>Advantages:</b> wide range of centre distances, several shafts from one sprocket, more compact than belts, <b>no slip</b> (positive), efficiency 96–98%, no initial tension (light bearing loads), unaffected by temperature. <b>Disadvantages:</b> wear at the joints stretches the pitch, parallel shafts only, polygonal speed variation, needs a housing, lubrication and tensioning, noisy. <b>Applications:</b> bicycles, motorcycles, automobiles, agricultural machinery, oil rigs, conveyors and material handling. Typical limits: ratio &lt; 10:1, v ≤ 25 m/s, P ≤ 100 kW.</p>
+<p><b>Types:</b> load-lifting (link chain: hoists, winches), hauling (block chain: conveyors), power transmission (roller chain). A roller chain has pin, bushing, roller, inner and outer link plates. The rollers <em>roll</em> on the teeth, which cuts friction and wear. Designation: <b>08B</b> = pitch 8/16 inch = 12.7 mm, British series; <b>16A-2</b> = 25.4 mm pitch, ANSI series, duplex (<a class="bk" data-p="546"></a>).</p>
+
+<h2>2. Derivations: geometry and polygonal effect</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the pitch circle diameter, the chordal speed variation, and the number of links (Eqs 14.1–14.7).</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Pitch diameter.</b> Each link is a chord of the pitch circle subtending α = 360°/z. Half-chord over radius: \(\sin\frac{\alpha}{2} = \frac{p/2}{D/2}\Rightarrow \boxed{D = \dfrac{p}{\sin(180°/z)}}\).</li>
+<li><b>Polygonal effect.</b> The chain wraps a polygon, not a circle. When a link sits with its pins on the pitch circle it is at radius D/2 (v<sub>max</sub> = πDn/60 000). Half a tooth later it lies flat at (D/2)cos(α/2), so v<sub>min</sub> = v<sub>max</sub> cos(180°/z).</li>
+<li>Fractional speed variation: \(\dfrac{v_{max} - v_{min}}{v_{max}} = 1 - \cos\dfrac{180°}{z}\): 4.1% for z = 11, 1.7% for z = 17, 0.86% for z = 24. Hence <b>at least 17 teeth</b> (19–21 for low noise) on the driving sprocket (<a class="bk" data-p="549"></a>).</li>
+<li><b>Average speed and ratio:</b> v = z p n/60 000 (one pitch per tooth per revolution); i = n₁/n₂ = z₂/z₁.</li>
+<li><b>Number of links</b> (by analogy with belt length, in units of pitch): \(L_n = \dfrac{2a}{p} + \dfrac{z_1+z_2}{2} + \left(\dfrac{z_2 - z_1}{2\pi}\right)^2\dfrac{p}{a}\). Round to an <b>even</b> number, then back-solve the centre distance: \(a = \dfrac{p}{4}\left[m + \sqrt{m^2 - 8\left(\dfrac{z_2-z_1}{2\pi}\right)^2}\right]\), where \(m = L_n - \dfrac{z_1+z_2}{2}\). Reduce a by 0.2–0.4% for sag.</li>
+</ol>
+</div></div>
+
+<h2>3. Selection and design rules</h2>
+<div class="formula"><span class="label">Power rating (Eq. 14.8)</span>
+\[ \text{required rating (Table 14.2)} = \frac{\text{kW} \times K_s}{K_1 \times K_2} \]
+<p>K<sub>s</sub> service factor (1.0 smooth to 1.7 heavy shock with an IC engine); K₁ multiple-strand factor (1, 1.7, 2.5, 3.3, 3.9, 4.6 for 1–6 strands); K₂ tooth-correction factor (1.00 at 17 teeth, 1.11 at 19, 1.26 at 21, 1.29 at 23 … ). Table 14.2 ratings assume 17 teeth and a single strand. Ratings are based on <b>wear, fatigue of link plates, roller impact, galling</b> (<a class="bk" data-p="550"></a>).</p>
+</div>
+<ul>
+<li><b>Odd teeth, even links</b>: every link meets every tooth in turn, so wear is spread evenly. An odd number of links would need a weak offset link.</li>
+<li>Centre distance 30p to 50p; wrap on the small sprocket ≥ 120°; ratio ≤ 7:1 per stage; z₂ ≤ 100–120 (a worn chain rides out on large sprockets).</li>
+<li>Horizontal layout with the <b>tight side on top</b> (the opposite of belts), so the slack strand doesn't foul the teeth or the other strand.</li>
+<li>Lubrication: Type A (manual or drip), B (bath or disc), C (pump stream). Life about 15 000 h. Tension by moving a shaft or with an idler on the slack side.</li>
+</ul>
+
+<h2>4. Worked example (Bhandari Ex. 14.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 14.4</b> (<a class="bk" data-p="557"></a>). 12 kW, 1400 rpm motor to a centrifugal pump at 700 rpm, moderate shock.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>z₁ = 17 (K₂ = 1), single strand (K₁ = 1), K<sub>s</sub> = 1.3: required rating = 12 × 1.3 = 15.6 kW.</li>
+<li>Table 14.2 at 1400 rpm: <b>12B</b> gives 18.15 kW ✓. p = 19.05 mm, d₁ = 12.07, b₁ = 11.68 mm.</li>
+<li>D₁ = 19.05/sin(180°/17) = 103.67 mm; z₂ = 34, so D₂ = 206.46 mm.</li>
+<li>a ≈ 40p = 762 mm gives L<sub>n</sub> = 2(40) + 25.5 + (17/2π)²(1/40) = 105.7, so <b>106 links</b>.</li>
+<li>m = 106 − 25.5 = 80.5 ⇒ a = 765.0 mm; with sag allowance, 0.998a = <b>763.5 mm</b>.</li>
+</ol>
+</div></div>
+
+<h2>5. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="11.73" data-tol="1.5">
+<p class="q">Ex. 14.1 (<a class="bk" data-p="555"></a>): single-strand 12A chain (p = 19.05 mm, breaking load 31 100 N), 17-tooth driver at 1000 rpm, rated 14.32 kW. Factor of safety at rated power?</p>
+<details class="sol"><p>v = 17 × 19.05 × 1000/60 000 = 5.40 m/s; P₁ = 14 320/5.40 = 2652 N; (fs) = 31 100/2652 = 11.73.</p></details>
+</div>
+<div class="num" data-answer="11.45" data-tol="1" data-unit="kW">
+<p class="q">Ex. 14.2 (<a class="bk" data-p="555"></a>): 30 kW engine, 90% efficiency to the driving shaft, 17-tooth sprocket at 300 rpm, moderate shock (K<sub>s</sub> = 1.4), four-strand chain (K₁ = 3.3). Required chain rating?</p>
+<details class="sol"><p>27 × 1.4/(3.3 × 1) = 11.45 kW, so chain 16A (11.63 kW at 300 rpm).</p></details>
+</div>
+<div class="num" data-answer="500.8" data-tol="1" data-unit="mm">
+<p class="q">Ex. 14.3 (<a class="bk" data-p="556"></a>): 5 kW, 1400 rpm motor to a drilling machine, ratio 3:1, a ≈ 500 mm; z₁ = 21, chain 08A (p = 12.7). With L<sub>n</sub> = 122 links, the exact centre distance?</p>
+<details class="sol"><p>Required rating 5 × 1.3/1.26 = 5.16 kW, so 08A (5.28 kW). z₂ = 63. L<sub>n</sub> = 78.74 + 42 + 1.13 = 121.9, so 122.</p><p>m = 122 − 42 = 80: a = (12.7/4)[80 + √(80² − 8(42/2π)²)] = 500.8 mm.</p></details>
+</div>
+<div class="num" data-answer="755.1" data-tol="1" data-unit="mm">
+<p class="q">Ex. 14.6 (<a class="bk" data-p="558"></a>), Part I: 10 kW, 900 rpm petrol engine to a conveyor at about 235 rpm; z₁ = 21, chain 12A (p = 19.05), z₂ = 80, 132 links. Centre distance (without sag correction)?</p>
+<details class="sol"><p>m = 132 − 50.5 = 81.5: a = (19.05/4)[81.5 + √(81.5² − 8(59/2π)²)] = 755.1 mm. The four-strand alternative (08A, z = 25/96, 124 links) gives a = 375.8 mm, a much more compact drive.</p></details>
+</div>
+
+<h2>6. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A roller chain of pitch 15.875 mm runs on a 20-tooth sprocket. The pitch circle diameter is about:</p>
+<ol class="opts">
+<li>101.1 mm, from p z / π</li>
+<li>100.5 mm, from p / tan(9°)</li>
+<li>101.5 mm, from p / sin(9°)</li>
+<li>317.5 mm, from p × z</li>
+</ol>
+<div class="why">D = p/sin(180°/z) = 15.875/sin 9° = 15.875/0.1564 = 101.5 mm. (pz/π = 101.1 is the circle whose circumference equals the polygon perimeter, not the pitch circle.)</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">The polygonal effect in a chain drive is reduced by:</p>
+<ol class="opts">
+<li>increasing the number of teeth on the sprocket</li>
+<li>increasing the chain pitch for a given sprocket</li>
+<li>increasing the speed of the driving sprocket</li>
+<li>keeping the slack side of the chain on top</li>
+</ol>
+<div class="why">Speed variation = 1 − cos(180°/z), which falls as z rises. Smaller pitch (for the same sprocket diameter) means more teeth, which also helps.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Why should the number of chain links be even?</p>
+<ol class="opts">
+<li>An even number reduces the polygonal effect</li>
+<li>Sprockets are always made with even teeth</li>
+<li>Even links make the chain run more quietly</li>
+<li>Inner and outer links alternate in pairs</li>
+</ol>
+<div class="why">The chain is made of alternating inner and outer links. An odd count needs a weaker offset link. The sprocket has odd teeth so wear is spread evenly.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Rounding L<sub>n</sub> to an odd number.</li>
+<li>Forgetting to divide by K₁ and K₂ (or multiplying by them) when finding the required rating.</li>
+<li>Using D = pz/π for the sprocket. Use p/sin(180°/z).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari Ch. 14, <a class="bk" data-p="544">pp. 544–562</a> (Examples 14.1–14.7).</li>
+<li>NPTEL Machine Design II (IIT Madras), chain drives (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Unsure how to interpolate the power-rating table between two speeds (as in Ex. 14.6)? Ask me for a quick demonstration.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 4 Practice</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 47</p>
+<h1>Unit 4 mixed practice</h1>
+<p class="meta">About 45 minutes · Bhandari Examples not yet used, plus derivation and GATE drills · do it a few days after Lesson 46</p>
+<div class="win"><b>Your win:</b> you can move between helical, concentric and leaf springs and spur, helical and bevel gears, recognising the method from the wording alone. You can also reproduce the key Unit 4 derivations from memory.</div>
+<div class="note"><p>The problems are shuffled on purpose. Name the method first, solve on paper, then type the number.</p></div>
+
+<h2>Part A: derivations from memory (write them, then check)</h2>
+<div class="recall-set"><span class="label">Close the lessons. Derive, then open to compare.</span>
+<details class="recall"><summary>Spring stress with K<sub>s</sub>, then with the Wahl factor K.</summary><div>Cut the coil: torque PD/2 and shear P. τ₁ = 8PD/πd³, τ₂ = 4P/πd² = τ₁(0.5/C), so τ = K<sub>s</sub>(8PD/πd³) with K<sub>s</sub> = 1 + 0.5/C. Add curvature: K = (4C − 1)/(4C − 4) + 0.615/C. See <a class="lesson" data-l="0038"></a>.</div></details>
+<details class="recall"><summary>Spring deflection δ = 8PD³N/Gd⁴.</summary><div>Uncoil: l = πDN, θ = (PD/2)l/GJ = 16PD²N/Gd⁴, δ = θD/2. See <a class="lesson" data-l="0038"></a>.</div></details>
+<details class="recall"><summary>Concentric springs: same C, and load ∝ d².</summary><div>Equal stress: P₁D₁/d₁³ = P₂D₂/d₂³. Equal deflection plus equal solid length gives P₁D₁³/d₁⁵ = P₂D₂³/d₂⁵. Dividing: C₁ = C₂, so P₁/P₂ = d₁²/d₂². With 2c = d₁ − d₂: d₁/d₂ = C/(C − 2). See <a class="lesson" data-l="0039"></a>.</div></details>
+<details class="recall"><summary>Spring fatigue: Eq. 10.22 and the (fs) formula.</summary><div>Similar triangles under the design line: τ<sub>a</sub>/(S<sub>sy</sub>/fs − τ<sub>m</sub>) = ½S′<sub>se</sub>/(S<sub>sy</sub> − ½S′<sub>se</sub>), with K<sub>s</sub> on τ<sub>m</sub> and K on τ<sub>a</sub>. See <a class="lesson" data-l="0039"></a>.</div></details>
+<details class="recall"><summary>Open-coiled spring: δ and τ<sub>max</sub>.</summary><div>T = WR cos α, M = WR sin α, L = 2πRn/cos α. U = (T²/2GJ + M²/2EI)L, so δ = (64WR³n/d⁴cos α)(cos²α/G + 2sin²α/E). τ<sub>max</sub> = 16WR/πd³ (independent of α) and σ₁ = (16WR/πd³)(1 + sin α). See <a class="lesson" data-l="0040"></a>.</div></details>
+<details class="recall"><summary>Leaf spring: the 12/18 stresses, and the nip.</summary><div>Triangle plate: σ<sub>g</sub> = 6P<sub>g</sub>L/n<sub>g</sub>bt² and δ<sub>g</sub> = 6P<sub>g</sub>L³/En<sub>g</sub>bt³. Rectangle: σ<sub>f</sub> = 6P<sub>f</sub>L/n<sub>f</sub>bt² and δ<sub>f</sub> = 4P<sub>f</sub>L³/En<sub>f</sub>bt³. Equal δ gives σ<sub>g</sub> = 12PL/(3n<sub>f</sub> + 2n<sub>g</sub>)bt² and σ<sub>f</sub> = 18PL/(…). Nip C = 2PL³/Enbt³ and σ = 6PL/nbt². See <a class="lesson" data-l="0041"></a>.</div></details>
+<details class="recall"><summary>Law of gearing; minimum teeth 2/sin²α; compact two-stage box.</summary><div>ω₁/ω₂ = O₂P/O₁P, so P must be fixed. The interference point is r sin²α below the pitch line, and m ≤ (mz/2)sin²α gives z ≥ 2/sin²α. For the box, a ∝ 2 + i₁ + i/i₁, which is minimum at i₁ = √i. See <a class="lesson" data-l="0042"></a>.</div></details>
+<details class="recall"><summary>Lewis equation and Buckingham wear strength.</summary><div>σ = 6P<sub>t</sub>h/bt² at the parabola's tangent section, so P<sub>t</sub> = mbσY with Y = t²/6hm. Hertz with r = d′sin α/2 gives S<sub>w</sub> = bQd′<sub>p</sub>K, Q = 2z<sub>g</sub>/(z<sub>g</sub> + z<sub>p</sub>), K = σ<sub>c</sub>² sin α cos α(1/E₁ + 1/E₂)/1.4. See <a class="lesson" data-l="0043"></a> and <a class="lesson" data-l="0044"></a>.</div></details>
+<details class="recall"><summary>Helical z′ = z/cos³ψ, and the bevel factor (1 − b/A₀).</summary><div>The normal section is an ellipse with r′ = a²/b = d/2cos²ψ, so z′ = 2πr′/p<sub>n</sub> = z/cos³ψ. For the bevel, integrate m<sub>x</sub>σY dx × r<sub>x</sub> from A₀ − b to A₀, divide by R, and drop the b²/3A₀² term. See <a class="lesson" data-l="0045"></a> and <a class="lesson" data-l="0046"></a>.</div></details>
+</div>
+
+<h2>Part B: name the method (GATE-style)</h2>
+<div class="mcq" data-correct="2">
+<p class="q">A gear question says "the gears are machined to Grade 6". That tells you to:</p>
+<ol class="opts">
+<li>use C<sub>v</sub> = 6/(6 + v) for hobbed gears</li>
+<li>find P<sub>d</sub> by Buckingham with Table 17.8 errors</li>
+<li>increase the module by one standard step</li>
+<li>take the service factor as 1.25 from Table 17.4</li>
+</ol>
+<div class="why">The grade sets the tolerance e = A + Bφ μm, which feeds Buckingham's dynamic load (§17.19).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">"The leaves are pre-stressed so that all leaves have the same stress at maximum load." The design equation is:</p>
+<ol class="opts">
+<li>σ = 12PL/(3n<sub>f</sub> + 2n<sub>g</sub>)bt²</li>
+<li>σ = 18PL/(3n<sub>f</sub> + 2n<sub>g</sub>)bt²</li>
+<li>σ = 6PL/n<sub>g</sub>bt² for the graduated leaves</li>
+<li>σ = 6PL/nbt² with n the total leaves</li>
+</ol>
+<div class="why">Nipping makes P<sub>g</sub>/P<sub>f</sub> = n<sub>g</sub>/n<sub>f</sub>, so every leaf carries 6PL/nbt² (Eq. 10.41).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A spring balance has "a scale of 100 mm divided into 50 divisions of 0.5 kg each". This directly fixes the spring's:</p>
+<ol class="opts">
+<li>stiffness, as force per division length</li>
+<li>wire diameter, through the Wahl factor</li>
+<li>spring index, through the scale ratio</li>
+<li>solid length, as the scale length</li>
+</ol>
+<div class="why">k = (0.5 × 9.81 N)/(2 mm) = 2.4525 N/mm. N then follows from k = Gd⁴/8D³N (Ex. 10.12).</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">Two shafts intersect at 90° and the speed must be reduced 1.5:1 with a positive drive. The natural choice is:</p>
+<ol class="opts">
+<li>a crossed helical gear pair</li>
+<li>a worm and worm wheel</li>
+<li>a straight bevel gear pair</li>
+<li>a herringbone gear pair</li>
+</ol>
+<div class="why">Intersecting shafts call for bevel gears, at 1:1 up to 3:1. A worm suits non-intersecting shafts and large ratios. Herringbone gears need parallel shafts.</div>
+</div>
+
+<h2>Part C: Bhandari Examples, interleaved</h2>
+<div class="num" data-answer="2.21" data-tol="1.5" data-unit="">
+<p class="q">Ex. 17.12 (<a class="bk" data-p="686"></a>): two-stage spur reducer, 10 kW at 1440 rpm → about 180 rpm, 18/51 teeth per stage, 45C8 (S<sub>ut</sub> = 700) at 340 BHN, Grade 6, C<sub>s</sub> = 1.5. Bhandari designs the second stage with <b>m = 6</b>, b = 60 mm. Factor of safety in bending, with Buckingham?</p>
+<details class="sol"><p>The second stage carries more torque: n<sub>B</sub> = 508.24 rpm, so M<sub>t</sub> = 187 891 N·mm. d₃′ = 108, so P<sub>t</sub> = 3479.5 N, and v = 2.874 m/s. S<sub>b</sub> = 6(60)(700/3)(0.308) = 25 872 N. e = 13.417 + 14.535 = 27.95 μm. P<sub>d</sub> = 6473.8 N and P<sub>eff</sub> = 1.5(3479.5) + 6473.8 = 11 693 N. (fs) = <b>2.21</b>. Pitting: Q = 1.478, S<sub>w</sub> = 17 718 N, (fs) = 1.52.</p></details>
+</div>
+<div class="num" data-answer="90.91" data-tol="1" data-unit="N/mm">
+<p class="q">Ex. 10.10 (<a class="bk" data-p="416"></a>): a shock-absorbing spring has an initial compression of 30 mm and is compressed a further 50 mm while absorbing 250 J. Spring stiffness?</p>
+<details class="sol"><p>P₁ = 30k and P₂ = 80k. Energy = average force × travel = 55k × 50 = 250 × 10³ N·mm, so k = <b>90.91 N/mm</b>. P<sub>max</sub> = 7272.7 N. With C = 6 and τ = 450: d = 17.59 → 18, D = 108, N = 9.32 → 10, free length 325 mm.</p></details>
+</div>
+<div class="num" data-answer="267381" data-tol="1" data-unit="N·mm">
+<p class="q">Ex. 19.3 (<a class="bk" data-p="719"></a>): differential train. 10 kW at 500 rpm enters on bevel A (mid-face diameter 250). A drives B (125). C (250) is on B's shaft and drives D (500). Spur E (250) is on D's shaft and drives F (350) on output shaft 2. Torque on output shaft 2?</p>
+<details class="sol"><p>M<sub>t</sub> = 190 986 N·mm. (P<sub>t</sub>)<sub>AB</sub> = 190 986/125 = 1527.9 N. On shaft B–C: 1527.9(62.5) = (P<sub>t</sub>)<sub>CD</sub>(125), so (P<sub>t</sub>)<sub>CD</sub> = 763.9 N. On shaft D–E: 763.9(250) = (P<sub>t</sub>)<sub>EF</sub>(125), so (P<sub>t</sub>)<sub>EF</sub> = 1527.9 N. Shaft 2: 1527.9 × 175 = <b>267 381 N·mm</b>. Shaft 1 carries (P<sub>t</sub>)<sub>AB</sub>(125) + (P<sub>t</sub>)<sub>CD</sub>(250) = 381 972 N·mm.</p></details>
+</div>
+<div class="num" data-answer="11.15" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.4 (<a class="bk" data-p="409"></a>): valve spring, 150 N closed and 300 N open, length 35 mm closed and 30 mm open, inside diameter at least 20 mm, S<sub>ut</sub> = 1370, τ = 0.3S<sub>ut</sub>. Bhandari ends with d = 4, D = 24, N = 7. Deflection at the maximum force?</p>
+<details class="sol"><p>First trial with K = 1: d³/(20 + d) = 8(300)/π(411) = 1.859, so d is between 3 and 4. Take 4 to allow for K. Check: C = 6, τ = 1.2525 × 8(300)(24)/π(64) = 358.8 &lt; 411 ✓. N: 5 = 8(150)(24)³N/(81 370 × 4⁴), so N = 6.28 → 7. δ<sub>max</sub> = 8(300)(24)³(7)/(81 370 × 256) = <b>11.15 mm</b>. Gap 15% = 1.67 mm, solid 36 mm, free length 50 mm, pitch 6.25 mm.</p></details>
+</div>
+<div class="num" data-answer="592.13" data-tol="1" data-unit="N">
+<p class="q">Ex. 18.3 (<a class="bk" data-p="700"></a>): double-reduction helical box, 10 kW at 720 rpm into pinion A (20 teeth). A–B: 20/50 teeth, m<sub>n</sub> = 3, ψ = 30°. C–D: 20/60 teeth, m<sub>n</sub> = 5, ψ = 25°. B and C are on shaft 2, and their thrusts act in <b>opposite</b> directions. Bearing B2 takes all the thrust. Thrust on B2?</p>
+<details class="sol"><p>d<sub>A</sub> = 69.28 mm, so (P<sub>t</sub>)<sub>AB</sub> = 2(132 629)/69.28 = 3828.8 N and (P<sub>a</sub>)<sub>AB</sub> = 3828.8 tan 30° = 2210.5 N. Shaft 2 torque = 3828.8(173.21/2) = 331 591 N·mm. d<sub>C</sub> = 110.34, so (P<sub>t</sub>)<sub>CD</sub> = 6010.4 N and (P<sub>a</sub>)<sub>CD</sub> = 6010.4 tan 25° = 2802.7 N. Net thrust on B2 = 2802.7 − 2210.5 = <b>592.1 N</b>. That is why designers choose the helix hands so the thrusts on an intermediate shaft partly cancel.</p></details>
+</div>
+<div class="num" data-answer="52.53" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.18 (<a class="bk" data-p="429"></a>): concentric springs with the same free length carry 2000 N. Inner spring: d = 8, D = 64, N = 12. Outer spring: d = 10, D = 80, N = 8. G = 81 370. Maximum deflection?</p>
+<details class="sol"><p>Equal deflection: P<sub>i</sub>D<sub>i</sub>³N<sub>i</sub>/d<sub>i</sub>⁴ = P<sub>o</sub>D<sub>o</sub>³N<sub>o</sub>/d<sub>o</sub>⁴, so P<sub>o</sub> = 1.875P<sub>i</sub>. With a 2000 N total: P<sub>o</sub> = 1304.35 N and P<sub>i</sub> = 695.65 N. δ = 8(1304.35)(80)³(8)/(81 370 × 10⁴) = <b>52.53 mm</b>. Stresses (C = 8, K = 1.184): 314.6 (outer) and 262.2 (inner) N/mm². These springs are not designed for equal stress, so P ∝ d² does not apply.</p></details>
+</div>
+<div class="num" data-answer="20.83" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.3 (<a class="bk" data-p="409"></a>): P<sub>max</sub> = 7.5 kN, D = 150 mm (fixed by space), k = 75 N/mm, S<sub>ut</sub> = 1250, τ = 0.3S<sub>ut</sub>. Wire diameter before rounding?</p>
+<details class="sol"><p>τ = 375 and d = 150/C: 375 = K·8PC³/π(150)², so KC³ = 441.8. C = 7.1 gives 432.9 and C = 7.2 gives 450.3, so take C = 7.2. d = 150/7.2 = <b>20.83</b> → 21 mm. N from k = Gd⁴/8D³N: N = 7.81 → 8.</p></details>
+</div>
+<div class="num" data-answer="706" data-tol="1" data-unit="N">
+<p class="q">Ex. 10.19 (<a class="bk" data-p="429"></a>): the outer spring is 15 mm longer than the inner one. Inner: d = 5, D = 30, N = 8. Outer: d = 6, D = 36, N = 10. G = 81 370 and total load 1000 N. Force carried by the outer spring?</p>
+<details class="sol"><p>k<sub>i</sub> = 29.43 and k<sub>o</sub> = 28.25 N/mm. The outer spring alone takes the first 15 mm: 28.25 × 15 = 423.75 N. The remaining 576.25 N goes to both springs in parallel: x = 576.25/57.68 = 9.99 mm. P<sub>o</sub> = 28.25(24.99) = <b>706 N</b> and P<sub>i</sub> = 294 N. Stresses 375.3 and 225.1 N/mm². This stepped rate is the "variable force–deflection" spring used in governors.</p></details>
+</div>
+
+<div class="src"><ul>
+<li>Bhandari Chs 10, 17, 18, 19. The Short-Answer Questions at the end of each chapter are good theory drill (<a class="bk" data-p="443"></a>, <a class="bk" data-p="690"></a>, <a class="bk" data-p="709"></a>, <a class="bk" data-p="728"></a>).</li>
+<li>Course slides, Unit IV problems: springs <a class="ppt" data-p="776">pp. 776–796</a>, gears <a class="ppt" data-p="852">pp. 852–868</a>.</li>
+</ul></div>
+<div class="ask"><p>Missed a derivation in Part A? Tell me which one and I'll give you a fill-in-the-gaps version to rebuild it.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

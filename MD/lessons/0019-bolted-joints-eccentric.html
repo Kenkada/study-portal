@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolted Joints II</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 19</p>
+<h1>Eccentrically loaded bolted joints</h1>
+<p class="meta">About 30 minutes · Bhandari §7.11–7.13</p>
+<div class="win"><b>Your win:</b> you can handle all three of Bhandari's eccentric bolt cases: load in the plane of the bolts (shear, like rivets), load perpendicular to the bolt axes (shear plus tension from tilting), and a circular flange or pillar crane. Each ends with picking the standard M-size.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 2, 15, 18)</span>
+<details class="recall"><summary>Secondary shear on a rivet in an eccentric group?</summary><div>P″ = Per/Σr², perpendicular to r from G.</div></details>
+<details class="recall"><summary>Maximum shear stress with σ and τ together?</summary><div>\(\tau_{max} = \sqrt{(\sigma/2)^2 + \tau^2}\); principal stress \(\sigma_1 = \sigma/2 + \sqrt{(\sigma/2)^2+\tau^2}\).</div></details>
+<details class="recall"><summary>Area used for bolt tensile stress?</summary><div>Core area πd<sub>c</sub>²/4 or tensile stress area A<sub>t</sub> (Table 7.1).</div></details>
+</div>
+
+<h2>1. Case 1: load in the plane of the bolts (§7.11)</h2>
+<p>Identical to rivets (Lesson 15): \(P' = P/n\), \(P''_i = Per_i/\sum r^2\) perpendicular to r<sub>i</sub>, then vector sum. Size with \(\tau = P_{max}/(\frac{\pi}{4}d_c^2)\) (<a class="bk" data-p="233"></a>).</p>
+
+<h2>2. Case 2: load perpendicular to the bolt axes (§7.12)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 250" role="img" aria-label="Bracket bolted to a wall tilting about its lower edge">
+  <rect x="40" y="20" width="40" height="220" class="part"/><text x="44" y="245" class="small">structure</text>
+  <path d="M80,30 L110,30 L110,120 L330,120 L330,150 L110,150 L110,210 L80,210 Z" class="part2"/>
+  <line x1="60" y1="55" x2="110" y2="55" class="acc" style="stroke-width:4"/><text x="118" y="58" class="small">bolts 1 (l₁ from C)</text>
+  <line x1="60" y1="185" x2="110" y2="185" class="acc" style="stroke-width:4"/><text x="118" y="190" class="small">bolts 2 (l₂)</text>
+  <circle cx="80" cy="210" r="4" class="dotb"/><text x="56" y="226" class="blu small">C (tilting edge)</text>
+  <line x1="315" y1="150" x2="315" y2="200" class="acc"/><polygon points="310,194 320,194 315,204" class="fill-acc"/><text x="322" y="190" class="acc">P</text>
+  <line x1="80" y1="232" x2="315" y2="232" class="thin"/><text x="190" y="246" class="small">e</text>
+  <line x1="150" y1="210" x2="150" y2="55" class="dash"/><text x="156" y="100" class="small">l₁</text>
+  <line x1="170" y1="210" x2="170" y2="185" class="dash"/><text x="176" y="200" class="small">l₂</text>
+  <g transform="translate(400,30)">
+    <text x="0" y="10">Each bolt stretches ∝ its distance</text>
+    <text x="0" y="28">from C, so its tension ∝ l:</text>
+    <text x="0" y="56" class="acc">P″ = C·l,  Pe = 2C(l₁² + l₂²)</text>
+    <text x="0" y="84">Every bolt also takes direct</text>
+    <text x="0" y="102">shear P′ = P/n.</text>
+  </g>
+</svg>
+<figcaption>Bracket tilting about its lower edge C (Bhandari Fig. 7.20). Bolts farthest from C carry the most tension.</figcaption>
+</figure>
+<div class="formula"><span class="label">Eqs 7.9–7.14 (two bolts per row)</span>
+\[ P' = \frac{P}{n}\ \text{(shear)} \qquad P''_1 = \frac{Pe\,l_1}{2(l_1^2 + l_2^2 + \dots)}\ \text{(tension)} \qquad \tau = \frac{P'}{A},\ \ \sigma_t = \frac{P''_1}{A} \]
+\[ \tau_{max} = \sqrt{(\sigma_t/2)^2 + \tau^2} = \frac{0.5S_{yt}}{(fs)} \quad\text{or}\quad \sigma_1 = \frac{\sigma_t}{2} + \sqrt{(\sigma_t/2)^2+\tau^2} = \frac{S_{yt}}{(fs)} \]
+<p>Assumptions: rigid bracket and structure, bolts in reamed holes, no preload, stress concentration ignored. If P is <em>parallel</em> to the bolt axes, add the direct tension P/n to P″ instead of using shear.</p>
+</div>
+
+<h2>3. Case 3: circular base (§7.13)</h2>
+<div class="formula"><span class="label">Flange radius a, bolt circle radius b, n bolts, load P at arm l from the tilting point (Eqs 7.16, 7.18)</span>
+\[ P_{max} = \frac{2Pl\,(a+b)}{n(2a^2+b^2)}\ \text{(load direction can change: pillar crane)} \]
+\[ P_{max} = \frac{2Pl\,[a + b\cos(180°/n)]}{n(2a^2+b^2)}\ \text{(fixed direction, two top bolts equally stressed)} \]
+<p>Dowel pins usually take the shear, so the bolts carry tension only.</p>
+</div>
+
+<h2>4. Worked example (Bhandari Ex. 7.5)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 7.5</b> (<a class="bk" data-p="237"></a>). A bracket is held by four bolts, two at l₁ = 150 mm and two at l₂ = 25 mm from the tilting edge. P = 25 kN at e = 100 mm, perpendicular to the bolt axes. 45C8 (S<sub>yt</sub> = 380), (fs) = 2.5, maximum shear stress theory, no preload. Find the size.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>τ<sub>allow</sub> = 0.5(380)/2.5 = 76 N/mm².</li>
+<li>Direct shear: P′ = 25 000/4 = 6250 N, so τ = 6250/A.</li>
+<li>Tension in bolts 1: \(P''_1 = \dfrac{25\,000(100)(150)}{2(150^2 + 25^2)} = 8108\) N, so σ<sub>t</sub> = 8108/A.</li>
+<li>\(\tau_{max} = \frac{1}{A}\sqrt{4054^2 + 6250^2} = \frac{7449.9}{A} = 76 \Rightarrow A = 98.0\) mm².</li>
+<li>Table 7.1: M16 (A<sub>t</sub> = 157 mm²). M12 (84.3) is too small.</li>
+</ol>
+</div></div>
+
+<h2>5. Practice (all Bhandari Examples)</h2>
+<div class="num" data-answer="12093" data-tol="1" data-unit="N">
+<p class="q">Ex. 7.3 (<a class="bk" data-p="234"></a>): four identical bolts at the corners of a 200 mm × 150 mm rectangle (bolts 1–2 are 200 apart, 1–3 are 150 apart). P = 10 kN in the plane of the bolts, e = 500 mm from G. Find the largest resultant shear force on a bolt.</p>
+<details class="sol"><p>r = √(100² + 75²) = 125 for all four bolts. P′ = 2500 N. P″ = Pe·r/(4r²) = 10 000 × 500/(4 × 125) = 10 000 N. tan θ = 75/100, so θ = 36.87°.</p><p>Bolts 2 and 4: \(P = \sqrt{(10\,000\cos36.87° + 2500)^2 + (10\,000\sin36.87°)^2} = 12\,093\) N. With τ = 80 (30C8, fs 2.5): d<sub>c</sub> = 13.87, so M20.</p></details>
+</div>
+<div class="num" data-answer="11833" data-tol="1" data-unit="N">
+<p class="q">Ex. 7.4 (<a class="bk" data-p="235"></a>): a plate is fixed to a channel by three bolts in a line, 75 mm apart, G at the middle bolt. P = 5 kN at e = 305 mm, in the plane. At the worst bolt P′ and P″ are collinear. Find its force.</p>
+<details class="sol"><p>P′ = 5000/3 = 1666.7. P″ = 5000(305)(75)/(75² + 75²) = 10 166.7. Bolt 3: 11 833 N. With τ = 63.33 (45C8, fs 3): d<sub>c</sub> = 15.42, so M20.</p></details>
+</div>
+<div class="num" data-answer="133.9" data-tol="1" data-unit="mm²">
+<p class="q">Ex. 7.7 (<a class="bk" data-p="238"></a>): six bolts in three rows of two, at l₁ = 300, l₂ = 200, l₃ = 100 mm from the tilting edge. P = 50 kN with arm l = 250 mm. Neglect shear; σ<sub>t</sub> ≤ 100 N/mm². Required stress area?</p>
+<details class="sol"><p>\(P_1 = \frac{50\,000(250)(300)}{2(300^2+200^2+100^2)} = 13\,393\) N. A = 13 393/100 = 133.9 mm², so M16 (157 mm²).</p></details>
+</div>
+<div class="num" data-answer="595.6" data-tol="1" data-unit="mm²">
+<p class="q">Ex. 7.9 (<a class="bk" data-p="240"></a>): a cast-iron bracket with two bolts at l₁ = 50 mm and two at l₂ = 200 mm from the tilting edge. P = 25 kN acts <em>parallel</em> to the bolt axes (tension) at l = 400 mm. σ<sub>t</sub> ≤ 50 N/mm². Required area?</p>
+<details class="sol"><p>Direct tension 25 000/4 = 6250 N per bolt. Tilting: \(P''_2 = \frac{25\,000(400)(200)}{2(50^2+200^2)} = 23\,529\) N. Total 29 779 N, so A = 595.6 mm², giving M36 (817 mm²).</p></details>
+</div>
+<div class="num" data-answer="11.94" data-tol="1" data-unit="mm (core)">
+<p class="q">Ex. 7.11 (<a class="bk" data-p="244"></a>): a round flange bearing (flange Ø400) is held by four cap screws on a 300 mm PCD. P = 25 kN at 150 mm from the frame, fixed direction, two top screws equally stressed, dowels take shear. σ<sub>t</sub> ≤ 50 N/mm². Core diameter?</p>
+<details class="sol"><p>a = 200, b = 150, n = 4: \(P_{max} = \frac{2(25\,000)(150)[200 + 150\cos45°]}{4(2\cdot200^2 + 150^2)} = 5599\) N. d<sub>c</sub> = √(4 × 5599/(π × 50)) = 11.94 mm, so d ≈ 15 mm (M16).</p></details>
+</div>
+<div class="num" data-answer="319.7" data-tol="1" data-unit="mm²">
+<p class="q">Ex. 7.12 (<a class="bk" data-p="244"></a>): a pillar crane is fixed by 16 bolts on a 2 m PCD; flange Ø2.25 m. 50 kN at 7.5 m radius; σ<sub>t</sub> ≤ 75 N/mm². The crane slews, so the load direction changes. Required area?</p>
+<details class="sol"><p>Arm about the tilting point l = 7500 − 1125 = 6375 mm. \(P_{max} = \frac{2(50\,000)(6375)(1125+1000)}{16(2\cdot1125^2 + 1000^2)} = 23\,977\) N. A = 319.7 mm², so M24 (353).</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">In the tilting case, why is bolt tension taken proportional to the distance from the tilting edge?</p>
+<ol class="opts">
+<li>Bolts farther away have larger diameters</li>
+<li>Bolt stretch, so strain and stress, grows with that distance</li>
+<li>The external moment is largest at the far bolts</li>
+<li>The bracket bends more near the tilting edge</li>
+</ol>
+<div class="why">A rigid bracket rotating about C stretches each bolt by δ ∝ l. Then strain ∝ δ, stress ∝ strain, force ∝ stress, so P″ = C·l (<a class="bk" data-p="236"></a>).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">For a pillar crane, why use \(P_{max} = 2Pl(a+b)/n(2a^2+b^2)\) instead of the equal-stressed-bolts formula?</p>
+<ol class="opts">
+<li>The pillar crane has an odd number of bolts</li>
+<li>Pillar crane bolts carry shear as well as tension</li>
+<li>The flange is much larger than the bolt circle</li>
+<li>The jib slews, so any bolt can become the worst</li>
+</ol>
+<div class="why">When the load direction can change, design for the absolute maximum (a bolt directly opposite the tilting point, α = 180°) (<a class="bk" data-p="243"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Taking moments about G for tilting problems. Tilting is about the edge C. Moments about G are only for in-plane eccentricity.</li>
+<li>Forgetting the "2" in 2(l₁² + l₂²) when there are two bolts per row.</li>
+<li>Adding direct tension when P is perpendicular to the bolts. Perpendicular load gives direct <em>shear</em>.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §7.11–7.13, <a class="bk" data-p="233">pp. 233–248</a> (Examples 7.3–7.15).</li>
+<li>Course slides: bracket problems, <a class="ppt" data-p="349">p. 349</a>; question bank Q38–Q39 (<a class="qb" data-p="50"></a>).</li>
+<li>NPTEL Design of Machine Elements I, Lecture 26 (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Examples 7.13–7.15 combine all the cases (an inclined force, a moment about G <em>and</em> tilting). Try Ex. 7.15 on <a class="bk" data-p="247"></a>, then ask me to check your free-body diagram.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

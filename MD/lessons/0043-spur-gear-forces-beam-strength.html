@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spur Gear Forces</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 43</p>
+<h1>Spur gears: force analysis and beam strength</h1>
+<p class="meta">About 40 minutes · Bhandari §17.11–17.13, 17.17–17.18</p>
+<div class="win"><b>Your win:</b> you can resolve the tooth force into tangential and radial parts and get their directions right on a free-body diagram, including idler and planetary trains and two-stage gearboxes. You can derive the Lewis equation S<sub>b</sub> = mbσ<sub>b</sub>Y and decide which of two meshing gears is weaker.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 26 and 42)</span>
+<details class="recall"><summary>Torque in N·mm from kW and rpm?</summary><div>M<sub>t</sub> = 60 × 10⁶ (kW)/(2πn).</div></details>
+<details class="recall"><summary>Pitch diameter from module and teeth?</summary><div>d′ = mz.</div></details>
+<details class="recall"><summary>Gear loads on a shaft in Lesson 26?</summary><div>P<sub>t</sub> = 2M<sub>t</sub>/d′ and P<sub>r</sub> = P<sub>t</sub> tan α, resolved into vertical and horizontal planes.</div></details>
+</div>
+
+<h2>1. The tooth force and its components (§17.11)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 230" role="img" aria-label="Tooth force components at the pitch point, and the Lewis parabola in a gear tooth">
+  <circle cx="200" cy="10" r="100" class="ln"/>
+  <circle cx="200" cy="290" r="180" class="ln"/>
+  <line x1="60" y1="110" x2="340" y2="110" class="thin"/>
+  <line x1="200" y1="110" x2="331.6" y2="157.9" class="acc"/>
+  <polygon points="320,149 333,158 318,160" class="fill-acc"/>
+  <line x1="200" y1="110" x2="331.6" y2="110" class="blu"/>
+  <polygon points="320,105 332,110 320,115" class="dotb"/>
+  <line x1="331.6" y1="110" x2="331.6" y2="157.9" class="grn"/>
+  <polygon points="326.6,146 336.6,146 331.6,158" class="fill-ink"/>
+  <circle cx="200" cy="110" r="3.5" class="fill-ink"/>
+  <text x="186" y="104" class="small">P</text>
+  <text x="250" y="102" class="blu">P<tspan dy="3" font-size="10">t</tspan></text>
+  <text x="338" y="140" class="grn">P<tspan dy="3" font-size="10">r</tspan></text>
+  <text x="236" y="160" class="acc">P<tspan dy="3" font-size="10">N</tspan></text>
+  <path d="M245,110 A45,45 0 0 1 242.3,125.4" class="thin"/><text x="248" y="124" class="small">α</text>
+  <text x="30" y="84" class="small">pinion (driver)</text>
+  <text x="70" y="214" class="small">gear (driven): force on the gear tooth</text>
+  <!-- Lewis tooth -->
+  <polygon points="440,200 478,80 522,80 560,200" class="part"/>
+  <polyline points="442.2,200 449.9,170 456,149.5 462.7,130 468.8,115 476.4,100 483.3,90 488.2,85 500,80 511.8,85 516.7,90 523.6,100 531.2,115 537.3,130 544,149.5 550.1,170 557.8,200" class="dash"/>
+  <line x1="430" y1="149.5" x2="570" y2="149.5" class="thin"/>
+  <text x="418" y="153" class="small">X</text><text x="574" y="153" class="small">X</text>
+  <line x1="456" y1="214" x2="544" y2="214" class="ln"/><text x="492" y="228" class="small">t</text>
+  <line x1="590" y1="80" x2="590" y2="149.5" class="ln"/><text x="596" y="120" class="small">h</text>
+  <line x1="560" y1="80" x2="504" y2="80" class="blu"/><polygon points="512,75 502,80 512,85" class="dotb"/>
+  <text x="562" y="72" class="blu">P<tspan dy="3" font-size="10">t</tspan></text>
+  <text x="424" y="66" class="small">dashed: inscribed parabola</text>
+</svg>
+<figcaption>Left: the tooth force P<sub>N</sub> acts along the pressure line. Its tangential part P<sub>t</sub> transmits the torque, and its radial part P<sub>r</sub> pushes the gears apart, towards each gear's own centre. Right: Lewis treats the tooth as a cantilever. The parabola drawn inside it is a beam of uniform strength, and it touches the flanks at the weakest section XX (<a class="bk" data-p="659"></a>, 672).</figcaption>
+</figure>
+<div class="formula"><span class="label">Force components (Eqs 17.7–17.10)</span>
+\[ M_t = \frac{60\times10^6(\text{kW})}{2\pi n},\quad P_t = \frac{2M_t}{d'},\quad P_r = P_t\tan\alpha,\quad P_N = \frac{P_t}{\cos\alpha} \]
+</div>
+<p>Assumptions: the force does not change as the contact point moves, a single pair of teeth carries the whole load, and the gears run slowly, so there is no dynamic load yet (<a class="lesson" data-l="0044">Lesson 44</a> adds it).</p>
+<div class="tip"><p><b>Direction rules</b> (<a class="bk" data-p="660"></a>). On the <b>driving</b> gear, P<sub>t</sub> acts <b>opposite</b> to its rotation. On the <b>driven</b> gear, P<sub>t</sub> acts <b>with</b> its rotation. P<sub>r</sub> always points towards the centre of the gear it acts on. A gear held fixed (an internal ring) behaves as "driven" relative to the planet that drives against it.</p></div>
+
+<h2>2. Trains: idlers, planets and two-stage boxes</h2>
+<ul>
+<li><b>Idler</b> (Ex. 17.2): it passes torque through without keeping any. So P<sub>t</sub> is the same at both of its meshes (and so is P<sub>r</sub>), and its shaft carries no torque but does carry a <b>bearing load</b>.</li>
+<li><b>Planet on a carrier</b> (Ex. 17.3): the planet gets P<sub>t</sub> from the sun and an equal P<sub>t</sub> from the fixed ring, in the same direction. Its pin therefore carries 2P<sub>t</sub>, and the carrier torque is 2P<sub>t</sub> × (arm length).</li>
+<li><b>Two-stage box</b> (Ex. 17.5): the intermediate gears share one shaft, so P<sub>t</sub>′ = P<sub>t</sub>(d₂′/d₃′). Resolve both gears' forces into the vertical and horizontal planes and take moments about one bearing.</li>
+</ul>
+
+<h2>3. How gear teeth fail, and gear materials (§17.12–17.13)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Failure</th><th>Cause</th><th>Remedy</th></tr></thead>
+<tbody>
+<tr><td>Tooth breakage</td><td>bending under static plus dynamic load</td><td>beam strength &gt; effective load (module, face width)</td></tr>
+<tr><td>Abrasive wear</td><td>dirt or metal particles in the oil</td><td>filters, harder surfaces, thicker oil</td></tr>
+<tr><td>Corrosive wear</td><td>EP additives, contamination</td><td>enclosure, correct additives, regular oil change</td></tr>
+<tr><td>Initial pitting</td><td>high spots, profile errors, misalignment (it corrects itself)</td><td>accurate machining and alignment</td></tr>
+<tr><td><b>Destructive pitting</b></td><td>surface fatigue: Hertz contact stress &gt; surface endurance strength</td><td>wear strength &gt; effective load; harder surface</td></tr>
+<tr><td>Scoring</td><td>oil film breaks down, giving stick–slip welding and tearing</td><td>limit speed and pressure, more oil flow, cool the box (fins, fan)</td></tr>
+</tbody></table></div>
+<p>Materials (<a class="bk" data-p="666"></a>–667): <b>grey CI</b> (FG 200/260/350) is cheap, quiet and wear-resistant but weak, and suits large gears. <b>Plain carbon steel</b> (50C8, 45C8, 50C4, 55C8) is for medium duty, and <b>alloy steel</b> (40Cr1, 30Ni4Cr1) for heavy duty. <b>Case-hardened steel</b> gives the best combination: a hard surface on a tough core. <b>Bronze</b> is for worm wheels because of its low friction. <b>Non-metallic</b> pinions (nylon, Bakelite) run quietly at light load, usually against a CI gear.</p>
+
+<h2>4. Derivation: the Lewis equation (§17.17)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> S<sub>b</sub> = mbσ<sub>b</sub>Y (Eq. 17.16), and say what Y means.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Treat the tooth as a cantilever of face width b with the tangential force P<sub>t</sub> at its tip. Assume: P<sub>r</sub> neglected, P<sub>t</sub> spread evenly over b, no stress concentration, and one pair in contact.</li>
+<li>Draw a parabola inside the tooth from the load point. A parabolic cantilever has the same stress everywhere, so the real tooth is weakest where the parabola touches its flanks: section XX, thickness t, at distance h below the load.</li>
+<li>At XX: \(\sigma_b = \dfrac{M_by}{I} = \dfrac{(P_th)(t/2)}{bt^3/12} = \dfrac{6P_th}{bt^2}\Rightarrow P_t = b\sigma_b\dfrac{t^2}{6h}\).</li>
+<li>Multiply top and bottom by m: \(P_t = mb\sigma_b\Big(\dfrac{t^2}{6hm}\Big) = mb\sigma_bY\), where \(Y = \dfrac{t^2}{6hm}\) is the <b>Lewis form factor</b>. It is dimensionless and depends only on the tooth shape: the number of teeth and the tooth system.</li>
+<li>When σ<sub>b</sub> reaches the permissible stress, P<sub>t</sub> is the largest tangential force the tooth can carry without breaking. That is the <b>beam strength</b>: \(\boxed{S_b = mb\sigma_bY}\). The design condition is S<sub>b</sub> ≥ P<sub>eff</sub>(fs).</li>
+</ol>
+</div></div>
+<div class="tbl-wrap"><table>
+<caption>Lewis form factor Y, 20° full depth (from Table 17.3, <a class="bk" data-p="673"></a>)</caption>
+<thead><tr><th>z</th><td>15</td><td>17</td><td>18</td><td>19</td><td>20</td><td>24</td><td>25</td><td>30</td><td>40</td><td>50</td><td>100</td><td>rack</td></tr></thead>
+<tbody><tr><th>Y</th><td>0.289</td><td>0.302</td><td>0.308</td><td>0.314</td><td>0.320</td><td>0.337</td><td>0.340</td><td>0.358</td><td>0.389</td><td>0.408</td><td>0.446</td><td>0.484</td></tr></tbody>
+</table></div>
+
+<h2>5. Permissible bending stress, and which gear is weaker (§17.18)</h2>
+<ul>
+<li>Teeth on the driver and driven gears are loaded in one direction (<b>repeated</b> stress). Idler and planet teeth are loaded both ways (<b>reversed</b>). Bending fatigue governs, and Buckingham's estimate is used throughout: \(\boxed{\sigma_b = S_e \approx S_{ut}/3}\). For bronze it is 0.4S<sub>ut</sub> (<a class="bk" data-p="674"></a>).</li>
+<li>m and b are the same for both gears, so the gear with the smaller <b>σ<sub>b</sub>·Y</b> is weaker. With the same material, the <b>pinion is always weaker</b>, because it has fewer teeth and so a smaller Y.</li>
+</ul>
+
+<h2>6. Worked example (Bhandari Ex. 17.2, also slide Q2, <a class="ppt" data-p="854">p. 854</a>)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 17.2</b> (<a class="bk" data-p="660"></a>): gear A (30 teeth) gets 3.5 kW at 700 rpm, clockwise, and drives idler B (60 teeth), which drives C (40 teeth). m = 5 mm, 20°. B's centre is placed so that the lines to A and C are at 90°. Find the shaft torques, the tooth forces and the reaction on the idler shaft.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>d′<sub>A</sub> = 150, d′<sub>B</sub> = 300, d′<sub>C</sub> = 200 mm. (M<sub>t</sub>)<sub>A</sub> = 60 × 10⁶(3.5)/[2π(700)] = <b>47 746.5 N·mm</b>.</li>
+<li>The idler keeps no torque: (M<sub>t</sub>)<sub>B</sub> = 0. The same power reaches C at n<sub>C</sub> = 700 × 30/40, so (M<sub>t</sub>)<sub>C</sub> = 47 746.5 × 40/30 = <b>63 662 N·mm</b>.</li>
+<li>P<sub>t</sub> = 2(47 746.5)/150 = <b>636.6 N</b> and P<sub>r</sub> = 636.6 tan 20° = <b>231.7 N</b>. The idler transmits P<sub>t</sub> unchanged, so the B–C mesh carries the same two forces.</li>
+<li>Directions: on A (driver, clockwise) P<sub>t</sub> opposes the rotation. On C (driven) it follows the rotation. Every P<sub>r</sub> points to its own gear's centre. On B, the two meshes' forces lie in two perpendicular planes at 45° to the vertical, each component being (P<sub>t</sub> + P<sub>r</sub>).</li>
+<li>\(R_B = \sqrt{2}\,(P_t + P_r) = \sqrt2\,(636.6 + 231.7) = \mathbf{1228\ N}\). The idler shaft carries no torque but has a real bending load.</li>
+</ol>
+</div></div>
+
+<h2>7. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="198.94" data-tol="1" data-unit="N·m">
+<p class="q">Ex. 17.3 (<a class="bk" data-p="661"></a>): planetary train. Sun A has 30 teeth, 5 kW at 1440 rpm. Planet B has 60 teeth, fixed ring C has 150, m = 4 mm, 20°. Torque the arm D can deliver?</p>
+<details class="sol"><p>d′<sub>A</sub> = 120 and d′<sub>B</sub> = 240, so the arm length L<sub>D</sub> = (120 + 240)/2 = 180 mm. (M<sub>t</sub>)<sub>A</sub> = 33 157.3 N·mm and P<sub>t</sub> = 2(33 157.3)/120 = 552.6 N. The planet gets P<sub>t</sub> from the sun and P<sub>t</sub> from the ring, so its pin pushes the arm with 2P<sub>t</sub>. Torque = 2(552.6)(180) = 198 943 N·mm = <b>198.94 N·m</b>.</p></details>
+</div>
+<div class="num" data-answer="381.97" data-tol="1" data-unit="N">
+<p class="q">Ex. 17.4 (<a class="bk" data-p="662"></a>): concrete mixer. The drum takes 5 kW at 250 rpm through two identical planets F, whose pins are fixed to the drum, around sun E (35 teeth) inside fixed ring A (65 teeth), m = 5 mm. Tangential force between E and F?</p>
+<details class="sol"><p>Drum torque = 60 × 10⁶(5)/[2π(250)] = 190 986 N·mm. The pins are a = (325 + 175)/2 = 250 mm apart, and each pin carries 2(P<sub>t</sub>)<sub>EF</sub>, so the torque on the drum = 2(P<sub>t</sub>)<sub>EF</sub> × a. (P<sub>t</sub>)<sub>EF</sub> = 190 986/500 = <b>381.97 N</b> and (P<sub>r</sub>)<sub>EF</sub> = 139.03 N. Between pinion B and gear C (400 mm): 2(381.97)(87.5) = (P<sub>t</sub>)<sub>CB</sub>(200), so (P<sub>t</sub>)<sub>CB</sub> = 334.22 N.</p></details>
+</div>
+<div class="num" data-answer="2542.06" data-tol="1" data-unit="N">
+<p class="q">Ex. 17.5 (<a class="bk" data-p="664"></a>): two-stage box, pinion 1 (20 teeth) takes 10 kW at 1440 rpm, gears 2 and 4 have 50 teeth, pinion 3 has 20, a = 175 mm per stage, 20°. On shaft EF (300 mm between bearings) gear 2 sits 50 mm from E and pinion 3 sits 250 mm from E. Horizontal reaction at bearing F?</p>
+<details class="sol"><p>m = 5. P<sub>t</sub> = 2(66 314.56)/100 = 1326.29 N and P<sub>r</sub> = 482.73 N (1–2 mesh). P<sub>t</sub>′ = 1326.29(250/100) = 3315.73 N and P<sub>r</sub>′ = 1206.83 N (3–4 mesh). Horizontal moments about E: 3315.73(250) − 1326.29(50) = R<sub>F</sub>(300), so (R<sub>F</sub>)<sub>h</sub> = <b>2542.06 N</b>. Similarly (R<sub>F</sub>)<sub>v</sub> = 1086.15, (R<sub>E</sub>)<sub>v</sub> = 603.41 and (R<sub>E</sub>)<sub>h</sub> = 552.62 N.</p></details>
+</div>
+<div class="num" data-answer="27.2" data-tol="1" data-unit="N/mm²">
+<p class="q">Ex. 17.8 (<a class="bk" data-p="682"></a>), first step: a 20-tooth Fe 410 pinion (S<sub>ut</sub> = 410) meshes with a 50-tooth FG 200 gear (S<sub>ut</sub> = 200). Which is weaker? Enter the smaller σ<sub>b</sub>·Y.</p>
+<details class="sol"><p>Pinion: (410/3)(0.320) = 43.73. Gear: (200/3)(0.408) = <b>27.20</b>. The <b>gear</b> is weaker and must be designed, even though it has more teeth. The material difference outweighs the larger Y.</p></details>
+</div>
+<div class="num" data-answer="7680" data-tol="1" data-unit="N">
+<p class="q">Ex. 17.10 (<a class="bk" data-p="684"></a>), first step: 20-tooth pinion, 41-tooth gear, m = 3, b = 40 mm, both steel with S<sub>ut</sub> = 600. Beam strength?</p>
+<details class="sol"><p>Same material, so the pinion is weaker. σ<sub>b</sub> = 600/3 = 200 and Y = 0.320. S<sub>b</sub> = 3(40)(200)(0.32) = <b>7680 N</b>.</p></details>
+</div>
+
+<h2>8. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">The component of the gear tooth force that transmits power is the:</p>
+<ol class="opts">
+<li>radial component, towards the gear centre</li>
+<li>tangential component, along the pitch circle</li>
+<li>normal force, along the line of action</li>
+<li>axial component, along the shaft axis</li>
+</ol>
+<div class="why">M<sub>t</sub> = P<sub>t</sub>(d′/2). P<sub>r</sub> only separates the gears and loads the bearings.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">In the Lewis equation the form factor Y depends on:</p>
+<ol class="opts">
+<li>the module and the face width</li>
+<li>the material and its strength</li>
+<li>the pitch line velocity of gears</li>
+<li>the number of teeth and tooth system</li>
+</ol>
+<div class="why">Y = t²/6hm depends only on the tooth shape, which is set by z and the profile system (Table 17.3).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A pinion and gear are made of the same material. Which statement is true?</p>
+<ol class="opts">
+<li>The pinion is weaker, because its Y is smaller</li>
+<li>The gear is weaker, because it is much larger</li>
+<li>Both are equally strong, since materials match</li>
+<li>The weaker one depends only on face width</li>
+</ol>
+<div class="why">With σ<sub>b</sub>, m and b equal, S<sub>b</sub> ∝ Y, and Y grows with z.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">Destructive pitting of gear teeth is a failure due to:</p>
+<ol class="opts">
+<li>abrasive particles carried in the lubricant</li>
+<li>bending fatigue at the root fillet section</li>
+<li>surface fatigue from repeated contact stress</li>
+<li>welding and tearing after film breakdown</li>
+</ol>
+<div class="why">Pitting happens when the Hertz contact stress exceeds the surface endurance strength. Scoring is the welding-and-tearing failure.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Use the torque of the gear whose diameter you divide by. P<sub>t</sub> is the same on both teeth of a mesh, but M<sub>t</sub> differs.</li>
+<li>Directions: the driver's P<sub>t</sub> opposes its rotation and the driven gear's follows it. Most free-body diagram marks are lost here.</li>
+<li>An idler shaft has zero torque but is <b>not</b> unloaded. Combine the two meshes' forces vectorially.</li>
+<li>For different materials, compare σ<sub>b</sub>Y. Do not assume the pinion is weaker.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §17.11–17.13, 17.17–17.18, <a class="bk" data-p="658">pp. 658–667, 672–674</a> (Examples 17.2–17.5).</li>
+<li>Course slides: gear materials and force problems Q2–Q4, <a class="ppt" data-p="848">pp. 848–862</a>.</li>
+<li>Wilfred Lewis, "Investigation of the strength of gear teeth" (Engineers' Club of Philadelphia, 1892), the origin of the equation, cited by Bhandari on <a class="bk" data-p="672">p. 672</a>.</li>
+</ul></div>
+<div class="ask"><p>Free-body diagrams of gear trains causing trouble? Send me a sketch of the rotation directions and I'll check your arrows.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

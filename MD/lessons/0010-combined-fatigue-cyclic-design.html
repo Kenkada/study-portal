@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combined Fatigue</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 10</p>
+<h1>Fatigue under combined stresses: designing simple elements for cyclic loading</h1>
+<p class="meta">About 30 minutes · Bhandari §5.15 · course slides pp. 248–270</p>
+<div class="win"><b>Your win:</b> you can design a shaft or cantilever whose bending, torsion or axial load <em>all</em> fluctuate. You'll know both methods your course uses: Bhandari's (distortion energy, then Goodman) and the Soderberg equivalent-stress method on your professor's slides.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 2, 9)</span>
+<details class="recall"><summary>Distortion energy equivalent stress for σ plus τ?</summary><div>\(\sqrt{\sigma^2 + 3\tau^2}\)</div></details>
+<details class="recall"><summary>Goodman intersection S<sub>a</sub> for a load line of slope tan θ?</summary><div>\(S_a = 1\big/\left(\frac{1}{S_e} + \frac{1}{S_{ut}\tan\theta}\right)\)</div></details>
+<details class="recall"><summary>For pure fluctuating torsion, what limits τ<sub>a</sub>?</summary><div>S<sub>se</sub>/(fs). Mean stress doesn't matter until yielding.</div></details>
+</div>
+
+<h2>1. Bhandari's method: combine means with means, amplitudes with amplitudes</h2>
+<p>Apply the distortion energy theory <em>separately</em> to the mean and the alternating components. Then treat the two results like a single fluctuating normal stress on the modified Goodman diagram (<a class="bk" data-p="177"></a>):</p>
+<div class="formula"><span class="label">Two-dimensional normal stresses (Eqs 5.48, 5.49)</span>
+\[ \sigma_m = \sqrt{\sigma_{xm}^2 - \sigma_{xm}\sigma_{ym} + \sigma_{ym}^2} \qquad \sigma_a = \sqrt{\sigma_{xa}^2 - \sigma_{xa}\sigma_{ya} + \sigma_{ya}^2} \]
+</div>
+<div class="formula"><span class="label">Bending plus torsion (Eqs 5.50, 5.51)</span>
+\[ \sigma_m = \sqrt{\sigma_{xm}^2 + 3\tau_{xym}^2} \qquad \sigma_a = \sqrt{\sigma_{xa}^2 + 3\tau_{xya}^2} \]
+<p>For a solid shaft: \(\sigma_{xm} = \frac{32(M_b)_m}{\pi d^3}\), \(\tau_{xym} = \frac{16(M_t)_m}{\pi d^3}\), and likewise for the amplitudes. Since everything shares \(1/d^3\), tan θ = σ<sub>a</sub>/σ<sub>m</sub> is known before d.</p>
+</div>
+
+<h2>2. Worked example (Bhandari Ex. 5.20, question bank Q22)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 5.20</b> (<a class="bk" data-p="178"></a>). A shaft carries a pulley midway between bearings. The bending moment at the pulley varies 200 → 600 N·m while the torque varies 70 → 200 N·m, both at shaft frequency. FeE 400 (S<sub>ut</sub> = 540, S<sub>yt</sub> = 400 N/mm²), corrected S<sub>e</sub> = 200 N/mm², (fs) = 2. Find d.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>\((M_b)_m = 400\), \((M_b)_a = 200\), \((M_t)_m = 135\), \((M_t)_a = 65\) N·m.</li>
+<li>\(\sigma_{xm} = \frac{4074.4\times10^3}{d^3}\), \(\sigma_{xa} = \frac{2037.2\times10^3}{d^3}\), \(\tau_m = \frac{687.6\times10^3}{d^3}\), \(\tau_a = \frac{331.0\times10^3}{d^3}\).</li>
+<li>\(\sigma_m = \sqrt{4074.4^2 + 3(687.6)^2}\times\frac{10^3}{d^3} = \frac{4244.8\times10^3}{d^3}\); \(\sigma_a = \frac{2116.3\times10^3}{d^3}\). So tan θ = 0.4986.</li>
+<li>Goodman: \(\frac{S_a}{200} + \frac{S_a/0.4986}{540} = 1 \Rightarrow S_a = 114.76\), \(S_m = 230.16\). Their sum is 345 &lt; 400, so no yielding.</li>
+<li>\(\frac{2116.3\times10^3}{d^3} = \frac{114.76}{2}\Rightarrow d = 33.29\) mm.</li>
+</ol>
+</div></div>
+
+<h2>3. The slides' method: Soderberg equivalent stresses</h2>
+<p>Two problems on your professor's slides (<a class="ppt" data-p="260">pp. 260–266</a>) follow R S Khurmi. Each fluctuating stress becomes an <b>equivalent static stress</b> via the Soderberg line, with the stress concentration and correction factors loaded onto the alternating part:</p>
+<div class="formula"><span class="label">Soderberg equivalent stresses</span>
+\[ \sigma_{eq} = \sigma_m + \sigma_a\,\frac{S_{yt}}{S_e}\cdot\frac{K_f}{K_{sur}K_{sz}} \qquad \tau_{eq} = \tau_m + \tau_a\,\frac{S_{sy}}{S_{se}}\cdot\frac{K_{fs}}{K_{sur}K_{sz}} \]
+<p>Then combine with a static failure theory. With maximum shear stress theory: \(\tau_{max} = \frac12\sqrt{\sigma_{eq}^2 + 4\tau_{eq}^2} = \frac{S_{sy}}{(fs)}\). For a shaft this is \(\frac{16}{\pi d^3}\sqrt{M_{eq}^2+T_{eq}^2}\).</p>
+</div>
+<p class="side">Which method in the exam? If the question gives a corrected S<sub>e</sub> and asks for "modified Goodman", use Bhandari's. If it gives "size factor, surface factor, yield stress" in a list and no S<sub>ut</sub>-based diagram, it is the Soderberg method. When unsure, state the method in your first line.</p>
+
+<div class="example">
+<div class="ex-head"><b>Slides p. 266.</b> A hot-rolled steel shaft: torque varies from 330 N·m clockwise to 110 N·m anticlockwise; bending moment at the critical section varies from 440 to −220 N·m. S<sub>ut</sub> = 550, S<sub>yt</sub> = 410 MPa, S<sub>e</sub> = 0.5S<sub>ut</sub>, (fs) = 2, size factor 0.85, surface factor 0.62, no keyway. Find d.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>T<sub>m</sub> = ½(330 − 110) = 110 and T<sub>a</sub> = ½(330 + 110) = 220 N·m. M<sub>m</sub> = 110 and M<sub>a</sub> = 330 N·m.</li>
+<li>S<sub>e</sub> = 275, S<sub>sy</sub> = 0.5(410) = 205, S<sub>se</sub> = 0.5(275) = 137.5 MPa, K<sub>sur</sub>K<sub>sz</sub> = 0.527.</li>
+<li>\(T_{eq} = 110 + 220\cdot\frac{205}{137.5}\cdot\frac{1}{0.527} = 732.4\) N·m; \(M_{eq} = 110 + 330\cdot\frac{410}{275}\cdot\frac{1}{0.527} = 1043.6\) N·m.</li>
+<li>\(\frac{16}{\pi d^3}\sqrt{1043.6^2 + 732.4^2}\times10^3 = \frac{205}{2}\Rightarrow d = 39.9\) mm, so use 40 mm.</li>
+</ol>
+</div></div>
+
+<h2>4. A procedure for any simple element under cyclic load</h2>
+<ol>
+<li><b>Critical section:</b> largest moment, smallest section, or a stress raiser. Check each candidate.</li>
+<li><b>Load variation:</b> max and min of every load, then the mean and amplitude of each (watch the signs).</li>
+<li><b>S<sub>e</sub> at that section:</b> \(K_aK_bK_cK_d(0.5S_{ut})\); 0.8 for axial; 0.5 or 0.577 for torsion.</li>
+<li><b>Criterion:</b> reversed → S<sub>e</sub>/(fs) or the S–N line; fluctuating normal → modified Goodman; fluctuating shear → S<sub>se</sub>; combined → distortion energy on means and amplitudes, then Goodman (or Soderberg equivalents).</li>
+<li><b>Size, then check</b> yielding and any assumed K<sub>b</sub> range.</li>
+</ol>
+
+<h2>5. Practice</h2>
+<div class="num" data-answer="4.66" data-tol="1.5">
+<p class="q">Bhandari Ex. 5.19: σ<sub>x</sub> varies 40 → 100 N/mm² and σ<sub>y</sub> varies 10 → 80 N/mm², in phase. Corrected S<sub>e</sub> = 270, S<sub>ut</sub> = 660 N/mm². Find the factor of safety (Goodman).</p>
+<details class="sol"><p>σ<sub>xm</sub> = 70, σ<sub>xa</sub> = 30, σ<sub>ym</sub> = 45, σ<sub>ya</sub> = 35.</p><p>\(\sigma_m = \sqrt{70^2 - 70(45) + 45^2} = 61.44\); \(\sigma_a = \sqrt{30^2 - 30(35) + 35^2} = 32.79\); tan θ = 0.534.</p><p>\(S_a = 1/(1/270 + 1/(660\times0.534)) = 152.9\). (fs) = 152.9/32.79 = 4.66.</p></details>
+</div>
+<div class="num" data-answer="12.92" data-tol="2" data-unit="mm">
+<p class="q">Slides p. 260 (Soderberg method): a 200 mm steel cantilever is 2d in diameter for the first 50 mm from the support and d for the rest. Axial load varies 150 N compression → 450 N tension. Transverse end load varies 80 N up → 120 N down. S<sub>yt</sub> = 330 MPa; S<sub>e</sub> = 300 MPa (bending) with factor 0.7 for axial; K<sub>t</sub> = 1.44 (bending), 1.64 (axial); q = 0.9; size 0.85; surface 0.90; (fs) = 2. Find d.</p>
+<details class="sol"><p>Critical section: the shoulder, 150 mm from the free end. P<sub>m</sub> = 150, P<sub>a</sub> = 300 N. W<sub>m</sub> = 20, W<sub>a</sub> = 100 N, so M<sub>m</sub> = 3000, M<sub>a</sub> = 15 000 N·mm.</p><p>K<sub>f</sub> (bending) = 1.396, K<sub>f</sub> (axial) = 1.576, K<sub>sur</sub>K<sub>sz</sub> = 0.765.</p><p>Axial: \(\sigma_{eq} = \frac{191}{d^2} + \frac{382}{d^2}\cdot\frac{330}{210}\cdot\frac{1.576}{0.765} = \frac{1428}{d^2}\). Bending: \(\sigma_{eq} = \frac{30\,558}{d^3} + \frac{152\,789}{d^3}\cdot\frac{330}{300}\cdot\frac{1.396}{0.765} = \frac{337\,250}{d^3}\).</p><p>\(\frac{1428}{d^2} + \frac{337\,250}{d^3} = \frac{330}{2}\Rightarrow d \approx 12.9\) mm (trial and error), so use 13 mm.</p></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">In Bhandari's combined-stress method, how are mean and alternating components treated?</p>
+<ol class="opts">
+<li>Both are added first, then the theory is applied</li>
+<li>Only alternating parts are combined by the theory</li>
+<li>Each set is combined separately by distortion energy</li>
+<li>Each is checked separately, with no combination</li>
+</ol>
+<div class="why">Eqs 5.50–5.51 apply \(\sqrt{\sigma^2+3\tau^2}\) once to the means and once to the amplitudes. The two resulting stresses then go onto the modified Goodman diagram.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">In the Soderberg equivalent-stress method, which part is multiplied by K<sub>f</sub>/(K<sub>sur</sub>K<sub>sz</sub>)?</p>
+<ol class="opts">
+<li>The alternating component only</li>
+<li>The mean component only</li>
+<li>Both mean and alternating parts</li>
+<li>Neither; they reduce S<sub>yt</sub></li>
+</ol>
+<div class="why">Stress concentration, size and surface affect fatigue (the alternating part), not static strength. So they scale σ<sub>a</sub> only: \(\sigma_{eq} = \sigma_m + \sigma_a(S_{yt}/S_e)K_f/(K_{sur}K_{sz})\).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Combining a mean stress with an amplitude in the same square root.</li>
+<li>Sign errors in "330 clockwise to 110 anticlockwise". One of them is negative.</li>
+<li>Forgetting that the load line's tan θ comes from the combined σ<sub>a</sub>/σ<sub>m</sub>, not from the bending moments alone.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §5.15, <a class="bk" data-p="177">pp. 177–180</a> (Examples 5.19, 5.20).</li>
+<li>Course slides: fatigue design under combined stresses and practice problems, <a class="ppt" data-p="248">pp. 248–270</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 12, "Design for combined fatigue loading" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Got a combined-loading problem from a past paper? Paste it and tell me which method you'd pick. I'll check the choice before you solve it.</p></div>
+<p class="small">Next: <a class="lesson" data-l="0011">Unit 1 mixed practice</a> · Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

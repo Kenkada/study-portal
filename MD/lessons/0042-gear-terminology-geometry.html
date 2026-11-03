@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gear Terminology</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 42</p>
+<h1>Gear terminology and geometry</h1>
+<p class="meta">About 35 minutes · Bhandari §17.1–17.10, 17.15–17.16</p>
+<div class="win"><b>Your win:</b> you can choose a gear type for a shaft layout and prove the law of gearing. You can use the module system to get every dimension of a spur gear pair, derive the minimum number of teeth that avoids interference (z = 2/sin²α), and show why a compact two-stage gearbox splits the ratio as i₁ = i₂ = √i.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 30 and 32)</span>
+<details class="recall"><summary>Why is a flat belt's velocity ratio not exact?</summary><div>Slip (and creep) between belt and pulley.</div></details>
+<details class="recall"><summary>Why does a chain's speed fluctuate within one revolution?</summary><div>The polygonal effect: the chain wraps the sprocket as a polygon, so its speed varies by 1 − cos(180°/z).</div></details>
+<details class="recall"><summary>Pitch-line velocity of a wheel of diameter d (mm) at n rpm?</summary><div>v = πdn/60 000 m/s.</div></details>
+</div>
+
+<h2>1. Why gears, and which kind</h2>
+<p>Gear drives are <b>positive</b> (exact, constant velocity ratio). They are compact (the smallest centre distance of any drive), carry very large power, work even at very low speed, are up to 99% efficient (spur), and allow gear shifting. Against that, they are the costliest drive, need accurate shaft alignment, and need lubrication and cleanliness (<a class="bk" data-p="647"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Type</th><th>Shafts</th><th>Notes and normal ratio per pair</th></tr></thead>
+<tbody>
+<tr><td>Spur</td><td>parallel</td><td>teeth parallel to the axis; radial load only; cheapest; noisy at high speed; up to 6:1 (10:1 rarely)</td></tr>
+<tr><td>Helical</td><td>parallel</td><td>teeth on a helix; gradual engagement, quiet at high speed; radial + thrust load; up to 6:1</td></tr>
+<tr><td>Herringbone / double helical</td><td>parallel</td><td>two opposite helices; thrusts cancel; ships, turbines</td></tr>
+<tr><td>Bevel</td><td>intersecting (usually 90°)</td><td>conical; radial + thrust; 1:1, up to 3:1</td></tr>
+<tr><td>Worm</td><td>perpendicular, non-intersecting</td><td>60:1, up to 100:1; widely used in material-handling equipment</td></tr>
+<tr><td>Crossed helical</td><td>neither parallel nor intersecting</td><td>point contact; light duty only</td></tr>
+</tbody></table></div>
+<p>(Bhandari §17.3–17.4, <a class="bk" data-p="647"></a>–649. Your slides repeat this list, <a class="ppt" data-p="805">pp. 805–813</a>.)</p>
+
+<h2>2. Derivation: the law of gearing (§17.5)</h2>
+<div class="example">
+<div class="ex-head"><b>Prove</b> that the velocity ratio stays constant only if the common normal at the point of contact always passes through a fixed point P on the line of centres.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Gears 1 and 2 turn about O₁ and O₂ at ω₁ and ω₂ and touch at C. Velocity of C as a point of gear 1: CA = ω₁·O₁C, perpendicular to O₁C. As a point of gear 2: CB = ω₂·O₂C, perpendicular to O₂C.</li>
+<li>The teeth must neither separate nor dig in, so the components of CA and CB along the common normal NN must be equal (call it CD).</li>
+<li>Drop perpendiculars O₁G and O₂F from the centres onto NN. Similar triangles give CA/O₁C = CD/O₁G and CB/O₂C = CD/O₂F. Combining these: \(\dfrac{\omega_1}{\omega_2} = \dfrac{O_2F}{O_1G}\).</li>
+<li>NN cuts the line of centres at P. Triangles O₂FP and O₁GP are similar, so \(\boxed{\dfrac{\omega_1}{\omega_2} = \dfrac{O_2P}{O_1P}}\).</li>
+<li>O₁P + O₂P = O₁O₂ is fixed, so a constant ratio needs a <b>fixed P</b>, the <b>pitch point</b>. Only involute and cycloidal profiles satisfy this law (<a class="bk" data-p="649"></a>–650).</li>
+</ol>
+</div></div>
+
+<h2>3. Involute or cycloidal?</h2>
+<p><b>Cycloidal</b> teeth put a convex flank against a concave one, which gives more contact area and better wear strength, and they <b>never interfere</b>. But each tooth needs two curves (epicycloid and hypocycloid), which is hard to make accurately, and the pressure angle varies through the mesh. They survive only in clocks, watches and instruments. <b>Involute</b> teeth are standard because (<a class="bk" data-p="653"></a>):</p>
+<ol>
+<li>the law of gearing holds at <b>any centre distance</b>, so a small mounting error does not change the ratio;</li>
+<li>all gears of one module and pressure angle are interchangeable, and one cutter makes them all;</li>
+<li>the basic rack has straight sides, which are easy to machine accurately;</li>
+<li>the pressure angle stays constant, so the line of action is fixed.</li>
+</ol>
+
+<h2>4. Terminology and the module system (§17.6–17.7)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 250" role="img" aria-label="Spur gear tooth nomenclature and the line of action">
+  <!-- left: teeth (rack-like view of a large gear) -->
+  <line x1="40" y1="76" x2="360" y2="76" class="thin"/>
+  <line x1="40" y1="100" x2="360" y2="100" class="dash"/>
+  <line x1="40" y1="130" x2="360" y2="130" class="thin"/>
+  <polygon points="60.23,130 79.9,76 100.1,76 119.77,130" class="part"/>
+  <polygon points="135.63,130 155.3,76 175.5,76 195.17,130" class="part"/>
+  <polygon points="211.03,130 230.7,76 250.9,76 270.57,130" class="part"/>
+  <polygon points="286.43,130 306.1,76 326.3,76 345.97,130" class="part"/>
+  <rect x="40" y="130" width="320" height="30" class="part"/>
+  <line x1="71.15" y1="52" x2="146.55" y2="52" class="acc"/><line x1="71.15" y1="46" x2="71.15" y2="100" class="dash"/><line x1="146.55" y1="46" x2="146.55" y2="100" class="dash"/>
+  <text x="84" y="46" class="acc small">circular pitch p = πm</text>
+  <line x1="221.95" y1="188" x2="259.65" y2="188" class="blu"/><line x1="221.95" y1="100" x2="221.95" y2="192" class="dash"/><line x1="259.65" y1="100" x2="259.65" y2="192" class="dash"/>
+  <text x="196" y="204" class="blu small">tooth thickness 1.5708m</text>
+  <text x="150" y="226" class="small">tooth space = gap on pitch circle</text>
+  <text x="364" y="72" class="small">addendum</text>
+  <text x="364" y="104" class="small">pitch</text>
+  <text x="364" y="134" class="small">root</text>
+  <text x="364" y="148" class="small">(circles)</text>
+  <line x1="12" y1="76" x2="12" y2="100" class="ln"/><text x="16" y="92" class="small">h<tspan dy="3" font-size="9">a</tspan></text>
+  <line x1="12" y1="100" x2="12" y2="130" class="ln"/><text x="16" y="120" class="small">h<tspan dy="3" font-size="9">f</tspan></text>
+  <text x="76" y="70" class="small">top land</text>
+  <text x="128" y="146" class="small">bottom land</text>
+  <!-- right: line of action -->
+  <circle cx="520" cy="40" r="90" class="ln"/>
+  <circle cx="520" cy="40" r="84.6" class="dash"/>
+  <circle cx="520" cy="300" r="170" class="ln"/>
+  <circle cx="520" cy="300" r="159.7" class="dash"/>
+  <line x1="430" y1="130" x2="640" y2="130" class="thin"/>
+  <line x1="491.1" y1="119.5" x2="574.6" y2="149.9" class="acc"/>
+  <line x1="460" y1="108.3" x2="491.1" y2="119.5" class="dash"/>
+  <line x1="574.6" y1="149.9" x2="620" y2="166.4" class="dash"/>
+  <circle cx="520" cy="130" r="3.5" class="dot"/>
+  <text x="508" y="122" class="acc">P</text>
+  <path d="M556,130 A36,36 0 0 1 553.8,142.3" class="thin"/>
+  <text x="560" y="144" class="small">α</text>
+  <circle cx="520" cy="40" r="3" class="fill-ink"/><text x="526" y="44" class="small">O₁ (pinion)</text>
+  <text x="440" y="196" class="small">pitch circles touch at P;</text>
+  <text x="440" y="210" class="small">dashed: base circles;</text>
+  <text x="440" y="224" class="acc small">line of action (tangent to base circles)</text>
+</svg>
+<figcaption>Left: tooth nomenclature. Right: the line of action through the pitch point at the pressure angle α to the common tangent. It touches both base circles, whose radius is r cos α (Bhandari Figs 17.7–17.9, <a class="bk" data-p="650"></a>–651).</figcaption>
+</figure>
+<div class="formula"><span class="label">Module system (Eqs 17.1–17.6)</span>
+\[ p = \frac{\pi d'}{z},\quad m = \frac{d'}{z}\ (\Rightarrow p = \pi m),\quad P = \frac{z}{d'} = \frac1m \]
+\[ a = \frac{m(z_p + z_g)}{2},\qquad i = \frac{z_g}{z_p} = \frac{n_p}{n_g} \]
+</div>
+<div class="tbl-wrap"><table>
+<thead><tr><th>System (Table 17.1)</th><th>Addendum</th><th>Dedendum</th><th>Clearance</th><th>Working depth</th><th>Whole depth</th><th>z<sub>min</sub> (theory)</th></tr></thead>
+<tbody>
+<tr><td>14.5° full depth</td><td>m</td><td>1.157m</td><td>0.157m</td><td>2m</td><td>2.157m</td><td>32</td></tr>
+<tr><td><b>20° full depth</b> (IS standard, used in Bhandari)</td><td>m</td><td>1.25m</td><td>0.25m</td><td>2m</td><td>2.25m</td><td>17</td></tr>
+<tr><td>20° stub</td><td>0.8m</td><td>m</td><td>0.2m</td><td>1.6m</td><td>1.8m</td><td>14</td></tr>
+</tbody></table></div>
+<ul>
+<li>Tooth thickness = tooth space = 1.5708m (half the circular pitch, measured as an arc on the pitch circle). Fillet radius 0.4m. Addendum circle d<sub>a</sub> = m(z + 2). Root circle d<sub>f</sub> = m(z − 2.5) (<a class="bk" data-p="655"></a>, 667).</li>
+<li><b>Preferred modules</b> (Choice 1, Table 17.2): 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20 mm. The module is the "index" of tooth size.</li>
+<li><b>20° compared with 14.5°:</b> less undercutting and interference, a broader and stronger root, and a longer contact. 14.5° runs quieter. <b>Stub</b> teeth are stronger and cheaper to cut, but their contact ratio is lower, so they vibrate more (<a class="bk" data-p="654"></a>).</li>
+<li><b>Contact ratio</b> is the average number of tooth pairs in mesh. It must exceed 1: at least 1.2, and 1.4–1.7 in industrial gearboxes (<a class="bk" data-p="652"></a>).</li>
+<li><b>Face width</b> 8m &lt; b &lt; 12m, starting at b = 10m. Too wide concentrates the load at one end. Too narrow wears fast and absorbs shock poorly (<a class="bk" data-p="671"></a>).</li>
+</ul>
+
+<h2>5. Derivation: interference and the minimum number of teeth (§17.9, 17.15)</h2>
+<p>The involute starts at the base circle. If the mating tooth tip reaches below the base circle of the pinion, it meets a non-involute flank and digs in. That is <b>interference</b>, and it causes wear, vibration and jamming. A generating cutter automatically cuts that region away. That is <b>undercutting</b>, and it weakens the tooth (<a class="bk" data-p="657"></a>–658).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(z_{min} = \dfrac{2}{\sin^2\alpha}\) for a pinion meshing with a rack (addendum = m), Eq. 17.12.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The line of action leaves the pitch point P at α. It touches the pinion's base circle at E, the foot of the perpendicular from the pinion centre O. Contact beyond E is non-involute, so E is the <b>interference limit</b>.</li>
+<li>In the right triangle OEP, OP = r = mz/2 and the angle at O is α, so PE = r sin α.</li>
+<li>The depth of E below the pitch line, measured perpendicular to it, is PE sin α = r sin²α.</li>
+<li>The rack's addendum line must not pass below E: \(m \le r\sin^2\alpha = \dfrac{mz}{2}\sin^2\alpha\Rightarrow \boxed{z \ge \dfrac{2}{\sin^2\alpha}}\).</li>
+<li>Values: 14.5° → 31.9 (32 teeth), 20° → 17.1 (17), 25° → 11.2 (11). Tip relief cuts this in practice to 27, 14 and 9. The stub system has addendum 0.8m: 1.6/sin²20° = 13.7, so 14. For 20° full depth, Bhandari's rule is to <b>take 18 or 20 pinion teeth</b> (<a class="bk" data-p="670"></a>–671).</li>
+</ol>
+</div></div>
+<p>Other cures for interference: a larger pressure angle (a smaller base circle), or long-and-short addendum gearing. The second makes the gears non-standard and non-interchangeable.</p>
+
+<h2>6. Backlash, hunting tooth, gear trains</h2>
+<ul>
+<li><b>Backlash</b> is the amount by which the tooth space exceeds the mating tooth thickness on the pitch circle. It stops jamming and allows for machining errors and thermal expansion. You get it by cutting thinner teeth or by slightly increasing the centre distance. It does not change the velocity ratio (<a class="bk" data-p="658"></a>).</li>
+<li><b>Hunting tooth:</b> 20/41 instead of 20/40, so a given pair of teeth meets only once every 41 pinion turns. Wear evens out (<a class="bk" data-p="671"></a>).</li>
+<li><b>Trains</b> (§17.8). In a <b>simple</b> train each shaft carries one gear and the idlers do not change the ratio: an odd number of idlers keeps the direction, an even number (or none) reverses it. A <b>compound</b> train has two gears on one shaft, so n₁/n₄ = (z₂/z₁)(z₄/z₃). A <b>reverted</b> train has input and output on one axis: m₁(z₁ + z₂) = m₂(z₃ + z₄). In an <b>epicyclic</b> train the planets ride on a carrier around a sun gear. It is the most compact (<a class="bk" data-p="656"></a>–657).</li>
+</ul>
+<div class="example">
+<div class="ex-head"><b>Derive</b> (Bhandari Ex. 17.6, <a class="bk" data-p="671"></a>): a two-stage gearbox with identical pinions and module m, total ratio i. Show that the most compact box has i₁ = i₂ = √i.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Stage 1: \(a_1 = \tfrac12 d_1'(1 + i_1)\). Stage 2, with an identical pinion (d₃′ = d₁′): \(a_2 = \tfrac12 d_1'(1 + i_2)\).</li>
+<li>The size of the box is measured by a = a₁ + a₂ = ½d₁′(2 + i₁ + i₂). Put i₂ = i/i₁: \(a = \tfrac12 d_1'\Big(2 + i_1 + \dfrac{i}{i_1}\Big)\).</li>
+<li>\(\dfrac{da}{di_1} = 0\Rightarrow 1 - \dfrac{i}{i_1^2} = 0\Rightarrow \boxed{i_1 = \sqrt i = i_2}\). For three stages the same idea gives i = ∛i′ per stage (Eq. 17.14).</li>
+</ol>
+</div></div>
+
+<h2>7. Worked example (Bhandari Ex. 17.1, also slide Q1, <a class="ppt" data-p="852">p. 852</a>)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 17.1</b> (<a class="bk" data-p="655"></a>): a 20-tooth pinion meshes with a 120-tooth gear, m = 4 mm, 20° full depth. Find the centre distance, pitch diameters, addendum, dedendum, tooth thickness, clearance and gear ratio.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>a = m(z<sub>p</sub> + z<sub>g</sub>)/2 = 4(140)/2 = <b>280 mm</b>.</li>
+<li>d′<sub>p</sub> = 4 × 20 = <b>80 mm</b>; d′<sub>g</sub> = 4 × 120 = <b>480 mm</b>.</li>
+<li>Addendum = m = <b>4 mm</b>; dedendum = 1.25m = <b>5 mm</b>; clearance = 0.25m = <b>1 mm</b>.</li>
+<li>Tooth thickness = 1.5708 × 4 = <b>6.2832 mm</b>. Gear ratio i = 120/20 = <b>6</b>, the usual limit for one pair.</li>
+</ol>
+</div></div>
+
+<h2>8. Practice (geometry steps from Bhandari Examples)</h2>
+<div class="num" data-answer="5" data-tol="1" data-unit="mm">
+<p class="q">Ex. 17.5 (<a class="bk" data-p="664"></a>): two-stage box, centre distance 175 mm per stage, z₁ = 20 and z₂ = 50. Module?</p>
+<details class="sol"><p>m = 2a/(z₁ + z₂) = 2(175)/70 = <b>5 mm</b>. Then d₁′ = 100 and d₂′ = 250 mm.</p></details>
+</div>
+<div class="num" data-answer="25" data-tol="1" data-unit="teeth">
+<p class="q">Ex. 17.11 (<a class="bk" data-p="685"></a>): motor 1000 rpm, compressor 250 rpm, centre distance exactly 250 mm, and the design gives m = 4 mm. Number of pinion teeth?</p>
+<details class="sol"><p>d′<sub>p</sub> + d′<sub>g</sub> = 500 and d′<sub>g</sub>/d′<sub>p</sub> = 4, so d′<sub>p</sub> = 100 and d′<sub>g</sub> = 400. z<sub>p</sub> = 100/4 = <b>25</b> and z<sub>g</sub> = 100. Fixing the centre distance fixes the diameters first, then the module sets z.</p></details>
+</div>
+<div class="num" data-answer="179.4" data-tol="0.5" data-unit="rpm">
+<p class="q">Ex. 17.12 (<a class="bk" data-p="686"></a>): two-stage reducer from 1440 rpm to about 180 rpm, identical stages, 18-tooth pinions. Choose the teeth as Bhandari does and find the actual output speed.</p>
+<details class="sol"><p>i′ = 1440/180 = 8, so each stage is √8 = 2.828 and z<sub>g</sub> = 2.828 × 18 = 50.9 → 51. n<sub>B</sub> = 1440 × 18/51 = 508.24 and n<sub>out</sub> = 508.24 × 18/51 = <b>179.4 rpm</b>.</p></details>
+</div>
+<div class="num" data-answer="93" data-tol="0.5" data-unit="mm">
+<p class="q">Ex. 17.12, gear dimensions (<a class="bk" data-p="688"></a>): m = 6 mm, pinion 18 teeth. Dedendum (root) circle diameter of the pinion?</p>
+<details class="sol"><p>d<sub>f</sub> = m(z − 2.5) = 6(15.5) = <b>93 mm</b>. Also d′ = 108 mm and d<sub>a</sub> = m(z + 2) = 120 mm. For the 51-tooth gear: 306, 318 and 291 mm.</p></details>
+</div>
+
+<h2>9. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A spur gear has a module of 4 mm and 20 teeth. Its circular pitch is:</p>
+<ol class="opts"><li>4.00 mm</li><li>6.28 mm</li><li>12.57 mm</li><li>80.0 mm</li></ol>
+<div class="why">p = πm = 12.57 mm. 6.28 mm is the tooth thickness, πm/2, and 80 mm is the pitch diameter.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Minimum number of teeth on a 20° full-depth involute pinion meshing with a rack, to avoid interference (theoretical):</p>
+<ol class="opts"><li>14</li><li>17</li><li>23</li><li>32</li></ol>
+<div class="why">z<sub>min</sub> = 2/sin²20° = 17.1. 14 is for 20° stub and 32 for 14.5° full depth.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Adding one idler gear between a driver and a driven gear:</p>
+<ol class="opts">
+<li>changes the speed ratio and keeps the direction</li>
+<li>changes the speed ratio and the direction</li>
+<li>keeps the direction and halves the torque</li>
+<li>keeps the speed ratio and reverses the direction</li>
+</ol>
+<div class="why">The ratio depends only on the first and last gears. One idler makes the driven gear turn the same way as the driver, which is the reverse of a direct mesh.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">The fundamental law of gearing requires that the common normal at the point of contact:</p>
+<ol class="opts">
+<li>always passes through a fixed pitch point</li>
+<li>always passes through the base circle centre</li>
+<li>remains parallel to the line of centres</li>
+<li>remains tangent to both addendum circles</li>
+</ol>
+<div class="why">ω₁/ω₂ = O₂P/O₁P is constant only if P is fixed (§17.5).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Pitch diameter d′ = mz. The addendum circle is m(z + 2), not mz + m.</li>
+<li>Gear ratio i = z<sub>g</sub>/z<sub>p</sub> is always ≥ 1. A transmission ratio for a train runs from the first driver to the last driven gear.</li>
+<li>Clearance: 0.25m (20° FD), 0.157m (14.5° FD), 0.2m (stub). Learn the table.</li>
+<li>Module values must be standard. Round <b>up</b> to Choice 1 and use Choice 2 only if a question allows it.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §17.1–17.10, 17.15–17.16, <a class="bk" data-p="646">pp. 646–658, 670–672</a> (Examples 17.1, 17.6).</li>
+<li>Course slides: gear drives, law of gearing, interference, backlash, materials, <a class="ppt" data-p="800">pp. 800–851</a>; Q1 <a class="ppt" data-p="852">p. 852</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), gears (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want to work out the contact ratio for Ex. 17.1's gears from the addendum and base circles? It is a common GATE numerical. Ask me for the formula and we'll solve it together.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

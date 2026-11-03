@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helical Springs I</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 38</p>
+<h1>Closed-coiled helical springs: stress and deflection</h1>
+<p class="meta">About 40 minutes · Bhandari §10.1–10.8</p>
+<div class="win"><b>Your win:</b> you can derive the spring stress with the shear-stress factor K<sub>s</sub> and the Wahl factor K. You can derive the load–deflection equation δ = 8PD³N/Gd⁴, combine springs in series and parallel, and design a helical compression spring from a force, a deflection and a spring index. That is the whole of a typical 10-mark spring question.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1, 4 and 25)</span>
+<details class="recall"><summary>Torsional shear stress in a solid round bar of diameter d under torque T?</summary><div>τ = 16T/πd³ (maximum at the surface).</div></details>
+<details class="recall"><summary>Angle of twist of a bar of length L?</summary><div>θ = TL/GJ, with J = πd⁴/32.</div></details>
+<details class="recall"><summary>Energy stored by a gradually applied load P that deflects δ?</summary><div>U = ½Pδ, the area under the load–deflection line.</div></details>
+</div>
+
+<h2>1. What springs do, and the main types</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Function</th><th>Applications</th></tr></thead>
+<tbody>
+<tr><td>Absorb shock and vibration</td><td>vehicle suspension, railway buffers, elevator buffers, machine mounts</td></tr>
+<tr><td>Store energy</td><td>clocks, toys, circuit breakers, starters</td></tr>
+<tr><td>Measure force</td><td>spring balances and scales</td></tr>
+<tr><td>Apply force, control motion</td><td>cam followers, engine valve return, clutch engagement</td></tr>
+</tbody></table></div>
+<p>Types (<a class="bk" data-p="393"></a>–395): <b>helical compression</b> and <b>extension</b> springs (by far the most common), <b>helical torsion</b> springs (door hinges, starters), <b>multi-leaf</b> springs (vehicle suspension), spiral, and Belleville (coned disc) springs. Two facts get asked often:</p>
+<ul>
+<li>The wire of a compression spring is <b>not</b> in compression, and the wire of an extension spring is not in tension. In both, the wire carries <b>torsional shear</b>. The words describe the whole spring.</li>
+<li>A spring is <b>closely coiled</b> when the helix angle is small (under about 10°), so each coil lies almost in a plane perpendicular to the axis. <b>Open-coiled</b> springs (helix angle over 10°) come in <a class="lesson" data-l="0040">Lesson 40</a>.</li>
+</ul>
+<p>Helical springs are easy and cheap to make, reliable, and their deflection is linear in the load (<a class="bk" data-p="394"></a>).</p>
+
+<h2>2. Terminology you must use correctly</h2>
+<ul>
+<li><b>Mean coil diameter</b> D = (D<sub>i</sub> + D<sub>o</sub>)/2, so D = D<sub>o</sub> − d = D<sub>i</sub> + d. <b>Spring index</b> C = D/d. Keep C between 4 and 12, and between 6 and 9 for cyclic loads. Below 3 the curvature stress is excessive and the wire can crack in coiling. Above 15 the spring buckles and tangles (<a class="bk" data-p="395"></a>).</li>
+<li><b>Solid length</b> = N<sub>t</sub>d (coils touching). <b>Free length</b> = solid length + total axial gap + δ<sub>max</sub>. The total gap is (N<sub>t</sub> − 1) × (gap between coils, 0.5–2 mm), or 15% of δ<sub>max</sub>. <b>Pitch</b> = free length/(N<sub>t</sub> − 1).</li>
+<li><b>Active coils N</b> carry load and deflect. End coils sitting on the seat are inactive (<a class="bk" data-p="396"></a>):</li>
+</ul>
+<div class="tbl-wrap"><table>
+<thead><tr><th>End style</th><th>Plain</th><th>Plain and ground</th><th>Square</th><th>Square and ground</th><th>Extension spring</th></tr></thead>
+<tbody><tr><td>Active coils N</td><td>N<sub>t</sub></td><td>N<sub>t</sub> − ½</td><td>N<sub>t</sub> − 2</td><td>N<sub>t</sub> − 2</td><td>N<sub>t</sub> (all active)</td></tr></tbody>
+</table></div>
+<p>Unless told otherwise, Bhandari assumes <b>square and ground ends</b>, so N<sub>t</sub> = N + 2.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 252" role="img" aria-label="Free body of a cut coil and the shear stress across the wire">
+  <!-- left: free body of the spring cut at a wire section -->
+  <line x1="100" y1="18" x2="100" y2="210" class="dash"/>
+  <text x="60" y="214" class="small">spring axis</text>
+  <line x1="100" y1="22" x2="100" y2="70" class="acc"/><polygon points="94,62 106,62 100,74" class="fill-acc"/>
+  <text x="108" y="38" class="acc">P</text>
+  <rect x="70" y="76" width="60" height="8" class="part2"/>
+  <line x1="100" y1="120" x2="220" y2="120" class="ln"/>
+  <line x1="100" y1="84" x2="100" y2="120" class="ln"/>
+  <text x="140" y="112" class="small">arm D/2</text>
+  <circle cx="236" cy="120" r="16" class="part"/>
+  <line x1="236" y1="190" x2="236" y2="140" class="blu"/><polygon points="230,148 242,148 236,136" class="dotb"/>
+  <text x="244" y="182" class="blu">P (direct shear)</text>
+  <path d="M214,96 A30,30 0 1 1 214,144" class="acc"/><polygon points="208,140 220,146 210,150" class="fill-acc"/>
+  <text x="250" y="80" class="acc">M<tspan dy="4" font-size="10">t</tspan><tspan dy="-4"> = PD/2</tspan></text>
+  <text x="150" y="150" class="small">cut wire →</text>
+  <!-- right: stress across the wire diameter -->
+  <line x1="390" y1="26" x2="412" y2="26" class="acc"/><text x="418" y="30" class="acc small">τ₁ + τ₂: largest at the inside fibre</text>
+  <line x1="390" y1="46" x2="412" y2="46" class="dash"/><text x="418" y="50" class="small">τ₁ = 8PD/πd³ (torsion, + one side, − other)</text>
+  <line x1="390" y1="66" x2="412" y2="66" class="thin"/><text x="418" y="70" class="small">τ₂ = 4P/πd² (direct shear, uniform)</text>
+  <line x1="390" y1="170" x2="560" y2="170" class="axis"/>
+  <line x1="400" y1="110" x2="540" y2="230" class="dash"/>
+  <line x1="400" y1="150" x2="540" y2="150" class="thin"/>
+  <line x1="400" y1="90" x2="540" y2="210" class="acc"/>
+  <circle cx="400" cy="90" r="4" class="dot"/>
+  <line x1="400" y1="236" x2="400" y2="244" class="thin"/><line x1="540" y1="236" x2="540" y2="244" class="thin"/>
+  <text x="380" y="250" class="small">inside of coil</text>
+  <text x="520" y="250" class="small">outside</text>
+  <text x="566" y="174" class="small">τ = 0</text>
+</svg>
+<figcaption>Left: cut the spring through the wire. To balance P on the axis, the wire section carries a direct shear force P and a torsional moment PD/2. Right: across the wire diameter, torsional shear (dashed) and direct shear (thin) add on the <b>inside</b> of the coil (Bhandari Fig. 10.9, <a class="bk" data-p="398"></a>).</figcaption>
+</figure>
+
+<h2>3. Derivation: stress in the wire (Eqs 10.4–10.7)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(\tau = K\dfrac{8PD}{\pi d^3}\) for a closely coiled spring under axial force P.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Free body of the cut coil (figure): the wire section, at distance D/2 from the axis, must carry a torque \(M_t = P\cdot\frac{D}{2}\) and a shear force P.</li>
+<li>Torsional shear (maximum at the wire surface): \(\tau_1 = \dfrac{16M_t}{\pi d^3} = \dfrac{8PD}{\pi d^3}\).</li>
+<li>Direct shear, taken as uniform: \(\tau_2 = \dfrac{P}{\pi d^2/4} = \dfrac{4P}{\pi d^2} = \dfrac{8PD}{\pi d^3}\cdot\dfrac{0.5d}{D}\).</li>
+<li>At the inside of the coil they act in the same direction, so \(\tau = \tau_1 + \tau_2 = \dfrac{8PD}{\pi d^3}\Big(1 + \dfrac{0.5}{C}\Big) = K_s\dfrac{8PD}{\pi d^3}\), with \(\boxed{K_s = 1 + \dfrac{0.5}{C}}\).</li>
+<li><b>Curvature effect:</b> when the straight bar is coiled, the inside fibre is shorter than the outside fibre. The same twist gives it more strain, so stress concentrates on the inside (factor K<sub>c</sub>). A M Wahl combined both effects, K = K<sub>s</sub>K<sub>c</sub>: \(\boxed{K = \dfrac{4C - 1}{4C - 4} + \dfrac{0.615}{C}}\).</li>
+<li>Result (Eq. 10.6 and, with D = Cd, Eq. 10.13): \(\boxed{\tau = K\dfrac{8PD}{\pi d^3} = K\dfrac{8PC}{\pi d^2}}\). Use K for static design. Under fluctuating load, K<sub>s</sub> goes on the mean stress and K on the amplitude (<a class="lesson" data-l="0039">Lesson 39</a>).</li>
+</ol>
+</div></div>
+<p class="side">Wahl factor values worth remembering: C = 5 → 1.3105, C = 6 → 1.2525, C = 8 → 1.184, C = 10 → 1.145. K falls towards 1 as C grows, because the curvature becomes gentle.</p>
+
+<h2>4. Derivation: deflection and stiffness (Eqs 10.8–10.10)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(\delta = \dfrac{8PD^3N}{Gd^4}\) and \(k = \dfrac{Gd^4}{8D^3N}\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Uncoil the N active coils into a straight bar of length \(l = \pi DN\), loaded by the torque \(M_t = PD/2\) (Bhandari Fig. 10.8).</li>
+<li>Twist of the bar: \(\theta = \dfrac{M_t\,l}{GJ} = \dfrac{(PD/2)(\pi DN)}{G(\pi d^4/32)} = \dfrac{16PD^2N}{Gd^4}\).</li>
+<li>The load point sits at radius D/2, so for small θ the axial deflection is \(\delta = \theta\cdot\dfrac{D}{2}\Rightarrow \boxed{\delta = \dfrac{8PD^3N}{Gd^4}}\).</li>
+<li>Stiffness \(\boxed{k = \dfrac{P}{\delta} = \dfrac{Gd^4}{8D^3N}}\). Check by energy: \(U = \dfrac{M_t^2 l}{2GJ}\), and Castigliano's \(\partial U/\partial P\) gives the same δ. You will reuse this energy route for open-coiled springs.</li>
+<li>Consequences: k ∝ d⁴ (double d → 16k), k ∝ 1/D³, k ∝ 1/N. A spring cut in half (N/2) is <b>twice as stiff</b>. Energy stored: \(E = \tfrac12 P\delta\) (Eq. 10.10).</li>
+</ol>
+</div></div>
+
+<h2>5. Springs in series and in parallel (§10.6)</h2>
+<div class="formula"><span class="label">Combinations</span>
+\[ \text{series (same force, deflections add): } \frac{1}{k} = \frac{1}{k_1} + \frac{1}{k_2} \qquad \text{parallel (same deflection, forces add): } k = k_1 + k_2 \]
+</div>
+<p>Combinations save space, change the rate at a chosen deflection, or give a fail-safe system (<a class="bk" data-p="399"></a>–400). The two buffer springs of a wagon side by side and the eight clutch springs on a pressure plate are both in <b>parallel</b>, so the load is shared.</p>
+
+<h2>6. Materials and the allowable stress (§10.7–10.8)</h2>
+<ul>
+<li><b>Patented and cold-drawn</b> steel wire (0.85–0.95% C) is the most used and the cheapest (cost index 1). Bhandari calls it "an aristocrat among springs". Grades 1–4 run from static to severe service, and <b>music wire</b> is its best quality (cost index 3.5). <b>Oil-hardened and tempered</b> wire (SW, and VW for valves) is the reliable choice for fluctuating loads (cost index 1.5). <b>Alloy</b> Cr–V and Cr–Si wire suits shock loads (cost index 4). <b>Stainless</b> wire resists corrosion (cost index 8.5). G = 81 370 N/mm² for these steels (<a class="bk" data-p="401"></a>–402).</li>
+<li>S<sub>ut</sub> <b>falls as d grows</b> (Table 10.1). That is why real design is trial and error (<a class="lesson" data-l="0039">Lesson 39</a>). Wire of 6 mm and above is hot-wound to avoid high residual stresses.</li>
+<li><b>Factor of safety only about 1.5</b>, because deflections are well defined, an overloaded compression spring just closes solid, extension springs have overload stops, and the material is closely controlled. With S<sub>yt</sub> = 0.75S<sub>ut</sub> and S<sub>sy</sub> = 0.577S<sub>yt</sub>: \(\tau = \dfrac{0.577(0.75)S_{ut}}{1.5}\approx \boxed{0.3S_{ut}}\). IS 4454 allows up to 0.5S<sub>ut</sub> (<a class="bk" data-p="403"></a>).</li>
+</ul>
+
+<h2>7. The design procedure (§10.8)</h2>
+<ol>
+<li>Find the maximum force P and the deflection δ (or the rate k) from the application.</li>
+<li>Pick the material, then τ = 0.3S<sub>ut</sub> or 0.5S<sub>ut</sub>. Assume C (8 for industrial work, 5 for valves and clutches, never under 3), and find K.</li>
+<li><b>d</b> from \(\tau = K\,8PC/\pi d^2\), rounded up. Then D = Cd.</li>
+<li><b>N</b> from δ = 8PD³N/Gd⁴, rounded up. Then N<sub>t</sub> = N + 2 (square and ground ends).</li>
+<li>Solid length N<sub>t</sub>d, actual δ, gap (N<sub>t</sub> − 1) × 0.5–2 mm, free length, pitch, actual k.</li>
+<li><b>Buckling check:</b> if free length/D > 2.6, guide the spring in a sleeve or over a rod (<a class="bk" data-p="404"></a>).</li>
+</ol>
+
+<div class="calc"><span class="label">Helical compression spring designer (square and ground ends)</span>
+<div class="inputs">
+<label>max force P (N)<input data-v="P" type="number" value="1250"></label>
+<label>required δ (mm)<input data-v="dl" type="number" value="30"></label>
+<label>spring index C<input data-v="C" type="number" value="6" step="0.5"></label>
+<label>allowable τ (N/mm²)<input data-v="tau" type="number" value="545"></label>
+<label>G (N/mm²)<input data-v="G" type="number" value="81370"></label>
+<label>chosen d (mm)<input data-v="dc" type="number" value="7" step="0.5"></label>
+<label>chosen N<input data-v="Nc" type="number" value="8"></label>
+<label>gap per coil (mm)<input data-v="gap" type="number" value="1" step="0.5"></label>
+</div>
+<div class="outs">
+<output data-expr="(4*C-1)/(4*C-4)+0.615/C" data-label="Wahl K =" data-dp="4"></output>
+<output data-expr="sqrt(((4*C-1)/(4*C-4)+0.615/C)*8*P*C/(PI*tau))" data-label="d needed =" data-unit="mm" data-dp="2"></output>
+<output data-expr="dl*G*pow(dc,4)/(8*P*pow(C*dc,3))" data-label="N needed (with chosen d) =" data-dp="2"></output>
+<output data-expr="G*pow(dc,4)/(8*pow(C*dc,3)*Nc)" data-label="actual k =" data-unit="N/mm" data-dp="2"></output>
+<output data-expr="(Nc+2)*dc + (Nc+1)*gap + P*8*pow(C*dc,3)*Nc/(G*pow(dc,4))" data-label="free length =" data-unit="mm" data-dp="1"></output>
+<output data-expr="((Nc+2)*dc + (Nc+1)*gap + P*8*pow(C*dc,3)*Nc/(G*pow(dc,4)))/(C*dc) <= 2.6" data-label="buckle-proof (free length/D ≤ 2.6)?" data-true="yes, no guide needed" data-false="no, guide it"></output>
+</div></div>
+<p class="small">Preloaded with Bhandari Ex. 10.1. Now try C = 8 with d = 8 and N = 4. Because d² ∝ KC, a larger index needs <em>thicker</em> wire, but far fewer coils, and the shorter, fatter spring no longer needs a guide.</p>
+
+<h2>8. Worked example (Bhandari Ex. 10.1)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 10.1</b> (<a class="bk" data-p="407"></a>): compression spring, P<sub>max</sub> = 1250 N, δ ≈ 30 mm, C = 6, patented cold-drawn wire S<sub>ut</sub> = 1090 N/mm², G = 81 370, τ = 0.5S<sub>ut</sub>. Find d, D, N, N<sub>t</sub>, free length and pitch.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>τ = 0.5(1090) = 545 N/mm². K = (24 − 1)/(24 − 4) + 0.615/6 = 1.2525.</li>
+<li>\(545 = 1.2525\,\dfrac{8(1250)(6)}{\pi d^2}\Rightarrow d = 6.63\), so take <b>d = 7 mm</b>. D = Cd = <b>42 mm</b>.</li>
+<li>\(30 = \dfrac{8(1250)(42)^3N}{81\,370(7)^4}\Rightarrow N = 7.91\), so take <b>N = 8</b>. Square and ground ends give <b>N<sub>t</sub> = 10</b>.</li>
+<li>Actual δ = 8(1250)(42)³(8)/(81 370 × 7⁴) = 30.34 mm. Solid length = 10 × 7 = 70 mm. With a 1 mm gap: total gap = (10 − 1)(1) = 9 mm.</li>
+<li>Free length = 70 + 9 + 30.34 = 109.34, take <b>110 mm</b>. Pitch = 109.34/9 = <b>12.15 mm</b>. Buckling check: 110/42 = 2.62, just over 2.6, so a guide rod is advisable. Bhandari does not do this check, but it earns a mark.</li>
+</ol>
+</div></div>
+
+<h2>9. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="179.0" data-tol="1" data-unit="N/mm">
+<p class="q">Ex. 10.2 (<a class="bk" data-p="408"></a>): force varies 2.5 → 3.5 kN with about 5 mm deflection over that range, C = 5, square and ground ends, S<sub>ut</sub> = 1050, τ = 0.5S<sub>ut</sub>, G = 81 370. After rounding d and N, what is the <b>actual</b> spring rate?</p>
+<details class="sol"><p>τ = 525, K = 1.3105. d from P<sub>max</sub>: 525 = 1.3105 × 8(3500)(5)/πd², so d = 10.55 → 11 mm and D = 55 mm. N from the <b>range</b>: 5 = 8(3500 − 2500)(55)³N/(81 370 × 11⁴), so N = 4.48 → 5. Actual k = 81 370(11)⁴/[8(55)³(5)] = <b>179.0 N/mm</b> (required 200). Solid 77, δ<sub>max</sub> 19.55, free length 100 mm.</p></details>
+</div>
+<div class="num" data-answer="22" data-tol="1" data-unit="coils">
+<p class="q">Ex. 10.5 (<a class="bk" data-p="411"></a>): spring balance, 0–1500 N over a 100 mm scale, C = 6, S<sub>ut</sub> = 1360, τ = 0.5S<sub>ut</sub>. Number of active coils?</p>
+<details class="sol"><p>τ = 680: 680 = 1.2525 × 8(1500)(6)/πd², so d = 6.50 → 7 mm and D = 42 mm. 100 = 8(1500)(42)³N/(81 370 × 7⁴), so N = 21.97 → <b>22</b>. Extension spring: all coils active. Actual k = 14.98 N/mm against 15 required.</p></details>
+</div>
+<div class="num" data-answer="13" data-tol="4" data-unit="coils">
+<p class="q">Ex. 10.6 (<a class="bk" data-p="412"></a>): a 1500 kg wagon at 1.5 m/s is stopped by <b>two</b> parallel springs compressed 150 mm. C = 6, S<sub>ut</sub> = 1250, τ = 0.5S<sub>ut</sub>. Active coils per spring?</p>
+<details class="sol"><p>KE = ½(1500)(1.5)² = 1687.5 J. Two springs: 2 × ½P(150) = 1687.5 × 10³, so <b>P = 11 250 N</b> each. 625 = 1.2525 × 8(11 250)(6)/πd², so d = 18.56 → 20 mm and D = 120. 150 = 8(11 250)(120)³N/(81 370 × 20⁴), so N = 12.56 → <b>13</b>. Free length = 300 + 28 + 155.29 ≈ 485 mm.</p></details>
+</div>
+<div class="num" data-answer="4.17" data-tol="2" data-unit="mm">
+<p class="q">Ex. 10.7 (<a class="bk" data-p="413"></a>): eight identical parallel springs give 2400 N in total on a clutch, about 15 mm deflection each, C = 8, S<sub>ut</sub> = 1390, τ = 0.3S<sub>ut</sub>. Wire diameter required (before rounding)?</p>
+<details class="sol"><p>P = 2400/8 = 300 N per spring. τ = 417, K = 1.184: 417 = 1.184 × 8(300)(8)/πd², so d = <b>4.17</b> → 5 mm, D = 40, N = 4.97 → 5, N<sub>t</sub> = 7, free length 57 mm, k = 19.87 N/mm.</p></details>
+</div>
+<div class="num" data-answer="9.82" data-tol="1" data-unit="N/mm">
+<p class="q">Ex. 10.8 (<a class="bk" data-p="414"></a>): a 50 mm safety valve is held by a tension spring through a lever (valve at 75 mm, spring at 150 mm from the pivot). It opens when the pressure rises from 0.5 to 0.6 N/mm², with 5 mm valve lift. Required spring stiffness?</p>
+<details class="sol"><p>Moments: P<sub>s</sub>(150) = P<sub>v</sub>(75), so P<sub>s</sub> = P<sub>v</sub>/2. Closed: (π/4)(50)²(0.5)/2 = 490.87 N; open: 589.05 N. Spring stretch = 5 × 150/75 = 10 mm, so k = (589.05 − 490.87)/10 = <b>9.82 N/mm</b>. Then d = 6.28 → 7 mm, D = 56, N = 14.16 → 15.</p></details>
+</div>
+<div class="num" data-answer="13.24" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 10.9 (<a class="bk" data-p="415"></a>): a 50 mm safety valve blows off at 1.5 MPa. Initial compression 25 mm, maximum lift 10 mm, C = 6, S<sub>ut</sub> = 1500, τ = 0.3S<sub>ut</sub>. Wire diameter required (before rounding)?</p>
+<details class="sol"><p>P₁ = (π/4)(50)²(1.5) = 2945.24 N at 25 mm. P ∝ δ, so P₂ = 2945.24 × 35/25 = 4123.34 N. 450 = 1.2525 × 8(4123.34)(6)/πd², so d = <b>13.24</b> → 14 mm. D = 84, N = 5.6 → 6 (using P₁ and 25 mm), free length 165 mm.</p></details>
+</div>
+
+<h2>10. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A closely coiled helical spring of stiffness k is cut into two equal halves. The stiffness of each half is:</p>
+<ol class="opts"><li>0.5k</li><li>k</li><li>2k</li><li>4k</li></ol>
+<div class="why">k = Gd⁴/8D³N and only N changes, from N to N/2. So k doubles.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Springs of 20 N/mm and 30 N/mm are connected in series. The combined stiffness is:</p>
+<ol class="opts"><li>12 N/mm</li><li>25 N/mm</li><li>50 N/mm</li><li>10 N/mm</li></ol>
+<div class="why">1/k = 1/20 + 1/30 = 5/60, so k = 12 N/mm. In series the combined spring is softer than either one.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">The maximum stress in the wire of a helical compression spring is:</p>
+<ol class="opts">
+<li>Compressive stress spread uniformly across the wire section</li>
+<li>Torsional shear at the inside of the coil</li>
+<li>Torsional shear at the outside of the coil</li>
+<li>Bending stress at the top of each coil</li>
+</ol>
+<div class="why">The wire is in torsion. Direct shear and curvature both add on the inside fibre (Fig. 10.9).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">The wire diameter of a spring is doubled, with D and N unchanged. Its stiffness becomes:</p>
+<ol class="opts"><li>2k</li><li>4k</li><li>8k</li><li>16k</li></ol>
+<div class="why">k ∝ d⁴, so 2⁴ = 16.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Deflection uses <b>active</b> coils N. Solid length uses <b>total</b> coils N<sub>t</sub>.</li>
+<li>When the force varies over a range (Ex. 10.2), size d with P<sub>max</sub> but find N from ΔP and Δδ.</li>
+<li>Given the <b>outside</b> diameter, D = D<sub>o</sub> − d, not D<sub>o</sub>. Your slides' problem on <a class="ppt" data-p="759">p. 759</a> (6 mm wire, 75 mm OD) turns on exactly this.</li>
+<li>Use the G the question gives. Bhandari uses 81 370 N/mm², while Khurmi-style questions on the slides use 84 or 80 kN/mm².</li>
+<li>Free length = solid + gaps + δ<sub>max</sub>. Leaving out the clash gap is the most common lost mark.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §10.1–10.9, <a class="bk" data-p="393">pp. 393–405</a> (Examples 10.1–10.10, <a class="bk" data-p="407">pp. 407–416</a>).</li>
+<li>Course slides, Unit IV springs: types, stress and deflection, <a class="ppt" data-p="739">pp. 739–760</a>; helical spring problems <a class="ppt" data-p="776">pp. 776–784</a>.</li>
+<li>NPTEL Design of Machine Elements I (IIT Kharagpur), module on springs (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Unsure why the direct shear adds on the inside but subtracts on the outside? Ask me and I'll draw the shear-stress arrows on the wire section for you.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

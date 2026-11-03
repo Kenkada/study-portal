@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eccentric Riveted Joints</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 15</p>
+<h1>Eccentrically loaded riveted joints</h1>
+<p class="meta">About 25 minutes · Bhandari §8.29 (same method as bolts in shear, §7.11)</p>
+<div class="win"><b>Your win:</b> when a bracket's load misses the centre of a rivet group, you can split it into primary (direct) and secondary (twisting) shear, add them as vectors, find the worst rivet, and size it. This covers Tutorial Q10 and question bank Q36–Q39, and the identical bolt problems in Lesson 19.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1, 14)</span>
+<details class="recall"><summary>Moving a force P sideways by distance e: what must you add?</summary><div>A couple P·e (Lesson 1, eccentric loading).</div></details>
+<details class="recall"><summary>Lap-joint rivets: single or double shear?</summary><div>Single shear.</div></details>
+</div>
+
+<h2>1. The idea in two steps</h2>
+<p>Move P to the centre of gravity G of the rivet group and add the couple P·e. The direct force is shared <b>equally</b>. The couple is resisted by forces <b>proportional to each rivet's distance r from G</b>, at right angles to r (<a class="bk" data-p="321"></a>).</p>
+<div class="formula"><span class="label">Eqs 8.63–8.67</span>
+\[ P' = \frac{P}{n}\ \text{(primary, parallel to P)} \qquad P''_i = C\,r_i,\ \ C = \frac{Pe}{\sum r_i^2}\ \text{(secondary, } \perp r_i) \]
+\[ P_i = \vec P' + \vec P''_i \qquad P_{max} = \frac{\pi}{4}d^2\,\tau \]
+</div>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 300" role="img" aria-label="Bracket with four rivets in a vertical line and eccentric load">
+  <rect x="60" y="20" width="60" height="260" class="part"/><text x="66" y="295" class="small">column</text>
+  <path d="M120,30 L330,30 L330,60 L160,270 L120,270 Z" class="part2"/>
+  <!-- rivets -->
+  <g>
+  <circle cx="140" cy="60" r="7" class="dot"/><text x="152" y="64" class="small">1 (r = 150)</text>
+  <circle cx="140" cy="125" r="7" class="dot"/><text x="152" y="129" class="small">2 (r = 50)</text>
+  <circle cx="140" cy="190" r="7" class="dot"/><text x="152" y="194" class="small">3 (r = 50)</text>
+  <circle cx="140" cy="255" r="7" class="dot"/><text x="152" y="259" class="small">4 (r = 150)</text>
+  </g>
+  <circle cx="140" cy="157" r="4" class="dotb"/><text x="104" y="161" class="blu small">G</text>
+  <!-- load -->
+  <line x1="300" y1="30" x2="300" y2="0" class="acc" transform="translate(0,0)"/>
+  <line x1="300" y1="20" x2="300" y2="62" class="acc"/><polygon points="295,56 305,56 300,66" class="fill-acc"/>
+  <text x="306" y="50" class="acc">P = 25 kN</text>
+  <line x1="140" y1="12" x2="300" y2="12" class="thin"/><text x="210" y="10" class="small">e = 100 (from G line)</text>
+  <!-- force diagram on rivet 1 -->
+  <g transform="translate(420,40)">
+    <text x="0" y="0">Rivet 1:</text>
+    <circle cx="60" cy="60" r="6" class="dot"/>
+    <line x1="60" y1="60" x2="60" y2="120" class="acc"/><polygon points="55,114 65,114 60,124" class="fill-acc"/><text x="66" y="104" class="acc small">P′ = 6250</text>
+    <line x1="60" y1="60" x2="150" y2="60" class="blu"/><polygon points="144,55 144,65 154,60" class="fill-acc" style="fill:var(--blue)"/><text x="94" y="52" class="blu small">P″ = 7500 (⊥ r)</text>
+    <line x1="60" y1="60" x2="150" y2="120" class="grn"/><text x="116" y="140" class="small">P₁ = √(6250² + 7500²) = 9763 N</text>
+  </g>
+</svg>
+<figcaption>Bhandari Example 4 rivets (Ex. 8.24, <a class="bk" data-p="322"></a>). For rivets in a vertical line, P″ is horizontal and P′ vertical, so they combine at right angles.</figcaption>
+</figure>
+
+<div class="tip"><p><b>Which rivet is worst?</b> The one farthest from G, <em>and</em> where P′ and P″ point most nearly the same way. Sketch both arrows on every candidate before calculating. When the angle between them is θ: \(P_i = \sqrt{P'^2 + P''^2 + 2P'P''\cos\theta}\).</p></div>
+
+<h2>2. Worked example (Bhandari Ex. 8.24, question bank Q37)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 8.24</b>. A bracket is riveted to a column with four identical rivets in a vertical line, 100 mm apart. Load 25 kN at e = 100 mm from the rivet line. τ = 60 N/mm². Find d.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>G is midway between rivets 2 and 3: r₁ = r₄ = 150 mm, r₂ = r₃ = 50 mm.</li>
+<li>Primary: P′ = 25 000/4 = 6250 N each, downwards.</li>
+<li>\(C = \dfrac{25\,000(100)}{2(150^2) + 2(50^2)} = 50\) N/mm. P″₁ = P″₄ = 7500 N; P″₂ = P″₃ = 2500 N.</li>
+<li>Rivets 1 and 4 are worst; P′ ⊥ P″, so P₁ = √(6250² + 7500²) = 9763 N.</li>
+<li>\(\frac{\pi}{4}d^2(60) = 9763\Rightarrow d = 14.4\), so 15 mm.</li>
+</ol>
+</div></div>
+
+<h2>3. Practice</h2>
+<div class="num" data-answer="17.84" data-tol="1" data-unit="mm">
+<p class="q">Ex. 8.25: two rivets 100 mm apart. The 15 kN load acts along the line of the rivets, 50 mm from G (so e = 50 mm), in a direction that makes P′ and P″ <em>add</em> at one rivet. τ = 60 N/mm². Find d.</p>
+<details class="sol"><p>P′ = 7500 N. C = 15 000(50)/(50² + 50²) = 150, P″ = 150 × 50 = 7500 N. At rivet 1 they are collinear and additive: P₁ = 15 000 N.</p><p>(π/4)d²(60) = 15 000 ⇒ d = 17.84 mm, so 18 mm.</p></details>
+</div>
+<div class="num" data-answer="8.92" data-tol="1" data-unit="mm">
+<p class="q">Ex. 8.26: four rivets on a circle of radius 100 mm about G. 5 kN load at e = 200 mm. τ = 60 N/mm². At the worst rivet, P′ and P″ are collinear. Find d.</p>
+<details class="sol"><p>P′ = 1250; C = 5000(200)/(4 × 100²) = 25; P″ = 2500. Worst: 1250 + 2500 = 3750 N.</p><p>d = √(4 × 3750/(π × 60)) = 8.92 mm.</p></details>
+</div>
+<div class="num" data-answer="21.96" data-tol="1" data-unit="kN">
+<p class="q">Ex. 8.27: nine rivets in a 3 × 3 square grid, 100 mm pitch, G at the centre rivet. 50 kN at e = 300 mm. Corner rivets on the load side have P″ at 45° to P′. Find the maximum rivet force.</p>
+<details class="sol"><p>P′ = 50 000/9 = 5555.6. Σr² = 4(100²) + 4(141.42²) = 120 000, so C = 50 000(300)/120 000 = 125. Corner P″ = 125 × 141.42 = 17 677.5.</p><p>\(P_3 = \sqrt{(17\,677.5\sin45°)^2 + (17\,677.5\cos45° + 5555.6)^2} = 21\,960\) N ≈ 21.96 kN, giving d = 21.6 → 22 mm.</p></details>
+</div>
+<div class="num" data-answer="17.33" data-tol="1.5" data-unit="mm">
+<p class="q">Tutorial Q10 / Bhandari Problem 8.16 (open Fig. 8.81 on <a class="bk" data-p="328"></a>): six identical rivets, 60 kN at 200 mm from the column centre, τ = 150 N/mm². The book gives the maximum force as 35.38 kN on rivet 2 or 4. Find d.</p>
+<details class="sol"><p>(π/4)d²(150) = 35 380 ⇒ d = 17.33 mm. Work out the 35.38 kN yourself from the figure: P′ = 10 kN, then C from Σr², then vector addition at rivets 2 and 4.</p></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">How is the secondary shear force on a rivet directed?</p>
+<ol class="opts">
+<li>Parallel to the applied load P</li>
+<li>Along the line from G to the rivet</li>
+<li>Perpendicular to the line from G to the rivet</li>
+<li>Towards the point where P is applied</li>
+</ol>
+<div class="why">The couple tries to rotate the bracket about G. Each rivet resists with a force tangential to its circle about G, i.e. perpendicular to r, with magnitude ∝ r.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Doubling the eccentricity e while keeping P the same affects:</p>
+<ol class="opts">
+<li>The secondary forces only, which double</li>
+<li>The primary forces only, which double</li>
+<li>Both forces, which each double</li>
+<li>Neither force, since P is unchanged</li>
+</ol>
+<div class="why">P′ = P/n doesn't depend on e. P″ = Per/Σr² is proportional to e.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Measuring e from the column face or the load to the wrong point. e is from G of the rivet group to the line of action of P.</li>
+<li>Adding P′ and P″ as plain numbers when they are at an angle. Add them as vectors.</li>
+<li>Checking only the farthest rivet. A nearer rivet where the arrows align can be worse (Ex. 8.27: corner rivet vs middle rivet).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §8.29, <a class="bk" data-p="321">pp. 321–325</a> (Examples 8.24–8.27); practice problems 8.16–8.17 on <a class="bk" data-p="328">pp. 328–329</a>.</li>
+<li>Course slides: eccentrically loaded riveted joint, <a class="ppt" data-p="382">pp. 382–385</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 26, "Eccentric loading of riveted, welded and bolted joints" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Can't decide which rivet is worst in a figure? Describe the layout (or list rivet coordinates) and I'll draw the force vectors for you.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

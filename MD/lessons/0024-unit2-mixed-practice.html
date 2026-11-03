@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 2 Practice</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 24</p>
+<h1>Unit 2 mixed practice</h1>
+<p class="meta">About 45 minutes · only Bhandari Examples not used in Lessons 12–23 · do it a few days after Lesson 23</p>
+<div class="win"><b>Your win:</b> faced with any joint, lever or screw question, you identify the method at once, then execute it. The problems are shuffled on purpose.</div>
+<div class="note"><p>For each problem: (1) write the method in one line, (2) solve on paper, (3) type only the final number. Open the book page if you want to see the figure.</p></div>
+
+<h2>Part A: name the method</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A bracket is bolted to a column; the load acts perpendicular to the bolt axes, offset from the column face. What do the bolts carry?</p>
+<ol class="opts">
+<li>Only direct shear, P divided by number of bolts</li>
+<li>Only tension, from tilting about the bolt centroid</li>
+<li>Direct shear plus tension from tilting about an edge</li>
+<li>Only tension, from the load divided by bolt number</li>
+</ol>
+<div class="why">Lesson 19, case 2: P′ = P/n as shear, and P″ ∝ distance from the tilting edge as tension. Combine them with maximum shear or principal stress theory.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">An angle section is welded to a plate with top and bottom fillet welds and loaded through its centroid. What fixes the two weld lengths?</p>
+<ol class="opts">
+<li>Total length from strength; split by moments about the centroid</li>
+<li>Equal lengths, since both welds carry half the load</li>
+<li>Polar moment of inertia and vector addition of shear</li>
+<li>Principal shear from bending and direct shear stress</li>
+</ol>
+<div class="why">Lesson 16: l = P/(0.707hτ), then l₁y₁ = l₂y₂ so the weld forces have no moment about the centroid.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">A fulcrum pin of a bell-crank lever is sized by:</p>
+<ol class="opts">
+<li>Crushing stress, then checked for bending</li>
+<li>Double shear, then checked for crushing</li>
+<li>Tension at the core, then checked for shear</li>
+<li>Bearing pressure, then checked for double shear</li>
+</ol>
+<div class="why">The lever oscillates on the pin (sliding), so a low bearing pressure governs (Lesson 21).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">In a knuckle joint, the pin diameter is usually set by:</p>
+<ol class="opts">
+<li>Double shear, because the pin is loaded in two planes</li>
+<li>Bending of a loose pin, giving a larger diameter</li>
+<li>Crushing in the fork, because the fork is thinner</li>
+<li>Tension in the eye, at the net section of the eye</li>
+</ol>
+<div class="why">In Ex. 4.5, shear gave 28.2 mm and bending 38.8 mm. Check both, and bending usually wins (Lesson 13).</div>
+</div>
+
+<h2>Part B: solve (all Bhandari Examples)</h2>
+<div class="num" data-answer="10.77" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 4.3 (<a class="bk" data-p="93"></a>): cotter joint, d₂ = 50, d₄ = 100 mm, P = 50 kN, cotter of 30C8 (S<sub>yt</sub> = 400), (fs) = 4, b = 5t. Cotter thickness from <em>bending</em>?</p>
+<details class="sol"><p>σ<sub>b</sub> = 100. \(100 = \frac{25\,000[50/4 + 50/6]}{t(5t)^2/6}\Rightarrow t = 10.77\), so 12 mm and b = 60 mm. (Shear alone gives t = 10, b = 50.)</p></details>
+</div>
+<div class="num" data-answer="60.45" data-tol="1" data-unit="mm">
+<p class="q">Ex. 4.4 (<a class="bk" data-p="94"></a>): rods 50 mm, 40C8 (S<sub>yt</sub> = 380), cotter t = 15 mm, (fs) = 6. Find the spigot diameter d₂ (the rods carry their full allowable load).</p>
+<details class="sol"><p>σ<sub>t</sub> = 63.33; P = (π/4)(50²)(63.33) = 124 348 N. (π/4)d₂² − 15d₂ = 1963.5 ⇒ d₂ = 60.45, so 65 mm. Then d₁ = 84.2 → 85; d₄ = 130.4 → 135; a = 30.2 → 35; c = 28.0 → 30 mm.</p></details>
+</div>
+<div class="num" data-answer="89.2" data-tol="1" data-unit="%">
+<p class="q">Ex. 8.20 (<a class="bk" data-p="309"></a>): Lozenge (diamond) double-strap butt joint for 250 × 20 mm tie bars, 6 rivets (1-2-3 rows), d = 6√t = 27 mm, double shear = 1.875 × single, σ<sub>t</sub> = 80, τ = 60, σ<sub>c</sub> = 120. Efficiency?</p>
+<details class="sol"><p>One rivet in double shear: 1.875(π/4)(27²)(60) = 64 412 N. Section AA (one hole): (250 − 27)(20)(80) = 356 800 N. BB: (250 − 54)(1600) + 64 412 = 378 012. CC: (250 − 81)(1600) + 3(64 412) = 463 637. All rivets: 6 × 64 412 = 386 475.</p><p>Least = 356 800; solid plate = 400 000, so η = 89.2%.</p></details>
+</div>
+<div class="num" data-answer="83.1" data-tol="1" data-unit="%">
+<p class="q">Ex. 8.21 (<a class="bk" data-p="315"></a>): boiler, D<sub>i</sub> = 1.5 m, 1.5 MPa, triple-riveted double-strap butt joint, equal straps, 5 rivets per pitch all in double shear, CA 2 mm. With t = 20, d = 27, p limited to p<sub>max</sub> = 160 mm, find the efficiency.</p>
+<details class="sol"><p>Pitch from strength = 228 mm &gt; p<sub>max</sub> = 6(20) + 41.28 = 161.3, so p = 160.</p><p>P<sub>t</sub> = (160 − 27)(20)(80) = 212 800; P<sub>s</sub> = 5 × 1.875 × (π/4)(27²)(60) = 322 062; P<sub>c</sub> = 5(27)(20)(120) = 324 000; P = 256 000. η = 83.1%.</p></details>
+</div>
+<div class="num" data-answer="7.28" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 8.18 (<a class="bk" data-p="308"></a>): a 3 mm brake band is riveted to its hinge with four rivets in single shear; load 10 kN; σ<sub>t</sub> = 80, τ = 60, σ<sub>c</sub> = 120. Rivet diameter from shear?</p>
+<details class="sol"><p>4(π/4)d²(60) = 10 000 ⇒ d = 7.28 → 8 mm (crushing gives 6.94). Band width: (w − 2 × 8)(3)(80) = 10 000 ⇒ w = 57.7 → 60 mm.</p></details>
+</div>
+<div class="num" data-answer="99.9" data-tol="1" data-unit="mm">
+<p class="q">Ex. 8.3 (<a class="bk" data-p="279"></a>): plates 120 × 12.5 mm joined by double transverse fillet welds; the weld must be as strong as the plate; σ<sub>t</sub> = 110. Weld length including 15 mm?</p>
+<details class="sol"><p>P = 120 × 12.5 × 110 = 165 000. 1.414(12.5)(l)(110) = 165 000 ⇒ l = 84.9; +15 = 99.9, so 100 mm.</p></details>
+</div>
+<div class="num" data-answer="121.3" data-tol="1" data-unit="mm">
+<p class="q">Ex. 8.8 (<a class="bk" data-p="285"></a>): an ISA 150 × 75 × 10 angle (CG 53.2 mm from the short side) is welded along its long side by two welds, 125 kN static, allowable 665 N per mm of weld. Longer weld length?</p>
+<details class="sol"><p>Total = 125 000/665 = 188.0 mm. l₁(150 − 53.2) = l₂(53.2) ⇒ l₁ = 66.7, l₂ = 121.3 mm.</p></details>
+</div>
+<div class="num" data-answer="6.43" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 8.16 (<a class="bk" data-p="295"></a>): a 50 mm shaft welded all round carries 2500 N·m of torque; τ = 140. Leg size?</p>
+<details class="sol"><p>140 = 2500 × 10³/(2πt × 25²) ⇒ t = 4.55, h = 6.43 → 7 mm.</p></details>
+</div>
+<div class="num" data-answer="455.3" data-tol="1" data-unit="mm²">
+<p class="q">Ex. 7.8 (<a class="bk" data-p="239"></a>): a crane-runway bracket hangs from a roof truss on two bolts, P = 20 kN parallel to the bolts at 550 mm from the tilting edge; the bolts are at l₁ = 450 and l₂ = 50 mm; σ<sub>t</sub> ≤ 75. Required area?</p>
+<details class="sol"><p>Direct: 10 000 N each. Tilt: P″₁ = 20 000 × 550 × 450/(450² + 50²) = 24 146. Total 34 146 N, so A = 455.3 mm² and M30 (561).</p></details>
+</div>
+<div class="num" data-answer="33.17" data-tol="1.5" data-unit="mm²">
+<p class="q">Ex. 7.13 (<a class="bk" data-p="245"></a>): a jib-crane tie-rod bracket on four bolts (2 at A, 2 at B). The 5 kN tie force at 30° to horizontal gives 625 N direct tension and 1082.5 N shear per bolt, plus 909.3 N tilting tension on the far bolts. 30C8, (fs) = 5, maximum shear stress theory. Required area?</p>
+<details class="sol"><p>σ<sub>t</sub> = (625 + 909.3)/A = 1534.3/A; τ = 1082.5/A. τ<sub>max</sub> = √(767.2² + 1082.5²)/A = 1326.8/A = 40 ⇒ A = 33.17 mm², so M8 (36.6).</p></details>
+</div>
+<div class="num" data-answer="0.35" data-tol="2" data-unit="kW">
+<p class="q">Ex. 6.7 (<a class="bk" data-p="201"></a>): a tool holder at 5 m/min, single-start Sq 48 × 8, force 500 N, collar mean radius 40 mm, μ = 0.15 everywhere. Power?</p>
+<details class="sol"><p>Speed: 5000/8 = 625 rpm. Thread torque 2306.6 + collar 0.15 × 500 × 40 = 3000, total 5306.6 N·mm. Power = 2π(625)(5306.6)/60×10⁶ = 0.35 kW; η = 12%.</p></details>
+</div>
+<div class="num" data-answer="981.75" data-tol="1" data-unit="mm²">
+<p class="q">Ex. 4.17 (<a class="bk" data-p="124"></a>): a pressure-vessel cover (D = 500 mm, 0.25 MPa) is held by a screw in compression; FeE 250, (fs) = 5. Required stressed area of the screw?</p>
+<details class="sol"><p>F = (π/4)(500²)(0.25) = 49 087 N; σ<sub>c</sub> = 50, so a = 981.75 mm², giving M42 (1120 mm²).</p></details>
+</div>
+
+<h2>Part C: theory in 5 minutes each</h2>
+<div class="recall-set"><span class="label">Answer, then open to check</span>
+<details class="recall"><summary>Advantages of welded over riveted joints (any five).</summary><div>Lighter, cheaper, leak-proof, faster, no holes so no stress concentration, better appearance, often stronger than the plates, easy to modify, can join tubes.</div></details>
+<details class="recall"><summary>Compare square and trapezoidal threads for power screws.</summary><div>Square: higher efficiency, no bursting pressure; but costly (single-point tool), weaker root, wear not adjustable. Trapezoidal: cheap (milled), stronger root, split nut takes up wear; but lower efficiency and side thrust.</div></details>
+<details class="recall"><summary>Explain caulking and fullering.</summary><div>Bevel the plate edge to 70–75° and hammer it (caulking tool: narrow; fullering tool: as wide as the plate) to close gaps and make boiler joints leak-proof. Not for plates under 6 mm.</div></details>
+<details class="recall"><summary>Why a bolt of uniform strength, and two ways to make one?</summary><div>To absorb shock energy across the whole bolt, not just in the threads. Turn the shank down to the core diameter, or drill an axial hole d₁ = √(d² − d<sub>c</sub>²).</div></details>
+<details class="recall"><summary>Self-locking vs overhauling screw.</summary><div>Self-locking: φ ≥ α, so the load won't run down (η &lt; 50%). Overhauling: φ &lt; α, so the load drives the screw down (useful in a Yankee screwdriver).</div></details>
+</div>
+
+<div class="src"><ul>
+<li>Bhandari Chapters 4 (§4.9–4.20), 6, 7, 8: every Example not used in Lessons 12–23 is above.</li>
+<li>Short-answer question lists at the end of Ch. 6 (<a class="bk" data-p="216"></a>), Ch. 7 (<a class="bk" data-p="269"></a>), Ch. 8 (<a class="bk" data-p="325"></a>) for theory practice.</li>
+</ul></div>
+<div class="ask"><p>Missed more than three in Part B? Tell me which ones and I'll make a short drill on just that method.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flat Belt Drives</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 30</p>
+<h1>Flat belt drives: geometry, tensions and power</h1>
+<p class="meta">About 40 minutes · Bhandari §13.1–13.10</p>
+<div class="win"><b>Your win:</b> you can derive belt length and wrap angle, the tension ratio with centrifugal tension, and the condition for maximum power (P<sub>max</sub> = 3P<sub>c</sub>). You can also design a flat belt drive from first principles or select one from the Dunlop catalogue. These are among the most frequently asked derivations in machine design and GATE.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 26)</span>
+<details class="recall"><summary>Torque from pulley tensions?</summary><div>M<sub>t</sub> = (P₁ − P₂)R</div></details>
+<details class="recall"><summary>Power in kW from tensions and belt speed v (m/s)?</summary><div>kW = (P₁ − P₂)v/1000</div></details>
+</div>
+
+<h2>1. Flexible drives and belts: when and why</h2>
+<p><b>Flexible drives</b> (belt, rope, chain) span long distances, absorb shock, tolerate loose centre-distance tolerances and are cheap. On the other hand they take more space, give smaller velocity ratios (flat belt up to 4:1, V-belt 7:1, chain 15:1), and the ratio isn't exact (<a class="bk" data-p="499"></a>). Belts also <b>slip under overload, which protects the machine</b>, run quietly, and are simple, but they load the bearings heavily and wear out sooner.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Flat belt</th><th>V-belt</th></tr></thead>
+<tbody>
+<tr><td>Cheap and easy to maintain; can act as a clutch (fast and loose pulley); stepped pulleys give several ratios; works in dust; long centres (up to 15 m); higher efficiency (≈ 96%)</td><td>Wedge action gives 2.92× the effective friction, so more power and a smaller wrap angle are fine; compact; ratio up to 7:1; endless, smooth and quiet; works vertical; efficiency ≈ 95%</td></tr>
+<tr><td><b>Applications:</b> conveyors, saw mills, textile machinery, crushers, line shafts, bucket elevators</td><td><b>Applications:</b> motor drives to compressors, pumps, fans, machine tools; engine accessories</td></tr>
+</tbody></table></div>
+<p><b>Belt materials:</b> leather (oak- or chrome-tanned, high μ), fabric-rubber (canvas plies in rubber: strong, fast, long-lived, but attacked by oil). Joints: cemented 80–85% strength, laced 50%, metal fastener 25% (<a class="bk" data-p="502"></a>).</p>
+
+<h2>2. Derivation: wrap angle and belt length</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Bhandari Eqs 13.1–13.5 for pulleys D (big) and d (small) at centre distance C.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Open belt.</b> The straight belt span is tangent to both pulleys. Drop a perpendicular from the small-pulley centre onto the big-pulley radius: the triangle has hypotenuse C and opposite side (D − d)/2, so \(\sin\beta = \dfrac{D-d}{2C}\).</li>
+<li>Wrap angles: \(\alpha_s = 180° - 2\beta\) (small pulley), \(\alpha_b = 180° + 2\beta\) (big pulley). The <b>small pulley governs</b>, because its wrap is smaller.</li>
+<li>Length = two arcs + two straight spans: \(L = \frac{d}{2}(\pi - 2\beta) + \frac{D}{2}(\pi + 2\beta) + 2C\cos\beta = \frac{\pi}{2}(D+d) + \beta(D-d) + 2C\cos\beta\).</li>
+<li>For small β: β ≈ (D − d)/2C and cos β ≈ 1 − β²/2. Substitute and simplify: \(\boxed{L = 2C + \dfrac{\pi}{2}(D+d) + \dfrac{(D-d)^2}{4C}}\).</li>
+<li><b>Crossed belt:</b> \(\sin\beta = \dfrac{D+d}{2C}\), both wraps = 180° + 2β, and \(L = 2C + \frac{\pi}{2}(D+d) + \frac{(D+d)^2}{4C}\). The crossed belt reverses rotation and has more wrap (more power), but it rubs on itself and bends in two planes (more wear).</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: tension ratio with centrifugal tension</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(\dfrac{P_1 - mv^2}{P_2 - mv^2} = e^{f\alpha}\) (Eq. 13.6) for a belt of mass m per metre at speed v.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Take a small element subtending dφ. Forces: tensions P and P + dP at its ends; normal reaction dN; friction f·dN along the belt; centrifugal force = (mass)(v²/r) = (m r dφ)(v²/r) = m v² dφ, outward.</li>
+<li>Tangential equilibrium (cos(dφ/2) ≈ 1): \((P + dP) - P = f\,dN\Rightarrow dN = dP/f\).</li>
+<li>Radial equilibrium (sin(dφ/2) ≈ dφ/2): \(dN + mv^2d\phi = (P + dP)\frac{d\phi}{2} + P\frac{d\phi}{2}\approx P\,d\phi\) (dropping dP·dφ).</li>
+<li>Substitute dN: \(\dfrac{dP}{f} = (P - mv^2)\,d\phi\Rightarrow \dfrac{dP}{P - mv^2} = f\,d\phi\).</li>
+<li>Integrate from P₂ to P₁ and from 0 to α: \(\ln\dfrac{P_1 - mv^2}{P_2 - mv^2} = f\alpha\). With mv² negligible (slow belts): \(P_1/P_2 = e^{f\alpha}\).</li>
+<li><b>Centrifugal tension</b> on its own (§13.6): an element in equilibrium has 2P<sub>c</sub>(dφ/2) = mv²dφ, so \(P_c = mv^2\). It adds equally to both sides and takes no part in transmitting power.</li>
+</ol>
+</div></div>
+
+<h2>4. Derivation: condition for maximum power</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> P<sub>max</sub> = 3P<sub>c</sub> and the optimum speed (§13.6).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The belt is limited to P<sub>max</sub> = (width × thickness × allowable stress). The tight-side tension available for power is P₁ = P<sub>max</sub> − mv².</li>
+<li>Power = (P₁ − P₂)v = P₁(1 − e<sup>−fα</sup>)v = k(P<sub>max</sub> − mv²)v, where k = 1 − 1/e<sup>fα</sup>.</li>
+<li>Maximise: \(\dfrac{d}{dv}(P_{max}v - mv^3) = P_{max} - 3mv^2 = 0\).</li>
+<li>So \(\boxed{v_{opt} = \sqrt{P_{max}/3m}}\), \(\boxed{P_{max} = 3P_c}\), and P₁ = 2P<sub>c</sub>.</li>
+<li>Initial tension (equal stretch on tight side and contraction on slack side): \(P_i = \tfrac12(P_1 + P_2)\). An equivalent form: \(v_{opt} = \sqrt{P_i/3m}\) (Eq. 13.10).</li>
+</ol>
+</div></div>
+
+<div class="calc"><span class="label">Belt power vs speed (fixed P<sub>max</sub>, μ, wrap)</span>
+<div class="inputs">
+<label>P<sub>max</sub> (N)<input data-v="Pm" type="number" value="1430"></label>
+<label>m (kg/m)<input data-v="m" type="number" value="0.603" step="0.01"></label>
+<label>μ<input data-v="mu" type="number" value="0.35" step="0.01"></label>
+<label>wrap α (deg)<input data-v="al" type="number" value="160.8"></label>
+<label>belt speed v (m/s)<input data-v="v" type="number" value="20.36"></label>
+</div>
+<div class="outs">
+<output data-expr="(Pm-m*v*v)*(1-exp(-mu*rad(al)))*v/1000" data-label="power =" data-unit="kW" data-dp="2"></output>
+<output data-expr="sqrt(Pm/(3*m))" data-label="v for max power =" data-unit="m/s" data-dp="2"></output>
+<output data-expr="(Pm-Pm/3)*(1-exp(-mu*rad(al)))*sqrt(Pm/(3*m))/1000" data-label="max power =" data-unit="kW" data-dp="2"></output>
+</div></div>
+<p class="small">Preloaded near Bhandari Ex. 13.1 (b = 127 mm leather belt, m = 4.75 × 10⁻³ × 127 kg/m). Change v and watch the power rise and then fall.</p>
+
+<h2>5. Belt behaviour: creep, slip, sag, the law of belting</h2>
+<ul>
+<li><b>Creep</b>: the belt shortens elastically as it moves from tight to slack side, so it creeps on the pulley. The driven speed drops slightly and efficiency falls by 1–2%. <b>Slip</b>: the whole belt slides over the whole arc under overload (<a class="bk" data-p="509"></a>).</li>
+<li>Keep the <b>slack side on top</b> in horizontal drives (sag increases the wrap). Avoid vertical drives.</li>
+<li><b>Law of belting</b>: the centre line of the belt <em>approaching</em> a pulley must lie in that pulley's mid-plane. So a quarter-turn drive runs in one direction only.</li>
+<li><b>Crowning</b> one pulley keeps the belt centred. Pulley arms are elliptical with the major axis in the plane of rotation (less air drag, less material): \(a = 1.72\sqrt[3]{M_t/(N\sigma_b)}\) with half the arms taking load.</li>
+<li>Centre distance guide: C = D + 1.5d (ratio &lt; 3), C = D (ratio &gt; 3).</li>
+</ul>
+
+<h2>6. Worked example (Bhandari Ex. 13.1): design from first principles</h2>
+<div class="example">
+<div class="ex-head"><b>Example 13.1</b> (<a class="bk" data-p="510"></a>). A 15 kW leather belt drive from 1440 to 480 rpm; v ≈ 20 m/s; σ ≤ 2.25 N/mm²; ρ = 0.95 g/cc; μ = 0.35; t = 5 mm; C = 2D.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>d = 60 000v/πn = 265 → 270 mm; D = 3d = 810 mm; true v = 20.36 m/s.</li>
+<li>C = 1620 mm. L = 2(1620) + (π/2)(1080) + 540²/(4 × 1620) = 4981 mm.</li>
+<li>α<sub>s</sub> = 180 − 2 sin⁻¹(540/3240) = 160.8° = 2.81 rad, so e<sup>fα</sup> = 2.67.</li>
+<li>m = ρ × area = (4.75 × 10⁻³)b kg/m, so mv² = 1.97b.</li>
+<li>Three equations: P₁ = 2.25(5b) = 11.25b; (P₁ − 1.97b) = 2.67(P₂ − 1.97b); P₁ − P₂ = 15 000/20.36 = 736.7.</li>
+<li>Solve: b = 127 → 130 mm; P₁ = 1429 N, P₂ = 692 N.</li>
+</ol>
+</div></div>
+
+<h2>7. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="10.01" data-tol="1" data-unit="kW">
+<p class="q">Ex. 13.3 (<a class="bk" data-p="512"></a>): open V-belt drive, pulleys 150 and 300 mm, C = 1 m, groove 40°, m = 0.25 kg/m, P<sub>max</sub> = 750 N, μ = 0.2. Find the maximum power the belt can transmit.</p>
+<details class="sol"><p>α = 171.4° = 2.99 rad; e<sup>fα/sin20°</sup> = 5.75. At v = 0: P₂ = 750/5.75 = 130.4, so P<sub>i</sub> = 440.2 N. v<sub>opt</sub> = √(P<sub>i</sub>/3m) = 24.23 m/s.</p><p>With P₁ + P₂ = 880.4 and (P₁ − 146.8)/(P₂ − 146.8) = 5.75: P₁ = 646.7, P₂ = 233.7, so power = 413 × 24.23 = 10.01 kW. Power is zero again at v = √(P<sub>i</sub>/m) = 41.96 m/s.</p></details>
+</div>
+<div class="num" data-answer="152" data-tol="1" data-unit="mm (5-ply)">
+<p class="q">Ex. 13.4 (<a class="bk" data-p="516"></a>): select a Dunlop HI-SPEED flat belt for a 25 kW, 1440 rpm motor driving a compressor at 720 rpm, C = 3 m. Using d = 250, D = 500 (v = 18.85 m/s), F<sub>a</sub> = 1.3 and arc factor 1.019, what standard width with 5 plies?</p>
+<details class="sol"><p>Corrected power = 1.3 × 25 × 1.019 = 33.12 kW. Rating = 0.0118 × 18.85/5.08 = 0.0438 kW per mm per ply. Width × plies = 756, so with 5 plies width = 151.2 → <b>152 mm</b>. L = 7183 mm.</p></details>
+</div>
+<div class="num" data-answer="17.78" data-tol="1" data-unit="mm">
+<p class="q">Ex. 13.5 (<a class="bk" data-p="521"></a>): a cast-iron pulley (FG 150, (fs) 5), Ø500, 4 elliptical arms (major = 2 × minor, major axis in the plane of rotation), 10 kW at 720 rpm. Minor axis?</p>
+<details class="sol"><p>σ<sub>b</sub> = 30; M<sub>t</sub> = 132 629. With half the arms loaded: \(a = 1.72\sqrt[3]{M_t/(N\sigma_b)} = 1.72\sqrt[3]{132\,629/120} = 17.78\), so a = 20, b = 40 mm.</p></details>
+</div>
+
+<h2>8. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">For maximum power transmission by a belt, the centrifugal tension equals:</p>
+<ol class="opts">
+<li>one-half of the maximum permissible tension</li>
+<li>the tension on the slack side of the belt</li>
+<li>one-third of the maximum permissible tension</li>
+<li>twice the tension on the tight side of the belt</li>
+</ol>
+<div class="why">P<sub>max</sub> = 3P<sub>c</sub> (and P₁ = 2P<sub>c</sub>), from d/dv[(P<sub>max</sub> − mv²)v] = 0.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">The ratio of tight- to slack-side tension in a flat belt (centrifugal tension neglected) is 3 for a 180° wrap. With a 270° wrap it becomes:</p>
+<ol class="opts">
+<li>3<sup>1.5</sup> ≈ 5.2</li>
+<li>4.5</li>
+<li>3<sup>2</sup> = 9</li>
+<li>√3 ≈ 1.73</li>
+</ol>
+<div class="why">e<sup>fα</sup> scales exponentially: e<sup>f(1.5π)</sup> = (e<sup>fπ</sup>)<sup>1.5</sup> = 3<sup>1.5</sup> = 5.2.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Centrifugal tension in a belt:</p>
+<ol class="opts">
+<li>increases the power the belt can transmit</li>
+<li>acts only on the tight side of the belt</li>
+<li>depends on the wrap angle and μ</li>
+<li>reduces the tension available for power</li>
+</ol>
+<div class="why">P<sub>c</sub> = mv² acts equally on both sides, independent of μ and α. It uses up part of P<sub>max</sub>, leaving P₁ = P<sub>max</sub> − P<sub>c</sub> for power.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Creep in a belt drive is caused by:</p>
+<ol class="opts">
+<li>overload making the belt slide over the whole arc</li>
+<li>elastic change of belt length between the two sides</li>
+<li>insufficient initial tension when the drive starts</li>
+<li>the centrifugal force lifting the belt off the pulley</li>
+</ol>
+<div class="why">Creep is a gradual, unavoidable elastic effect. Slip is a gross sliding under overload.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using the big pulley's wrap angle. The small pulley decides slipping.</li>
+<li>Angles in degrees inside e<sup>fα</sup>. α must be in radians.</li>
+<li>Forgetting mv² at belt speeds above about 10 m/s.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §13.1–13.10, <a class="bk" data-p="499">pp. 499–522</a> (Examples 13.1, 13.3–13.6).</li>
+<li>Course slides: belt drive design, geometrical relationships, belt tensions, maximum power, <a class="ppt" data-p="599">pp. 599–652</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), belt drives module (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>The V-belt version of the tension ratio is one small change to this derivation. Try it yourself before Lesson 31, and send it to me to check.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

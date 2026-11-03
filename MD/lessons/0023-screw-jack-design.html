@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screw Jack Design</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 23</p>
+<h1>Design of screw, nut and screw jack</h1>
+<p class="meta">About 35 minutes · Bhandari §6.14–6.15</p>
+<div class="win"><b>Your win:</b> you can carry a screw jack design from load to finished parts: screw size (compression, torsion, bending, buckling), nut length from bearing pressure, thread shear, cup and collar, and handle. This is the long design question that appears almost every year.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 2, 21, 22)</span>
+<details class="recall"><summary>Raising torque for a square thread?</summary><div>M<sub>t</sub> = (Wd<sub>m</sub>/2) tan(φ + α)</div></details>
+<details class="recall"><summary>Bearing pressure vs crushing: which applies between screw and nut?</summary><div>Bearing pressure: the surfaces slide, so the allowable value is low (about 10 N/mm²).</div></details>
+<details class="recall"><summary>Principal shear stress from σ and τ?</summary><div>\(\sqrt{(\sigma/2)^2 + \tau^2}\)</div></details>
+</div>
+
+<h2>1. Stresses in screw and nut</h2>
+<div class="formula"><span class="label">Screw body (Eqs a–c, §6.14)</span>
+\[ \sigma_c = \frac{W}{\frac{\pi}{4}d_c^2} \qquad \tau = \frac{16 M_t}{\pi d_c^3} \qquad \tau_{max} = \sqrt{(\sigma/2)^2 + \tau^2} \]
+<p>Use the torque that actually acts on the section: between nut and handle it is M<sub>t</sub> (thread torque); between handle and cup it is (M<sub>t</sub>)<sub>c</sub>. No section carries both (<a class="bk" data-p="209"></a>).</p>
+</div>
+<div class="formula"><span class="label">Threads and nut (Eqs 6.21–6.23)</span>
+\[ \tau_s = \frac{W}{\pi d_c t z}\ \text{(screw thread root)} \qquad \tau_n = \frac{W}{\pi d t z}\ \text{(nut thread root)} \qquad S_b = \frac{4W}{\pi z (d^2 - d_c^2)} \]
+<p>t = p/2 for square threads; z = threads engaged; nut length H = z·p. Allowable S<sub>b</sub> (Table 6.4): steel/bronze screw jack 11–17; steel/cast iron screw jack 13–17; hoisting screw 4–10; lead screw 1–1.5 N/mm² (<a class="bk" data-p="196"></a>).</p>
+</div>
+<p><b>Materials</b> (<a class="bk" data-p="195"></a>, <a class="bk" data-p="207"></a>): screw of 30C8/40C8/45C8 steel (case-hardened for lead screws); nut of <b>bronze</b> (softer, conformable, low friction, so the cheaper part takes the wear); frame and cup of grey cast iron FG 200 (cheap, complex shape, strong in compression); handle of 30C8.</p>
+
+<h2>2. Bhandari's screw jack design project (100 kN, 0.5 m lift)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 300" role="img" aria-label="Screw jack parts: cup, screw, handle, nut, frame">
+  <polygon points="200,290 400,290 360,170 240,170" class="part"/><text x="410" y="260" class="small">frame (FG 200)</text>
+  <rect x="270" y="150" width="60" height="40" class="hot"/><text x="338" y="168" class="small acc">nut (bronze), length H = zp</text>
+  <rect x="285" y="40" width="30" height="230" class="part2"/>
+  <g class="thin"><line x1="285" y1="60" x2="315" y2="66"/><line x1="285" y1="80" x2="315" y2="86"/><line x1="285" y1="100" x2="315" y2="106"/><line x1="285" y1="120" x2="315" y2="126"/><line x1="285" y1="140" x2="315" y2="146"/></g>
+  <text x="200" y="110" class="small">screw (30C8), square threads</text>
+  <rect x="270" y="20" width="60" height="22" class="part"/><text x="338" y="34" class="small">cup + thrust collar or ball bearing</text>
+  <line x1="120" y1="56" x2="480" y2="56" class="acc" style="stroke-width:5"/><text x="482" y="60" class="small acc">handle, length l<tspan baseline-shift="sub" font-size="8">h</tspan></text>
+  <line x1="300" y1="0" x2="300" y2="18" class="acc"/><polygon points="295,12 305,12 300,20" class="fill-acc"/><text x="306" y="12" class="acc small">W</text>
+</svg>
+<figcaption>Main parts of a screw jack (after Bhandari Fig. 6.18).</figcaption>
+</figure>
+<div class="example">
+<div class="ex-head"><b>Design project §6.15</b> (<a class="bk" data-p="206"></a>–213). W = 100 kN; lift 500 mm; manual (two workers, 0.9 × 2 × 400 = 720 N); (fs) = 5; screw 30C8 (S<sub>yt</sub> = 400, E = 207 000); bronze nut (S<sub>b</sub> = 10 N/mm², μ up to 0.18 for poor lubrication).</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>First size from compression:</b> σ<sub>c</sub> = 400/5 = 80 ⇒ d<sub>c</sub> = √(4 × 10⁵/(π × 80)) = 39.9 mm. Increase it to allow for torsion and bending: try <b>Sq 60 × 9</b>, so d<sub>c</sub> = 51, d<sub>m</sub> = 55.5 mm.</li>
+<li><b>Self-locking:</b> tan α = 9/(π × 55.5), so α = 2.95°; φ = tan⁻¹ 0.18 = 10.20°. φ &gt; α ✓.</li>
+<li><b>Thread torque:</b> M<sub>t</sub> = 10⁵ × 27.75 × tan(13.15°) = 648 316 N·mm.</li>
+<li><b>Stresses at section XX</b> (just below the handle): τ = 16M<sub>t</sub>/πd<sub>c</sub>³ = 24.89; bending from the hand force at 570 mm: σ<sub>b</sub> = 32(720 × 570)/π(51)³ = 31.51. (The direct compression 48.95 is neglected, since compression closes cracks.) τ<sub>max</sub> = √(15.76² + 24.89²) = 29.46, so (fs) = 200/29.46 = 6.79 &gt; 5 ✓.</li>
+<li><b>Buckling</b> (one end fixed in the nut, one free, n = 0.25; l = 550 mm; k = d<sub>c</sub>/4 = 12.75): l/k = 43.1 &lt; critical 50.5, so it is a short column and Johnson's equation applies: P<sub>cr</sub> = 519 kN, (fs) = 5.19 ✓.</li>
+<li><b>Nut:</b> z = 4 × 10⁵/(π × 10 × (60² − 51²)) = 12.75, so 13 threads and H = 13 × 9 = 117 mm. Nut thread shear τ<sub>n</sub> = 10⁵/(π × 60 × 4.5 × 13) = 9.07 N/mm² (fs 10.5 on 0.5 S<sub>ut</sub>, bronze) ✓. Nut OD ≈ 2d.</li>
+<li><b>Cup and collar:</b> sliding collar (D<sub>o</sub> = 1.6d, D<sub>i</sub> = 0.8d, μ = 0.2) adds 720 000 N·mm, which would need a 1.9 m handle. Impractical, so fit a <b>thrust ball bearing</b> (C = 10⁵ × 1.8<sup>1/3</sup> = 121.6 kN, giving SKF 51410), which makes collar friction negligible.</li>
+<li><b>Handle:</b> 720 × l<sub>h</sub> = 648 316 ⇒ l<sub>h</sub> = 900 → 910 mm. Bending: 80 = 32(720 × 910)/πd<sub>h</sub>³ ⇒ d<sub>h</sub> = 43.7 → 45 mm.</li>
+</ol>
+</div></div>
+<p class="small">The design also lists safety measures: a proof test at 150% load, a warning plate, and an instruction manual (<a class="bk" data-p="213"></a>). A one-paragraph mention of these earns marks in the "design a screw jack" question.</p>
+
+<h2>3. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="82.2" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 6.8 (<a class="bk" data-p="201"></a>): C-clamp, double-start square thread, trial size Sq 22 × 5, clamping force 5 kN, μ = 0.15 threads, collar 17/6 mm with μ<sub>c</sub> = 0.17, operator force 250 N. Radius of the ball handle?</p>
+<details class="sol"><p>l = 10, d<sub>m</sub> = 19.5, α = 9.271°. M<sub>t</sub> = 5000 × 9.75 × tan(17.80°) = 15 654; (M<sub>t</sub>)<sub>c</sub> = 0.17 × 5000 × 23/4 = 4887.5. R<sub>m</sub> = 20 541/250 = 82.2 mm.</p><p>Checks: at section AA, τ = 21.29 and σ<sub>b</sub> = 142.5 from the 250 N handle force at 275 mm, giving τ<sub>max</sub> = 74.4 and (fs) = 2.22 ✓. Nut (cast iron, S<sub>b</sub> = 15): z = 2.18, so 3 threads and a 15 mm nut.</p></details>
+</div>
+<div class="num" data-answer="4.42" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 6.9 (<a class="bk" data-p="203"></a>): screw clamp Sq 22 × 5, capacity 750 N, μ = 0.15, collar mean radius 15 mm; the handle (30C8, S<sub>yt</sub> = 400) should take a permanent set if the operator's 20 N exceeds the rated capacity. Handle diameter?</p>
+<details class="sol"><p>Total torque = 1714.7 + 0.15 × 750 × 15 = 3402 N·mm, so the handle length = 3402/20 = 170 mm. At yield: 400 = 32 × 3402/πd³ ⇒ d = 4.42 mm.</p></details>
+</div>
+<div class="num" data-answer="72" data-tol="1" data-unit="mm">
+<p class="q">Ex. 6.10 (<a class="bk" data-p="204"></a>): fly-press punching 50 mm circles from 1.5 mm sheet (S<sub>us</sub> = 375). Triple-start Sq 50 × 8 screw, bronze nut S<sub>b</sub> = 18 N/mm². Nut length?</p>
+<details class="sol"><p>W = π(50)(1.5)(375) = 88 357 N. z = 4W/(π × 18 × (50² − 42²)) = 8.49, so 9 threads; nut length = 9 × 8 = 72 mm.</p><p>Screw checks: σ<sub>c</sub> = 63.8, τ = 45.3, τ<sub>max</sub> = 55.4, (fs) = 3.61 ✓. Thread shear 18.6 (screw), 15.6 (nut). η = 51.2%. Ball mass: 104.85 kg for the pair, each Ø240 mm.</p></details>
+</div>
+<div class="num" data-answer="2.12" data-tol="1.5" data-unit="N/mm²">
+<p class="q">Ex. 6.5 (<a class="bk" data-p="199"></a>): shaft straightener, Sq 80 × 10, axial force 10 kN, nut length 40 mm. Bearing pressure on the nut threads?</p>
+<details class="sol"><p>z = 40/10 = 4; d<sub>c</sub> = 70. S<sub>b</sub> = 4(10 000)/(π × 4 × (80² − 70²)) = 2.12 N/mm². (Rim force 388.9 N; efficiency 16.4%.)</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">In the screw jack design, why was the sliding collar replaced by a thrust ball bearing?</p>
+<ol class="opts">
+<li>The sliding collar failed in bearing pressure</li>
+<li>Collar friction made the handle impractically long</li>
+<li>The ball bearing makes the screw self-locking</li>
+<li>Cast-iron cups cannot carry a sliding collar</li>
+</ol>
+<div class="why">Collar torque (720 N·m) exceeded the thread torque, so the handle would have had to be 1.9 m long. A thrust ball bearing makes collar friction negligible, giving a 0.91 m handle (<a class="bk" data-p="211"></a>).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Why is the nut made of bronze and the screw of steel?</p>
+<ol class="opts">
+<li>Bronze is stronger in shear than steel</li>
+<li>A bronze nut makes the screw efficiency exceed 50%</li>
+<li>Bronze can be cast with square threads directly</li>
+<li>Wear goes to the softer, cheaper nut, sparing the screw</li>
+</ol>
+<div class="why">Wear is unavoidable with sliding threads and goes to the softer surface. Replacing a nut is cheaper than replacing the screw. Bronze also has low friction and good conformability (<a class="bk" data-p="207"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Adding thread torque and collar torque at the same section of the screw.</li>
+<li>Forgetting the buckling check for a long lift.</li>
+<li>Nut length from shear alone. Bearing pressure governs the number of threads.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §6.14–6.15, <a class="bk" data-p="194">pp. 194–214</a> (Examples 6.5, 6.8–6.10 and the screw jack design).</li>
+<li>Course slides: design of screw jack, 80 kN example, <a class="ppt" data-p="445">pp. 445–463</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 21, "Power screws: design procedure" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Your slides (p. 260) have an 80 kN jack with a 400 mm lift. Try it with the steps above and paste your screw size, nut length and handle length. I'll check each one.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

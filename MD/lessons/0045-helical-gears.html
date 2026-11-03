@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helical Gears</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 45</p>
+<h1>Helical gears</h1>
+<p class="meta">About 40 minutes · Bhandari Ch. 18</p>
+<div class="win"><b>Your win:</b> you can relate normal and transverse pitch, module and pressure angle, and derive the virtual number of teeth z/cos³ψ and the minimum face width. You can find all three force components with the right thrust direction, and turn the spur-gear Lewis and Buckingham equations into their helical forms to design or rate a helical pair.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 43–44)</span>
+<details class="recall"><summary>Spur beam strength and wear strength?</summary><div>S<sub>b</sub> = mbσ<sub>b</sub>Y; S<sub>w</sub> = bQd′<sub>p</sub>K with Q = 2z<sub>g</sub>/(z<sub>g</sub> + z<sub>p</sub>).</div></details>
+<details class="recall"><summary>Why are spur gears noisy at high speed?</summary><div>Contact begins suddenly across the whole face width, an impact at every tooth.</div></details>
+<details class="recall"><summary>Velocity factor for precision gears?</summary><div>C<sub>v</sub> = 5.6/(5.6 + √v).</div></details>
+</div>
+
+<h2>1. Why helical, and the two kinds</h2>
+<p>Helical teeth are cut along a helix on the pitch cylinder. Contact starts at a point on the leading edge and spreads diagonally across the tooth, so the load is picked up gradually. That gives <b>smooth, quiet running at high speed</b> (cars, turbines, up to 3000 m/min). <b>Parallel</b> helical gears have the same helix angle and <b>opposite hands</b>, a right-hand pinion meshing with a left-hand gear. <b>Crossed</b> helical gears sit on non-parallel shafts (<a class="bk" data-p="694"></a>). The price is an <b>axial thrust</b> on the bearings, and the cure for that is herringbone gearing.</p>
+
+<h2>2. Derivation: normal and transverse geometry (§18.2, 18.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> p<sub>n</sub> = p cos ψ, m<sub>n</sub> = m cos ψ, d = zm<sub>n</sub>/cos ψ, a = m<sub>n</sub>(z₁ + z₂)/2cos ψ and b<sub>min</sub> = πm<sub>n</sub>/sin ψ.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>In the pitch plane, adjacent tooth centre-lines make the helix angle ψ with the axis. The transverse pitch p is measured in the plane of rotation and the normal pitch p<sub>n</sub> perpendicular to the teeth. From the right triangle between them: \(p_n = p\cos\psi\). Dividing by π: \(m_n = m\cos\psi\). Cutters are made to the <b>normal</b> module, so m<sub>n</sub> is the standard value (1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10).</li>
+<li>Axial pitch \(p_a = p/\tan\psi\). The pressure angles are related by \(\tan\alpha_n = \tan\alpha\cos\psi\), where α<sub>n</sub> = 20° (normal) is standard, so the transverse α is larger.</li>
+<li>Pitch diameter \(d = zm = \dfrac{zm_n}{\cos\psi}\), and centre distance \(a = \dfrac{m_n(z_1 + z_2)}{2\cos\psi}\). A centre distance can be met exactly by adjusting ψ. Addendum m<sub>n</sub> and dedendum 1.25m<sub>n</sub>, so \(d_a = m_n\big(\tfrac{z}{\cos\psi} + 2\big)\) and \(d_f = m_n\big(\tfrac{z}{\cos\psi} - 2.5\big)\).</li>
+<li><b>Minimum face width:</b> for at least one point of contact at every instant, the leading edge must be ahead of the trailing edge by more than one circular pitch: b tan ψ ≥ p. So \(b \ge \dfrac{p}{\tan\psi} = \dfrac{\pi m_n}{\cos\psi\tan\psi} = \boxed{\dfrac{\pi m_n}{\sin\psi}}\) (Eq. 18.14). In practice ψ is 15°–25° (<a class="bk" data-p="696"></a>–697).</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: the virtual (formative) number of teeth (§18.3)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(z' = \dfrac{z}{\cos^3\psi}\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Cut the pitch cylinder with a plane normal to the teeth. The section is an <b>ellipse</b> with semi-major axis a = d/(2 cos ψ) and semi-minor axis b = d/2.</li>
+<li>The teeth near the pitch point lie on a curve whose radius is the ellipse's radius of curvature at the end of the minor axis: \(r' = \dfrac{a^2}{b} = \dfrac{d}{2\cos^2\psi}\).</li>
+<li>Imagine a spur gear of radius r′ and module m<sub>n</sub> in that plane: the <b>formative gear</b>. Its teeth: \(z' = \dfrac{2\pi r'}{p_n} = \dfrac{\pi d/\cos^2\psi}{\pi m_n} = \dfrac{d}{m_n\cos^2\psi}\).</li>
+<li>With d = zm<sub>n</sub>/cos ψ: \(\boxed{z' = \dfrac{z}{\cos^3\psi}}\). The tooth <b>strength</b> is that of this larger virtual spur gear, so read the Lewis Y at z′ (interpolating in Table 17.3) (<a class="bk" data-p="695"></a>–696).</li>
+</ol>
+</div></div>
+
+<h2>4. Derivation: force components (§18.5)</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 240" role="img" aria-label="Pitch-plane view of helical teeth and the tangential and axial force components">
+  <rect x="100" y="40" width="500" height="160" class="part2"/>
+  <line x1="120" y1="200" x2="463" y2="40" class="ln"/>
+  <line x1="200" y1="200" x2="543" y2="40" class="ln"/>
+  <line x1="280" y1="200" x2="600" y2="50.7" class="ln"/>
+  <path d="M240,200 A40,40 0 0 0 236.3,183.1" class="thin"/>
+  <text x="244" y="194" class="small">ψ</text>
+  <circle cx="371.5" cy="120" r="3.5" class="fill-ink"/>
+  <line x1="371.5" y1="120" x2="413.8" y2="210.6" class="acc"/>
+  <polygon points="404,203 414,211 415,198" class="fill-acc"/>
+  <line x1="371.5" y1="120" x2="371.5" y2="210.6" class="blu"/>
+  <polygon points="366.5,200 376.5,200 371.5,211" class="dotb"/>
+  <line x1="371.5" y1="210.6" x2="413.8" y2="210.6" class="grn"/>
+  <polygon points="403,205.6 414,210.6 403,215.6" class="fill-ink"/>
+  <text x="420" y="196" class="acc small">P cos α<tspan dy="3" font-size="9">n</tspan><tspan dy="-3"> (normal to tooth)</tspan></text>
+  <text x="262" y="178" class="blu small halo2">P<tspan dy="3" font-size="9">t</tspan><tspan dy="-3"> = P cos α</tspan><tspan dy="3" font-size="9">n</tspan><tspan dy="-3"> cos ψ</tspan></text>
+  <text x="388" y="232" class="grn small">P<tspan dy="3" font-size="9">a</tspan><tspan dy="-3"> = P<tspan dy="3" font-size="9">t</tspan></tspan><tspan dy="-3"> tan ψ</tspan></text>
+  <line x1="110" y1="226" x2="250" y2="226" class="thin"/><polygon points="244,222 252,226 244,230" class="fill-ink"/>
+  <text x="112" y="220" class="small">gear axis direction</text>
+  <text x="108" y="32" class="small">pitch plane, developed: lines are tooth centre-lines at the helix angle ψ</text>
+</svg>
+<figcaption>Of the normal tooth force P, the part P sin α<sub>n</sub> is radial (out of this plane). The rest, P cos α<sub>n</sub>, lies in the pitch plane perpendicular to the tooth. It splits into a tangential force (torque) and an axial force (thrust) (Bhandari Fig. 18.5, <a class="bk" data-p="698"></a>).</figcaption>
+</figure>
+<div class="formula"><span class="label">Components (Eqs 18.15–18.17)</span>
+\[ P_t = \frac{2M_t}{d},\qquad P_a = P_t\tan\psi,\qquad P_r = P_t\,\frac{\tan\alpha_n}{\cos\psi} \]
+<p>Derivation: P<sub>r</sub> = P sin α<sub>n</sub>, P<sub>t</sub> = P cos α<sub>n</sub> cos ψ and P<sub>a</sub> = P cos α<sub>n</sub> sin ψ. Divide to eliminate P.</p>
+</div>
+<div class="tip"><p><b>Thrust direction</b> (<a class="bk" data-p="698"></a>–699). Take the <b>driving</b> gear. Use your <b>right</b> hand for a right-hand helix and your left hand for a left-hand helix. Curl the fingers in its direction of rotation: the thumb points along the thrust on the driver. The driven gear's thrust is opposite. P<sub>t</sub> and P<sub>r</sub> follow the spur-gear rules.</p></div>
+
+<h2>5. Derivation: beam and wear strength (§18.6–18.8)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> S<sub>b</sub> = m<sub>n</sub>bσ<sub>b</sub>Y and \(S_w = \dfrac{bQd_pK}{\cos^2\psi}\) from the formative spur gear.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The formative gear lies in the plane normal to the teeth. Its module is m<sub>n</sub>, its face width along the tooth is b/cos ψ, and Y is read at z′. Lewis in that plane: \((S_b)_n = m_n\dfrac{b}{\cos\psi}\sigma_bY\).</li>
+<li>The useful (tangential) component in the plane of rotation is (S<sub>b</sub>)<sub>n</sub> cos ψ, so \(\boxed{S_b = m_nb\sigma_bY}\) (Eq. 18.18), the same form as for spur gears, with m<sub>n</sub> and Y(z′).</li>
+<li>Wear: the formative pinion has diameter d<sub>p</sub>/cos²ψ and face b/cos ψ. Buckingham gives \((S_w)_n = \dfrac{b}{\cos\psi}\,Q\,\dfrac{d_p}{\cos^2\psi}\,K\). Its tangential component is (S<sub>w</sub>)<sub>n</sub> cos ψ: \(\boxed{S_w = \dfrac{bQd_pK}{\cos^2\psi}}\) (Eq. 18.24).</li>
+<li>Q from the virtual teeth reduces to the actual ones, Q = 2z<sub>g</sub>/(z<sub>g</sub> + z<sub>p</sub>) (or z<sub>g</sub> − z<sub>p</sub> for internal gears). K = 0.16(BHN/100)² for steel at α<sub>n</sub> = 20°.</li>
+</ol>
+</div></div>
+<div class="formula"><span class="label">Effective load (Eqs 18.19–18.22)</span>
+\[ P_{eff} = \frac{C_sP_t}{C_v},\ \ C_v = \frac{5.6}{5.6 + \sqrt v}\qquad\text{or}\qquad P_{eff} = C_sP_t + \frac{21v\,(Ceb\cos^2\psi + P_t)\cos\psi}{21v + \sqrt{Ceb\cos^2\psi + P_t}} \]
+</div>
+
+<h2>6. Herringbone and crossed helical gears (§18.9–18.10)</h2>
+<ul>
+<li><b>Herringbone / double helical:</b> two helical gears of opposite hand on one blank. Their thrusts cancel, so they carry high power at high speed, with ψ = 20°–45° (no thrust limit). They are costly, and the two halves must share the load equally, so one shaft is left free to float axially. A <b>double helical</b> gear has a groove between the halves (cut by a hob). A herringbone has none (cut by two reciprocating cutters). Design each half as a helical gear carrying <b>half the power</b>. Used in ship drives and turbines (<a class="bk" data-p="706"></a>–707).</li>
+<li><b>Crossed helical:</b> point contact, so a low load capacity, a lot of sliding and poor efficiency. Used for speedometer and oil-pump drives and machine-tool feeds. Shaft angle Σ = ψ₁ + ψ₂ (same hand) or ψ₁ − ψ₂ (opposite hand). At 90°, both are 45° and of the same hand. Speed ratio \(i = \dfrac{z_g}{z_p} = \dfrac{d_g\cos\psi_g}{d_p\cos\psi_p}\) (<a class="bk" data-p="708"></a>–709).</li>
+</ul>
+
+<h2>7. Worked example (Bhandari Ex. 18.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 18.4</b> (<a class="bk" data-p="704"></a>): 20-tooth pinion at 720 rpm, 100-tooth gear, α<sub>n</sub> = 20°, ψ = 25°, b = 40, m<sub>n</sub> = 4, steel 40C8 (S<sub>ut</sub> = 600) at 300 BHN, C<sub>s</sub> = 1.5, (fs) = 2, velocity factor. Power capacity?</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Pinion weaker. z′ = 20/cos³25° = 26.87, so Y = 0.344 + 0.004(0.87) = 0.3475. S<sub>b</sub> = 4(40)(200)(0.3475) = <b>11 120 N</b>.</li>
+<li>d<sub>p</sub> = 20(4)/cos 25° = 88.27 mm. Q = 200/120 = 1.667 and K = 0.16(3)² = 1.44. S<sub>w</sub> = 40(1.667)(88.27)(1.44)/cos²25° = <b>10 318.6 N</b>. Wear governs (it is lower).</li>
+<li>v = π(88.27)(720)/60 000 = 3.328 m/s, so C<sub>v</sub> = 5.6/(5.6 + √3.328) = 0.7543.</li>
+<li>S<sub>w</sub> = P<sub>eff</sub>(fs): 10 318.6 = (1.5P<sub>t</sub>/0.7543)(2), so P<sub>t</sub> = <b>2594.4 N</b>.</li>
+<li>M<sub>t</sub> = 2594.4 × 88.27/2 = 114 505 N·mm, so kW = 2π(720)(114 505)/(60 × 10⁶) = <b>8.63 kW</b>.</li>
+</ol>
+</div></div>
+
+<h2>8. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="99.3" data-tol="0.5" data-unit="mm">
+<p class="q">Ex. 18.1 (<a class="bk" data-p="697"></a>): 20/40 teeth, ψ = 25°, α<sub>n</sub> = 20°, m<sub>n</sub> = 3 mm. Centre distance?</p>
+<details class="sol"><p>m = 3/cos 25° = 3.31 mm, tan α = tan 20°/cos 25°, so α = 21.88°. p<sub>a</sub> = π(3.31)/tan 25° = 22.3 mm. d<sub>p</sub> = 66.2 and d<sub>g</sub> = 132.4 mm, so a = <b>99.3 mm</b>. Pinion d<sub>a</sub> = 72.2 and d<sub>f</sub> = 58.7 mm.</p></details>
+</div>
+<div class="num" data-answer="482.73" data-tol="1" data-unit="N">
+<p class="q">Ex. 18.2 (<a class="bk" data-p="699"></a>): 5 kW at 720 rpm to pinion A (20 teeth, right-hand), m<sub>n</sub> = 5, α<sub>n</sub> = 20°, ψ = 30°. Radial component of the tooth force?</p>
+<details class="sol"><p>M<sub>t</sub> = 66 314.6 N·mm. d<sub>A</sub> = 100/cos 30° = 115.47 mm, so P<sub>t</sub> = 1148.6 N. P<sub>a</sub> = 1148.6 tan 30° = 663.1 N. P<sub>r</sub> = 1148.6 tan 20°/cos 30° = <b>482.73 N</b>. The pinion turns clockwise seen from the left: use the right hand, and the thumb gives the thrust on the pinion. The gear's thrust is opposite.</p></details>
+</div>
+<div class="num" data-answer="1.35" data-tol="1.5" data-unit="">
+<p class="q">Ex. 18.5 (<a class="bk" data-p="704"></a>): 24-tooth pinion, 5000 rpm, 2.5 kW, i = 4, α<sub>n</sub> = 20°, ψ = 23°, S<sub>ut</sub> = 750, C<sub>s</sub> = 1.5, Grade 4. Bhandari estimates m<sub>n</sub> = 1.24 and chooses <b>m<sub>n</sub> = 1.5</b>, b = 15 mm. Correct factor of safety in bending, with Buckingham's equation?</p>
+<details class="sol"><p>z′ = 30.77, so Y = 0.36 and S<sub>b</sub> = 1.5(15)(250)(0.36) = 2025 N. d<sub>p</sub> = 39.11 and d<sub>g</sub> = 156.44 mm, P<sub>t</sub> = 244.16 N, v = 10.24 m/s. e<sub>p</sub> = 3.2 + 0.25(1.5 + 0.25√39.11) = 3.966 μm and e<sub>g</sub> = 4.357 μm, so e = 0.008323 mm. P<sub>d</sub> = 21(10.24)[11 400(0.008323)(15)cos²23° + 244.16] cos 23°/[21(10.24) + √(…)] = 1133.9 N. P<sub>eff</sub> = 1.5(244.16) + 1133.9 = 1500.2 N. (fs) = 2025/1500.2 = <b>1.35</b>. For (fs) = 2 in wear: BHN = 411 → 420.</p></details>
+</div>
+<div class="num" data-answer="1.38" data-tol="1.5" data-unit="">
+<p class="q">Ex. 18.6 (<a class="bk" data-p="707"></a>): herringbone reducer, 26/104 teeth, m<sub>n</sub> = 2, α<sub>n</sub> = 20°, ψ = 25°, 100 kW at 3600 rpm, face 35 mm per half, 30Ni4Cr1 (S<sub>ut</sub> = 1500) at 450 BHN, C<sub>s</sub> = 1.25. Factor of safety against pitting?</p>
+<details class="sol"><p>Each half carries 50 kW: M<sub>t</sub> = 132 629 N·mm. d<sub>p</sub> = 57.38 mm, so P<sub>t</sub> = 4622.8 N. v = 10.82 m/s and C<sub>v</sub> = 0.63, so P<sub>eff</sub> = 1.25(4622.8)/0.63 = 9172 N. Q = 1.6 and K = 0.16(4.5)² = 3.24, so S<sub>w</sub> = 35(1.6)(57.38)(3.24)/cos²25° = 12 675 N and (fs) = <b>1.38</b>. Bending: z′ = 34.93, Y = 0.3728, S<sub>b</sub> = 13 048 N, so (fs) = 1.42.</p></details>
+</div>
+
+<h2>9. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A helical gear has 20 teeth and a helix angle of 25°. Its virtual (formative) number of teeth is about:</p>
+<ol class="opts"><li>22.1</li><li>24.4</li><li>26.9</li><li>29.7</li></ol>
+<div class="why">z′ = z/cos³ψ = 20/0.7444 = 26.9. The distractors are z/cos ψ, z/cos²ψ and z/cos⁴ψ.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">For a helical gear with tangential force P<sub>t</sub> and helix angle ψ, the axial thrust is:</p>
+<ol class="opts"><li>P<sub>t</sub> tan ψ</li><li>P<sub>t</sub> sin ψ</li><li>P<sub>t</sub> cos ψ</li><li>P<sub>t</sub> sec ψ</li></ol>
+<div class="why">P<sub>a</sub> = P cos α<sub>n</sub> sin ψ and P<sub>t</sub> = P cos α<sub>n</sub> cos ψ, so P<sub>a</sub>/P<sub>t</sub> = tan ψ.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">The main reason for using herringbone gears instead of single helical gears is to:</p>
+<ol class="opts">
+<li>allow a smaller helix angle on each half</li>
+<li>reduce the cost of cutting the gear teeth</li>
+<li>make the gear pair work on crossed shafts</li>
+<li>cancel the axial thrust on the shaft bearings</li>
+</ol>
+<div class="why">Opposite helices give equal and opposite thrusts inside the gear, and that allows ψ up to 45° (§18.9).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">For a helical gear with normal pressure angle 20°, the transverse pressure angle is:</p>
+<ol class="opts">
+<li>less than 20°, by the factor cos ψ</li>
+<li>more than 20°, since tan α = tan α<sub>n</sub>/cos ψ</li>
+<li>exactly 20°, as both planes see one profile</li>
+<li>equal to the helix angle of the teeth</li>
+</ol>
+<div class="why">tan α<sub>n</sub> = tan α cos ψ. Ex. 18.1 gives α = 21.88° for ψ = 25°.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>The standard module is the <b>normal</b> module m<sub>n</sub>. Pitch diameter = zm<sub>n</sub>/cos ψ, not zm<sub>n</sub>.</li>
+<li>Read Y at z′ = z/cos³ψ and interpolate. Do not use the actual z.</li>
+<li>Helical wear strength has cos²ψ in the <b>denominator</b>.</li>
+<li>For a herringbone gear, put half the power into each helical half. Do not double the face width with full power on one half.</li>
+<li>P<sub>r</sub> = P<sub>t</sub> tan α<sub>n</sub>/cos ψ. Writing P<sub>t</sub> tan α<sub>n</sub> forgets the 1/cos ψ.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari Ch. 18, <a class="bk" data-p="694">pp. 694–709</a> (Examples 18.1–18.6).</li>
+<li>Your course slides do not cover helical gears beyond selection (<a class="ppt" data-p="811">pp. 811–813</a>), so Bhandari is the reference here.</li>
+<li>NPTEL Machine Design II (IIT Madras), helical gears (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Thrust direction still confusing? Tell me the hand and the rotation of any driving gear and I'll walk you through the right-hand rule on it.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Failure Theories</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 2</p>
+<h1>Principal stresses and theories of failure</h1>
+<p class="meta">About 25 minutes · Bhandari §4.13–4.18</p>
+<div class="win"><b>Your win:</b> when a part carries bending and torsion (or tension and shear) together, you can pick the right failure theory and turn the combined stresses into a single diameter.</div>
+
+<div class="recall-set"><span class="label">Warm-up: recall from Lesson 1 (answer before opening)</span>
+<details class="recall"><summary>Bending stress at the surface of a solid round bar?</summary><div>\(\sigma_b = 32M_b/\pi d^3\)</div></details>
+<details class="recall"><summary>Allowable stress for a cast-iron part?</summary><div>\(S_{ut}/(fs)\). Cast iron is brittle, so it fails by fracture, not yielding.</div></details>
+</div>
+
+<h2>1. Principal stresses: the worst normal and shear stress at a point</h2>
+<p>A shaft surface element carries a normal stress \(\sigma_x\) (from bending or axial load) and a shear stress \(\tau_{xy}\) (from torque) at the same time. Rotate the element and, at one angle, the shear vanishes. The normal stresses there are the <b>principal stresses</b> (<a class="bk" data-p="105"></a>):</p>
+<div class="formula"><span class="label">Principal stresses and principal shear stress (Eqs 4.31, 4.32, 4.34)</span>
+\[ \sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2} \pm \sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2} \qquad \tau_{max} = \sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2} \]
+</div>
+<p>For a shaft, \(\sigma_y = 0\). Substitute \(\sigma = 32M_b/\pi d^3\) and \(\tau = 16M_t/\pi d^3\) and two very useful shortcuts drop out:</p>
+<div class="formula"><span class="label">Shaft shortcuts (bending \(M_b\) + torque \(M_t\))</span>
+\[ \sigma_1 = \frac{16}{\pi d^3}\left(M_b + \sqrt{M_b^2+M_t^2}\right) \qquad \tau_{max} = \frac{16}{\pi d^3}\sqrt{M_b^2+M_t^2} \]
+</div>
+
+<div class="calc"><span class="label">Principal stress calculator (try σx = 80, σy = −40, τ = 30)</span>
+<div class="inputs">
+<label>σx (N/mm²)<input data-v="sx" type="number" value="80"></label>
+<label>σy (N/mm²)<input data-v="sy" type="number" value="-40"></label>
+<label>τxy (N/mm²)<input data-v="t" type="number" value="30"></label>
+</div>
+<div class="outs">
+<output data-expr="(sx+sy)/2+sqrt(pow((sx-sy)/2,2)+t*t)" data-label="σ1 =" data-unit="N/mm²" data-dp="2"></output>
+<output data-expr="(sx+sy)/2-sqrt(pow((sx-sy)/2,2)+t*t)" data-label="σ2 =" data-unit="N/mm²" data-dp="2"></output>
+<output data-expr="sqrt(pow((sx-sy)/2,2)+t*t)" data-label="τmax =" data-unit="N/mm²" data-dp="2"></output>
+<output data-expr="deg(atan2(2*t,sx-sy))/2" data-label="θp =" data-unit="°" data-dp="1"></output>
+</div></div>
+
+<h2>2. Three theories, one question: when does the combination fail?</h2>
+<p>A tension test gives you \(S_{yt}\) for a bar under pure tension. A real part has \(\sigma_1\), \(\sigma_2\) and shear at once. A <b>theory of failure</b> links the two (<a class="bk" data-p="106"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Theory</th><th>Failure happens when…</th><th>Design equation</th><th>Use for</th></tr></thead>
+<tbody>
+<tr><td><b>Maximum principal stress</b> (Rankine)</td><td>\(\sigma_1\) reaches the strength</td><td>\(\sigma_1 = \dfrac{S_{ut}}{(fs)}\) or \(\dfrac{S_{yt}}{(fs)}\)</td><td>brittle materials (cast iron)</td></tr>
+<tr><td><b>Maximum shear stress</b> (Tresca, Guest)</td><td>\(\tau_{max}\) reaches the shear stress at yield in the tension test, \(S_{yt}/2\)</td><td>\(\tau_{max} = \dfrac{0.5\,S_{yt}}{(fs)}\)</td><td>ductile, quick and conservative</td></tr>
+<tr><td><b>Distortion energy</b> (von Mises, Hencky)</td><td>distortion strain energy reaches its value at yield in the tension test</td><td>\(\sqrt{\sigma_1^2 - \sigma_1\sigma_2 + \sigma_2^2} = \dfrac{S_{yt}}{(fs)}\)</td><td>ductile, most accurate</td></tr>
+</tbody></table></div>
+<p class="side">Shear yield strength: <b>0.5 S<sub>yt</sub></b> under maximum shear stress theory, <b>0.577 S<sub>yt</sub></b> under distortion energy (<a class="bk" data-p="108"></a>, <a class="bk" data-p="112"></a>). Use the one that matches the theory the question names.</p>
+<p>For the common case of one normal stress σ plus shear τ (a shaft, or a bolt in tension plus shear), distortion energy simplifies to \(\sqrt{\sigma^2 + 3\tau^2} = S_{yt}/(fs)\). For a shaft that becomes:</p>
+<div class="formula"><span class="label">Distortion energy for a shaft</span>
+\[ \frac{16}{\pi d^3}\sqrt{4M_b^2 + 3M_t^2} = \frac{S_{yt}}{(fs)} \]
+</div>
+
+<figure>
+<svg class="fig" viewBox="0 0 640 330" role="img" aria-label="Failure envelopes of the three theories in the sigma1 sigma2 plane">
+  <line x1="40" y1="165" x2="400" y2="165" class="axis"/><line x1="220" y1="20" x2="220" y2="310" class="axis"/>
+  <text x="404" y="169">σ1</text><text x="226" y="26">σ2</text>
+  <!-- ellipse (distortion energy) -->
+  <ellipse cx="220" cy="165" rx="155.6" ry="89.8" transform="rotate(-45 220 165)" class="grn"/>
+  <!-- square (max principal) -->
+  <rect x="110" y="55" width="220" height="220" class="acc"/>
+  <!-- hexagon (max shear) -->
+  <polygon points="330,165 330,55 220,55 110,165 110,275 220,275" class="blu" fill="none"/>
+  <line x1="120" y1="65" x2="320" y2="265" class="dash"/>
+  <text x="300" y="255" class="small">shear diagonal σ1 = −σ2</text>
+  <text x="334" y="160" class="small">+Syt</text><text x="80" y="160" class="small">−Syt</text>
+  <text x="226" y="50" class="small">+Syt</text>
+  <g font-size="13">
+    <rect x="440" y="70" width="14" height="4" class="fill-acc"/><text x="462" y="76">Max principal stress (square)</text>
+    <line x1="440" y1="102" x2="454" y2="102" class="blu"/><text x="462" y="106">Max shear stress (hexagon)</text>
+    <line x1="440" y1="132" x2="454" y2="132" class="grn"/><text x="462" y="136">Distortion energy (ellipse)</text>
+    <text x="440" y="176" class="small">2nd and 4th quadrants: the square</text>
+    <text x="440" y="192" class="small">sticks outside the ellipse, so Rankine</text>
+    <text x="440" y="208" class="small">is unsafe for ductile parts under</text>
+    <text x="440" y="224" class="small">shear. The hexagon sits inside the</text>
+    <text x="440" y="240" class="small">ellipse, so Tresca is conservative.</text>
+  </g>
+</svg>
+<figcaption>Region of safety for each theory under biaxial stress (Bhandari Fig. 4.37, <a class="bk" data-p="113"></a>). Inside the boundary is safe.</figcaption>
+</figure>
+
+<div class="tip"><p><b>Choosing, in one line:</b> brittle → maximum principal stress. Ductile → maximum shear stress (easy, conservative) or distortion energy (accurate). If the question names a theory, use that one. If it doesn't, say which you chose and why. That sentence earns a mark.</p></div>
+
+<h2>3. Worked example: overhang crank (Bhandari Ex. 4.13)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 4.13</b> (<a class="bk" data-p="115"></a>). A 1 kN force acts on the crankpin of an overhang crank. At the critical section A of the shaft, the bending arm is 250 mm and the torque arm is 500 mm. Steel 45C8, \(S_{yt}=380\) N/mm², (fs) = 2. Find d by the maximum shear stress theory.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Allowable shear stress.</b> \(S_{sy}=0.5(380)=190\) N/mm², so \(\tau_{max}=190/2=95\) N/mm².</li>
+<li><b>Moments at A.</b> \(M_b = 1000\times250 = 250\times10^3\) N·mm and \(M_t = 1000\times500 = 500\times10^3\) N·mm.</li>
+<li><b>Maximum shear stress at A.</b> \(\tau_{max} = \dfrac{16}{\pi d^3}\sqrt{M_b^2+M_t^2} = \dfrac{16\sqrt{(250^2+500^2)}\times10^3}{\pi d^3} = \dfrac{2847.05\times10^3}{d^3}\)</li>
+<li><b>Size.</b> \(2847.05\times10^3/d^3 = 95 \Rightarrow d = 31.06\) mm, so choose 32 mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice</h2>
+<div class="problem"><span class="ptitle">Question bank Q4 (<a class="qb" data-p="9"></a>)</span>A solid shaft of steel 50C8 (\(S_{yt} = 700\) N/mm²) carries a bending moment of 10 000 N·m and a twisting moment of 30 000 N·m. (fs) = 2. Find the diameter by each theory.</div>
+<div class="num" data-answer="84.6" data-tol="1" data-unit="mm">
+<p class="q">(a) Maximum principal stress theory.</p>
+<details class="sol"><p>\(\dfrac{16}{\pi d^3}\left(M_b+\sqrt{M_b^2+M_t^2}\right) = \dfrac{700}{2}\). With \(M_b=10\times10^6\) and \(M_t=30\times10^6\) N·mm: \(d = 84.6\) mm. (Your professor's answer: 84.59 mm.)</p></details>
+</div>
+<div class="num" data-answer="97.27" data-tol="1" data-unit="mm">
+<p class="q">(b) Maximum shear stress theory.</p>
+<details class="sol"><p>\(\dfrac{16}{\pi d^3}\sqrt{M_b^2+M_t^2} = \dfrac{0.5(700)}{2} = 175\Rightarrow d = 97.27\) mm.</p></details>
+</div>
+<div class="num" data-answer="93.22" data-tol="1" data-unit="mm">
+<p class="q">(c) Distortion energy theory.</p>
+<details class="sol"><p>\(\dfrac{16}{\pi d^3}\sqrt{4M_b^2+3M_t^2} = 350\Rightarrow d = 93.22\) mm. The order is MPST &lt; DET &lt; MSST: maximum shear stress is the most conservative of the two ductile theories.</p></details>
+</div>
+
+<div class="num" data-answer="12.98" data-tol="1.5" data-unit="mm">
+<p class="q">Question bank Q3 (<a class="qb" data-p="7"></a>): a bolt carries an axial pull of 10 kN and a transverse shear force of 5 kN. \(S_{yt}=400\) N/mm², (fs) = 4. Use the distortion energy theory to find the diameter of the stressed section.</p>
+<details class="sol"><p>\(\sigma = 10\,000/A\), \(\tau = 5000/A\). \(\sqrt{\sigma^2+3\tau^2} = 400/4 = 100\).</p><p>\(\frac{1}{A}\sqrt{10\,000^2 + 3(5000)^2} = 100\Rightarrow A = 132.3\) mm² \(\Rightarrow d = \sqrt{4A/\pi} = 12.98\) mm. (Maximum shear stress theory would give 13.42 mm.)</p></details>
+</div>
+
+<div class="mcq" data-correct="1">
+<p class="q">A grey cast-iron bracket carries combined bending and direct tension. Which theory should you use?</p>
+<ol class="opts">
+<li>Maximum principal stress theory, because cast iron fractures</li>
+<li>Maximum shear stress theory, because it is the most conservative</li>
+<li>Distortion energy theory, because it is the most accurate</li>
+<li>Any theory, because they agree for every material</li>
+</ol>
+<div class="why">Brittle materials fail by fracture when the largest normal stress reaches \(S_{ut}\). Their compressive strength is also much higher than their tensile strength, which only the principal stress theory allows for (<a class="bk" data-p="113"></a>, point vii).</div>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">For a ductile part in pure shear, what yield strength in shear does the distortion energy theory predict?</p>
+<ol class="opts">
+<li>0.500 S<sub>yt</sub></li>
+<li>0.707 S<sub>yt</sub></li>
+<li>0.577 S<sub>yt</sub></li>
+<li>1.000 S<sub>yt</sub></li>
+</ol>
+<div class="why">In pure shear, \(\sigma_1 = -\sigma_2 = \tau\). Substituting into \(\sigma_1^2-\sigma_1\sigma_2+\sigma_2^2 = S_{yt}^2\) gives \(3\tau^2 = S_{yt}^2\), so \(\tau = S_{yt}/\sqrt3 = 0.577S_{yt}\) (Eq. 4.45). The 0.5 value belongs to the maximum shear stress theory.</div>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">Why is the maximum principal stress theory dangerous for a ductile shaft in torsion?</p>
+<ol class="opts">
+<li>It ignores the bending moment completely</li>
+<li>It predicts safety outside the true boundary</li>
+<li>It always gives a far larger diameter</li>
+<li>It needs the compressive strength too</li>
+</ol>
+<div class="why">In the 2nd and 4th quadrants (stresses of opposite sign, as in torsion), the square sits outside the distortion energy ellipse. A point can be inside the square, so "safe", while actually past yield.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Writing \(\tau_{max} = S_{yt}/(fs)\). Under maximum shear stress theory it is \(0.5S_{yt}/(fs)\).</li>
+<li>Using \(\sqrt{M_b^2+M_t^2}\) in the principal stress theory. That theory needs \(M_b + \sqrt{M_b^2+M_t^2}\).</li>
+<li>Not stating the theory. Write "Using maximum shear stress theory (ductile material)…" as the first line.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §4.13–4.18, <a class="bk" data-p="104">pp. 104–117</a>, including Examples 4.11–4.14.</li>
+<li>Course slides: theories of elastic failure, <a class="ppt" data-p="178">pp. 178–194</a>.</li>
+<li>NPTEL Design of Machine Elements I, Module 3, Lecture 7, "Theories of failure" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Not sure why the hexagon sits inside the ellipse, or which theory a problem expects? Ask me. I can draw the Mohr's circle for any problem you paste.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 2 Formulas</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body class="ref">
+<main class="page">
+<p class="kicker">Reference · Unit 2</p>
+<h1>Joints, levers and power screws: formula and procedure sheet</h1>
+<p class="meta">Bhandari notation; N, mm, N/mm². Prints on 3 pages.</p>
+
+<h2>Cotter joint (§4.9–4.10)</h2>
+<div class="grid2">
+<div class="card"><h3>Failure equations</h3>
+<p>Rod \(P=\frac{\pi}{4}d^2\sigma_t\) · spigot \(P=[\frac{\pi}{4}d_2^2-d_2t]\sigma_t\) · socket \(P=[\frac{\pi}{4}(d_1^2-d_2^2)-(d_1-d_2)t]\sigma_t\) · cotter shear \(P=2bt\tau\) · spigot shear \(P=2ad_2\tau\) · socket shear \(P=2(d_4-d_2)c\tau\) · crushing \(P=td_2\sigma_c\), \(P=(d_4-d_2)t\sigma_c\) · collar \(P=\frac{\pi}{4}(d_3^2-d_2^2)\sigma_c\), \(P=\pi d_2t_1\tau\)</p>
+\[ \text{cotter bending: } \sigma_b=\frac{(P/2)[d_2/4+(d_4-d_2)/6]}{tb^2/6} \]</div>
+<div class="card"><h3>Proportions</h3>
+<p>t = 0.31d · d₁ = 1.75d · d₂ = 1.21d · d₃ = 1.5d · d₄ = 2.4d · a = c = 0.75d · b = 1.6d · t₁ = 0.45d · taper 1 in 32 (1 in 24) · clearance 1.5–3 mm. Procedure: d → t → d₂ → d₁ → d₃, d₄ → a, c → b (max of shear, bending) → check crushing and shear.</p></div>
+</div>
+
+<h2>Knuckle joint (§4.11–4.12)</h2>
+<div class="grid2">
+<div class="card"><h3>Equations</h3>
+<p>Rod \(D=\sqrt{4P/\pi\sigma_t}\), D₁ = 1.1D · pin shear \(d=\sqrt{2P/\pi\tau}\) · pin bending \(\sigma_b=\frac{32(P/2)(b/4+a/3)}{\pi d^3}\) · eye: \(\sigma_t=\frac{P}{b(d_0-d)}\), \(\sigma_c=\frac{P}{bd}\), \(\tau=\frac{P}{b(d_0-d)}\) · fork: same with 2a in place of b.</p></div>
+<div class="card"><h3>Proportions</h3>
+<p>d = D · d₀ = 2d · d₁ = 1.5d · a = 0.75D · b = 1.25D · x ≈ 10 mm.</p></div>
+</div>
+
+<h2>Riveted joints (§8.19–8.29)</h2>
+<div class="grid2">
+<div class="card"><h3>Per pitch length</h3>
+\[ P_s=n\tfrac{\pi}{4}d^2\tau\ (\times 2\text{ or }1.875\text{ double}),\ P_t=(p-d)t\sigma_t,\ P_c=ndt\sigma_c \]
+\[ \eta=\frac{\min(P_s,P_t,P_c)}{pt\sigma_t} \]
+<p>p ≈ 3d · m = 1.5d · p<sub>t</sub> = 0.8p (chain), 0.6p (zig-zag).</p></div>
+<div class="card"><h3>Boiler longitudinal joint</h3>
+<p>\(t=\frac{p_iD_i}{2\sigma_t\eta}+CA\) · \(d=6\sqrt t\) (t &gt; 8) · \(p=\frac{(n_1+1.875n_2)\pi d^2\tau}{4t\sigma_t}+d\) with p<sub>min</sub> = 2d, p<sub>max</sub> = Ct + 41.28 · p<sub>t</sub> = 0.2p + 1.15d (outer), 0.165p + 0.67d · straps t₁ = 0.625t(p − d)/(p − 2d) (equal); 0.75t / 0.625t (unequal) · σ<sub>t</sub> 80, τ 60, σ<sub>c</sub> 120.</p></div>
+<div class="card"><h3>Eccentric rivet/bolt group (in plane)</h3>
+\[ P'=\frac{P}{n},\quad P''_i=\frac{Pe\,r_i}{\sum r^2}\ (\perp r_i),\quad P_i=\vec P'+\vec P''_i \]
+<p>\(P=\sqrt{P'^2+P''^2+2P'P''\cos\theta}\); size: P<sub>max</sub> = (π/4)d²τ.</p></div>
+</div>
+
+<h2>Welded joints (§8.1–8.17)</h2>
+<div class="grid2">
+<div class="card"><h3>Direct load</h3>
+<p>Butt: P = σ<sub>t</sub>tlη · fillet throat t = 0.707h · parallel P = 0.707hlτ (1.414hlτ for two) · transverse P = 0.707hlσ<sub>t</sub> · add 15 mm per weld · exact: τ<sub>max</sub> on 45° plane (parallel), on 67.5° plane = 1.21P/hl (transverse, 1.17× stronger) · angle: l₁y₁ = l₂y₂.</p></div>
+<div class="card"><h3>Eccentric / bending / torsion</h3>
+<p>In-plane: τ₁ = P/A, τ₂ = Mr/J, J = Σ A(l²/12 + r₁²), vector sum. Bending: τ₁ = P/A, σ<sub>b</sub> = My/I, τ<sub>max</sub> = √((σ<sub>b</sub>/2)² + τ₁²); two welds b at ±d/2: I = bd²t/2; circular: I = πtr³, J = 2πtr³; torsion τ = M<sub>t</sub>/2πtr².</p></div>
+<div class="card"><h3>Fatigue (Jennings K<sub>f</sub>)</h3>
+<p>Reinforced butt 1.2 · toe of transverse fillet 1.5 · end of parallel fillet 2.7 · T-butt with sharp corner 2.0.</p></div>
+</div>
+
+<h2>Bolted joints (Ch. 7)</h2>
+<div class="grid2">
+<div class="card"><h3>Basic</h3>
+<p>σ = P/(πd<sub>c</sub>²/4) or P/A<sub>t</sub> · d<sub>c</sub> ≈ 0.8d · nut h = 0.8d · tightening torque M<sub>t</sub> ≈ 0.2P<sub>i</sub>d · uniform-strength hole d₁ = √(d² − d<sub>c</sub>²). M8 36.6 · M10 58 · M12 84.3 · M16 157 · M20 245 · M24 353 · M30 561 · M36 817 mm².</p></div>
+<div class="card"><h3>Eccentric (perpendicular to axis, tilting)</h3>
+\[ P'=\frac{P}{n}\ \text{(shear)},\ P''_1=\frac{Pe\,l_1}{2(l_1^2+l_2^2+\dots)}\ \text{(tension)} \]
+<p>τ<sub>max</sub> = √((σ/2)² + τ²) = 0.5S<sub>yt</sub>/(fs). Circular base: \(P_{max}=\frac{2Pl(a+b)}{n(2a^2+b^2)}\) (slewing) or with b cos(180°/n) (fixed direction).</p></div>
+<div class="card"><h3>Preload and fatigue</h3>
+<p>k<sub>b</sub> = (π/4)d²E/l · A<sub>c</sub> ≈ 2πd² · C = k<sub>b</sub>/(k<sub>b</sub> + k<sub>c</sub>) · P<sub>b</sub> = P<sub>i</sub> + CP · opens at P = P<sub>i</sub>(k<sub>b</sub> + k<sub>c</sub>)/k<sub>c</sub> · \(S_a=\frac{S_{ut}-P_i/A}{1+S_{ut}/S_e}\), σ<sub>a</sub> = S<sub>a</sub>/(fs) · threads: K<sub>f</sub> 2.2–3.8, K<sub>b</sub> = 1, 90% reliability.</p></div>
+</div>
+
+<h2>Levers (§4.19–4.20)</h2>
+<div class="card"><p>Fl₂ = Pl₁ · bell crank R = √(F² + P² − 2FP cos θ) · arm: σ<sub>b</sub> = M(d/2)/(bd³/12), d = 2b–3b · pin: R = p·d₁l₁ (p = 5–10 for a bronze bush; l₁/d₁ = 1–2) then check shear R/(2·πd₁²/4) · boss OD = 2d₁ · check the section through the pin hole.</p></div>
+
+<h2>Power screws (Ch. 6)</h2>
+<div class="grid2">
+<div class="card"><h3>Geometry and torque</h3>
+<p>d<sub>c</sub> = d − p · d<sub>m</sub> = d − 0.5p · l = (starts)p · tan α = l/πd<sub>m</sub> · μ = tan φ.</p>
+\[ M_t=\tfrac{Wd_m}{2}\tan(\phi\pm\alpha)\ \ (+\text{ raise},\ -\text{ lower}) \]
+<p>Trapezoidal/Acme: μ → μ sec θ (θ = 15°/14.5°). Collar (uniform wear): (M<sub>t</sub>)<sub>c</sub> = μ<sub>c</sub>W(D<sub>o</sub> + D<sub>i</sub>)/4 = μ<sub>c</sub>WR<sub>m</sub>.</p></div>
+<div class="card"><h3>Efficiency and self-locking</h3>
+\[ \eta=\frac{\tan\alpha}{\tan(\phi+\alpha)},\ \ \eta_o=\frac{Wl}{2\pi(M_t)_t},\ \ \eta_{max}=\frac{1-\sin\phi}{1+\sin\phi}\ \text{at}\ \alpha=45°-\tfrac{\phi}{2} \]
+<p>Self-locking: φ ≥ α (μ ≥ tan α), so η &lt; 50%. Differential screw: advance p₁ − p₂; compound: p₁ + p₂.</p></div>
+<div class="card"><h3>Screw and nut design</h3>
+<p>σ<sub>c</sub> = W/(πd<sub>c</sub>²/4) · τ = 16M<sub>t</sub>/πd<sub>c</sub>³ · τ<sub>max</sub> = √((σ/2)² + τ²) · thread shear τ<sub>s</sub> = W/πd<sub>c</sub>tz, τ<sub>n</sub> = W/πdtz (t = p/2) · bearing S<sub>b</sub> = 4W/πz(d² − d<sub>c</sub>²) · H = zp · S<sub>b</sub>: jack steel/bronze 11–17, steel/CI 13–17; hoist 4–10; lead screw 1–1.5 · buckling: Johnson (short), Euler (long), n = 0.25 for fixed-free · hand force about 400 N (two workers 0.9 × 2 × 400).</p></div>
+</div>
+<p class="small">Lessons: <a class="lesson" data-l="0012"></a> · <a class="lesson" data-l="0014"></a> · <a class="lesson" data-l="0016"></a> · <a class="lesson" data-l="0019"></a> · <a class="lesson" data-l="0022"></a> · <a class="lesson" data-l="0023"></a></p>
+</main>
+</body>
+</html>

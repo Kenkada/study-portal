@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helical Springs II</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 39</p>
+<h1>Designing helical springs: trial and error, fluctuating load, concentric springs</h1>
+<p class="meta">About 40 minutes · Bhandari §10.9–10.13, 10.19</p>
+<div class="win"><b>Your win:</b> you can size spring wire when S<sub>ut</sub> depends on d (trial and error), and derive and use the spring fatigue design equation (Eq. 10.22) to find the factor of safety under fluctuating load. You can also prove that nested concentric springs need the same spring index and share load in proportion to d², and show that a minimum-weight valve spring has P<sub>min</sub> = P<sub>max</sub>/2.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 9 and 38)</span>
+<details class="recall"><summary>Spring stress with the Wahl factor, in terms of C and d?</summary><div>τ = K·8PC/πd², with K = (4C − 1)/(4C − 4) + 0.615/C.</div></details>
+<details class="recall"><summary>Which factor covers direct shear only?</summary><div>K<sub>s</sub> = 1 + 0.5/C. K = K<sub>s</sub>K<sub>c</sub> adds the curvature effect.</div></details>
+<details class="recall"><summary>On a Soderberg diagram, what are the two axes?</summary><div>Mean stress on the horizontal axis, stress amplitude on the vertical axis.</div></details>
+</div>
+
+<h2>1. Why real spring design is trial and error (§10.9)</h2>
+<p>The tensile strength of spring wire <b>falls as the wire gets thicker</b> (Tables 10.1 and 10.2, <a class="bk" data-p="402"></a>). For Grade 2 patented wire, for example, S<sub>ut</sub> = 1570 at 3 mm, 1510 at 3.6 mm, 1480 at 4 mm and 1440 at 4.5 mm. So the allowable stress (0.3S<sub>ut</sub> or 0.5S<sub>ut</sub>) depends on d, while the induced stress K·8PC/πd² goes as 1/d². You cannot solve for d in one go (<a class="bk" data-p="405"></a>).</p>
+<ol>
+<li>Assume d, then read S<sub>ut</sub> from the table and find τ<sub>d</sub>.</li>
+<li>Find the induced τ = K·8PC/πd².</li>
+<li>If τ &gt; τ<sub>d</sub>, try the next standard d. Stop at the first d with τ ≤ τ<sub>d</sub>.</li>
+</ol>
+<p>Under fluctuating load Bhandari then <b>raises d one size</b> (for example 4 → 5 mm in Ex. 10.14) before checking fatigue.</p>
+
+<h2>2. Fluctuating load: which factor goes where (§10.10)</h2>
+<p>A spring is never fully reversed. A compression spring stays in compression and an extension spring stays in tension, so the wire sees <b>pulsating</b> shear stress. Valve springs see millions of cycles (<a class="bk" data-p="405"></a>–406).</p>
+<div class="formula"><span class="label">Mean and amplitude</span>
+\[ P_m = \tfrac12(P_{max} + P_{min}),\quad P_a = \tfrac12(P_{max} - P_{min}) \]
+\[ \tau_m = K_s\frac{8P_mD}{\pi d^3}\qquad \tau_a = K\frac{8P_aD}{\pi d^3} \]
+</div>
+<p>Stress concentration from curvature is treated like a fatigue notch effect, so it is applied to the alternating part only. The mean stress gets K<sub>s</sub> (direct shear only). Endurance data (Elmendorf, Eqs 10.20–10.21) for a 0 → S′<sub>se</sub> pulsating test:</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Wire</th><th>S′<sub>se</sub></th><th>S<sub>sy</sub></th></tr></thead>
+<tbody>
+<tr><td>Patented and cold-drawn (Gr. 1–4)</td><td>0.21S<sub>ut</sub></td><td>0.42S<sub>ut</sub></td></tr>
+<tr><td>Oil-hardened and tempered (SW, VW)</td><td>0.22S<sub>ut</sub></td><td>0.45S<sub>ut</sub></td></tr>
+</tbody></table></div>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 240" role="img" aria-label="Spring fatigue diagram with failure line and design line">
+  <line x1="60" y1="200" x2="640" y2="200" class="axis"/>
+  <line x1="60" y1="200" x2="60" y2="20" class="axis"/>
+  <text x="626" y="192" class="small">τ<tspan dy="3" font-size="9">m</tspan></text>
+  <text x="30" y="30" class="small">τ<tspan dy="3" font-size="9">a</tspan></text>
+  <line x1="60" y1="200" x2="200" y2="60" class="dash"/>
+  <line x1="186.7" y1="73.3" x2="578.4" y2="200" class="ln"/>
+  <circle cx="186.7" cy="73.3" r="4" class="fill-ink"/>
+  <text x="120" y="56" class="small">A (½S′<tspan dy="3" font-size="9">se</tspan><tspan dy="-3">, ½S′</tspan><tspan dy="3" font-size="9">se</tspan><tspan dy="-3">)</tspan></text>
+  <text x="570" y="216" class="small">B (S<tspan dy="3" font-size="9">sy</tspan><tspan dy="-3">)</tspan></text>
+  <line x1="60" y1="85.1" x2="415" y2="200" class="acc"/>
+  <text x="392" y="216" class="acc small">D (S<tspan dy="3" font-size="9">sy</tspan><tspan dy="-3">/fs)</tspan></text>
+  <circle cx="179.2" cy="123.5" r="5" class="dot"/>
+  <text x="188" y="118" class="acc small">X (τ<tspan dy="3" font-size="9">m</tspan><tspan dy="-3">, τ</tspan><tspan dy="3" font-size="9">a</tspan><tspan dy="-3">)</tspan></text>
+  <line x1="179.2" y1="123.5" x2="179.2" y2="200" class="dash"/>
+  <line x1="186.7" y1="73.3" x2="186.7" y2="200" class="dash"/>
+  <text x="170" y="214" class="small">F</text><text x="190" y="214" class="small">E</text>
+  <text x="390" y="126" class="small">failure line AB</text>
+  <text x="200" y="188" class="acc small">design line DC ∥ AB</text>
+  <text x="70" y="40" class="small">45° (pulsating test)</text>
+</svg>
+<figcaption>Spring fatigue diagram (Bhandari Fig. 10.15, <a class="bk" data-p="406"></a>). Plotted to scale with Ex. 10.14's numbers: X sits on the design line for (fs) = 1.46.</figcaption>
+</figure>
+
+<h2>3. Derivation: the spring fatigue equation (Eq. 10.22)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(\dfrac{\tau_a}{\frac{S_{sy}}{(fs)} - \tau_m} = \dfrac{\frac12S'_{se}}{S_{sy} - \frac12S'_{se}}\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>A pulsating test from 0 to S′<sub>se</sub> has τ<sub>m</sub> = τ<sub>a</sub> = ½S′<sub>se</sub>. That is failure point A. Static failure (τ<sub>a</sub> = 0) happens when τ<sub>m</sub> = S<sub>sy</sub>, at point B. The straight line AB is the <b>line of failure</b>.</li>
+<li>For a factor of safety (fs), mark D at S<sub>sy</sub>/(fs) and draw DC parallel to AB. Every point on DC has the same (fs). This is the <b>design line</b>.</li>
+<li>The working point X = (τ<sub>m</sub>, τ<sub>a</sub>) lies on DC. Drop perpendiculars XF and AE to the τ<sub>m</sub> axis.</li>
+<li>Triangles XFD and AEB are similar, since DC ∥ AB. So \(\dfrac{XF}{FD} = \dfrac{AE}{EB}\), with XF = τ<sub>a</sub>, FD = S<sub>sy</sub>/(fs) − τ<sub>m</sub>, AE = ½S′<sub>se</sub>, EB = S<sub>sy</sub> − ½S′<sub>se</sub>. That is Eq. 10.22.</li>
+<li>Solved for (fs), ready to use: \(\boxed{(fs) = \dfrac{S_{sy}}{\tau_m + \tau_a\,\dfrac{S_{sy} - \frac12S'_{se}}{\frac12S'_{se}}}}\).</li>
+</ol>
+</div></div>
+
+<h2>4. Worked example (Bhandari Ex. 10.14)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 10.14</b> (<a class="bk" data-p="420"></a>): a 100 mm eccentric cam with 10 mm eccentricity. The follower spring force varies from 100 N to 350 N, τ = 0.3S<sub>ut</sub>. Design the spring statically, then find (fs) against fluctuating stress.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Fluctuating duty, so choose oil-hardened SW wire, C = 6. K = 1.2525, K<sub>s</sub> = 1 + 0.5/6 = 1.0833. Induced τ = 1.2525 × 8(350)(6)/πd² = 6697.9/d².</li>
+<li>Trials (Table 10.2): d = 3, τ = 744 &gt; 0.3(1520) = 456 ✗. d = 3.6, τ = 517 &gt; 444 ✗. d = 4, τ = 418.6 &lt; 444 ✓. Raise it one size for fatigue: <b>d = 5 mm</b>, D = 30 mm.</li>
+<li>The follower travel is 2e = 20 mm, so k = (350 − 100)/20 = 12.5 N/mm and N = 81 370(5)⁴/[8(30)³(12.5)] = 18.84 → <b>19</b>, N<sub>t</sub> = 21. δ<sub>max</sub> = 28.24 mm, solid 105 mm, gap 20 × 0.5 = 10 mm, free length 145 mm.</li>
+<li>P<sub>m</sub> = 225 N and P<sub>a</sub> = 125 N. τ<sub>m</sub> = 1.0833 × 8(225)(30)/π(5)³ = 148.96 N/mm². τ<sub>a</sub> = 1.2525 × 8(125)(30)/π(5)³ = 95.68 N/mm².</li>
+<li>S<sub>ut</sub> (5 mm) = 1440, so S′<sub>se</sub> = 0.22(1440) = 316.8 and S<sub>sy</sub> = 0.45(1440) = 648. Then \((fs) = \dfrac{648}{148.96 + 95.68(489.6/158.4)} = \mathbf{1.46}\). That is reasonable for springs, where 1.5 or less is normal.</li>
+</ol>
+</div></div>
+
+<h2>5. Concentric (nested) springs (§10.11)</h2>
+<p>Two (or three) compression springs, one inside the other, with <b>opposite hands of helix</b> so the coils cannot lock together if they buckle or misalign. Advantages: more load in a restricted space, a <b>fail-safe</b> drive (one spring can break and the mechanism still works), and less surge. Used for heavy-duty diesel and aircraft engine valves and for railway suspension (<a class="bk" data-p="425"></a>–426).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Eqs 10.23 and 10.26: same material, same maximum stress, same free length, same deflection and same solid length.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Equal stress (taking K₁ = K₂ for now): \(\dfrac{P_1D_1}{d_1^3} = \dfrac{P_2D_2}{d_2^3}\) … (a)</li>
+<li>Equal deflection: \(\dfrac{P_1D_1^3N_1}{d_1^4} = \dfrac{P_2D_2^3N_2}{d_2^4}\) … (b). Equal solid length with no inactive coils: d₁N₁ = d₂N₂ … (c). Substitute (c) into (b): \(\dfrac{P_1D_1^3}{d_1^5} = \dfrac{P_2D_2^3}{d_2^5}\) … (d)</li>
+<li>Divide (d) by (a): \(\dfrac{D_1^2}{d_1^2} = \dfrac{D_2^2}{d_2^2}\Rightarrow \boxed{C_1 = C_2 = C}\). This also makes K₁ = K₂, which confirms the assumption.</li>
+<li>Put D = Cd into (a): \(\boxed{\dfrac{P_1}{P_2} = \dfrac{d_1^2}{d_2^2}}\). The load is shared in proportion to the <b>wire cross-section area</b>.</li>
+<li>Radial clearance: \(c = \tfrac12[(D_1 - D_2) - (d_1 + d_2)]\). Bhandari takes the diametral clearance 2c = d₁ − d₂. Then D₁ − D₂ = 2d₁, so C(d₁ − d₂) = 2d₁ and \(\boxed{\dfrac{d_1}{d_2} = \dfrac{C}{C - 2}}\).</li>
+</ol>
+</div></div>
+<p>Nesting springs of <b>different free lengths</b> gives a stepped (non-linear) force–deflection curve. The shorter spring joins in only after the longer one has compressed by the difference. Governors of variable-speed engines use this (Ex. 10.19, in <a class="lesson" data-l="0047">Lesson 47</a>).</p>
+
+<h2>6. Surge, minimum-weight design and shot peening</h2>
+<ul>
+<li><b>Surge</b> (§10.13): if the forcing frequency matches the spring's natural frequency, a wave of coil compression runs up and down the spring. The stresses become huge and valve springs fail by fatigue. Natural frequency in Hz (k in N/m, spring mass m in kg): \(f = \tfrac12\sqrt{k/m}\) between two plates, and \(\tfrac14\sqrt{k/m}\) with one end free. Remedies: make the natural frequency <b>15–20 times</b> the forcing frequency, add friction dampers on the central coils, or use stranded wire (<a class="bk" data-p="432"></a>–433).</li>
+<li><b>Shot peening</b> (§10.19): small steel balls hit the wire surface and leave a layer of residual <b>compressive</b> stress. Fatigue cracks grow only under tension, so fatigue life rises. It works for springs loaded in one direction (<a class="bk" data-p="443"></a>).</li>
+</ul>
+<div class="example">
+<div class="ex-head"><b>Derive</b> (§10.12): a valve spring must hold P<sub>min</sub> when closed and give a fixed stroke Δ, with τ ≤ τ<sub>max</sub> when fully open. Show that the lightest spring has P<sub>min</sub> = ½P<sub>max</sub>.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Weight of the active coils: \(W = \rho\,\tfrac{\pi}{4}d^2(\pi DN) = \dfrac{\pi^2\rho}{4C^2}D^3N\).</li>
+<li>Full stress at full opening: \(\tau_{max} = K\dfrac{8P_{max}C^3}{\pi D^2}\Rightarrow P_{max} = aD^2\), with \(a = \dfrac{\pi\tau_{max}}{8KC^3}\).</li>
+<li>Stroke: \(\Delta = \dfrac{8C^4N}{GD}(P_{max} - P_{min})\Rightarrow N = \dfrac{GD\Delta}{8C^4(aD^2 - P_{min})}\). So for a fixed C, \(W \propto \dfrac{D^4}{aD^2 - P_{min}}\).</li>
+<li>\(\dfrac{d}{dD}\Big[\dfrac{D^4}{aD^2 - P_{min}}\Big] = 0\Rightarrow 4(aD^2 - P_{min}) = 2aD^2\Rightarrow aD^2 = 2P_{min}\Rightarrow \boxed{P_{min} = \tfrac12 P_{max}}\) (Eq. d, <a class="bk" data-p="431"></a>).</li>
+</ol>
+</div></div>
+
+<h2>7. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="1.26" data-tol="1.5" data-unit="">
+<p class="q">Ex. 10.13 (<a class="bk" data-p="419"></a>): cam spring, preload 50 N, maximum 150 N, d = 3 mm, D = 18 mm, VW wire S<sub>ut</sub> = 1430. Factor of safety against fluctuating stress? (Also on your slides, <a class="ppt" data-p="787">p. 787</a>.)</p>
+<details class="sol"><p>C = 6, K = 1.2525, K<sub>s</sub> = 1.0833, P<sub>m</sub> = 100, P<sub>a</sub> = 50. τ<sub>m</sub> = 183.91, τ<sub>a</sub> = 106.32. S′<sub>se</sub> = 314.6, S<sub>sy</sub> = 643.5. 106.32/(643.5/fs − 183.91) = 157.3/486.2, so (fs) = <b>1.26</b>.</p></details>
+</div>
+<div class="num" data-answer="4.5" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.11 (<a class="bk" data-p="416"></a>): car clutch, 2 pairs of surfaces, 300 N·m, d = 170, D = 270 mm, μ = 0.35, nine springs, C = 5, Grade 2 patented wire, τ = 0.3S<sub>ut</sub>. Wire diameter after trial and error? (Use S<sub>ut</sub> = 1570, 1510, 1480, 1440 for d = 3, 3.6, 4, 4.5.)</p>
+<details class="sol"><p>Uniform wear: P = 4(150 × 10³)/[0.35(440)] = 3896.1 N, so 432.9 N per spring. τ = 1.3105 × 8(432.9)(5)/πd² = 7223.3/d². d = 3: 802.6 vs 471 ✗. 3.6: 557.4 vs 453 ✗. 4: 451.5 vs 444 ✗. 4.5: 356.7 vs 432 ✓, so <b>d = 4.5 mm</b>. D = 22.5, N<sub>t</sub> = 8, δ = 7.09, free length 51 mm.</p></details>
+</div>
+<div class="num" data-answer="48" data-tol="1" data-unit="coils">
+<p class="q">Ex. 10.12 (<a class="bk" data-p="418"></a>): tension spring balance, 25 kg capacity, 100 mm scale in 50 divisions of 0.5 kg each, C = 6, SW wire (d = 2.5 mm works out), τ = 0.5S<sub>ut</sub>. Number of coils?</p>
+<details class="sol"><p>Each division is 2 mm for 0.5 kg, so k = 0.5(9.81)/2 = 2.4525 N/mm. D = 15 mm. N = 81 370(2.5)⁴/[8(15)³(2.4525)] = <b>48</b>, all active (extension spring). Solid length 120 mm.</p></details>
+</div>
+<div class="num" data-answer="1.85" data-tol="1.5" data-unit="">
+<p class="q">Ex. 10.15 (<a class="bk" data-p="422"></a>): diesel exhaust valve, 32 mm, suction 0.03 N/mm², valve 50 g, lift 10 mm, k = 10 N/mm, C = 8, VW wire. Bhandari takes a 30 N preload, d = 4 mm (S<sub>ut</sub> = 1400), D = 32. Factor of safety against fluctuating stress?</p>
+<details class="sol"><p>Minimum preload = 24.13 (suction) + 0.49 (weight) = 24.62 N, so take 30 N. P<sub>max</sub> = 30 + 10(10) = 130 N. P<sub>m</sub> = 80 and P<sub>a</sub> = 50. K = 1.184, K<sub>s</sub> = 1.0625: τ<sub>m</sub> = 108.23, τ<sub>a</sub> = 75.38. S′<sub>se</sub> = 308, S<sub>sy</sub> = 630, so (fs) = <b>1.85</b>. N = 7.95 → 8, free length 60 mm.</p></details>
+</div>
+<div class="num" data-answer="1.48" data-tol="1.5" data-unit="">
+<p class="q">Ex. 10.16 (<a class="bk" data-p="423"></a>): compensating valve, preload 100 N, a 40 mm plunger moves 10 mm when p₁ − p₂ = 0.1 N/mm², spring in a 25 mm bore, C = 5, VW wire, d = 3.6 mm (S<sub>ut</sub> = 1400), D = 18. Factor of safety against fluctuating stress?</p>
+<details class="sol"><p>P<sub>max</sub> = 100 + (π/4)(40)²(0.1) = 225.66 N. P<sub>m</sub> = 162.83 and P<sub>a</sub> = 62.83. K = 1.3105, K<sub>s</sub> = 1.1: τ<sub>m</sub> = 175.97, τ<sub>a</sub> = 80.89. S′<sub>se</sub> = 308, S<sub>sy</sub> = 630, so (fs) = <b>1.48</b>. D<sub>o</sub> = 21.6 mm fits the 25 mm bore. N = 23.3 → 24.</p></details>
+</div>
+<div class="num" data-answer="4153.85" data-tol="1" data-unit="N">
+<p class="q">Ex. 10.17 (<a class="bk" data-p="428"></a>): concentric valve spring, total 6000 N at 50 mm deflection, τ = 800 N/mm² in each, C = 6, same free and solid lengths, diametral clearance = d₁ − d₂. Force carried by the <b>outer</b> spring?</p>
+<details class="sol"><p>d₁/d₂ = C/(C − 2) = 1.5, so P₁/P₂ = 2.25. With P₁ + P₂ = 6000: P₁ = <b>4153.85 N</b> and P₂ = 1846.15 N. Then d₁ = 9.97 → 10, D₁ = 60, d₂ = 6.65 → 7, D₂ = 42. N₁ = 5.67 → 6 (N<sub>t</sub> = 8). Equal solid length: 8(10) = (N<sub>t</sub>)₂(7), so 11.43 → 12 and N₂ = 10.</p></details>
+</div>
+<div class="num" data-answer="5" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.20 (<a class="bk" data-p="431"></a>): exhaust valve spring, preload 375 N, τ<sub>max</sub> = 750 N/mm², D<sub>o</sub> ≤ 42 mm, minimum weight. Wire diameter?</p>
+<details class="sol"><p>Minimum weight gives P<sub>max</sub> = 2(375) = 750 N. With d = 42/(C + 1): 750 = K·8(750)C(C + 1)²/π(42)², so CK(C + 1)² = 692.7. That falls between C = 7 (543.4) and C = 8 (767.2); take C = 8, so d = 4.67 → <b>5 mm</b> and D = 37 mm. Check: C = 7.4, K = 1.2, τ = 678.4 &lt; 750 ✓.</p></details>
+</div>
+
+<h2>8. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">In fatigue design of a helical spring, the mean shear stress is multiplied by:</p>
+<ol class="opts">
+<li>The Wahl factor K, which includes curvature</li>
+<li>The shear factor K<sub>s</sub>, which excludes curvature</li>
+<li>The fatigue notch factor K<sub>f</sub> for wire</li>
+<li>No factor, since mean stress is steady</li>
+</ol>
+<div class="why">Curvature acts like a notch, so it affects only the alternating component. Mean: K<sub>s</sub>. Amplitude: K (Eqs 10.18–10.19).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Two concentric springs of the same material, free length and solid length carry a total load. The load on each spring is proportional to its:</p>
+<ol class="opts">
+<li>mean coil diameter</li>
+<li>number of active coils</li>
+<li>spring index value</li>
+<li>wire cross-section area</li>
+</ol>
+<div class="why">P₁/P₂ = d₁²/d₂² (Eq. 10.23), and both springs have the same C.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">To avoid surge in an engine valve spring, its natural frequency should be:</p>
+<ol class="opts">
+<li>equal to the camshaft frequency</li>
+<li>half of the camshaft frequency</li>
+<li>15–20 times the camshaft frequency</li>
+<li>slightly above the camshaft frequency</li>
+</ol>
+<div class="why">Keep well clear of resonance and of its harmonics: f<sub>n</sub> ≥ 15–20 × forcing frequency (§10.13).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Shot peening improves the fatigue life of springs because it:</p>
+<ol class="opts">
+<li>leaves residual compressive stress at the surface</li>
+<li>raises the tensile strength of the core</li>
+<li>removes the curvature stress on inner fibres</li>
+<li>increases the modulus of rigidity of wire</li>
+</ol>
+<div class="why">Fatigue cracks grow only under tension. A compressive surface layer delays them (§10.19).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Read S<sub>ut</sub> for the <b>final</b> wire diameter when you check fatigue (5 mm in Ex. 10.14, not 4 mm).</li>
+<li>S′<sub>se</sub> and S<sub>sy</sub> use different multipliers for patented wire (0.21, 0.42) and oil-hardened wire (0.22, 0.45).</li>
+<li>In Eq. 10.22 the left-hand denominator is S<sub>sy</sub>/(fs) − τ<sub>m</sub>, not S<sub>sy</sub> − τ<sub>m</sub>.</li>
+<li>A cam with eccentricity e moves the follower 2e, not e.</li>
+<li>Concentric springs: the outer spring is the one with the thicker wire, and it carries the larger share.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §10.9–10.13, <a class="bk" data-p="405">pp. 405–433</a> (Examples 10.11–10.20); shot peening <a class="bk" data-p="443">p. 443</a>.</li>
+<li>Course slides: spring problems including fluctuating load, <a class="ppt" data-p="776">pp. 776–787</a>.</li>
+<li>A M Wahl, <em>Mechanical Springs</em> (McGraw-Hill), the source of the Wahl factor, cited by Bhandari on <a class="bk" data-p="398">p. 398</a>.</li>
+</ul></div>
+<div class="ask"><p>Want to see why the fatigue line starts from the pulsating point A and not from a fully reversed test? Ask me and I'll compare it with the Soderberg diagram from Lesson 9.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

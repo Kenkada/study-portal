@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 3 Formulas</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body class="ref">
+<main class="page">
+<p class="kicker">Reference · Unit 3</p>
+<h1>Power transmission elements: formula and procedure sheet</h1>
+<p class="meta">Bhandari notation; N, mm, N/mm² unless stated. Prints on 3 pages.</p>
+
+<h2>Shafts (Ch. 9)</h2>
+<div class="grid2">
+<div class="card"><h3>Strength</h3>
+\[ \tfrac{16}{\pi d^3}\sqrt{M_b^2+M_t^2}=\tfrac{0.5S_{yt}}{(fs)}\ \ (T_e=\sqrt{M_b^2+M_t^2}) \]
+\[ \tfrac{16}{\pi d^3}\big[M_b+\sqrt{M_b^2+M_t^2}\big]=\tfrac{S_{yt}}{(fs)}\ \ (M_e=\tfrac12[\,\cdot\,]) \]
+<p>Hollow: d³ → d<sub>o</sub>³(1 − k⁴). Equal-weight strength ratio (1 + k²)/√(1 − k²).</p></div>
+<div class="card"><h3>ASME code</h3>
+\[ \tfrac{16}{\pi d^3}\sqrt{(k_bM_b)^2+(k_tM_t)^2}=\tau_{max} \]
+<p>τ<sub>max</sub> = min(0.30S<sub>yt</sub>, 0.18S<sub>ut</sub>), × 0.75 with keyway. k<sub>b</sub>/k<sub>t</sub>: gradual 1.5/1.0; minor shock 1.5–2/1–1.5; heavy shock 2–3/1.5–3.</p></div>
+<div class="card"><h3>Rigidity and loads</h3>
+<p>θ° = 584M<sub>t</sub>l/(Gd⁴) [hollow: d⁴(1 − k⁴)]; 0.25°/m machine tools, 3°/m line shafts; G = 79 300. Pulley: M<sub>t</sub> = (P₁ − P₂)R, pull P₁ + P₂ (+ weight). Gear: P<sub>t</sub> = 2M<sub>t</sub>/d′, P<sub>r</sub> = P<sub>t</sub> tan α. M = √(M<sub>V</sub>² + M<sub>H</sub>²).</p></div>
+</div>
+
+<h2>Keys, splines, couplings</h2>
+<div class="grid2">
+<div class="card"><h3>Keys</h3>
+<p>τ = 2M<sub>t</sub>/(dbl), σ<sub>c</sub> = 4M<sub>t</sub>/(dhl); square key σ<sub>c</sub> = 2τ. Square b = h = d/4, l ≥ 1.5d (equal-strength l = πd²/8b = 1.571d). Flat b = d/4, h = d/6. Kennedy: τ = M<sub>t</sub>/(√2 dbl), σ<sub>c</sub> = √2M<sub>t</sub>/(dbl). Splines: M<sub>t</sub> = p<sub>m</sub>ln(D² − d²)/8, p<sub>m</sub> ≤ 6.5; shift force μM<sub>t</sub>/R<sub>m</sub>.</p></div>
+<div class="card"><h3>Muff and clamp</h3>
+<p>Muff: D = 2d + 13, L = 3.5d, sleeve τ = 16M<sub>t</sub>D/π(D⁴ − d⁴), key length L/2. Clamp: D = 2.5d, L = 3.5d, P₁ = 2M<sub>t</sub>/(fdn) (f ≈ 0.3), P₁ = πd₁²σ<sub>t</sub>/4; empirical d₁ = 0.2d + 10 (d &lt; 55), 0.15d + 15.</p></div>
+<div class="card"><h3>Flange couplings</h3>
+<p>d<sub>h</sub> = 2d, l<sub>h</sub> = 1.5d, D = 3d, t = 0.5d, t₁ = 0.25d, d<sub>r</sub> = 1.5d, D₀ = 4d + 2t₁; N = 3/4/6. Fitted bolts τ = 8M<sub>t</sub>/(πDNd₁²), σ<sub>c</sub> = 2M<sub>t</sub>/(Nd₁tD). Clearance bolts M<sub>t</sub> = μP<sub>i</sub>NR<sub>f</sub>. Hub τ = 16M<sub>t</sub>d<sub>h</sub>/π(d<sub>h</sub>⁴ − d⁴); flange τ = 2M<sub>t</sub>/(πd<sub>h</sub>²t).</p></div>
+<div class="card"><h3>Bushed-pin flexible</h3>
+<p>D = 3d–4d; d₁ = 0.5d/√N; D<sub>b</sub>² = 2M<sub>t</sub>/(DN) (p<sub>m</sub> = 1, l<sub>b</sub> = D<sub>b</sub>); pin τ = 8M<sub>t</sub>/(πd₁²DN) ≤ 35; pin bending M = P(gap + l<sub>b</sub>/2), P = 2M<sub>t</sub>/(DN), which usually governs.</p></div>
+</div>
+
+<h2>Belts (Ch. 13)</h2>
+<div class="grid2">
+<div class="card"><h3>Geometry</h3>
+<p>Open: α<sub>s</sub> = 180° − 2 sin⁻¹[(D − d)/2C]; L = 2C + π(D + d)/2 + (D − d)²/4C. Crossed: sin β = (D + d)/2C, L with (D + d)². C ≈ D + 1.5d (i &lt; 3), D (i &gt; 3).</p></div>
+<div class="card"><h3>Tensions and power</h3>
+\[ \tfrac{P_1-mv^2}{P_2-mv^2}=e^{f\alpha}\ \ (\text{V: } e^{f\alpha/\sin(\theta/2)}) \]
+<p>kW = (P₁ − P₂)v/1000; P<sub>c</sub> = mv²; P<sub>i</sub> = (P₁ + P₂)/2; max power at v = √(P<sub>max</sub>/3m) (P<sub>max</sub> = 3P<sub>c</sub>, P₁ = 2P<sub>c</sub>). V-belt 40°: μ<sub>eff</sub> = 2.92μ.</p></div>
+<div class="card"><h3>Selection</h3>
+<p>Flat (Dunlop): v 17.8–22.9 m/s; corrected kW = F<sub>a</sub>F<sub>d</sub>P; rating 0.0118 (HI-SPEED) or 0.0147 (FORT) × v/5.08 kW per mm per ply. V-belt: belts = PF<sub>a</sub>/(P<sub>r</sub>F<sub>c</sub>F<sub>d</sub>); recompute C after choosing standard L<sub>p</sub>. Pulley arms (elliptical, half loaded): a = 1.72∛(M<sub>t</sub>/(Nσ<sub>b</sub>)).</p></div>
+</div>
+
+<h2>Chains (Ch. 14)</h2>
+<div class="card"><p>D = p/sin(180°/z); v = zpn/60 000; i = z₂/z₁; Δv/v = 1 − cos(180°/z) (z₁ ≥ 17, preferably 19–21, odd). L<sub>n</sub> = 2a/p + (z₁ + z₂)/2 + [(z₂ − z₁)/2π]²p/a, rounded even; a = (p/4)[m + √(m² − 8((z₂ − z₁)/2π)²)], m = L<sub>n</sub> − (z₁ + z₂)/2, then × 0.998. Required rating = kW·K<sub>s</sub>/(K₁K₂). a = 30p–50p; wrap ≥ 120°; tight side on top.</p></div>
+
+<h2>Clutches (Ch. 11)</h2>
+<div class="grid2">
+<div class="card"><h3>Plate</h3>
+<p>Uniform pressure: P = πp(D² − d²)/4, M = μPz(D³ − d³)/[3(D² − d²)]. Uniform wear: P = πp<sub>a</sub>d(D − d)/2, M = μPz(D + d)/4 (design basis). Optimum d/D = 0.577. Pairs z = n − 1.</p></div>
+<div class="card"><h3>Cone and centrifugal</h3>
+<p>Cone: M = μP(D + d)/(4 sin α), b = (D − d)/(2 sin α), α ≈ 12.5°. Centrifugal: P<sub>s</sub> = mω₁²r<sub>g</sub>/1000; M = μmr<sub>g</sub>r<sub>d</sub>z(ω₂² − ω₁²)/1000.</p></div>
+<div class="card"><h3>Energy and heat</h3>
+<p>t₁ = Δω I₁I₂/[(I₁ + I₂)M<sub>t</sub>]; E = ½[I₁I₂/(I₁ + I₂)]Δω²; Δt = E/(mc), c ≈ 500 J/kg°C.</p></div>
+</div>
+
+<h2>Brakes (Ch. 12)</h2>
+<div class="grid2">
+<div class="card"><h3>Energy and block</h3>
+<p>E = ½m(v₁² − v₂²) + ½I(ω₁² − ω₂²) + mgh = M<sub>t</sub>θ. Short shoe: M<sub>t</sub> = μNR; P = N(a ∓ μc)/b; self-locking a ≤ μc. Long shoe μ′ = 4μ sin θ/(2θ + sin 2θ). Pivoted: h = 4R sin θ/(2θ + sin 2θ), M = 2μR²wp<sub>max</sub> sin θ.</p></div>
+<div class="card"><h3>Internal expanding</h3>
+<p>p = p<sub>max</sub> sin φ/sin φ<sub>max</sub>; M<sub>n</sub> = [p<sub>max</sub>Rwh/(4 sin φ<sub>max</sub>)][2(θ₂ − θ₁) − (sin 2θ₂ − sin 2θ₁)]; M<sub>f</sub> = [μp<sub>max</sub>Rw/(4 sin φ<sub>max</sub>)][4R(cos θ₁ − cos θ₂) − h(cos 2θ₁ − cos 2θ₂)]; M<sub>t</sub> = μR²p<sub>max</sub>w(cos θ₁ − cos θ₂)/sin φ<sub>max</sub>; P = (M<sub>n</sub> ∓ M<sub>f</sub>)/C (leading −).</p></div>
+<div class="card"><h3>Band and disc</h3>
+<p>P₁/P₂ = e<sup>μθ</sup>; M = (P₁ − P₂)R; p<sub>max</sub> = P₁/(Rw); differential: P = (P₂a − P₁b)/l, self-locking a ≤ be<sup>μθ</sup>. Disc: R<sub>f</sub> = (2/3)(R<sub>o</sub>³ − R<sub>i</sub>³)/(R<sub>o</sub>² − R<sub>i</sub>²), M = μPR<sub>f</sub> per pad, A = ½θ(R<sub>o</sub>² − R<sub>i</sub>²). Δt = E/mc; pv limits 115 / 175 / 125.</p></div>
+</div>
+<p class="small">Lessons: <a class="lesson" data-l="0025"></a> · <a class="lesson" data-l="0030"></a> · <a class="lesson" data-l="0033"></a> · <a class="lesson" data-l="0035"></a></p>
+</main>
+</body>
+</html>

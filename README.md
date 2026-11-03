@@ -14,6 +14,11 @@ AMP/                    MEMEE506 Advanced Machining Processes
   lessons/              0001-…html, one short lesson each
   reference/            formula sheet, process sheets, glossary
   assets/diagrams/      exam-style SVG sketches
+MD/                     MEMEC502 Mechanical Design
+  index.html            course page: syllabus map, drawn from assets/course-map.js
+  lessons/              0001-…html, one lesson each (Units 1–4; Unit 5 planned)
+  reference/            one formula and procedure sheet per unit
+  assets/               the course's own stylesheet, lesson runtime, course map and fatigue widgets
 ```
 
 Only the files above are published. The whitelist `.gitignore` keeps everything else in the folder (textbook PDFs, past papers, personal notes, other course material) off GitHub.
@@ -21,7 +26,7 @@ Only the files above are published. The whitelist `.gitignore` keeps everything 
 ## Adding a course
 
 1. Create `<COURSE>/index.html`, `<COURSE>/lessons/`, `<COURSE>/reference/` (copy the AMP pages as templates; set `data-course="<code>"` on `<body>`).
-2. Add four lines to `.gitignore` for the new folder (see the comment there).
+2. Add the new folder's block to `.gitignore` (copy the AMP lines; see the comment there).
 3. Turn the course's card in the root `index.html` from muted into a link.
 
 ## Preview locally

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plate Clutches</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 33</p>
+<h1>Friction clutches I: single- and multi-plate clutches</h1>
+<p class="meta">About 35 minutes · Bhandari §11.1–11.4</p>
+<div class="win"><b>Your win:</b> you can derive the torque capacity of a plate clutch under uniform pressure and under uniform wear, prove that d/D = 0.577 maximises torque for a given outer diameter, and design single- and multi-plate clutches. All three derivations appear regularly in exams.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 28–29)</span>
+<details class="recall"><summary>Coupling vs clutch?</summary><div>A coupling is a permanent connection. A clutch connects and disconnects at will.</div></details>
+<details class="recall"><summary>Friction radius used for a preloaded flange coupling?</summary><div>(2/3)(R<sub>o</sub>³ − R<sub>i</sub>³)/(R<sub>o</sub>² − R<sub>i</sub>²), the uniform pressure version. You'll derive it below.</div></details>
+</div>
+
+<h2>1. Clutches: types and applications</h2>
+<p>A clutch connects or disconnects the power source from the rest of the drive at the operator's will. In a clutch, the <em>final</em> state is both members turning together. In a brake, both members end up at rest (<a class="bk" data-p="448"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Type</th><th>How it transmits torque</th><th>Applications</th></tr></thead>
+<tbody>
+<tr><td>Positive (square or spiral jaw, toothed)</td><td>interlocking jaws: no slip, no heat, but engages only at standstill or near-equal speed</td><td>power presses, rolling mills (synchronous drives)</td></tr>
+<tr><td>Friction (single plate, multi-plate, cone, centrifugal)</td><td>friction: smooth engagement, slips on overload (a safety device)</td><td>automobiles, scooters, machine tools</td></tr>
+<tr><td>Electromagnetic</td><td>magnetic field: fast response, easy control</td><td>automation, servo drives</td></tr>
+<tr><td>Fluid coupling</td><td>hydraulic: very smooth, absorbs shock</td><td>heavy vehicles, conveyors</td></tr>
+</tbody></table></div>
+<p><b>Put the clutch on the high-speed side</b>: for the same power, higher speed means lower torque, so a smaller and cheaper clutch (<a class="bk" data-p="453"></a>).</p>
+
+<h2>2. Derivation: torque capacity of a friction disc</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> P and M<sub>t</sub> for an annular disc (outer D, inner d, friction μ), under (a) uniform pressure and (b) uniform wear (Eqs 11.1–11.8).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Elemental ring of radius r, width dr: area 2πr dr, axial force dP = p(2πr dr), friction μp(2πr dr), friction torque dM = μp(2πr dr)r. So \(P = 2\pi\int p\,r\,dr\) and \(M_t = 2\pi\mu\int p\,r^2\,dr\), with limits d/2 to D/2.</li>
+<li><b>(a) Uniform pressure</b> (new clutch, p constant): \(P = \frac{\pi p}{4}(D^2 - d^2)\), \(M_t = \frac{\pi\mu p}{12}(D^3 - d^3)\). Dividing: \(\boxed{M_t = \dfrac{\mu P}{3}\cdot\dfrac{D^3 - d^3}{D^2 - d^2}}\).</li>
+<li><b>(b) Uniform wear</b> (worn clutch): wear ∝ friction work ∝ (μp)(2πrn) ∝ pr, so uniform wear needs <b>pr = constant</b> = p<sub>a</sub>(d/2). The maximum pressure p<sub>a</sub> is at the <em>inner</em> radius.</li>
+<li>Then \(P = 2\pi\int p_a\frac{d}{2}\,dr = \frac{\pi p_a d}{2}(D - d)\) and \(M_t = 2\pi\mu p_a\frac{d}{2}\int r\,dr = \frac{\pi\mu p_a d}{8}(D^2 - d^2)\). Dividing: \(\boxed{M_t = \dfrac{\mu P}{4}(D + d)}\).</li>
+<li>Both have the form M<sub>t</sub> = μPR<sub>f</sub>. R<sub>f</sub> (uniform pressure) is slightly <em>larger</em> than R<sub>f</sub> (uniform wear) = (D + d)/4. Most of a lining's life is spent worn in, and the uniform wear torque is the lower (safer) one, so <b>design with uniform wear</b> (<a class="bk" data-p="452"></a>).</li>
+<li>For z pairs of friction surfaces, multiply by z. A multi-plate clutch with n discs in total has z = n − 1 pairs (the end discs rub on one face only).</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: the best inner diameter (Bhandari Ex. 11.4)</h2>
+<div class="example">
+<div class="ex-head"><b>Prove</b> that for a fixed outer diameter D and allowable p<sub>a</sub>, the uniform-wear torque is greatest when d/D = 1/√3 = 0.577.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Put x = d/D: \(M_t = \dfrac{\pi\mu p_a D^3}{8}\,x(1 - x^2)\).</li>
+<li>\(\dfrac{d}{dx}[x - x^3] = 1 - 3x^2 = 0\Rightarrow x = 1/\sqrt3 = 0.577\).</li>
+<li>So D/d = 1.732. In practice D/d is taken between 1.5 and 2 (<a class="bk" data-p="455"></a>).</li>
+</ol>
+</div></div>
+
+<h2>4. Single vs multi-plate, dry vs wet, friction materials</h2>
+<ul>
+<li><b>Multi-plate</b>: more surfaces, so more torque for its size (compact: scooters, motorcycles), but more heat, so usually <b>wet</b> (oil-cooled). Single plate: large radial space (cars, trucks), dry (<a class="bk" data-p="457"></a>).</li>
+<li><b>Dry vs wet</b>: dry has μ ≥ 0.3 and more torque, but needs sealing from oil and is harder to cool. Wet has μ ≤ 0.1, smoother engagement, and wears at about 1% of the dry rate.</li>
+<li><b>Friction material</b> should have high, steady μ over temperature, good thermal conductivity, resistance to moisture and dirt, wear resistance and resilience. Asbestos (woven or moulded) is now banned in many countries (cancer risk). It has been replaced by sintered metal (bronze or iron base) or fibre (steel wool, aramid) + filler + binder (phenol-formaldehyde) + friction modifier. Allowable p: woven 0.3, moulded 1.0, sintered 1–2 N/mm² (<a class="bk" data-p="459"></a>–461).</li>
+</ul>
+
+<h2>5. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="18.51" data-tol="1" data-unit="kW">
+<p class="q">Ex. 11.1 (<a class="bk" data-p="453"></a>): one pair of surfaces, d = 100, D = 200 mm, μ = 0.2, p<sub>a</sub> = 1 N/mm², uniform wear. Power at 750 rpm?</p>
+<details class="sol"><p>P = π(1)(100)(100)/2 = 15 708 N; M<sub>t</sub> = 0.2(15 708)(300)/4 = 235 619 N·mm; kW = 18.51. Ex. 11.2 (uniform pressure, same p) gives P = 23 562 N and 28.79 kW: more force and more torque.</p></details>
+</div>
+<div class="num" data-answer="174.2" data-tol="1" data-unit="mm">
+<p class="q">Ex. 11.3 (<a class="bk" data-p="454"></a>): automotive clutch, 2 pairs of surfaces, 550 N·m, μ = 0.25, p<sub>a</sub> = 0.5, D = 250 mm, uniform wear. Inner diameter (choose the root giving least lining area)?</p>
+<details class="sol"><p>Per pair 275 N·m: d(250² − d²) = 5.602 × 10⁶. Roots 174.2 and 112.3 mm. Take 174 mm (less lining). Spring force P = π(0.5)(174)(76)/2 = 10 386 N.</p></details>
+</div>
+<div class="num" data-answer="123.2" data-tol="1" data-unit="mm">
+<p class="q">Ex. 11.5 (<a class="bk" data-p="455"></a>): 120 N·m engine, (fs) 1.5 against slip, p<sub>a</sub> = 0.35, μ = 0.35, one pair, designed for maximum torque (d = 0.577D). Inner diameter?</p>
+<details class="sol"><p>180 000 = π(0.35)(0.35)d(D² − d²)/8 with D² = 3d² gives 2d³ = 3.742 × 10⁶, so d = 123.2 and D = 213.6 mm.</p></details>
+</div>
+<div class="num" data-answer="2.67" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 11.6 (<a class="bk" data-p="455"></a>): 2 pairs, 250 N·m, μ = 0.35, d/D = 175/250, nine springs each 800 N at 5 mm compression. How much lining wear before the clutch slips (uniform wear)?</p>
+<details class="sol"><p>Safety factors: new 2.16, worn 2.14. Force needed: 125 000 = 0.35P(425)/4, so P = 3361 N, i.e. 373.5 N per spring. Spring rate 160 N/mm: 160(5 − x) = 373.5 ⇒ x = 2.67 mm.</p></details>
+</div>
+<div class="num" data-answer="9.37" data-tol="1" data-unit="kW">
+<p class="q">Ex. 11.8 (<a class="bk" data-p="458"></a>): multi-disc clutch, 5 steel + 4 bronze plates, d = 75, D = 150, μ = 0.1, p<sub>a</sub> = 0.3, uniform wear. Power at 750 rpm?</p>
+<details class="sol"><p>9 plates, so z = 8 pairs. P = π(0.3)(75)(75)/2 = 2650.7 N. M<sub>t</sub> = 0.1(2650.7)(8)(225)/4 = 119 282 N·mm, so 9.37 kW.</p></details>
+</div>
+<div class="num" data-answer="11" data-tol="1" data-unit="discs">
+<p class="q">Ex. 11.9 (<a class="bk" data-p="459"></a>): wet multi-disc, 75 N·m, μ = 0.1, p<sub>a</sub> = 0.5, D = 100, d = 0.577D ≈ 58 mm. Total number of discs?</p>
+<details class="sol"><p>P = π(0.5)(58)(42)/2 = 1913 N. z = 4(75 000)/(0.1 × 1913 × 158) = 9.92, so 10 pairs and <b>11 discs</b> (6 plain steel + 5 lined).</p></details>
+</div>
+
+<h2>6. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">Under the uniform wear assumption, where is the pressure on a clutch plate greatest?</p>
+<ol class="opts">
+<li>At the outer radius, where rubbing speed is greatest</li>
+<li>At the inner radius, since p × r is constant</li>
+<li>Uniformly over the plate, since wear is uniform</li>
+<li>At the mean radius of the friction surface</li>
+</ol>
+<div class="why">Wear ∝ p·v ∝ p·r. Uniform wear means pr = constant, so p is largest where r is smallest.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">For the same axial force and dimensions, which gives the larger torque?</p>
+<ol class="opts">
+<li>Uniform wear, because pressure is highest inside</li>
+<li>Both give the same torque for any d/D</li>
+<li>It depends only on the coefficient of friction</li>
+<li>Uniform pressure, because its friction radius is larger</li>
+</ol>
+<div class="why">R<sub>f</sub> = (1/3)(D³ − d³)/(D² − d²) ≥ (D + d)/4. Uniform wear is the conservative design basis.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A multi-plate clutch has 4 discs on the driving shaft and 3 on the driven shaft. The number of pairs of friction surfaces is:</p>
+<ol class="opts">
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>12</li>
+</ol>
+<div class="why">z = n₁ + n₂ − 1 = 4 + 3 − 1 = 6.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>In uniform wear, p<sub>a</sub> is the pressure at the <em>inner</em> radius: P = πp<sub>a</sub>d(D − d)/2.</li>
+<li>Forgetting the second friction surface on an automotive disc (lining on both faces, so 2 pairs).</li>
+<li>Counting discs instead of pairs in M<sub>t</sub> = μPz(D + d)/4.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §11.1–11.4, <a class="bk" data-p="448">pp. 448–461</a> (Examples 11.1–11.9).</li>
+<li>Course slides: clutches, uniform pressure and wear, multiple-disc clutch, <a class="ppt" data-p="547">pp. 547–575</a>; problems <a class="ppt" data-p="703">pp. 703–705</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), clutches (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want to see why the friction radius for uniform pressure is always larger than (D + d)/4? Ask me for the two-line algebraic proof.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spur Gear Design</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 44</p>
+<h1>Spur gears: dynamic load, wear strength and design</h1>
+<p class="meta">About 45 minutes · Bhandari §17.19–17.24</p>
+<div class="win"><b>Your win:</b> you can find the effective load with the service factor and either Barth's velocity factor or Buckingham's dynamic-load equation. You can derive the module from beam strength and the wear strength from Hertz contact stress, then design a spur pair and specify its surface hardness. That is the standard 15-mark gear problem.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 43)</span>
+<details class="recall"><summary>Lewis beam strength and the permissible stress Bhandari uses?</summary><div>S<sub>b</sub> = mbσ<sub>b</sub>Y with σ<sub>b</sub> = S<sub>ut</sub>/3.</div></details>
+<details class="recall"><summary>How do you pick the weaker of pinion and gear?</summary><div>The smaller σ<sub>b</sub>·Y. With the same material it is the pinion.</div></details>
+<details class="recall"><summary>Which failure does "wear strength" guard against?</summary><div>Destructive pitting, a surface fatigue failure from contact stress.</div></details>
+</div>
+
+<h2>1. Effective load: service factor and dynamic load (§17.19)</h2>
+<p><b>Service factor</b> C<sub>s</sub> = maximum torque / rated torque. It covers the torque peaks of the driver and the driven machine (Table 17.4). For an electric motor, C<sub>s</sub> = starting torque / rated torque, so "starting torque 150%" means C<sub>s</sub> = 1.5 (<a class="bk" data-p="674"></a>–675).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Driver ↓ / driven →</th><th>uniform</th><th>moderate shock</th><th>heavy shock</th></tr></thead>
+<tbody>
+<tr><td>uniform (motor, turbine)</td><td>1.00</td><td>1.25</td><td>1.75</td></tr>
+<tr><td>light shock (multi-cylinder engine)</td><td>1.25</td><td>1.50</td><td>2.00</td></tr>
+<tr><td>medium shock (single-cylinder engine)</td><td>1.50</td><td>1.75</td><td>2.25</td></tr>
+</tbody></table></div>
+<p><b>Dynamic load</b> comes from profile and spacing errors, misalignment, elastic deflection and inertia. It can be estimated two ways (<a class="bk" data-p="675"></a>–677):</p>
+<div class="formula"><span class="label">Preliminary design: Barth's velocity factor (Eqs 17.20–17.24)</span>
+\[ C_v = \frac{3}{3 + v}\ (\text{cut gears},\ v < 10) \qquad \frac{6}{6 + v}\ (\text{hobbed, generated},\ v < 20) \qquad \frac{5.6}{5.6 + \sqrt v}\ (\text{precision},\ v > 20) \]
+\[ v = \frac{\pi d'n}{60\times10^3}\ \text{m/s},\qquad P_{eff} = \frac{C_sP_t}{C_v} \]
+</div>
+<div class="formula"><span class="label">Final check: Buckingham's dynamic load (Eqs 17.25–17.29)</span>
+\[ P_d = \frac{21v\,(Ceb + P_t)}{21v + \sqrt{Ceb + P_t}},\qquad P_{eff} = C_sP_t + P_d \]
+<p>C is the deformation factor, k/(1/E<sub>p</sub> + 1/E<sub>g</sub>): <b>11 400</b> N/mm² for steel on steel (20° full depth), 7900 for steel on CI, 5700 for CI on CI. The error e = e<sub>p</sub> + e<sub>g</sub>. For each gear e (μm) = A + Bφ, with φ = m + 0.25√d′. Grade 4: 3.2 + 0.25φ. Grade 6: 8 + 0.63φ. Grade 8: 16 + 1.25φ. <b>Convert μm to mm</b> before use.</p>
+</div>
+<p>The velocity factor is simple and has a long service record (AGMA), but it ignores masses, elasticity and accuracy. Buckingham's P<sub>d</sub> is often 3–4 times P<sub>t</sub> and overestimates for small gears, small shafts (under 50 mm) and small powers (under 15 kW).</p>
+
+<h2>2. Derivation: estimating the module from beam strength (Eq. 17.30)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(m = \Big[\dfrac{60\times10^6}{\pi}\cdot\dfrac{(\text{kW})\,C_s\,(fs)}{z\,n\,C_v\,(b/m)\,\sigma_b\,Y}\Big]^{1/3}\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>\(P_t = \dfrac{2M_t}{d'} = \dfrac{2}{mz}\cdot\dfrac{60\times10^6(\text{kW})}{2\pi n} = \dfrac{60\times10^6(\text{kW})}{\pi mzn}\), so \(P_{eff} = \dfrac{C_sP_t}{C_v}\).</li>
+<li>With b = (b/m)·m: \(S_b = mb\sigma_bY = m^2\,(b/m)\,\sigma_bY\).</li>
+<li>Set S<sub>b</sub> = P<sub>eff</sub>(fs): \(m^2(b/m)\sigma_bY = \dfrac{60\times10^6(\text{kW})C_s(fs)}{\pi mznC_v}\), which gives the result. Use the z, n and σ<sub>b</sub>Y of the <b>weaker</b> gear. C<sub>v</sub> needs v, which needs m, so assume v ≈ 5 m/s first, then check.</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: Buckingham's wear strength from Hertz (§17.21)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> S<sub>w</sub> = bQd′<sub>p</sub>K, with \(Q = \dfrac{2z_g}{z_g + z_p}\) and \(K = \dfrac{\sigma_c^2\sin\alpha\cos\alpha}{1.4}\Big(\dfrac1{E_1} + \dfrac1{E_2}\Big)\).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Two cylinders of radii r₁ and r₂ pressed together by P over length l (Hertz, ν = 0.3): \(\sigma_c^2 = \dfrac{0.35\,(P/l)\,(1/r_1 + 1/r_2)}{1/E_1 + 1/E_2}\).</li>
+<li>Pitting starts near the pitch line, where one pair carries the load. So use the involute radii of curvature at the pitch point: \(r = \tfrac12 d'\sin\alpha\), giving \(\dfrac1{r_1} + \dfrac1{r_2} = \dfrac{2}{\sin\alpha}\Big(\dfrac1{d_p'} + \dfrac1{d_g'}\Big) = \dfrac{4}{Q\,d_p'\sin\alpha}\), with \(Q = \dfrac{2d_g'}{d_g' + d_p'} = \dfrac{2z_g}{z_g + z_p}\).</li>
+<li>The normal force is P = P<sub>t</sub>/cos α and the length is l = b: \(\sigma_c^2 = \dfrac{1.4P_t}{b\,Q\,d_p'\sin\alpha\cos\alpha\,(1/E_1 + 1/E_2)}\).</li>
+<li>Rearrange: P<sub>t</sub> = bQd′<sub>p</sub>K. When σ<sub>c</sub> equals the surface endurance strength, P<sub>t</sub> is the largest force without pitting: \(\boxed{S_w = bQd_p'K}\).</li>
+<li>Both gears steel (E = 206 000), α = 20°, and Niemann's σ<sub>c</sub> = 0.27(9.81)(BHN): \(\boxed{K = 0.16\Big(\dfrac{\text{BHN}}{100}\Big)^2}\) N/mm². For internal gears, Q = 2z<sub>g</sub>/(z<sub>g</sub> − z<sub>p</sub>), which is larger, so internal gears are stronger in wear (<a class="bk" data-p="678"></a>–680, 689).</li>
+</ol>
+</div></div>
+<p class="side">Why harder gears? S<sub>w</sub> ∝ BHN², but S<sub>b</sub> does not depend on hardness at all. Hardening a gear fixes pitting, not tooth breakage. Bigger modules fix breakage.</p>
+
+<h2>4. The design procedure</h2>
+<ol>
+<li>z<sub>p</sub> = 18 to 20 (20° full depth), z<sub>g</sub> = iz<sub>p</sub>. Find the weaker gear (σ<sub>b</sub>Y).</li>
+<li>Assume v = 5 m/s, giving C<sub>v</sub>. Take b = 10m and estimate m from Eq. 17.30. Round up to a standard module.</li>
+<li>Recompute d′, v, C<sub>v</sub>, P<sub>t</sub> and P<sub>eff</sub>. Check (fs) = S<sub>b</sub>/P<sub>eff</sub> ≥ 1.5 to 2. If it fails, go to the next module.</li>
+<li>Final check with Buckingham's P<sub>d</sub> for the chosen manufacturing grade. If the design fails, choose a finer grade or a larger module (Ex. 17.9).</li>
+<li>Surface hardness from S<sub>w</sub> = P<sub>eff</sub>(fs): BHN = 100√(K/0.16).</li>
+<li>List the dimensions: m, b, z, d′, d<sub>a</sub> = m(z + 2), d<sub>f</sub> = m(z − 2.5), clearance 0.25m, fillet 0.4m.</li>
+</ol>
+<p><b>Internal gears</b> (§17.23): a compact, smooth drive that uses more of the tooth face. The internal tooth is the shape of an external tooth space, so it is thicker. It is stronger in both bending and wear, so <b>design only the pinion</b>. Keep z<sub>g</sub> − z<sub>p</sub> ≥ 10 for 20° full depth (8 for stub, 12 for 14.5°). <b>Lubrication</b> (§17.24): grease for hand-operated, slow gears. A mineral oil bath (SAE 80/90/140, splash) at medium speed, a spray at high speed, and EP oils for heavy-duty boxes (<a class="bk" data-p="688"></a>–690).</p>
+
+<div class="calc"><span class="label">Spur pair check: velocity factor method, pinion weaker</span>
+<div class="inputs">
+<label>power (kW)<input data-v="kW" type="number" value="10"></label>
+<label>pinion rpm<input data-v="n" type="number" value="1440"></label>
+<label>z pinion<input data-v="zp" type="number" value="18"></label>
+<label>z gear<input data-v="zg" type="number" value="72"></label>
+<label>module m (mm)<input data-v="m" type="number" value="5"></label>
+<label>b/m<input data-v="bm" type="number" value="10"></label>
+<label>S<sub>ut</sub> (N/mm²)<input data-v="Sut" type="number" value="600"></label>
+<label>Lewis Y<input data-v="Y" type="number" value="0.308" step="0.001"></label>
+<label>service factor C<sub>s</sub><input data-v="Cs" type="number" value="1.5" step="0.25"></label>
+<label>Barth constant (3 cut, 6 hobbed)<input data-v="A" type="number" value="3"></label>
+<label>required (fs)<input data-v="fs" type="number" value="1.5" step="0.1"></label>
+</div>
+<div class="outs">
+<output data-expr="PI*m*zp*n/60000" data-label="v =" data-unit="m/s" data-dp="3"></output>
+<output data-expr="2*(60e6*kW/(2*PI*n))/(m*zp)" data-label="P<sub>t</sub> =" data-unit="N" data-dp="1"></output>
+<output data-expr="Cs*(2*(60e6*kW/(2*PI*n))/(m*zp))/(A/(A+PI*m*zp*n/60000))" data-label="P<sub>eff</sub> =" data-unit="N" data-dp="0"></output>
+<output data-expr="m*bm*m*(Sut/3)*Y" data-label="S<sub>b</sub> =" data-unit="N" data-dp="0"></output>
+<output data-expr="m*bm*m*(Sut/3)*Y/(Cs*(2*(60e6*kW/(2*PI*n))/(m*zp))/(A/(A+PI*m*zp*n/60000)))" data-label="(fs) in bending =" data-dp="2"></output>
+<output data-expr="100*sqrt(fs*Cs*(2*(60e6*kW/(2*PI*n))/(m*zp))/(A/(A+PI*m*zp*n/60000))/(bm*m*(2*zg/(zg+zp))*m*zp*0.16))" data-label="BHN for the required (fs) in wear =" data-dp="0"></output>
+</div></div>
+<p class="small">Preloaded with Bhandari Ex. 17.7. Drop m to 4 and watch the bending factor of safety fall below 1.5.</p>
+
+<h2>5. Worked example (Bhandari Ex. 17.7)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 17.7</b> (<a class="bk" data-p="681"></a>): 10 kW, 1440 rpm motor with starting torque 150%, reduction 4:1, both gears 40C8 (S<sub>ut</sub> = 600), (fs) = 1.5, 20° full depth, Lewis equation with velocity factor. Design the gears and suggest a surface hardness.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Same material, so the pinion is weaker. z<sub>p</sub> = 18 and z<sub>g</sub> = 72. Y = 0.308, C<sub>s</sub> = 1.5, M<sub>t</sub> = 66 314.6 N·mm.</li>
+<li>Assume v = 5 m/s: C<sub>v</sub> = 3/8. With b/m = 10 and σ<sub>b</sub> = 200: \(m = \Big[\dfrac{60\times10^6}{\pi}\cdot\dfrac{10(1.5)(1.5)}{18(1440)(3/8)(10)(200)(0.308)}\Big]^{1/3} = 4.16\) mm, so take <b>m = 5 mm</b>.</li>
+<li>d′<sub>p</sub> = 90, d′<sub>g</sub> = 360 and b = 50 mm. P<sub>t</sub> = 2(66 314.6)/90 = 1473.7 N. v = π(90)(1440)/60 000 = 6.786 m/s, so C<sub>v</sub> = 3/9.786 = 0.3066.</li>
+<li>P<sub>eff</sub> = 1.5(1473.7)/0.3066 = 7210 N. S<sub>b</sub> = 5(50)(200)(0.308) = 15 400 N. (fs) = 15 400/7210 = <b>2.14</b> ≥ 1.5 ✓.</li>
+<li>Q = 2(72)/90 = 1.6. S<sub>w</sub> = 50(1.6)(90)(0.16)(BHN/100)² = 1152(BHN/100)². Set this equal to 7210 × 1.5: BHN = 306.4, so specify <b>310 BHN</b>.</li>
+</ol>
+</div></div>
+
+<h2>6. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="1.51" data-tol="1.5" data-unit="">
+<p class="q">Ex. 17.8 (<a class="bk" data-p="682"></a>): 22.5 kW, 1450 rpm motor (starting torque 150%), pinion 20 teeth of Fe 410, gear 50 teeth of FG 200 (the gear is weaker), (fs) = 1.5. Bhandari gets m = 6.89 and picks <b>m = 7</b> (Choice 2) with hobbed teeth (C<sub>v</sub> = 6/(6 + v)). Actual factor of safety?</p>
+<details class="sol"><p>n<sub>g</sub> = 580 rpm and M<sub>t</sub> (gear) = 370 446.9 N·mm. d′<sub>g</sub> = 350, so P<sub>t</sub> = 2116.8 N. v = π(140)(1450)/60 000 = 10.63 m/s, so C<sub>v</sub> = 6/16.63 = 0.3608. P<sub>eff</sub> = 1.5(2116.8)/0.3608 = 8800 N. S<sub>b</sub> = 7(70)(200/3)(0.408) = 13 328 N. (fs) = <b>1.51</b>.</p></details>
+</div>
+<div class="num" data-answer="1.78" data-tol="1.5" data-unit="">
+<p class="q">Ex. 17.9 (<a class="bk" data-p="683"></a>): 19-tooth pinion on a 7.5 kW, 1500 rpm single-cylinder diesel, 40-tooth gear, C<sub>s</sub> = 1.5, steel S<sub>ut</sub> = 600, m = 4, b = 40 mm, cut teeth. Factor of safety with the velocity factor?</p>
+<details class="sol"><p>S<sub>b</sub> = 4(40)(200)(0.314) = 10 048 N. d′<sub>p</sub> = 76, P<sub>t</sub> = 1256.5 N, v = 5.969 m/s, C<sub>v</sub> = 0.3345. P<sub>eff</sub> = 5634.5 N, so (fs) = <b>1.78</b>. For (fs) = 2 in pitting: Q = 1.356, so BHN = 413 → 420.</p></details>
+</div>
+<div class="num" data-answer="10555" data-tol="1" data-unit="N">
+<p class="q">Ex. 17.9 continued: the gears are made to Grade 8. Buckingham's dynamic load?</p>
+<details class="sol"><p>Pinion: φ = 4 + 0.25√76 = 6.18, so e<sub>p</sub> = 16 + 1.25(6.18) = 23.72 μm. Gear (d′ = 160): e<sub>g</sub> = 24.95 μm. e = 48.67 μm = 0.04867 mm. Ceb = 11 400(0.04867)(40) = 22 193. P<sub>d</sub> = 21(5.969)(22 193 + 1256.5)/[21(5.969) + √23 449.5] = <b>10 555 N</b>. P<sub>eff</sub> = 1.5(1256.5) + 10 555 = 12 440 N, which exceeds both S<sub>b</sub> and S<sub>w</sub> ✗. The cure: Grade 6 (e = 24.4 μm) gives P<sub>d</sub> = 6560.5 and (fs) = 10 048/8445 = 1.19 ✓.</p></details>
+</div>
+<div class="num" data-answer="5.29" data-tol="1.5" data-unit="kW">
+<p class="q">Ex. 17.10 (<a class="bk" data-p="684"></a>): 20/41 teeth, m = 3, b = 40, steel S<sub>ut</sub> = 600 hardened to 400 BHN, pinion 1450 rpm, C<sub>s</sub> = 1.75, (fs) = 1.5, velocity factor 3/(3 + v). Rated power?</p>
+<details class="sol"><p>S<sub>b</sub> = 7680 N. Q = 82/61 = 1.344 and K = 0.16(4)² = 2.56, so S<sub>w</sub> = 40(1.344)(60)(2.56) = 8258 N. Beam strength is lower, so it governs. v = 4.555 m/s and C<sub>v</sub> = 0.397, so P<sub>eff</sub> = 1.75P<sub>t</sub>/0.397 = 4.41P<sub>t</sub>. Then 7680 = 1.5(4.41P<sub>t</sub>) gives P<sub>t</sub> = 1161 N. M<sub>t</sub> = 1161 × 30 = 34 830 N·mm, so kW = <b>5.29</b>.</p></details>
+</div>
+<div class="num" data-answer="1.48" data-tol="1.5" data-unit="">
+<p class="q">Ex. 17.11 (<a class="bk" data-p="685"></a>): 7.5 kW, 1000 → 250 rpm, a = 250 mm, steel S<sub>ut</sub> = 700, C<sub>s</sub> = 1.5, preliminary (fs) = 2. The design gives m = 4 (z = 25/100, b = 40) and Grade 6 teeth. Actual factor of safety against bending, using Buckingham?</p>
+<details class="sol"><p>S<sub>b</sub> = 4(40)(700/3)(0.34) = 12 693 N. P<sub>t</sub> = 1432.4 N and v = 5.236 m/s. e<sub>p</sub> = 8 + 0.63(4 + 0.25√100) = 12.095 μm and e<sub>g</sub> = 13.67 μm, so e = 0.025765 mm. P<sub>d</sub> = 6448.3 N and P<sub>eff</sub> = 1.5(1432.4) + 6448.3 = 8596.9 N. (fs) = <b>1.48</b>. Hardness for the same (fs) in pitting: Q = 1.6, so BHN = 352.5 → 360.</p></details>
+</div>
+
+<h2>7. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">Buckingham's wear strength equation for gears is based on:</p>
+<ol class="opts">
+<li>Lewis bending stress at the tooth root</li>
+<li>fatigue of the gear material in shear</li>
+<li>Hertz contact stress at the pitch point</li>
+<li>frictional heating between the meshing teeth</li>
+</ol>
+<div class="why">Two cylinders with the involute radii at the pitch point, pressed by P<sub>t</sub>/cos α (§17.21).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Raising the surface hardness of a steel gear pair from 300 to 400 BHN increases:</p>
+<ol class="opts">
+<li>the wear strength by about 78%</li>
+<li>the beam strength by about 33%</li>
+<li>both strengths by about 33%</li>
+<li>neither strength, only the wear life</li>
+</ol>
+<div class="why">K ∝ BHN², so (400/300)² = 1.78. The Lewis beam strength depends on S<sub>ut</sub>/3, not on surface hardness.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">For the same tooth numbers, the ratio factor Q of an internal gear pair compared with an external pair is:</p>
+<ol class="opts">
+<li>smaller, so internal gears wear sooner</li>
+<li>equal, since Q depends only on module</li>
+<li>smaller, but the face width is larger</li>
+<li>larger, so the wear strength is higher</li>
+</ol>
+<div class="why">Q = 2i/(i − 1) for internal and 2i/(i + 1) for external pairs. A concave flank meeting a convex one also gives more contact area.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">The velocity factor C<sub>v</sub> = 3/(3 + v) applies to:</p>
+<ol class="opts">
+<li>precision ground gears above 20 m/s</li>
+<li>ordinary cut gears below 10 m/s</li>
+<li>hobbed generated gears below 20 m/s</li>
+<li>any gears, whatever the pitch line velocity</li>
+</ol>
+<div class="why">3/(3 + v) for form-cut gears up to 10 m/s, 6/(6 + v) for hobbed or generated gears up to 20 m/s, and 5.6/(5.6 + √v) for precision gears.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Pitch-line velocity is the same for both gears. Compute it from the pinion's d′ and n.</li>
+<li>Buckingham uses the <b>rated</b> P<sub>t</sub> inside the formula. C<sub>s</sub> appears only in P<sub>eff</sub> = C<sub>s</sub>P<sub>t</sub> + P<sub>d</sub>.</li>
+<li>Error e is in microns in Table 17.8. Multiply by 10⁻³ before using it.</li>
+<li>K = 0.16(BHN/100)² is valid only for steel on steel at 20°. For other materials use Eq. 17.32 with σ<sub>c</sub> and the two E values.</li>
+<li>In the wear check, use the pinion's d′ (d′<sub>p</sub>) in S<sub>w</sub> = bQd′<sub>p</sub>K, even when the gear was the weaker one in bending.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §17.19–17.24, <a class="bk" data-p="674">pp. 674–690</a> (Examples 17.7–17.12).</li>
+<li>Course slides: gear design problems Q4–Q6 (Khurmi style, velocity factor and Buckingham), <a class="ppt" data-p="862">pp. 862–868</a>.</li>
+<li>Earle Buckingham, <em>Analytical Mechanics of Gears</em> (McGraw-Hill, 1949), the source of P<sub>d</sub> and S<sub>w</sub>, cited by Bhandari on <a class="bk" data-p="676">p. 676</a>.</li>
+</ul></div>
+<div class="ask"><p>Your slides' Q6 uses a "deformation factor 80" and "material factor 1.4". That is Khurmi's notation for C·e and K. Ask me and I'll map it onto Bhandari's equations.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

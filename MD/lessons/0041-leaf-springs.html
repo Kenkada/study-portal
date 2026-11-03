@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaf Springs</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 41</p>
+<h1>Leaf (multi-leaf) springs</h1>
+<p class="meta">About 35 minutes · Bhandari §10.16–10.17</p>
+<div class="win"><b>Your win:</b> you can model the graduated leaves as a triangular plate and the extra full-length leaves as a rectangular cantilever. From that you can derive how the load divides between them, prove that the full-length leaves are stressed 50% more, and derive the nip and pre-load that equalise the stresses. Then you can size the leaves of a vehicle spring.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 1 and SOM)</span>
+<details class="recall"><summary>Bending stress in a rectangular section b × t under moment M?</summary><div>σ = My/I = 6M/bt².</div></details>
+<details class="recall"><summary>Tip deflection of a uniform cantilever with end load P?</summary><div>δ = PL³/3EI.</div></details>
+<details class="recall"><summary>What is a beam of uniform strength?</summary><div>One whose section varies so that M/Z, and hence the stress, is the same at every section.</div></details>
+</div>
+
+<h2>1. Construction</h2>
+<p>A semi-elliptic spring is a stack of flat leaves of <b>graduated lengths</b>. The longest, the <b>master leaf</b>, is rolled into eyes at both ends to bolt to the chassis. One or two <b>extra full-length leaves</b> sit under it to carry the transverse shear. U-bolts and a centre clip hold the stack to the axle, and rebound clips keep the leaves aligned. Used on cars, trucks and railway wagons (<a class="bk" data-p="437"></a>).</p>
+<p>The axle pushes up with 2P at the centre and each eye carries P, so <b>each half acts as a cantilever</b> of length L (half the eye-to-eye distance) with P at its end. Notation: n<sub>f</sub> extra full-length leaves, n<sub>g</sub> graduated leaves <em>including the master leaf</em>, n = n<sub>f</sub> + n<sub>g</sub>, leaf width b and thickness t.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 220" role="img" aria-label="Semi-elliptic leaf spring and the equivalent triangular plate">
+  <path d="M40,60 Q170,125 300,60" class="ln"/>
+  <path d="M60,72 Q170,128 280,72" class="ln"/>
+  <path d="M95,92 Q170,131 245,92" class="thin"/>
+  <path d="M125,106 Q170,133 215,106" class="thin"/>
+  <circle cx="36" cy="56" r="7" class="ln"/><circle cx="304" cy="56" r="7" class="ln"/>
+  <rect x="158" y="100" width="24" height="40" class="part2"/>
+  <line x1="170" y1="200" x2="170" y2="146" class="acc"/><polygon points="164,154 176,154 170,142" class="fill-acc"/>
+  <text x="178" y="190" class="acc">2P (axle)</text>
+  <line x1="36" y1="22" x2="36" y2="44" class="blu"/><polygon points="31,38 41,38 36,48" class="dotb"/><text x="44" y="30" class="blu">P</text>
+  <line x1="304" y1="22" x2="304" y2="44" class="blu"/><polygon points="299,38 309,38 304,48" class="dotb"/><text x="284" y="30" class="blu">P</text>
+  <text x="66" y="12" class="small">master leaf (with eyes), extra full-length leaves under it</text>
+  <text x="80" y="218" class="small">each half = cantilever of length L</text>
+  <!-- triangular plate made of half-leaves -->
+  <rect x="390" y="100" width="240" height="40" class="part"/>
+  <rect x="390" y="80" width="160" height="20" class="part2"/><rect x="390" y="140" width="160" height="20" class="part2"/>
+  <rect x="390" y="60" width="80" height="20" class="part2"/><rect x="390" y="160" width="80" height="20" class="part2"/>
+  <polygon points="390,60 390,180 630,120" class="dash"/>
+  <text x="560" y="96" class="small">master leaf</text>
+  <text x="396" y="200" class="small">root width n<tspan dy="3" font-size="9">g</tspan><tspan dy="-3">b (fixed at the centre clip)</tspan></text>
+  <line x1="636" y1="80" x2="636" y2="112" class="blu"/><polygon points="631,106 641,106 636,116" class="dotb"/><text x="616" y="74" class="blu">P<tspan dy="3" font-size="9">g</tspan></text>
+</svg>
+<figcaption>Left: a semi-elliptic spring. Right: cut each graduated leaf in half lengthwise and lay the halves beside the master leaf. The result is close to a <b>triangular plate</b> of thickness t with root width n<sub>g</sub>b, which is a cantilever of uniform strength (Bhandari Fig. 10.32, <a class="bk" data-p="438"></a>).</figcaption>
+</figure>
+
+<h2>2. Derivation: load sharing and the 50% stress penalty (Eqs 10.36–10.38)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the stresses in the graduated and full-length leaves of an un-nipped spring, and its end deflection.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Graduated leaves = triangular plate</b> carrying P<sub>g</sub>. At the root I<sub>max</sub> = n<sub>g</sub>bt³/12, so \((\sigma_b)_g = \dfrac{6P_gL}{n_gbt^2}\).</li>
+<li>In a triangular plate, M and I both grow linearly from the tip, so M/EI (the curvature) is constant along the length. A constant curvature 1/ρ = P<sub>g</sub>L/EI<sub>max</sub> over length L gives a tip deflection L²/2ρ: \(\delta_g = \dfrac{P_gL^3}{2EI_{max}} = \dfrac{6P_gL^3}{En_gbt^3}\).</li>
+<li><b>Full-length leaves = rectangular cantilever</b> of width n<sub>f</sub>b carrying P<sub>f</sub>: \((\sigma_b)_f = \dfrac{6P_fL}{n_fbt^2}\) and \(\delta_f = \dfrac{P_fL^3}{3EI} = \dfrac{4P_fL^3}{En_fbt^3}\).</li>
+<li>The leaves are clamped together, so δ<sub>g</sub> = δ<sub>f</sub>: \(\dfrac{6P_g}{n_g} = \dfrac{4P_f}{n_f}\Rightarrow P_g = \dfrac{2n_g}{3n_f}P_f\). With P<sub>g</sub> + P<sub>f</sub> = P: \(P_f = \dfrac{3n_fP}{3n_f + 2n_g}\) and \(P_g = \dfrac{2n_gP}{3n_f + 2n_g}\).</li>
+<li>Substitute: \(\boxed{(\sigma_b)_g = \dfrac{12PL}{(3n_f + 2n_g)bt^2}}\) and \(\boxed{(\sigma_b)_f = \dfrac{18PL}{(3n_f + 2n_g)bt^2}}\). The full-length leaves carry <b>50% more stress</b>.</li>
+<li>End deflection: \(\boxed{\delta = \dfrac{12PL^3}{Ebt^3(3n_f + 2n_g)}}\) (Eq. 10.38). It holds with or without nipping.</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: nipping equalises the stresses (§10.17)</h2>
+<p>Before assembly, the full-length leaves are bent to a <b>larger radius</b> than the graduated leaves. That leaves a gap C, the <b>nip</b>, between them at the ends. Tightening the centre clip closes the gap and pre-stresses the leaves in opposite senses. Under full load, all the leaves then end up at the same stress. Nipping is standard in automobile springs (<a class="bk" data-p="439"></a>).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the equal stress, the nip C and the pre-load P<sub>i</sub> (Eqs 10.39–10.41).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Equal stresses: \(\dfrac{6P_gL}{n_gbt^2} = \dfrac{6P_fL}{n_fbt^2}\Rightarrow \dfrac{P_g}{P_f} = \dfrac{n_g}{n_f}\), so \(P_g = \dfrac{n_g}{n}P\) and \(P_f = \dfrac{n_f}{n}P\). The load now splits in proportion to the number of leaves.</li>
+<li>Common stress: \(\boxed{\sigma_b = \dfrac{6PL}{nbt^2}}\) (Eq. 10.41). This is the design equation for nipped springs.</li>
+<li>At full load the graduated leaves deflect more than the full-length leaves by exactly C: \(C = \dfrac{6P_gL^3}{En_gbt^3} - \dfrac{4P_fL^3}{En_fbt^3} = \dfrac{6PL^3}{Enbt^3} - \dfrac{4PL^3}{Enbt^3} = \boxed{\dfrac{2PL^3}{Enbt^3}}\).</li>
+<li>Pre-load to close the nip: treat it as P<sub>i</sub>/2 bending each group towards the other, so \(C = \dfrac{6(P_i/2)L^3}{En_gbt^3} + \dfrac{4(P_i/2)L^3}{En_fbt^3}\). Solving: \(\boxed{P_i = \dfrac{2n_gn_fP}{n(3n_f + 2n_g)}}\) (Eq. 10.40).</li>
+</ol>
+</div></div>
+<ul>
+<li><b>Materials:</b> 55Si2Mn90, 50Cr1 or 50Cr1V23, hardened and tempered. (fs) on yield is 2–2.5 for vehicle suspension (<a class="bk" data-p="439"></a>).</li>
+<li><b>Standard sizes</b> (IS 1135). Thickness: 3.2, 4.5, 5, 6, 6.5, 7, 7.5, 8, 9, 10, 11, 12, 14, 16 mm. Width: 32, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 125 mm.</li>
+</ul>
+<div class="note"><p><b>Your professor's slides add one idea (Khurmi style, <a class="ppt" data-p="772">p. 772</a>).</b> The U-bolts clamp a central band of width l so rigidly that this part does not bend. The <b>effective length</b> is then 2L = (span) − l, and L is half of that. Bhandari's examples take L as half the eye-to-eye distance. Use the band rule whenever a question gives a U-bolt spacing.</p></div>
+
+<h2>4. Worked example (Bhandari Ex. 10.25)</h2>
+<div class="example">
+<div class="ex-head"><b>Ex. 10.25</b> (<a class="bk" data-p="441"></a>): truck rear spring, n<sub>f</sub> = 2, n<sub>g</sub> = 10, eyes 1.2 m apart, 55Si2Mo90 (S<sub>yt</sub> = 1500, E = 207 000), (fs) = 2.5, maximum force 30 kN. The leaves are pre-stressed to equalise stress. Find the leaf section and the end deflection.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Each cantilever: P = 30/2 = 15 kN at L = 1200/2 = 600 mm. Allowable σ = 1500/2.5 = 600 N/mm². n = 12.</li>
+<li>Nipped spring: \(600 = \dfrac{6(15\,000)(600)}{12\,bt^2}\Rightarrow bt^2 = 7500\ \text{mm}^3\).</li>
+<li>Pick a standard width, b = 60 mm: t² = 125, so t = 11.18. Take the standard <b>t = 12 mm</b>. Section <b>60 × 12 mm</b>.</li>
+<li>\(\delta = \dfrac{12(15\,000)(600)^3}{207\,000(60)(12)^3(3\times2 + 2\times10)} = \mathbf{69.68\ mm}\).</li>
+</ol>
+</div></div>
+
+<h2>5. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="11.56" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.24 (<a class="bk" data-p="440"></a>, also slides <a class="ppt" data-p="774">p. 774</a>): automobile spring, n<sub>f</sub> = 3, n<sub>g</sub> = 15, eyes 1 m apart, maximum force 75 kN, b/t = 9, E = 207 000, nipped so that every leaf is at 450 N/mm² under full load. Leaf thickness required (before rounding)?</p>
+<details class="sol"><p>P = 37 500 N, L = 500 mm, n = 18. 450 = 6(37 500)(500)/[18(9t)t²], so t³ = 1543.2 and t = <b>11.56</b> → 12 mm. Then b = 9t = 108 mm.</p></details>
+</div>
+<div class="num" data-answer="13.48" data-tol="1" data-unit="mm">
+<p class="q">Ex. 10.24 continued (t = 12, b = 108): the initial nip C?</p>
+<details class="sol"><p>C = 2PL³/(Enbt³) = 2(37 500)(500)³/[207 000(18)(108)(12)³] = <b>13.48 mm</b>.</p></details>
+</div>
+<div class="num" data-answer="4807.7" data-tol="1" data-unit="N">
+<p class="q">Ex. 10.24 continued: the pre-load needed to close the nip?</p>
+<details class="sol"><p>P<sub>i</sub> = 2n<sub>g</sub>n<sub>f</sub>P/[n(3n<sub>f</sub> + 2n<sub>g</sub>)] = 2(15)(3)(37 500)/[18(9 + 30)] = <b>4807.7 N</b>.</p></details>
+</div>
+<div class="num" data-answer="721.2" data-tol="1" data-unit="N/mm²">
+<p class="q">Application on Ex. 10.25's spring (60 × 12 leaves, n<sub>f</sub> = 2, n<sub>g</sub> = 10, P = 15 kN, L = 600): suppose it were assembled <b>without</b> nipping. What stress would the full-length leaves see?</p>
+<details class="sol"><p>(σ)<sub>f</sub> = 18PL/[(3n<sub>f</sub> + 2n<sub>g</sub>)bt²] = 18(15 000)(600)/[26(60)(144)] = <b>721.2 N/mm²</b>, above the 600 allowed, while the graduated leaves see 480.8. Nipping brings every leaf to 6PL/nbt² = 520.8. That is the whole case for nipping in one number.</p></details>
+</div>
+
+<h2>6. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">In an un-nipped multi-leaf spring, the stress in the extra full-length leaves compared with the graduated leaves is:</p>
+<ol class="opts">
+<li>equal, since all leaves bend together</li>
+<li>50% greater than in the graduated leaves</li>
+<li>50% smaller than in the graduated leaves</li>
+<li>twice as large as in the graduated leaves</li>
+</ol>
+<div class="why">σ<sub>f</sub>/σ<sub>g</sub> = 18/12 = 1.5 (Eqs 10.36–10.37).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">The graduated leaves of a leaf spring are modelled as a triangular plate because it is:</p>
+<ol class="opts">
+<li>the lightest possible shape for any spring</li>
+<li>a beam with maximum deflection at its root</li>
+<li>a shape that removes all transverse shear</li>
+<li>a cantilever of uniform strength in bending</li>
+</ol>
+<div class="why">Width ∝ distance from the tip, so M/Z is constant along the length (Fig. 10.32).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">"Nipping" of a leaf spring means:</p>
+<ol class="opts">
+<li>pre-stressing by bending leaves to different radii</li>
+<li>clamping the leaves with U-bolts at the centre</li>
+<li>grinding the leaf ends to reduce stress concentration</li>
+<li>adding rebound clips to stop the leaves shifting sideways</li>
+</ol>
+<div class="why">The full-length leaves get a larger radius of curvature. The gap C closes when the centre bolt is tightened (§10.17).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>The force in the formulas is the <b>end</b> load P, half the centre load 2P. L is half the effective length.</li>
+<li>n<sub>g</sub> <b>includes</b> the master leaf.</li>
+<li>Nipped spring: σ = 6PL/nbt². Un-nipped: use 12PL or 18PL over (3n<sub>f</sub> + 2n<sub>g</sub>)bt². The deflection formula is the same for both.</li>
+<li>Round t and b to the standard sizes, then recompute deflection with the rounded values.</li>
+<li>If a U-bolt spacing is given (slides, Khurmi style), subtract it from the span before halving.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §10.16–10.17, <a class="bk" data-p="437">pp. 437–441</a> (Examples 10.24–10.25).</li>
+<li>Course slides: design of leaf springs and problems, <a class="ppt" data-p="761">pp. 761–774</a>, <a class="ppt" data-p="792">pp. 792–796</a>.</li>
+<li>NPTEL Design of Machine Elements I (IIT Kharagpur), springs module (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want to try the slide problem with U-bolts 80 mm apart (p. 772)? It is a Khurmi problem, so it isn't in the practice set. Ask me and we'll do it together, step by step.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

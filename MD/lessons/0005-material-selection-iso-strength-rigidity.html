@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Material Selection</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 5</p>
+<h1>Material selection: iso-strength and iso-rigidity analysis</h1>
+<p class="meta">About 25 minutes · Bhandari §2.20–2.21 · course slides pp. 86–101 (Ashby)</p>
+<div class="win"><b>Your win:</b> given two candidate materials, you can work out which gives the lighter (or cheaper) part when both are designed for the <em>same strength</em> (iso-strength) or the <em>same stiffness</em> (iso-rigidity), for a tie, a beam or a shaft.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 4)</span>
+<details class="recall"><summary>Which property measures stiffness?</summary><div>Modulus of elasticity E (and G for torsion).</div></details>
+<details class="recall"><summary>When does stiffness, not strength, govern a design?</summary><div>When accuracy or stability depends on deflection: machine-tool spindles, gear shafts, long shafts in torsion.</div></details>
+</div>
+
+<h2>1. The factors (Bhandari) and the method (Ashby)</h2>
+<p>Bhandari lists the factors to weigh: <b>availability, cost, mechanical properties, manufacturing considerations</b> (<a class="bk" data-p="51"></a>). The criterion property depends on the job: endurance limit for a connecting rod, surface hardness for piston rings, low friction for bearings, high friction for brake linings, plasticity for car body panels.</p>
+<p>Your professor's slides add <b>Ashby's four steps</b> (<a class="ppt" data-p="91">slides pp. 91–92</a>):</p>
+<ol>
+<li><b>Translation:</b> write the function, the <em>objective</em> (minimum mass or cost), the <em>constraints</em> (must carry load F without failing, or without deflecting more than δ) and the <em>free variable</em> (usually the cross-section size).</li>
+<li><b>Screening:</b> go/no-go limits (temperature, corrosion, process) remove unsuitable materials.</li>
+<li><b>Ranking:</b> sort the survivors by a <b>material index</b>.</li>
+<li><b>Supporting information:</b> check the top few in detail with supplier data and prototypes.</li>
+</ol>
+
+<h2>2. Iso-strength and iso-rigidity, derived once</h2>
+<p><b>Iso-strength</b> means every candidate is sized to carry the same load at the same factor of safety. <b>Iso-rigidity</b> means every candidate is sized to have the same deflection. Length is fixed, and the cross-section is the free variable. Eliminate it and the mass depends only on a group of material properties: the <b>material index</b> (<a href="https://archive.nptel.ac.in/content/storage2/courses/112104122/lecture24/24_5.htm" target="_blank" rel="noopener">NPTEL: Ashby method</a>).</p>
+
+<div class="example">
+<div class="ex-head"><b>Derivation: a tie</b> of length L carrying axial force F.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Iso-strength.</b> \(\dfrac{F}{A} = \dfrac{S}{(fs)}\Rightarrow A = \dfrac{F(fs)}{S}\). Mass \(m = \rho A L = F L (fs)\,\dfrac{\rho}{S}\). So the lightest tie has the highest \(\boxed{S/\rho}\).</li>
+<li><b>Iso-rigidity.</b> \(\delta = \dfrac{FL}{AE}\Rightarrow A = \dfrac{FL}{E\delta}\). Mass \(m = \dfrac{F L^2}{\delta}\dfrac{\rho}{E}\). So the lightest tie has the highest \(\boxed{E/\rho}\).</li>
+<li><b>Beam with a square section of side a</b> (bending moment M, the section keeps its shape). Strength: \(\sigma = 6M/a^3\), so \(a \propto S^{-1/3}\), \(A = a^2 \propto S^{-2/3}\), and the index is \(S^{2/3}/\rho\). Stiffness: \(\delta \propto 1/(E a^4)\), so \(a^2 \propto E^{-1/2}\), and the index is \(E^{1/2}/\rho\).</li>
+</ol>
+</div></div>
+
+<div class="tbl-wrap"><table>
+<thead><tr><th>Member (free variable)</th><th>Iso-strength index</th><th>Iso-rigidity index</th><th>Mass ratio \(m_2/m_1\) (iso-strength · iso-rigidity)</th></tr></thead>
+<tbody>
+<tr><td>Tie in tension (area A)</td><td>\(S/\rho\)</td><td>\(E/\rho\)</td><td>\(\frac{\rho_2}{\rho_1}\frac{S_1}{S_2}\) · \(\frac{\rho_2}{\rho_1}\frac{E_1}{E_2}\)</td></tr>
+<tr><td>Beam, square section (side a)</td><td>\(S^{2/3}/\rho\)</td><td>\(E^{1/2}/\rho\)</td><td>\(\frac{\rho_2}{\rho_1}\left(\frac{S_1}{S_2}\right)^{2/3}\) · \(\frac{\rho_2}{\rho_1}\left(\frac{E_1}{E_2}\right)^{1/2}\)</td></tr>
+<tr><td>Beam, fixed width b (depth h)</td><td>\(S^{1/2}/\rho\)</td><td>\(E^{1/3}/\rho\)</td><td>\(\frac{\rho_2}{\rho_1}\left(\frac{S_1}{S_2}\right)^{1/2}\) · \(\frac{\rho_2}{\rho_1}\left(\frac{E_1}{E_2}\right)^{1/3}\)</td></tr>
+<tr><td>Solid shaft in torsion (d)</td><td>\(S_s^{2/3}/\rho\)</td><td>\(G^{1/2}/\rho\)</td><td>\(\frac{\rho_2}{\rho_1}\left(\frac{S_{s1}}{S_{s2}}\right)^{2/3}\) · \(\frac{\rho_2}{\rho_1}\left(\frac{G_1}{G_2}\right)^{1/2}\)</td></tr>
+</tbody></table></div>
+<p class="side"><b>Cost instead of mass:</b> replace ρ by ρ·C<sub>m</sub> (cost per kg). The cost ratio is the mass ratio times C<sub>m2</sub>/C<sub>m1</sub>. Ashby's "cheap, stiff column" index is \(E^{1/2}/(C_m\rho)\).</p>
+<div class="tip"><p>Read the exponent from the geometry. The more freely the material can "spread out" to resist the load (a beam getting deeper, a shaft getting thicker), the smaller the exponent on S or E. So in bending, low density pays off more than high strength.</p></div>
+
+<div class="calc"><span class="label">Compare two materials (1 = reference, 2 = candidate)</span>
+<div class="inputs">
+<label>ρ₁ (g/cm³)<input data-v="r1" type="number" value="7.85" step="0.01"></label>
+<label>S₁ (N/mm²)<input data-v="s1" type="number" value="300"></label>
+<label>E₁ (N/mm²)<input data-v="e1" type="number" value="207000"></label>
+<label>cost₁ (₹/kg)<input data-v="c1" type="number" value="60"></label>
+<label>ρ₂ (g/cm³)<input data-v="r2" type="number" value="2.70" step="0.01"></label>
+<label>S₂ (N/mm²)<input data-v="s2" type="number" value="200"></label>
+<label>E₂ (N/mm²)<input data-v="e2" type="number" value="71000"></label>
+<label>cost₂ (₹/kg)<input data-v="c2" type="number" value="250"></label>
+</div>
+<div class="outs">
+<output data-expr="(r2/r1)*(s1/s2)" data-label="Tie, iso-strength m₂/m₁ =" data-dp="3"></output>
+<output data-expr="(r2/r1)*(e1/e2)" data-label="Tie, iso-rigidity m₂/m₁ =" data-dp="3"></output>
+<output data-expr="(r2/r1)*pow(s1/s2,2/3)" data-label="Beam, iso-strength m₂/m₁ =" data-dp="3"></output>
+<output data-expr="(r2/r1)*pow(e1/e2,1/2)" data-label="Beam, iso-rigidity m₂/m₁ =" data-dp="3"></output>
+<output data-expr="(r2/r1)*pow(e1/e2,1/2)*c2/c1" data-label="Beam, iso-rigidity cost₂/cost₁ =" data-dp="2"></output>
+</div></div>
+
+<h2>3. Worked example: steel vs aluminium alloy</h2>
+<div class="example">
+<div class="ex-head"><b>Compare</b> steel (ρ = 7.85 g/cm³, S = 300 N/mm², E = 207 000 N/mm²) with an aluminium alloy (ρ = 2.70, S = 200, E = 71 000). Prices assumed for the example: steel ₹60/kg, aluminium ₹250/kg.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Density ratio \(\rho_2/\rho_1 = 2.70/7.85 = 0.344\). Strength ratio \(S_1/S_2 = 1.5\). Modulus ratio \(E_1/E_2 = 2.92\).</li>
+<li><b>Tie, iso-strength:</b> \(0.344 \times 1.5 = 0.52\). The aluminium tie weighs about half as much.</li>
+<li><b>Tie, iso-rigidity:</b> \(0.344 \times 2.92 = 1.00\). Same weight! \(E/\rho\) is almost identical for steel and aluminium (Ti too). That's why a stiff tie gains nothing from aluminium.</li>
+<li><b>Beam, iso-strength:</b> \(0.344 \times 1.5^{2/3} = 0.45\). <b>Beam, iso-rigidity:</b> \(0.344\times2.92^{1/2} = 0.59\). In bending, aluminium saves 40–55% of the weight.</li>
+<li><b>Cost, stiff beam:</b> \(0.59 \times 250/60 = 2.45\). Lighter, but about 2.5 times the material cost. The designer has to judge whether the weight saving is worth it (aircraft: yes; machine-tool bed: no).</li>
+</ol>
+</div></div>
+
+<h2>4. Weighted point method (Bhandari §2.21)</h2>
+<p>Screen with go/no-go parameters first. Then for each discriminating property, take each material's share of the column total, multiply by the property's weight (1–5), and add. For cost, use 1/cost, since cheaper is better (<a class="bk" data-p="52"></a>).</p>
+
+<h2>5. Practice</h2>
+<div class="num" data-answer="0.603" data-tol="2">
+<p class="q">Carbon-fibre composite (ρ = 1.6 g/cm³, E = 70 000 N/mm²) versus steel (ρ = 7.85, E = 207 000). Find \(m_{CFRP}/m_{steel}\) for a tie of equal stiffness.</p>
+<details class="sol"><p>\((\rho_2/\rho_1)(E_1/E_2) = (1.6/7.85)(207/70) = 0.204\times2.957 = 0.603\).</p></details>
+</div>
+<div class="num" data-answer="0.350" data-tol="2">
+<p class="q">The same two materials, for a square-section beam of equal stiffness. Find the mass ratio.</p>
+<details class="sol"><p>\(0.204\times(2.957)^{1/2} = 0.204\times1.720 = 0.350\). The composite beam weighs about a third of the steel one. In bending, low density is rewarded even more.</p></details>
+</div>
+<div class="num" data-answer="2.58" data-tol="1.5" data-unit="points">
+<p class="q">Bhandari Example 2.1 (<a class="bk" data-p="52"></a>): weights are 5 for UTS, 3 for hardenability, 2 for cost. UTS of the four candidates: 850, 850, 1200, 950. Hardenability: 60, 80, 30, 100. Cost: 40, 50, 100, 80. Find the total points for <b>plain carbon steel</b> (UTS 850, hardenability 80, cost 50).</p>
+<details class="sol"><p>UTS: 850/3850 × 5 = 1.10. Hardenability: 80/270 × 3 = 0.89. Cost: (1/50)/(1/40+1/50+1/100+1/80) × 2 = 0.02/0.0675 × 2 = 0.59.</p><p>Total ≈ 2.58. Chromium steel wins with 2.715.</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">For a minimum-weight tie that must not stretch more than a set amount, which index do you maximise?</p>
+<ol class="opts">
+<li>S / ρ for equal strength</li>
+<li>E / ρ for equal stiffness</li>
+<li>E<sup>1/2</sup> / ρ for equal stiffness</li>
+<li>S<sup>2/3</sup> / ρ for equal strength</li>
+</ol>
+<div class="why">A stretch limit is a stiffness (iso-rigidity) constraint. For a tie, \(m = (FL^2/\delta)(\rho/E)\), so maximise E/ρ. E<sup>1/2</sup>/ρ is the beam version.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">In Ashby's method, what is the role of "screening"?</p>
+<ol class="opts">
+<li>Rank materials by their performance index</li>
+<li>Derive the objective function for mass</li>
+<li>Remove materials failing go/no-go limits</li>
+<li>Test prototypes before final selection</li>
+</ol>
+<div class="why">Screening removes materials that violate an absolute constraint (temperature, corrosion, process). Ranking by index comes next, and supporting information (prototypes, supplier data) comes last.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using S/ρ for a beam. The index changes with the geometry. Always derive it from the free variable.</li>
+<li>Saying "aluminium is lighter so it's better". For a stiff tie, the weights come out equal.</li>
+<li>In the weighted point method, scoring cost directly. Use 1/cost.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §2.20–2.21, <a class="bk" data-p="51">pp. 51–53</a>.</li>
+<li>Course slides: selection of material and Ashby charts, <a class="ppt" data-p="86">pp. 86–101</a>.</li>
+<li>NPTEL lecture, "Material Selection using Ashby Method": <a href="https://archive.nptel.ac.in/content/storage2/courses/112104122/lecture24/24_5.htm" target="_blank" rel="noopener">archive.nptel.ac.in</a>.</li>
+<li>M F Ashby, <em>Materials Selection in Mechanical Design</em>, ch. 5 (material indices), for depth.</li>
+</ul></div>
+<div class="ask"><p>Want to derive the index for a different shape, such as a hollow tube or a panel? Ask me and we'll do the free-variable elimination together.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

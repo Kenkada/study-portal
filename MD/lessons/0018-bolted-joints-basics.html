@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolted Joints I</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 18</p>
+<h1>Threaded fasteners and simple bolted joints</h1>
+<p class="meta">About 25 minutes · Bhandari §7.1–7.10, 7.14</p>
+<div class="win"><b>Your win:</b> you can choose between a bolt, tap bolt and stud, name the parts of an ISO thread, size a bolt in tension or shear and pick the standard M-size, and give the tightening torque. All the theory questions on fasteners (locking devices, uniform-strength bolts, rolled threads) come from this lesson too.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 4, 14)</span>
+<details class="recall"><summary>Permanent vs separable joints: one example of each.</summary><div>Permanent: riveted, welded. Separable: bolted, cotter, splined.</div></details>
+<details class="recall"><summary>What property lets a part absorb shock elastically?</summary><div>Resilience, energy ∝ (stress)² × volume.</div></details>
+</div>
+
+<h2>1. Kinds of threaded fastening</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Fastener</th><th>What it is</th><th>Use when (<a class="bk" data-p="220"></a>–222)</th></tr></thead>
+<tbody>
+<tr><td><b>Through bolt</b></td><td>Head + shank + thread; turned into a <b>nut</b></td><td>Medium-thickness parts with room for head, nut and spanner; parts too weak for threads; frequent dismantling</td></tr>
+<tr><td><b>Tap bolt / cap screw</b></td><td>Turned into a <b>tapped hole</b> in one part</td><td>One part thick and strong enough for threads, no room for a nut, rarely dismantled (tapped threads wear)</td></tr>
+<tr><td><b>Stud</b></td><td>Rod threaded at both ends: one end in a tapped hole, nut on the other</td><td>Like a tap bolt but dismantled often, e.g. cylinder head to cylinder</td></tr>
+<tr><td><b>Setscrew</b></td><td>Point presses on the other part; compression only</td><td>Stop relative motion (light duty, instead of a key). Points: flat, dog, cone, hanger, cut</td></tr>
+</tbody></table></div>
+<p><b>Advantages</b> of threaded joints: high clamping force from the wedge action, small spanner effort, compact, self-locking, cheap, detachable, standardised. <b>Disadvantages</b>: holes cause stress concentration, they loosen under vibration, and assembly is costly (DFMA says use few fasteners) (<a class="bk" data-p="219"></a>).</p>
+
+<h2>2. Thread terminology and ISO metric threads</h2>
+<p><b>Major (nominal) diameter</b> d; <b>minor (core/root)</b> d<sub>c</sub>; <b>pitch diameter</b> d<sub>p</sub> (thread width = space width); <b>pitch</b> p; <b>lead</b> (axial travel per turn); thread angle 60°. <b>Tensile stress area</b> = area of a rod of diameter (d<sub>p</sub> + d<sub>c</sub>)/2, which has the same strength as the threaded rod (<a class="bk" data-p="228"></a>).</p>
+<div class="tbl-wrap"><table>
+<caption>Extract of Bhandari Table 7.1, coarse series (<a class="bk" data-p="229"></a>)</caption>
+<thead><tr><th>Size</th><th class="num">p</th><th class="num">d<sub>c</sub></th><th class="num">A<sub>t</sub> (mm²)</th><th>Size</th><th class="num">p</th><th class="num">d<sub>c</sub></th><th class="num">A<sub>t</sub> (mm²)</th></tr></thead>
+<tbody>
+<tr><td>M8</td><td class="num">1.25</td><td class="num">6.466</td><td class="num">36.6</td><td>M20</td><td class="num">2.5</td><td class="num">16.933</td><td class="num">245</td></tr>
+<tr><td>M10</td><td class="num">1.5</td><td class="num">8.160</td><td class="num">58.0</td><td>M24</td><td class="num">3.0</td><td class="num">20.319</td><td class="num">353</td></tr>
+<tr><td>M12</td><td class="num">1.75</td><td class="num">9.853</td><td class="num">84.3</td><td>M30</td><td class="num">3.5</td><td class="num">25.706</td><td class="num">561</td></tr>
+<tr><td>M16</td><td class="num">2.0</td><td class="num">13.546</td><td class="num">157</td><td>M36</td><td class="num">4.0</td><td class="num">31.093</td><td class="num">817</td></tr>
+</tbody></table></div>
+<p><b>Coarse</b> threads: higher static strength, easier to cut, less affected by wear, less seizing. Use for general work. <b>Fine</b> threads: better under fluctuating load, resist self-loosening (smaller helix angle). Use for vibration (automobiles), thin walls and adjustment. Designation: M12 (coarse), M12 × 1.25 (fine).</p>
+<p><b>Rolled vs cut threads</b> (<a class="bk" data-p="231"></a>): rolling leaves compressive residual stress, rounded roots, unbroken grain flow and no waste. Better fatigue strength.</p>
+
+<h2>3. Locking devices and bolts of uniform strength</h2>
+<ul>
+<li><b>Locking</b> (<a class="bk" data-p="225"></a>): extra friction (jam/lock nut, split nut, spring washer, setscrew with soft pad) or positive locking (castle nut + split pin). Threads loosen under vibration and cyclic load even though they are self-locking.</li>
+<li><b>Bolt of uniform strength</b>: for shock loads, make the shank as highly stressed as the threads so it absorbs more energy. Either turn the shank down to d<sub>c</sub>, or drill an axial hole of \(d_1 = \sqrt{d^2 - d_c^2}\). Turning down is preferred. A longer shank also helps (<a class="bk" data-p="224"></a>).</li>
+</ul>
+
+<h2>4. Simple analysis</h2>
+<div class="formula"><span class="label">Eqs 7.2–7.4, 7.19</span>
+\[ \sigma_t = \frac{P}{\frac{\pi}{4}d_c^2}\ \ (\text{or } P/A_t) \qquad d_c \approx 0.8d \qquad \text{nut height } h = 0.8d \qquad M_t \approx 0.2\,P_i\,d \]
+<p>Equal strength of thread shear and core tension needs only h = 0.5d<sub>c</sub> ≈ 0.4d, so a standard 0.8d nut never strips first. Bolt in shear (fitted bolt): \(\tau = P/(n\frac{\pi}{4}d^2)\) on the shank.</p>
+</div>
+
+<h2>5. Worked example (Bhandari Ex. 7.1)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 7.1</b> (<a class="bk" data-p="232"></a>). An eye bolt lifts a 10 kN motor. Coarse threads, 30C8 (S<sub>yt</sub> = 400), (fs) = 6. Find the size.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>σ<sub>t</sub> = 400/6 = 66.67 N/mm².</li>
+<li>\(66.67 = 10\,000/(\frac{\pi}{4}d_c^2) \Rightarrow d_c = 13.82\) mm.</li>
+<li>d ≈ d<sub>c</sub>/0.8 = 17.3 mm. From the table, M16 has d<sub>c</sub> = 13.546 (too small), so choose <b>M20</b>. (Check with A<sub>t</sub>: 10 000/66.67 = 150 mm² needed; M16 has 157, which some examiners accept. State your basis.)</li>
+</ol>
+</div></div>
+
+<h2>6. Practice</h2>
+<div class="num" data-answer="8.92" data-tol="1" data-unit="mm">
+<p class="q">Ex. 7.2: two plates are joined by two fitted bolts in single shear carrying 5 kN. 30C8 (S<sub>yt</sub> = 400), (fs) = 5, S<sub>sy</sub> = 0.5S<sub>yt</sub>. Shank diameter?</p>
+<details class="sol"><p>τ = 200/5 = 40. 5000 = 2(π/4)d²(40) ⇒ d = 8.92, so M10.</p></details>
+</div>
+<div class="recall-set"><span class="label">Formula recall (no calculation needed)</span>
+<details class="recall"><summary>Wrench torque to give preload P<sub>i</sub> in a bolt of nominal diameter d?</summary><div>M<sub>t</sub> ≈ 0.2 P<sub>i</sub> d (Eq. 7.19, μ ≈ 0.15). For example, 10 kN in an M12 bolt needs about 24 N·m.</div></details>
+<details class="recall"><summary>Axial hole that turns an ordinary bolt into a bolt of uniform strength?</summary><div>\(d_1 = \sqrt{d^2 - d_c^2}\) (Eq. 7.1), which makes the shank area equal to the core area.</div></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">A cast-iron cylinder needs a head that is removed often for maintenance. Which fastener?</p>
+<ol class="opts">
+<li>Through bolts, since cast iron is brittle</li>
+<li>Tap bolts screwed into the cast iron</li>
+<li>Studs fixed in the block, with nuts on top</li>
+<li>Setscrews pressing the head onto the block</li>
+</ol>
+<div class="why">Repeatedly screwing tap bolts in and out would wear the tapped threads in the cast iron. Studs stay put in the block and only the nuts come off (<a class="bk" data-p="221"></a>).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Why do fine threads resist loosening better than coarse threads?</p>
+<ol class="opts">
+<li>Their smaller helix angle gives more self-locking</li>
+<li>Their larger core diameter adds friction</li>
+<li>Their tensile stress area is always larger</li>
+<li>They are rolled while coarse ones are cut</li>
+</ol>
+<div class="why">A smaller pitch means a smaller helix angle, well below the friction angle, so they resist self-unscrewing under vibration (<a class="bk" data-p="229"></a>).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Which locking device gives <em>positive</em> locking, not just extra friction?</p>
+<ol class="opts">
+<li>A jam nut tightened against the main nut</li>
+<li>A castle nut with a split pin through the bolt</li>
+<li>A spring washer biting the nut and base</li>
+<li>A split nut opened by a small cap screw</li>
+</ol>
+<div class="why">The split pin passes through the castle nut's slot and a hole in the bolt, so the nut cannot turn unless the pin shears. The others rely on friction.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Designing on the nominal diameter in tension. Use d<sub>c</sub> or A<sub>t</sub>.</li>
+<li>Rounding a calculated d to a non-standard size. Pick from the M-series table.</li>
+<li>Confusing pitch and lead (they differ for multi-start threads; see Lesson 22).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §7.1–7.10, <a class="bk" data-p="219">pp. 219–233</a>; tightening torque §7.14, <a class="bk" data-p="248">pp. 248–249</a>.</li>
+<li>Course slides: design of bolted joints, screw fastenings, ISO threads, <a class="ppt" data-p="321">pp. 321–349</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 18–19, "Threaded fasteners" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Tutorial Q1 and Q2 are bolt-group problems from Shigley with figures. Bring them to me with the dimensions and we'll solve them together using Lesson 19's method.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

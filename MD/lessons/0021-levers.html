@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design of Levers</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 21</p>
+<h1>Design of levers</h1>
+<p class="meta">About 25 minutes · Bhandari §4.19–4.20</p>
+<div class="win"><b>Your win:</b> you can design a lever in three steps: forces (including the fulcrum reaction), arm cross-section from bending, and fulcrum pin from bearing pressure, checked for shear. This applies to the bell-crank lever, safety-valve lever and compound lever mechanisms (Tutorial Q7).</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1, 13)</span>
+<details class="recall"><summary>Bending stress at the outer fibre of a rectangle b × d?</summary><div>σ = M(d/2)/(bd³/12) = 6M/(bd²)</div></details>
+<details class="recall"><summary>Stress on a knuckle pin pressed by the eye: what kind and what area?</summary><div>Crushing (compressive) stress on the projected area b·d.</div></details>
+</div>
+
+<h2>1. Levers: types and forces</h2>
+<p>A lever is a rigid bar pivoted at a fulcrum to multiply or transfer force: \(F\,l_2 = P\,l_1\). Mechanical advantage F/P = leverage l₁/l₂ (<a class="bk" data-p="117"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Type</th><th>Arrangement</th><th>MA</th><th>Fulcrum reaction</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td>First</td><td>fulcrum between load and effort</td><td>&lt;, = or &gt; 1</td><td>R = F + P (parallel)</td><td>rocker arm, bell crank, hand-pump lever</td></tr>
+<tr><td>Second</td><td>load between fulcrum and effort</td><td>&gt; 1</td><td>R = F − P</td><td>lever-loaded safety valve</td></tr>
+<tr><td>Third</td><td>effort between load and fulcrum</td><td>&lt; 1</td><td>R = P − F</td><td>picking fork (rare in machines)</td></tr>
+</tbody></table></div>
+<div class="formula"><span class="label">Bell-crank lever, arms at angle θ (Eqs 4.49, 4.50)</span>
+\[ R = \sqrt{F^2 + P^2 - 2FP\cos\theta} \qquad \theta = 90°:\ R = \sqrt{F^2 + P^2} \]
+</div>
+
+<h2>2. The three design steps (§4.20)</h2>
+<ol>
+<li><b>Force analysis:</b> P from moments about the fulcrum; R by vector sum.</li>
+<li><b>Lever arm:</b> maximum bending moment at the boss (M = P × (arm up to the critical section)). Rectangular section with d = 2b to 3b (or as given): \(\sigma_b = \dfrac{M(d/2)}{bd^3/12}\). Elliptical: \(I = \pi ba^3/64\) with a = 2b. Taper the arm towards the end, since M falls to zero there.</li>
+<li><b>Fulcrum pin:</b> <em>bearing pressure</em> decides the size, because the lever oscillates on it: \(R = p\,(d_1 l_1)\), with l₁/d₁ = 1 to 2 and p = 5–10 N/mm² for a phosphor-bronze bush. Then check double shear: \(\tau = R/(2\cdot\frac{\pi}{4}d_1^2)\). Boss OD ≈ 2d₁. Check bending at the boss <em>through the pin hole</em>.</li>
+</ol>
+<div class="note"><p><b>Bearing pressure vs crushing stress.</b> The formulas look the same (force/projected area), but bearing pressure applies where surfaces <em>move</em> relative to each other (pin in an oscillating lever, journal in a bearing, screw in a nut), so it is kept low, about 10 N/mm². Crushing applies where there is <em>no</em> relative motion (cotter on spigot, knuckle pin in eye), so it can be about 150 N/mm² (<a class="bk" data-p="120"></a>).</p></div>
+
+<h2>3. Worked example (Bhandari Ex. 4.16)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 4.16</b> (<a class="bk" data-p="123"></a>). A right-angled bell-crank lever raises 5 kN at the end of its 100 mm short arm; the long arm is 450 mm. 30C8 (S<sub>yt</sub> = 400), (fs) = 5. Bearing pressure 10 N/mm²; section d = 3b; fulcrum pin l/d = 1.25. The bending arm runs up to the fulcrum axis.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>σ = 80, τ = 40 N/mm².</li>
+<li>Effort: 5000 × 100 = P × 450 ⇒ P = 1111.1 N. Reaction: R = √(5000² + 1111.1²) = 5122 N.</li>
+<li>Pin: 5122 = 10 × d₁ × 1.25d₁ ⇒ d₁ = 20.24 mm, l₁ = 25.3 mm. Shear check: 5122/(2 × π/4 × 20.24²) = 7.96 &lt; 40 ✓.</li>
+<li>Boss: ID 21, OD 42, length 26 mm.</li>
+<li>Lever section: M = 5000 × 100 = 5 × 10⁵ N·mm. \(80 = \dfrac{5\times10^5(1.5b)}{b(3b)^3/12}\Rightarrow b = 16.09\), d = 48.3 mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="problem"><span class="ptitle">Ex. 4.15 (<a class="bk" data-p="121"></a>): lever-loaded safety valve</span>Blow-off at 1.5 MPa; valve opening 50 mm diameter; dead weight 1000 mm from the fulcrum; valve spindle pin 100 mm from the fulcrum. 30C8, (fs) = 5, pin bearing pressure 25 N/mm², pin l = d, lever section d = 3b.</div>
+<div class="num" data-answer="294.5" data-tol="1" data-unit="N">
+<p class="q">(a) Dead weight P.</p>
+<details class="sol"><p>F = (π/4)(50²)(1.5) = 2945.2 N. P = 2945.2 × 100/1000 = 294.5 N. Reaction R = F − P = 2650.7 N (second-type lever).</p></details>
+</div>
+<div class="num" data-answer="10.85" data-tol="1" data-unit="mm">
+<p class="q">(b) Diameter of the pin at the valve spindle (it carries the largest force, F).</p>
+<details class="sol"><p>2945.2 = 25 × d₁² ⇒ d₁ = 10.85, so 12 mm. Shear: 2945/(2 × π/4 × 144) = 13.0 &lt; 40 ✓.</p></details>
+</div>
+<div class="num" data-answer="13.02" data-tol="1" data-unit="mm">
+<p class="q">(c) Lever width b, with maximum moment at the spindle axis: M = 294.5 × (1000 − 100).</p>
+<details class="sol"><p>M = 265 068 N·mm. 80 = 265 068(1.5b)/(b(3b)³/12) ⇒ b = 13.02, so 15 mm, d = 45 mm. Checking the section through the pin hole gives 49.4 &lt; 80 ✓.</p></details>
+</div>
+<div class="problem"><span class="ptitle">Ex. 4.18 (<a class="bk" data-p="126"></a>): bench shearing machine</span>Shears 6.25 mm mild-steel bars (S<sub>us</sub> = 350). The block is pivoted at A with the bar 100 mm and the link 400 mm from A. The link connects to a lever pivoted at D: link at 100 mm and hand effort at 1000 mm from D. FeE 250, (fs) = 5; pins l/d = 1.25, p = 10 N/mm²; lever section h = 2b.</div>
+<div class="num" data-answer="268.45" data-tol="1" data-unit="N">
+<p class="q">(a) Hand effort P.</p>
+<details class="sol"><p>P<sub>s</sub> = (π/4)(6.25²)(350) = 10 738 N. Link force P₁ = 10 738 × 100/400 = 2684.5 N. Effort P = 2684.5 × 100/1000 = 268.45 N.</p></details>
+</div>
+<div class="num" data-answer="14.65" data-tol="1" data-unit="mm">
+<p class="q">(b) Pin diameter (all pins identical, designed for 2684.5 N).</p>
+<details class="sol"><p>2684.5 = 10 × d × 1.25d ⇒ d = 14.65, so 15 mm (l = 20 mm). Shear 7.6 &lt; 25 ✓. Link: σ = 50, so d = 8.27 → 10 mm.</p></details>
+</div>
+<div class="num" data-answer="19.35" data-tol="1" data-unit="mm">
+<p class="q">(c) Lever width b (maximum moment at the link pin C: M = 268.45 × 900).</p>
+<details class="sol"><p>M = 241 605. 50 = 241 605(b)/((2/3)b⁴) ⇒ b = 19.35, so 20 mm, h = 40 mm.</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">Why is the fulcrum pin sized on bearing pressure rather than crushing stress?</p>
+<ol class="opts">
+<li>The pin is made of a softer material than the lever</li>
+<li>The lever oscillates on the pin, so the surfaces slide</li>
+<li>Bearing pressure always gives a smaller pin diameter</li>
+<li>Crushing stress applies only to cast-iron components</li>
+</ol>
+<div class="why">With relative motion, a low allowable bearing pressure (5–10 N/mm²) limits wear and keeps the lubricant film. Crushing stress, much higher, is for surfaces that don't move.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">A lever-loaded boiler safety valve is which type of lever?</p>
+<ol class="opts">
+<li>First type, fulcrum between load and effort</li>
+<li>Third type, effort between load and fulcrum</li>
+<li>Compound lever made of two first-type levers</li>
+<li>Second type, load between fulcrum and effort</li>
+</ol>
+<div class="why">The steam force on the valve (load) acts between the fulcrum and the dead weight (effort), so R = F − P (<a class="bk" data-p="118"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Forgetting the fulcrum reaction is a <em>vector</em> sum for a bell crank.</li>
+<li>Taking the bending arm to the lever end instead of the boss (or the fulcrum axis, if the question says so).</li>
+<li>Skipping the check at the pin-hole section. The hole weakens the boss.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §4.19–4.20, <a class="bk" data-p="117">pp. 117–128</a> (Examples 4.15–4.18).</li>
+<li>Course slides: design of lever, safety valve, bell crank, hand, foot and cranked levers, <a class="ppt" data-p="386">pp. 386–416</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 30–31, "Levers" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Tutorial Q7 is Ex. 4.16 with different numbers (7.5 kN, arms 100 and 500 mm, FeE 300, d = 4b, l/d = 1.5). Solve it by the steps above and send me your d₁ and b to check.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

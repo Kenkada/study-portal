@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welded Joints II</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 17</p>
+<h1>Welded joints under eccentric load, bending and torsion</h1>
+<p class="meta">About 30 minutes · Bhandari §8.12–8.14</p>
+<div class="win"><b>Your win:</b> you can size the welds of a bracket whose load is offset, either <em>in the plane</em> of the welds (twisting) or <em>out of</em> it (bending), and of a shaft welded all round under torsion. This covers question bank Q26–Q35.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 15, 16)</span>
+<details class="recall"><summary>For an eccentric rivet group, how is the secondary force on each rivet found?</summary><div>P″ = C·r with C = Pe/Σr², perpendicular to r.</div></details>
+<details class="recall"><summary>Throat of a fillet weld?</summary><div>t = 0.707h</div></details>
+</div>
+
+<h2>1. Two kinds of eccentricity</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th></th><th>Load in the plane of the welds (twisting)</th><th>Load perpendicular to the plane (bending)</th></tr></thead>
+<tbody>
+<tr><td>Primary</td><td>\(\tau_1 = P/A\), parallel to P</td><td>\(\tau_1 = P/A\)</td></tr>
+<tr><td>Secondary</td><td>\(\tau_2 = \dfrac{Mr}{J}\), ⊥ to r from G (like rivets)</td><td>\(\sigma_b = \dfrac{M_by}{I}\), normal to the throat</td></tr>
+<tr><td>Combine</td><td>vector sum at the farthest point</td><td>\(\tau_{max} = \sqrt{(\sigma_b/2)^2 + \tau_1^2}\) (principal shear)</td></tr>
+</tbody></table></div>
+<p>Treat each weld as a <b>line</b> of throat width t. Work in terms of t, then set τ = permissible to get t, and h = t/0.707.</p>
+
+<div class="formula"><span class="label">Section properties of weld lines (Eqs 8.23–8.26, 8.30, 8.31)</span>
+<p><b>Polar, one straight weld</b> of length l, centre at r₁ from G: \(J = A\left(\frac{l^2}{12} + r_1^2\right)\), A = lt. Add the welds: J = J₁ + J₂ + …</p>
+<p><b>Bending, two welds of length b at ±d/2</b> (parallel to the neutral axis): \(I = \dfrac{bd^2t}{2}\). <b>Vertical weld</b> of length d through the axis: \(I = td^3/12\).</p>
+<p><b>Circular weld</b>, radius r: \(I = \pi t r^3\), \(J = 2\pi t r^3\). Under torsion: \(\tau = \dfrac{M_t}{2\pi t r^2}\).</p>
+</div>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 230" role="img" aria-label="In-plane eccentric weld and out-of-plane bending weld">
+  <g>
+    <text x="20" y="20">In-plane (twisting):</text>
+    <rect x="30" y="40" width="20" height="160" class="part"/>
+    <rect x="50" y="70" width="180" height="100" class="part2"/>
+    <line x1="50" y1="70" x2="110" y2="70" class="acc" style="stroke-width:5"/>
+    <line x1="50" y1="170" x2="110" y2="170" class="acc" style="stroke-width:5"/>
+    <circle cx="80" cy="120" r="4" class="dotb"/><text x="86" y="124" class="blu small">G</text>
+    <line x1="210" y1="80" x2="210" y2="150" class="acc"/><polygon points="205,144 215,144 210,154" class="fill-acc"/><text x="216" y="110" class="acc small">P</text>
+    <line x1="80" y1="190" x2="210" y2="190" class="thin"/><text x="130" y="205" class="small">e</text>
+  </g>
+  <g transform="translate(330,0)">
+    <text x="0" y="20">Out-of-plane (bending):</text>
+    <rect x="20" y="40" width="20" height="170" class="part"/>
+    <rect x="40" y="80" width="220" height="40" class="part2"/>
+    <line x1="40" y1="78" x2="40" y2="122" class="acc" style="stroke-width:6"/>
+    <text x="46" y="140" class="small acc">welds top and bottom</text>
+    <line x1="245" y1="40" x2="245" y2="78" class="acc"/><polygon points="240,72 250,72 245,82" class="fill-acc"/><text x="252" y="56" class="acc small">P</text>
+    <line x1="40" y1="170" x2="245" y2="170" class="thin"/><text x="130" y="186" class="small">arm → M<tspan baseline-shift="sub" font-size="9">b</tspan> = P × arm</text>
+  </g>
+</svg>
+<figcaption>Left: load in the plane of the welds twists the joint about G. Right: load perpendicular to the weld plane bends it (Bhandari Figs 8.19, 8.30).</figcaption>
+</figure>
+
+<h2>2. Worked example (Bhandari Ex. 8.12, bending)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 8.12</b> (<a class="bk" data-p="291"></a>). A bracket is welded to a column by two horizontal fillet welds, each 50 mm long, one at the top and one at the bottom, 100 mm apart. A 10 kN load acts 100 mm from the weld plane. τ = 70 N/mm². Find the weld size.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>A = 2(50t) = 100t, so τ₁ = 10 000/100t = 100/t.</li>
+<li>I = 2 × (50t)(50²) = 250 000t mm⁴ (each weld 50 mm from the neutral axis).</li>
+<li>σ<sub>b</sub> = M y/I = (10 000 × 100)(50)/(250 000t) = 200/t.</li>
+<li>τ<sub>max</sub> = √((200/2t)² + (100/t)²) = 141.42/t = 70 ⇒ t = 2.02 mm, h = 2.86 → 3 mm.</li>
+</ol>
+</div></div>
+
+<h2>3. Practice</h2>
+<div class="num" data-answer="4.54" data-tol="1.5" data-unit="mm (throat)">
+<p class="q">Ex. 8.9 (in-plane): two horizontal welds, each 50 mm long, at 25 mm above and below G and centred on it horizontally. A 7.5 kN vertical load acts 125 mm from G. τ = 100 N/mm². Find the throat t. (Farthest point r = √(25² + 25²) = 35.36 mm.)</p>
+<details class="sol"><p>A = 100t ⇒ τ₁ = 75/t (vertical). J = 2 × 50t(50²/12 + 25²) = 83 334t. τ₂ = (7500 × 125)(35.36)/83 334t = 397.8/t at 45°.</p><p>Components: vertical 75/t + 281.3/t = 356.3/t; horizontal 281.3/t. Resultant = 454/t = 100 ⇒ t = 4.54 mm (h = 6.4 mm).</p></details>
+</div>
+<div class="num" data-answer="3.11" data-tol="1.5" data-unit="mm (leg)">
+<p class="q">Ex. 8.13 (bending): a bracket is welded by two <em>vertical</em> welds, each 400 mm long. P = 50 kN at 300 mm from the weld plane. τ = 70 N/mm². Find the leg h.</p>
+<details class="sol"><p>A = 800t ⇒ τ₁ = 62.5/t. I = 2(t × 400³/12) = 10.67 × 10⁶ t. σ<sub>b</sub> = (50 000 × 300)(200)/(10.67 × 10⁶ t) = 281.2/t.</p><p>τ<sub>max</sub> = √((140.6)² + 62.5²)/t = 153.9/t = 70 ⇒ t = 2.2, h = 3.11 → 4 mm.</p></details>
+</div>
+<div class="num" data-answer="7.26" data-tol="1.5" data-unit="mm (leg)">
+<p class="q">Ex. 8.15 (bending, circular): a 50 mm diameter beam is welded all round to a support. P = 10 kN at 200 mm from the weld. τ = 100 N/mm². Find h.</p>
+<details class="sol"><p>τ₁ = 10 000/(π × 50 × t) = 63.66/t. I = πtr³ = πt(25)³. σ<sub>b</sub> = (10 000 × 200)(25)/(πt × 25³) = 1018.6/t.</p><p>τ<sub>max</sub> = √(509.3² + 63.66²)/t = 513.3/t = 100 ⇒ t = 5.13, h = 7.26 → 8 mm.</p></details>
+</div>
+<div class="num" data-answer="6.86" data-tol="1.5" data-unit="mm (leg)">
+<p class="q">Question bank Q35 / Problem 8.7 (torsion): a 75 mm shaft is welded all round to a support and carries 3000 N·m of torque. τ = 70 N/mm². Find h.</p>
+<details class="sol"><p>τ = M<sub>t</sub>/(2πtr²) ⇒ 70 = 3000 × 10³/(2πt × 37.5²) ⇒ t = 4.85 mm, h = 6.86 mm (book: 6.86).</p></details>
+</div>
+<div class="num" data-answer="6.55" data-tol="1.5" data-unit="mm (leg)">
+<p class="q">Ex. 8.11 (in-plane, three welds): two vertical welds of 150 mm, 100 mm apart, plus a 100 mm horizontal weld across their tops. G is 56.25 mm below the top weld, midway between the verticals. P = 25 kN vertical at e = 150 mm from G; τ = 55. You are given J = 1 817 708t and r<sub>max</sub> = 106.25 mm at θ = 28.07° to the horizontal. Find h.</p>
+<details class="sol"><p>τ₁ = 25 000/400t = 62.5/t (vertical). τ₂ = (25 000 × 150)(106.25)/(1 817 708t) = 219.2/t; components: vertical 103.1/t, horizontal 193.4/t.</p><p>Resultant = √(165.6² + 193.4²)/t = 254.7/t = 55 ⇒ t = 4.63, h = 6.55 → 7 mm.</p></details>
+</div>
+<p class="small">Question bank Q32–Q34 are Bhandari Problems 8.3–8.6 (figures on <a class="bk" data-p="326"></a>). Book answers: 8.3 → 40 and 80 mm; 8.4 → 8.59 mm; 8.5 → 12.94 mm; 8.6 → 6.4 mm. Solve them with the figures open.</p>
+
+<div class="mcq" data-correct="4">
+<p class="q">In the bending case, why is τ<sub>max</sub> = √((σ<sub>b</sub>/2)² + τ₁²)?</p>
+<ol class="opts">
+<li>The bending stress is always half the shear stress</li>
+<li>It is the distortion energy equivalent stress</li>
+<li>It is the vector sum of two shear stresses</li>
+<li>It is the principal shear stress from σ and τ</li>
+</ol>
+<div class="why">The throat carries a normal stress σ<sub>b</sub> plus a shear τ₁. The principal (maximum) shear stress is √((σ/2)² + τ²) (Lesson 2). That is compared with the weld's permissible shear stress.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">For a straight weld line of length l whose centre is r₁ from G, what is J about G?</p>
+<ol class="opts">
+<li>A·l²/12, ignoring r₁</li>
+<li>A(l²/12 + r₁²) by the parallel-axis theorem</li>
+<li>A·r₁² only, since the weld is thin</li>
+<li>2π t r₁³, as for a circular weld</li>
+</ol>
+<div class="why">J about the weld's own centre is ≈ Al²/12 (the thickness term is negligible). Shift to G with the parallel-axis theorem: J = A(l²/12 + r₁²) (Eq. 8.25).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Mixing up the two cases: in-plane uses J and vector addition; out-of-plane uses I and principal shear.</li>
+<li>Locating G wrongly for unsymmetrical weld groups. Take moments of the weld <em>lengths</em>.</li>
+<li>Reporting t when the question asks for size. The size is the leg, h = t/0.707.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §8.12–8.14, <a class="bk" data-p="285">pp. 285–295</a> (Examples 8.9–8.16); practice problems 8.3–8.8 with answers on <a class="bk" data-p="326">pp. 326–327</a>.</li>
+<li>Course slides: welded joint problems, <a class="ppt" data-p="296">pp. 296–300</a>; question bank Q26–Q35 (<a class="qb" data-p="38"></a>).</li>
+<li>NPTEL Design of Machine Elements I, Lecture 26 (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Got a weld group shaped like a C or an L? Give me the dimensions and I'll show you how to find G and J step by step.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

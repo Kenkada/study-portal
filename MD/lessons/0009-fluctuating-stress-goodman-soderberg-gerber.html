@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodman and Soderberg</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+<script src="../assets/goodman.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 9</p>
+<h1>Fluctuating stress: Soderberg, Goodman and Gerber criteria</h1>
+<p class="meta">About 30 minutes · Bhandari §5.12–5.14</p>
+<div class="win"><b>Your win:</b> when a stress has both a mean and an alternating part, you can locate the limiting point on the modified Goodman diagram and size the part. You can also give the factor of safety by all three criteria. These are question bank Q18–Q21.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 6–8)</span>
+<details class="recall"><summary>σ<sub>m</sub> and σ<sub>a</sub> from σ<sub>max</sub> and σ<sub>min</sub>?</summary><div>\(\sigma_m = \frac12(\sigma_{max}+\sigma_{min})\), \(\sigma_a = \frac12(\sigma_{max}-\sigma_{min})\)</div></details>
+<details class="recall"><summary>Point A of the S–N line?</summary><div>(10³ cycles, 0.9 S<sub>ut</sub>)</div></details>
+</div>
+
+<h2>1. Three borderlines between safe and unsafe</h2>
+<p>Plot mean stress σ<sub>m</sub> horizontally and amplitude σ<sub>a</sub> vertically. Pure reversal (σ<sub>m</sub> = 0) fails at S<sub>e</sub>. Pure static load (σ<sub>a</sub> = 0) fails at S<sub>ut</sub> or S<sub>yt</sub>. Between them (<a class="bk" data-p="167"></a>):</p>
+<div class="formula"><span class="label">Fatigue failure criteria (Eqs 5.36, 5.37, 5.46)</span>
+\[ \text{Soderberg: } \frac{S_m}{S_{yt}} + \frac{S_a}{S_e} = 1 \qquad \text{Goodman: } \frac{S_m}{S_{ut}} + \frac{S_a}{S_e} = 1 \qquad \text{Gerber: } \frac{S_a}{S_e} + \left(\frac{S_m}{S_{ut}}\right)^2 = 1 \]
+</div>
+<ul>
+<li><b>Gerber</b> (parabola) runs through the middle of the test data: most accurate, least conservative.</li>
+<li><b>Goodman</b> (straight line to S<sub>ut</sub>) sits just below the data. It's the most used: safe and simple, and a rough sketch is enough (<a class="bk" data-p="168"></a>).</li>
+<li><b>Soderberg</b> (straight line to S<sub>yt</sub>) is the most conservative, so no separate yield check is needed.</li>
+</ul>
+<p>With a factor of safety: replace S<sub>a</sub>, S<sub>m</sub> by n·σ<sub>a</sub>, n·σ<sub>m</sub>. For example, Goodman becomes \(\frac{1}{n} = \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}}\).</p>
+
+<div class="widget goodman" data-sut="600" data-syt="450" data-se="270" data-sm="70" data-sa="30"></div>
+<p class="small">Preloaded with Example 5.17 (σ varies 40 → 100 N/mm²). Push σ<sub>m</sub> up towards 300 and watch the yield line take over from the Goodman line.</p>
+
+<h2>2. Bhandari's modified Goodman diagram</h2>
+<p>A point with large σ<sub>m</sub> and small σ<sub>a</sub> can sit inside the Goodman line yet yield on the first cycle. So Bhandari adds the <b>yield line</b> joining S<sub>yt</sub> on both axes. The safe region OABC is bounded by the Goodman line from S<sub>e</sub> to B, then the yield line from B to S<sub>yt</sub> (<a class="bk" data-p="168"></a>).</p>
+<div class="formula"><span class="label">Procedure for axial or bending stress</span>
+<ol>
+<li>Load line through the origin: \(\tan\theta = \dfrac{\sigma_a}{\sigma_m} = \dfrac{P_a}{P_m} = \dfrac{(M_b)_a}{(M_b)_m}\). You don't need d to find it.</li>
+<li>Intersect with the Goodman line: \(S_a = \dfrac{1}{\frac{1}{S_e} + \frac{1}{S_{ut}\tan\theta}}\), \(S_m = S_a/\tan\theta\). Check \(S_a + S_m \le S_{yt}\). If not, the yield line governs.</li>
+<li>Design: \(\sigma_a = \dfrac{S_a}{(fs)}\) (or \(\sigma_m = S_m/(fs)\)) and solve for the size.</li>
+</ol>
+</div>
+<div class="formula"><span class="label">Torsional shear: mean stress does not matter (Eqs 5.42–5.45)</span>
+<p>The safe line is horizontal at S<sub>se</sub> until it meets the yield line. So: \(\tau_a = \dfrac{S_{se}}{(fs)}\) for fatigue, and \(\tau_{max} = \tau_m + \tau_a = \dfrac{S_{sy}}{(fs)}\) for yielding.</p>
+</div>
+
+<h2>3. Worked example (Bhandari Ex. 5.12, question bank Q18)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 5.12</b> (<a class="bk" data-p="169"></a>). A cantilever of cold-drawn steel 40C8 (S<sub>ut</sub> = 600, S<sub>yt</sub> = 380 N/mm²). The end force varies from −50 N to +150 N, acting 100 mm from the fillet section. Reliability 90%, (fs) = 2, q = 0.9, K<sub>t</sub> = 1.44, K<sub>a</sub> = 0.77, K<sub>b</sub> = 0.85. Find d at the fillet.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>\(K_f = 1 + 0.9(0.44) = 1.396\); \(S_e = 0.77(0.85)(0.897)(1/1.396)(300) = 126.11\) N/mm².</li>
+<li>\((M_b)_{max} = 15\,000\), \((M_b)_{min} = -5000\) N·mm. So \((M_b)_m = 5000\), \((M_b)_a = 10\,000\), and \(\tan\theta = 2\).</li>
+<li>Goodman ∩ load line: \(\frac{S_a}{126.11} + \frac{S_a/2}{600} = 1 \Rightarrow S_a = 114.12\), \(S_m = 57.06\) N/mm². Their sum, 171 &lt; 380, so the point is on the Goodman part.</li>
+<li>\(\dfrac{32(10\,000)}{\pi d^3} = \dfrac{114.12}{2} \Rightarrow d = 12.13\) mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice</h2>
+<div class="problem"><span class="ptitle">Bhandari Ex. 5.17</span>A part's stress varies from 40 to 100 N/mm². Corrected S<sub>e</sub> = 270, S<sub>ut</sub> = 600, S<sub>yt</sub> = 450 N/mm². Find the factor of safety by each criterion.</div>
+<div class="num" data-answer="4.39" data-tol="1"><p class="q">(a) Goodman</p><details class="sol"><p>σ<sub>m</sub> = 70, σ<sub>a</sub> = 30. \(\frac1n = \frac{30}{270} + \frac{70}{600}\Rightarrow n = 4.39\).</p></details></div>
+<div class="num" data-answer="3.75" data-tol="1"><p class="q">(b) Soderberg</p><details class="sol"><p>\(\frac1n = \frac{30}{270} + \frac{70}{450}\Rightarrow n = 3.75\).</p></details></div>
+<div class="num" data-answer="5.41" data-tol="1"><p class="q">(c) Gerber</p><details class="sol"><p>\(\frac{30n}{270} + \left(\frac{70n}{600}\right)^2 = 1\Rightarrow n^2 + 8.16n - 73.47 = 0 \Rightarrow n = 5.41\). Against static yielding: 450/100 = 4.5.</p></details></div>
+
+<div class="num" data-answer="30.83" data-tol="1" data-unit="mm">
+<p class="q">Question bank Q19 (Ex. 5.13, <a class="qb" data-p="28"></a>): a shaft of cold-drawn 27Mn2 (S<sub>ut</sub> = 500, S<sub>yt</sub> = 300) carries a torque varying from −100 to +400 N·m. (fs) = 2, reliability 90%, K<sub>a</sub> = 0.79, K<sub>b</sub> = 0.85, no stress concentration, distortion energy theory. Find d.</p>
+<details class="sol"><p>\(S_{se} = 0.577(150.58) = 86.88\) N/mm². \((M_t)_a = 250\) N·m. For torsion the limit is \(S_{sa} = S_{se}\), whatever the mean.</p><p>\(\frac{16(250\times10^3)}{\pi d^3} = \frac{86.88}{2}\Rightarrow d = 30.83\) mm. Yield check: \(\tau_{max} = 16(400\times10^3)/\pi(30.83)^3 = 69.5 \le 173.1/2 = 86.6\). OK.</p></details>
+</div>
+<div class="num" data-answer="11.54" data-tol="1" data-unit="mm">
+<p class="q">Question bank Q20 (Ex. 5.14): a spherical vessel, 500 mm inner diameter, cold-drawn 20C8 (S<sub>ut</sub> = 440, S<sub>yt</sub> = 242). Pressure varies 0 → 6 N/mm². Reliability 50%, (fs) = 3.5, K<sub>b</sub> = 0.85, K<sub>a</sub> = 0.82, infinite life. Find t. (Sphere: σ = pD/4t.)</p>
+<details class="sol"><p>\(S_e = 0.82(0.85)(1)(220) = 153.34\). σ<sub>max</sub> = 750/t and σ<sub>min</sub> = 0, so σ<sub>a</sub> = σ<sub>m</sub> = 375/t and tan θ = 1.</p><p>Goodman: \(S_a = 1/(1/153.34 + 1/440) = 113.71\). \(375/t = 113.71/3.5 \Rightarrow t = 11.54\) mm.</p></details>
+</div>
+<div class="num" data-answer="6910" data-tol="2" data-unit="cycles">
+<p class="q">Question bank Q21 (Ex. 5.15, finite life): a 10 mm cantilever wire of stainless steel (S<sub>ut</sub> = 860, S<sub>yt</sub> = 690), 500 mm long. The end force varies 75 → 150 N. K<sub>a</sub> = 0.72, K<sub>b</sub> = 0.85, reliability 50%. Find the life.</p>
+<details class="sol"><p>\(S_e = 0.72(0.85)(430) = 263.16\). σ<sub>m</sub> = 32(56 250)/π(10)³ = 572.96 and σ<sub>a</sub> = 190.99. The point lies outside the Goodman line, so life is finite.</p><p>Line from (S<sub>ut</sub>, 0) through the point to the σ<sub>a</sub> axis: \(S_f = \frac{\sigma_a S_{ut}}{S_{ut}-\sigma_m} = 572.2\) N/mm².</p><p>S–N: \(\log N = 3 + \frac{3(\log774 - \log572.2)}{\log774 - \log263.16} = 3.8395\Rightarrow N \approx 6910\) cycles.</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">Which criterion needs no separate check against yielding?</p>
+<ol class="opts">
+<li>Goodman, because it is a straight line</li>
+<li>Soderberg, because it ends at S<sub>yt</sub></li>
+<li>Gerber, because it fits the test data</li>
+<li>Modified Goodman, because it is curved</li>
+</ol>
+<div class="why">The Soderberg line joins S<sub>e</sub> to S<sub>yt</sub> and lies entirely inside the yield line, so any point safe by Soderberg is safe against first-cycle yielding.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">For a shaft under fluctuating torsion only, what does Bhandari's modified Goodman diagram say?</p>
+<ol class="opts">
+<li>The limit falls linearly as mean stress rises</li>
+<li>The limit follows the Gerber parabola in shear</li>
+<li>Mean stress has no effect until yielding starts</li>
+<li>Only the maximum stress should be considered</li>
+</ol>
+<div class="why">For torsional shear, line AB is horizontal at S<sub>se</sub> up to the yield line (Fig. 5.41). So you design with τ<sub>a</sub> = S<sub>se</sub>/(fs) and check τ<sub>max</sub> ≤ S<sub>sy</sub>/(fs).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Why can you find tan θ before you know the diameter?</p>
+<ol class="opts">
+<li>σ<sub>a</sub>/σ<sub>m</sub> equals the ratio of the load amplitudes</li>
+<li>The diameter is always assumed to be 50 mm</li>
+<li>tan θ depends only on S<sub>ut</sub> and S<sub>e</sub></li>
+<li>The Goodman line passes through the origin</li>
+</ol>
+<div class="why">Both stresses share the same section property, so it cancels: σ<sub>a</sub>/σ<sub>m</sub> = P<sub>a</sub>/P<sub>m</sub> = (M<sub>b</sub>)<sub>a</sub>/(M<sub>b</sub>)<sub>m</sub> (Eqs 5.39, 5.40).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Applying the Goodman line to torsion. For shear, τ<sub>a</sub> = S<sub>se</sub>/(fs).</li>
+<li>Forgetting the yield check (S<sub>a</sub> + S<sub>m</sub> ≤ S<sub>yt</sub>).</li>
+<li>Mixing up which strength goes on which axis: S<sub>e</sub> on the σ<sub>a</sub> axis, S<sub>ut</sub> or S<sub>yt</sub> on the σ<sub>m</sub> axis.</li>
+<li>Not sketching the diagram. Most examiners give marks for the labelled sketch.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §5.12–5.14, <a class="bk" data-p="167">pp. 167–177</a> (Examples 5.12–5.18).</li>
+<li>Course slides: Soderberg and Goodman lines, modified Goodman diagram, <a class="ppt" data-p="240">pp. 240–245</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 11, "Modified Goodman diagram, Gerber line, Soderberg line" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Can't tell whether the load line hits the Goodman part or the yield part? Give me the numbers and we'll sketch it together.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

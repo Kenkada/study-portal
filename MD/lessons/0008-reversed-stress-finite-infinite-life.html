@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finite and Infinite Life</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+<script src="../assets/sn.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 8</p>
+<h1>Reversed stress: design for finite and infinite life</h1>
+<p class="meta">About 25 minutes · Bhandari §5.10–5.11</p>
+<div class="win"><b>Your win:</b> under completely reversed stress you can (a) size a part for infinite life, (b) find the fatigue strength for a given number of cycles, (c) find the life at a given stress, and (d) combine several stress levels with Miner's rule. These are question bank Q14–Q17.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 6–7)</span>
+<details class="recall"><summary>K<sub>f</sub> from K<sub>t</sub> and q?</summary><div>\(K_f = 1 + q(K_t - 1)\), and \(K_d = 1/K_f\).</div></details>
+<details class="recall"><summary>Endurance limit for axial load in terms of S<sub>e</sub>?</summary><div>0.8 S<sub>e</sub></div></details>
+<details class="recall"><summary>Ductile part, static load, with a hole: use K<sub>t</sub>?</summary><div>No. Local yielding redistributes the stress.</div></details>
+</div>
+
+<h2>1. Infinite life: keep the amplitude under S<sub>e</sub></h2>
+<div class="formula"><span class="label">Eqs 5.31, 5.32</span>
+\[ \sigma_a = \frac{S_e}{(fs)} \qquad \tau_a = \frac{S_{se}}{(fs)} \]
+</div>
+<p>That is the whole design equation. All the work is in getting S<sub>e</sub> right (Lessons 6–7).</p>
+
+<h2>2. Finite life: the S–N line from 10³ to 10⁶ cycles</h2>
+<p>Bhandari draws a straight line on log–log axes from point A (10³ cycles, <b>0.9 S<sub>ut</sub></b>) to point B (10⁶ cycles, <b>S<sub>e</sub></b>), using the <em>corrected</em> S<sub>e</sub> (<a class="bk" data-p="160"></a>).</p>
+<div class="formula"><span class="label">Straight line through A(3, log 0.9S<sub>ut</sub>) and B(6, log S<sub>e</sub>)</span>
+\[ \log S_f = \log(0.9S_{ut}) - \frac{\log(0.9S_{ut}) - \log S_e}{3}\,(\log N - 3) \]
+\[ \log N = 3 + \frac{3\,[\log(0.9S_{ut}) - \log \sigma]}{\log(0.9S_{ut}) - \log S_e} \]
+</div>
+<div class="widget sn" data-sut="600" data-se="100.64" data-s="250" data-n="90000"></div>
+<p class="small">Preloaded with Example 5.7 (σ = 250 N/mm² on a bar with S<sub>e</sub> = 100.64). Read the life, then change N to 90 000 to see the fatigue strength.</p>
+
+<h2>3. Cumulative damage: Miner's rule</h2>
+<p>Each cycle at stress σ<sub>i</sub> uses up 1/N<sub>i</sub> of the life. Failure comes when the fractions add up to 1 (<a class="bk" data-p="166"></a>):</p>
+<div class="formula"><span class="label">Miner's equation (Eqs 5.33, 5.35)</span>
+\[ \frac{n_1}{N_1} + \frac{n_2}{N_2} + \dots = 1 \qquad\text{or, with time fractions } \alpha_i:\quad \frac{1}{N} = \frac{\alpha_1}{N_1} + \frac{\alpha_2}{N_2} + \dots \]
+</div>
+
+<h2>4. Worked example (Bhandari Ex. 5.7, question bank Q15)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 5.7</b> (<a class="bk" data-p="162"></a>). A forged steel bar, 50 mm diameter, steel 40C8 (S<sub>ut</sub> = 600 N/mm²), carries a reversed bending stress of 250 N/mm². Reliability 90%. Ignore stress concentration. Find the life.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>\(S_e = K_aK_bK_c(0.5S_{ut}) = 0.44(0.85)(0.897)(300) = 100.64\) N/mm².</li>
+<li>Since 250 &gt; S<sub>e</sub>, the life is finite. \(\log(0.9S_{ut}) = \log 540 = 2.7324\); \(\log S_e = 2.0028\); \(\log 250 = 2.3979\).</li>
+<li>\(\log N = 3 + \dfrac{3(2.7324 - 2.3979)}{2.7324 - 2.0028} = 3 + 1.3754 = 4.3754\).</li>
+<li>\(N = 10^{4.3754} \approx 23\,736\) cycles. In the exam, draw the S–N sketch with A, B and your point marked. It earns method marks.</li>
+</ol>
+</div></div>
+
+<h2>5. Practice</h2>
+<div class="num" data-answer="386.6" data-tol="1" data-unit="N/mm²">
+<p class="q">Question bank Q16 (Ex. 5.6, <a class="qb" data-p="25"></a>): a rotating bar of steel 45C8 (S<sub>ut</sub> = 630 N/mm²) has a corrected endurance limit of 315 N/mm². Find its fatigue strength for a life of 90 000 cycles.</p>
+<details class="sol"><p>\(\log 567 = 2.7536\), \(\log 315 = 2.4983\), \(\log 90\,000 = 4.9542\).</p><p>\(\log S_f = 2.7536 - \frac{2.7536-2.4983}{3}(4.9542-3) = 2.5873\Rightarrow S_f = 386.6\) N/mm².</p></details>
+</div>
+<div class="num" data-answer="15960" data-tol="2" data-unit="cycles">
+<p class="q">Question bank Q17 (Ex. 5.8): at the critical fillet section of a rotating shaft, d = 30 mm and M<sub>b</sub> = 642.9 N·m. Machined 30C8 (S<sub>ut</sub> = 500), K<sub>a</sub> = 0.79, K<sub>b</sub> = 0.85, K<sub>c</sub> = 0.897, K<sub>t</sub> = 1.72, q = 0.78. Find the life.</p>
+<details class="sol"><p>\(\sigma = 32(642.9\times10^3)/\pi(30)^3 = 242.5\) N/mm². \(K_f = 1 + 0.78(0.72) = 1.5616\), \(K_d = 0.640\).</p><p>\(S_e = 0.79(0.85)(0.897)(0.640)(250) = 96.4\) N/mm². \(\log N = 3 + \frac{3(\log450 - \log242.5)}{\log450 - \log96.4} = 4.203\Rightarrow N \approx 15\,960\) cycles.</p></details>
+</div>
+<div class="num" data-answer="17.05" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 5.10: a cantilever of cold-drawn steel 20C8 (S<sub>ut</sub> = 540, K<sub>a</sub> = 0.78) carries a completely reversed ±1000 N load 150 mm from the critical fillet section, where K<sub>t</sub> = 1.35 and q = 0.85. Reliability 90%, K<sub>b</sub> = 0.85. Find d for a life of 10 000 cycles. (No separate (fs): design at the fatigue strength.)</p>
+<details class="sol"><p>\(K_f = 1 + 0.85(0.35) = 1.2975\). \(S_e = 0.78(0.85)(0.897)(1/1.2975)(270) = 123.8\) N/mm².</p><p>\(\log S_f = \log486 - \frac{\log486-\log123.8}{3}(4-3) = 2.4886\Rightarrow S_f = 308.0\) N/mm².</p><p>\(308.0 = \dfrac{32(1000\times150)}{\pi d^3}\Rightarrow d = 17.05\) mm.</p></details>
+</div>
+<div class="num" data-answer="62723" data-tol="2" data-unit="cycles">
+<p class="q">Ex. 5.11 (Miner): a part of 50C4 (S<sub>ut</sub> = 660, corrected S<sub>e</sub> = 280 N/mm²) spends 85% of its cycles at ±350, 12% at ±400 and 3% at ±500 N/mm². Find its life.</p>
+<details class="sol"><p>From the S–N line: N₁ = 128 798, N₂ = 37 770, N₃ = 4865 cycles.</p><p>\(\frac1N = \frac{0.85}{128\,798} + \frac{0.12}{37\,770} + \frac{0.03}{4865}\Rightarrow N \approx 62\,723\) cycles. The 3% of cycles at ±500 does almost as much damage as the 85% at ±350.</p></details>
+</div>
+<div class="num" data-answer="27.61" data-tol="1" data-unit="mm">
+<p class="q">Ex. 5.5 (infinite life): a machined plate of 45C8 (S<sub>ut</sub> = 630, K<sub>a</sub> = 0.76) narrows from 100 mm to 50 mm through 5 mm fillets (K<sub>t</sub> = 2.27, q = 0.8). It carries a completely reversed ±50 kN axial force. Reliability 90%, K<sub>b</sub> = 0.85, (fs) = 2. Find t.</p>
+<details class="sol"><p>\(K_f = 1 + 0.8(1.27) = 2.016\). \(S_e = 0.76(0.85)(0.897)(0.496)(315) = 90.54\). Axial: \(0.8 S_e = 72.43\). Permissible: 36.22 N/mm².</p><p>\(t = 50\,000/(50 \times 36.22) = 27.61\) mm.</p></details>
+</div>
+
+<div class="mcq" data-correct="4">
+<p class="q">In Bhandari's finite-life S–N line, what are the two anchor points?</p>
+<ol class="opts">
+<li>S<sub>ut</sub> at one cycle and S<sub>e</sub> at 10⁶ cycles</li>
+<li>S<sub>yt</sub> at 10³ cycles and S′<sub>e</sub> at 10⁶ cycles</li>
+<li>0.9 S<sub>ut</sub> at 10⁶ and S<sub>e</sub> at 10⁸ cycles</li>
+<li>0.9 S<sub>ut</sub> at 10³ and corrected S<sub>e</sub> at 10⁶ cycles</li>
+</ol>
+<div class="why">A = (10³, 0.9 S<sub>ut</sub>) and B = (10⁶, S<sub>e</sub>) on log–log axes, with the <em>corrected</em> S<sub>e</sub> (Fig. 5.27).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">A part sees a reversed stress below its corrected S<sub>e</sub>. What is its predicted life?</p>
+<ol class="opts">
+<li>Exactly 10⁶ cycles, then failure</li>
+<li>Infinite, for a steel component</li>
+<li>Found from Miner's equation directly</li>
+<li>Between 10³ and 10⁶ cycles always</li>
+</ol>
+<div class="why">For steels the S–N curve is flat beyond 10⁶ cycles, so a stress amplitude below S<sub>e</sub> gives infinite life. (Aluminium alloys have no true endurance limit.)</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using S′<sub>e</sub> (specimen) instead of the corrected S<sub>e</sub> at point B.</li>
+<li>Keeping too few decimals in the logs. Carry four.</li>
+<li>Applying (fs) twice in finite-life problems. Bhandari's finite-life examples compare stress directly with S<sub>f</sub>. Apply (fs) only if the question gives one.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §5.10–5.11, <a class="bk" data-p="159">pp. 159–167</a> (Examples 5.3–5.11).</li>
+<li>Course slides: design for finite and infinite life, <a class="ppt" data-p="237">pp. 237–238, 256–270</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 10, "Fatigue strength, endurance limit" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Logs giving you trouble? Ask me for a calculator-key sequence for the S–N formula. It saves about two minutes per question.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

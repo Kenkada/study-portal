@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muff and Clamp Couplings</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 28</p>
+<h1>Couplings I: muff and clamp couplings</h1>
+<p class="meta">About 25 minutes · Bhandari §9.16–9.20</p>
+<div class="win"><b>Your win:</b> you can explain coupling types and requirements, design a muff (sleeve) coupling, and derive and design a clamp (split-muff) coupling, where the torque goes through friction from the bolts.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 25, 27)</span>
+<details class="recall"><summary>Key shear and crushing stresses?</summary><div>τ = 2M<sub>t</sub>/(dbl), σ<sub>c</sub> = 4M<sub>t</sub>/(dhl)</div></details>
+<details class="recall"><summary>Torsional shear stress in a hollow cylinder (D outside, d inside)?</summary><div>τ = 16M<sub>t</sub>D/[π(D⁴ − d⁴)]</div></details>
+</div>
+
+<h2>1. Couplings: what and which</h2>
+<p>A <b>coupling</b> permanently joins two rotating shafts (motor to pump, motor to gearbox). A <b>clutch</b>, by contrast, can connect and disconnect at will (<a class="bk" data-p="356"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Shaft axes</th><th>Coupling</th></tr></thead>
+<tbody>
+<tr><td>Collinear, accurately aligned, no shock</td><td><b>Rigid</b>: muff, clamp, flange</td></tr>
+<tr><td>Collinear with slight misalignment, shock</td><td><b>Flexible</b>: bushed-pin (about 0.5 mm lateral/axial, 1.5° angular), multiflex</td></tr>
+<tr><td>Parallel, small offset</td><td>Oldham coupling</td></tr>
+<tr><td>Intersecting</td><td>Hooke's (universal) joint</td></tr>
+</tbody></table></div>
+<p><b>Requirements of a good coupling:</b> transmit the full torque, keep the shafts aligned, be easy to assemble and dismantle, and have no projecting parts (or guard them).</p>
+
+<h2>2. Muff (sleeve, box) coupling</h2>
+<p>A cast-iron sleeve keyed over both shaft ends. Torque path: shaft → key → sleeve → key → shaft. <b>For:</b> simplest (2 parts), smooth outside, compact, cheap. <b>Against:</b> hard to assemble (shift the sleeve or the shafts), needs accurate alignment, no shock absorption, long. Used up to about 70 mm shafts (<a class="bk" data-p="357"></a>).</p>
+<div class="formula"><span class="label">Muff coupling procedure (§9.18)</span>
+<p>d from \(\tau = 16M_t/\pi d^3\) → sleeve \(D = 2d + 13\) mm, \(L = 3.5d\) → check sleeve as a hollow shaft \(\tau = \frac{16M_tD}{\pi(D^4 - d^4)}\) → key from Table 9.3, length L/2 in each shaft, check τ and σ<sub>c</sub>.</p>
+</div>
+
+<h2>3. Clamp (split-muff, compression) coupling: derivation</h2>
+<p>The sleeve is split in two along the shaft axis and clamped by bolts (4 or 8, always multiples of 4). Torque goes by <b>friction</b> plus a key, but each is designed for the full torque. Easy to fit without moving the shafts, but hard to balance (not for high speed), unsuitable for shock, needs a guard. Used for line shafts (now obsolete) (<a class="bk" data-p="359"></a>).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the bolt force needed for a clamp coupling with n bolts, friction coefficient f, shaft diameter d (Eq. 9.40).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Half the bolts (n/2) clamp each shaft. Each bolt pulls with P₁, so the clamping force on one shaft is \(N = P_1\,\dfrac{n}{2}\).</li>
+<li>Each sleeve half presses on the shaft with N (upper and lower halves). The friction on each half is fN, acting at radius d/2.</li>
+<li>Friction torque: \(M_t = 2\,(fN)\,\dfrac{d}{2} = fNd = f\,d\,P_1\,\dfrac{n}{2}\).</li>
+<li>So \(\boxed{P_1 = \dfrac{2M_t}{f\,d\,n}}\), and the bolt core size from \(P_1 = \dfrac{\pi}{4}d_1^2\sigma_t\). f ≈ 0.3. Empirical alternative: d₁ = 0.2d + 10 (d &lt; 55 mm), 0.15d + 15 (d &gt; 55 mm); sleeve D = 2.5d, L = 3.5d.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="problem"><span class="ptitle">Ex. 9.18 (<a class="bk" data-p="358"></a>): muff coupling</span>25 kW at 360 rpm. Shafts and key 30C8 (S<sub>yt</sub> = S<sub>yc</sub> = 400), (fs) = 4; sleeve FG 200, (fs) = 6 on ultimate (S<sub>su</sub> = 0.5S<sub>ut</sub>).</div>
+<div class="num" data-answer="40.73" data-tol="1" data-unit="mm">
+<p class="q">(a) Shaft diameter before rounding.</p>
+<details class="sol"><p>M<sub>t</sub> = 663 146 N·mm; τ = 50 ⇒ d = 40.73, so 45 mm.</p></details>
+</div>
+<div class="num" data-answer="3.02" data-tol="1.5" data-unit="N/mm²">
+<p class="q">(b) With d = 45, D = 105, L = 160 mm, find the shear stress in the sleeve.</p>
+<details class="sol"><p>J = π(105⁴ − 45⁴)/32 = 11.53 × 10⁶ mm⁴; τ = 663 146 × 52.5/J = 3.02 &lt; 16.67 ✓.</p></details>
+</div>
+<div class="num" data-answer="81.87" data-tol="1" data-unit="N/mm²">
+<p class="q">(c) Key 14 × 9 × 80 (L/2): crushing stress?</p>
+<details class="sol"><p>σ<sub>c</sub> = 4M<sub>t</sub>/(dhl) = 4(663 146)/(45 × 9 × 80) = 81.87 &lt; 100 ✓; τ = 26.32 &lt; 50 ✓.</p></details>
+</div>
+<div class="problem"><span class="ptitle">Ex. 9.19 (<a class="bk" data-p="361"></a>): clamp coupling</span>50 kW at 120 rpm; 30C8 (S<sub>yt</sub> = 400, S<sub>yc</sub> = 1.5S<sub>yt</sub>), (fs) = 5; 8 bolts; f = 0.3.</div>
+<div class="num" data-answer="79.72" data-tol="1" data-unit="mm">
+<p class="q">(a) Shaft diameter.</p>
+<details class="sol"><p>M<sub>t</sub> = 3 978 874 N·mm; τ = 40 ⇒ d = 79.72, so 80 mm; D = 200, L = 280 mm.</p></details>
+</div>
+<div class="num" data-answer="25.68" data-tol="1" data-unit="mm">
+<p class="q">(b) Bolt core diameter on the friction basis.</p>
+<details class="sol"><p>P₁ = 2M<sub>t</sub>/(fdn) = 2(3 978 874)/(0.3 × 80 × 8) = 41 447 N. d₁ = √(4P₁/(π × 80)) = 25.68, so 26 mm (empirical: 0.15(80) + 15 = 27 mm). Key 22 × 14 × 140: τ = 32.3, σ<sub>c</sub> = 101.5 ✓.</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">How is torque transmitted in a muff coupling, compared with a clamp coupling?</p>
+<ol class="opts">
+<li>Both transmit torque only by friction</li>
+<li>Muff by friction; clamp only by key shear</li>
+<li>Muff by key shear; clamp by friction and key</li>
+<li>Both transmit torque only through bolt shear</li>
+</ol>
+<div class="why">Muff: key shear alone. Clamp: friction from the bolt clamping plus the key, each designed for full torque (<a class="bk" data-p="359"></a>).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Doubling the number of clamping bolts (same bolt size) in a clamp coupling changes its friction torque capacity by a factor of:</p>
+<ol class="opts">
+<li>1, since only the key carries torque</li>
+<li>2, since torque is proportional to n</li>
+<li>4, since torque is proportional to n²</li>
+<li>√2, since bolts act in pairs</li>
+</ol>
+<div class="why">M<sub>t</sub> = f d P₁ n/2, which is linear in n.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Muff sleeve: check it as a hollow shaft, with the cast-iron allowable stress (S<sub>su</sub>/(fs) based on ultimate).</li>
+<li>Clamp coupling: only n/2 bolts act on each shaft.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §9.16–9.20, <a class="bk" data-p="356">pp. 356–362</a> (Examples 9.18, 9.19).</li>
+<li>Course slides: design of couplings, muff and clamp, <a class="ppt" data-p="518">pp. 518–531</a>, muff design problem <a class="ppt" data-p="546">p. 546</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 16, "Couplings: types and uses" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Oldham and Hooke's couplings belong to Theory of Machines. If your professor asks about them here, ask me for a one-page summary.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

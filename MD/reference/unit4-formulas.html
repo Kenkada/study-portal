@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 4 Formulas</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body class="ref">
+<main class="page">
+<p class="kicker">Reference · Unit 4</p>
+<h1>Springs and gears: formula and procedure sheet</h1>
+<p class="meta">Bhandari notation; N, mm, N/mm² unless stated. Prints on 3 pages.</p>
+
+<h2>Helical springs (Ch. 10)</h2>
+<div class="grid2">
+<div class="card"><h3>Stress and deflection</h3>
+\[ \tau = K\frac{8PD}{\pi d^3} = K\frac{8PC}{\pi d^2},\quad K = \frac{4C-1}{4C-4} + \frac{0.615}{C},\quad K_s = 1 + \frac{0.5}{C} \]
+\[ \delta = \frac{8PD^3N}{Gd^4},\quad k = \frac{Gd^4}{8D^3N},\quad U = \tfrac12P\delta \]
+<p>C = D/d (4–12; 6–9 cyclic). K: C = 5 → 1.3105, 6 → 1.2525, 8 → 1.184. G = 81 370. Series 1/k = Σ1/k<sub>i</sub>; parallel k = Σk<sub>i</sub>.</p></div>
+<div class="card"><h3>Lengths and design</h3>
+<p>Active coils: plain N<sub>t</sub>, plain + ground N<sub>t</sub> − ½, square (ground) N<sub>t</sub> − 2, extension N<sub>t</sub>. Solid = N<sub>t</sub>d; free = solid + (N<sub>t</sub> − 1)(0.5–2 mm) or 15% δ + δ<sub>max</sub>; pitch = free/(N<sub>t</sub> − 1). Buckling: free/D ≤ 2.6, else guide. τ = 0.3S<sub>ut</sub> (fs 1.5) to 0.5S<sub>ut</sub> (IS 4454). S<sub>ut</sub> falls with d, so trial and error. Range of force: d from P<sub>max</sub>, N from ΔP/Δδ.</p></div>
+<div class="card"><h3>Fluctuating load</h3>
+\[ \tau_m = K_s\frac{8P_mD}{\pi d^3},\ \ \tau_a = K\frac{8P_aD}{\pi d^3},\ \ \frac{\tau_a}{S_{sy}/(fs) - \tau_m} = \frac{\tfrac12S'_{se}}{S_{sy} - \tfrac12S'_{se}} \]
+<p>Patented: S′<sub>se</sub> = 0.21S<sub>ut</sub>, S<sub>sy</sub> = 0.42S<sub>ut</sub>. Oil-hardened: 0.22 and 0.45. Min-weight valve spring: P<sub>min</sub> = ½P<sub>max</sub>. Surge: f = ½√(k/m) (both ends on plates), keep f ≥ 15–20 × forcing.</p></div>
+<div class="card"><h3>Concentric springs</h3>
+<p>Same material, stress, free and solid length: C₁ = C₂, P₁/P₂ = d₁²/d₂², and with 2c = d₁ − d₂, d₁/d₂ = C/(C − 2). Opposite hands. Otherwise: parallel springs, equal δ (Ex. 10.18), or a stepped rate if free lengths differ (Ex. 10.19).</p></div>
+</div>
+
+<h2>Open-coiled, torsion and leaf springs</h2>
+<div class="grid2">
+<div class="card"><h3>Open-coiled (helix angle α, n turns)</h3>
+<p>T = WR cos α, M = WR sin α, wire length 2πRn/cos α. τ = 16WR cos α/πd³, σ<sub>b</sub> = 32WR sin α/πd³, τ<sub>max</sub> = 16WR/πd³, σ₁ = (16WR/πd³)(1 + sin α).</p>
+\[ \delta = \frac{8WD^3n}{d^4\cos\alpha}\Big(\frac{\cos^2\alpha}{G} + \frac{2\sin^2\alpha}{E}\Big),\quad \phi = \frac{16WD^2n\sin\alpha}{d^4}\Big(\frac1G - \frac2E\Big) \]</div>
+<div class="card"><h3>Helical torsion spring</h3>
+<p>σ<sub>b</sub> = K<sub>i</sub>·32M<sub>b</sub>/πd³, K<sub>i</sub> = (4C² − C − 1)/[4C(C − 1)], K<sub>o</sub> = (4C² + C − 1)/[4C(C + 1)]. θ = 64M<sub>b</sub>DN/Ed⁴ rad; k = Ed⁴/64DN (N·mm/rad). The wire is in bending. Load it in the winding direction.</p></div>
+<div class="card"><h3>Multi-leaf spring (end load P, half-length L)</h3>
+\[ \sigma_g = \frac{12PL}{(3n_f + 2n_g)bt^2},\ \ \sigma_f = \frac{18PL}{(3n_f + 2n_g)bt^2},\ \ \delta = \frac{12PL^3}{Ebt^3(3n_f + 2n_g)} \]
+<p>n<sub>g</sub> includes the master leaf. Nipped (equal stress): σ = 6PL/nbt², C = 2PL³/Enbt³, P<sub>i</sub> = 2n<sub>g</sub>n<sub>f</sub>P/[n(3n<sub>f</sub> + 2n<sub>g</sub>)]. U-bolt band l: 2L = span − l (slides, Khurmi). Standard t: 5, 6, 6.5, 7, 7.5, 8, 9, 10, 11, 12, 14, 16. Standard b: 32 … 125.</p></div>
+</div>
+
+<h2>Gear geometry (Ch. 17)</h2>
+<div class="grid2">
+<div class="card"><h3>Module system</h3>
+<p>d′ = mz, p = πm, a = m(z<sub>p</sub> + z<sub>g</sub>)/2, i = z<sub>g</sub>/z<sub>p</sub> = n<sub>p</sub>/n<sub>g</sub>. 20° full depth: h<sub>a</sub> = m, h<sub>f</sub> = 1.25m, c = 0.25m, tooth thickness 1.5708m, fillet 0.4m, d<sub>a</sub> = m(z + 2), d<sub>f</sub> = m(z − 2.5). 14.5° FD: h<sub>f</sub> 1.157m, c 0.157m. Stub: h<sub>a</sub> 0.8m, h<sub>f</sub> m. Modules (Choice 1): 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20.</p></div>
+<div class="card"><h3>Rules of thumb</h3>
+<p>Law of gearing: ω₁/ω₂ = O₂P/O₁P. z<sub>min</sub> = 2/sin²α: 32 (14.5°), 17 (20°), 14 (stub); use z<sub>p</sub> = 18–20. b = 8m–12m (start at 10m). Ratio ≤ 6:1 per pair; two stages i = √i′, three stages ∛i′. Contact ratio ≥ 1.2 (1.4–1.7). Internal gears: z<sub>g</sub> − z<sub>p</sub> ≥ 10 (20° FD). Idler: same ratio, direction changes.</p></div>
+</div>
+
+<h2>Spur gear strength (Ch. 17)</h2>
+<div class="grid2">
+<div class="card"><h3>Forces and Lewis</h3>
+\[ M_t = \frac{60\times10^6\,\text{kW}}{2\pi n},\ P_t = \frac{2M_t}{d'},\ P_r = P_t\tan\alpha,\ S_b = mb\sigma_bY,\ \sigma_b = \frac{S_{ut}}{3} \]
+<p>Driver: P<sub>t</sub> opposes rotation; driven: P<sub>t</sub> follows rotation; P<sub>r</sub> points to its own centre. Weaker gear: smaller σ<sub>b</sub>Y (same material, so the pinion). Y (20° FD): 18 → .308, 20 → .320, 25 → .340, 30 → .358, 40 → .389, 50 → .408.</p></div>
+<div class="card"><h3>Effective load</h3>
+<p>C<sub>s</sub> = start/rated torque (Table 17.4). C<sub>v</sub> = 3/(3 + v) (cut, v &lt; 10), 6/(6 + v) (hobbed, v &lt; 20), 5.6/(5.6 + √v) (precision). P<sub>eff</sub> = C<sub>s</sub>P<sub>t</sub>/C<sub>v</sub>.</p>
+\[ P_d = \frac{21v(Ceb + P_t)}{21v + \sqrt{Ceb + P_t}},\quad P_{eff} = C_sP_t + P_d \]
+<p>C = 11 400 (steel/steel), 7900 (steel/CI), 5700 (CI/CI). e (μm) = A + Bφ, φ = m + 0.25√d′: Gr 4: 3.2 + 0.25φ; Gr 6: 8 + 0.63φ; Gr 8: 16 + 1.25φ.</p></div>
+<div class="card"><h3>Wear and module</h3>
+\[ S_w = bQd_p'K,\ Q = \frac{2z_g}{z_g \pm z_p},\ K = 0.16\Big(\frac{\text{BHN}}{100}\Big)^2 \]
+\[ m = \Big[\frac{60\times10^6}{\pi}\cdot\frac{\text{kW}\,C_s\,(fs)}{z\,n\,C_v\,(b/m)\,\sigma_bY}\Big]^{1/3} \]
+<p>Design: S<sub>b</sub>, S<sub>w</sub> ≥ P<sub>eff</sub>(fs), with fs 1.5–2. Assume v = 5 m/s first.</p></div>
+</div>
+
+<h2>Helical and bevel gears (Chs 18–19)</h2>
+<div class="grid2">
+<div class="card"><h3>Helical (ψ 15–25°, α<sub>n</sub> = 20°)</h3>
+<p>m<sub>n</sub> = m cos ψ, p<sub>n</sub> = p cos ψ, p<sub>a</sub> = p/tan ψ, tan α<sub>n</sub> = tan α cos ψ, d = zm<sub>n</sub>/cos ψ, a = m<sub>n</sub>(z₁ + z₂)/2cos ψ, b ≥ πm<sub>n</sub>/sin ψ, z′ = z/cos³ψ. P<sub>a</sub> = P<sub>t</sub> tan ψ, P<sub>r</sub> = P<sub>t</sub> tan α<sub>n</sub>/cos ψ (thrust: driver, right hand for RH, fingers with rotation).</p>
+\[ S_b = m_nb\sigma_bY(z'),\quad S_w = \frac{bQd_pK}{\cos^2\psi},\quad C_v = \frac{5.6}{5.6 + \sqrt v} \]
+<p>P<sub>d</sub> = 21v(Ceb cos²ψ + P<sub>t</sub>)cos ψ/[21v + √(Ceb cos²ψ + P<sub>t</sub>)]. Herringbone: half power per half, ψ 20–45°. Crossed: Σ = ψ₁ ± ψ₂.</p></div>
+<div class="card"><h3>Bevel (90° shafts)</h3>
+<p>tan γ = z<sub>p</sub>/z<sub>g</sub>, γ + Γ = 90°, A₀ = √((D<sub>p</sub>/2)² + (D<sub>g</sub>/2)²), z′ = z/cos γ (Tredgold, back cone). Forces at r<sub>m</sub> = D<sub>p</sub>/2 − (b sin γ)/2: P<sub>t</sub> = M<sub>t</sub>/r<sub>m</sub>, P<sub>r</sub> = P<sub>t</sub> tan α cos γ, P<sub>a</sub> = P<sub>t</sub> tan α sin γ. Gear radial = pinion axial.</p>
+\[ S_b = mb\sigma_bY\Big(1 - \frac{b}{A_0}\Big),\quad S_w = \frac{0.75bQD_pK}{\cos\gamma},\quad Q = \frac{2z_g}{z_g + z_p\tan\gamma} \]
+<p>Compare with P<sub>t</sub> = 2M<sub>t</sub>/D<sub>p</sub> (large end). b = min(10m, A₀/3). Error e (Table 19.1): Class 3 = 0.0125 mm (m ≤ 5).</p></div>
+</div>
+<p class="small">Lessons: <a class="lesson" data-l="0038"></a> · <a class="lesson" data-l="0041"></a> · <a class="lesson" data-l="0044"></a> · <a class="lesson" data-l="0046"></a></p>
+</main>
+</body>
+</html>

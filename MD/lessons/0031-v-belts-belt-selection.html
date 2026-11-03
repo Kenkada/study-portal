@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V-Belts</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 31</p>
+<h1>V-belts and selecting belts from catalogues</h1>
+<p class="meta">About 30 minutes · Bhandari §13.4, 13.11–13.15</p>
+<div class="win"><b>Your win:</b> you can derive why a V-belt grips 2.92 times harder than a flat belt, find the number of V-belts from first principles, and run the standard IS/catalogue selection procedure (section, pulley sizes, pitch length, centre distance, correction factors, number of belts).</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 30)</span>
+<details class="recall"><summary>Flat-belt tension ratio with centrifugal tension?</summary><div>(P₁ − mv²)/(P₂ − mv²) = e<sup>fα</sup></div></details>
+<details class="recall"><summary>Open-belt length?</summary><div>L = 2C + (π/2)(D + d) + (D − d)²/4C</div></details>
+</div>
+
+<h2>1. Derivation: tension ratio of a V-belt</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Eq. 13.7 for a belt of included angle θ seated in a groove.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The groove walls push on each side of the belt with dN/2. Their components in the radial plane add to <b>dN sin(θ/2)</b>. The friction force on the two walls is still 2 × f(dN/2) = f dN, along the belt.</li>
+<li>Tangential: dP = f dN. Radial: dN sin(θ/2) = (P − mv²)dφ.</li>
+<li>Eliminate dN: \(\dfrac{dP}{P - mv^2} = \dfrac{f}{\sin(\theta/2)}\,d\phi\).</li>
+<li>Integrate: \(\boxed{\dfrac{P_1 - mv^2}{P_2 - mv^2} = e^{f\alpha/\sin(\theta/2)}}\). It's the flat-belt equation with an <b>effective friction coefficient f/sin(θ/2)</b>.</li>
+<li>For θ = 40°: 1/sin 20° = <b>2.92</b>. Same materials, 2.92× the friction, hence much more power and much less slip (<a class="bk" data-p="507"></a>).</li>
+</ol>
+</div></div>
+
+<h2>2. Construction and standard sections</h2>
+<p>A V-belt has polyester cords at the neutral axis (they carry the load, with little bending stress), rubber tension and compression layers, and a cover. Belt angle 40°; pulley groove 34°–38°, which gives the wedge action. Sections Z, A, B, C, D, E (IS 2494), designated e.g. <b>B 4430 Lp</b> (section B, pitch length 4430 mm) (<a class="bk" data-p="522"></a>).</p>
+<div class="tbl-wrap"><table>
+<caption>Extract of Table 13.12</caption>
+<thead><tr><th>Section</th><th class="num">Pitch width W<sub>p</sub></th><th class="num">Top width</th><th class="num">Height</th><th class="num">Recommended min. pulley</th></tr></thead>
+<tbody>
+<tr><td>A</td><td class="num">11</td><td class="num">13</td><td class="num">8</td><td class="num">125</td></tr>
+<tr><td>B</td><td class="num">14</td><td class="num">17</td><td class="num">11</td><td class="num">200</td></tr>
+<tr><td>C</td><td class="num">19</td><td class="num">22</td><td class="num">14</td><td class="num">315</td></tr>
+<tr><td>D</td><td class="num">27</td><td class="num">32</td><td class="num">19</td><td class="num">500</td></tr>
+</tbody></table></div>
+<p class="side">Disadvantages of V-belts: a large height relative to the pulley diameter raises bending stress (shorter life), lower efficiency, more creep, costlier grooved pulleys. <b>Timing (ribbed, synchronous) belts</b> add teeth for a positive drive with no slip, up to 80 m/s, no lubrication and little initial tension, but they cost more and are sensitive to misalignment. Used for engine camshaft drives (<a class="bk" data-p="540"></a>).</p>
+
+<h2>3. Selection procedure (§13.12)</h2>
+<div class="formula"><span class="label">Steps</span>
+<ol>
+<li>Service factor F<sub>a</sub> (Table 13.15: type of driver and driven machine, hours per day). Design power = F<sub>a</sub> × P.</li>
+<li>Section from the power–speed chart (Fig. 13.24).</li>
+<li>Smaller pulley ≥ the recommended minimum; D = ratio × d; round to preferred diameters.</li>
+<li>Pitch length from the open-belt formula, then round to a standard L<sub>p</sub> (Table 13.14).</li>
+<li>Recalculate C from the chosen L<sub>p</sub> (a quadratic in C).</li>
+<li>F<sub>c</sub> (length factor, Table 13.21) and F<sub>d</sub> (arc-of-contact factor, Table 13.22).</li>
+<li>Power rating per belt P<sub>r</sub> = base rating + increment for the speed ratio (Tables 13.16–13.20).</li>
+<li>\(\text{Number of belts} = \dfrac{P\,F_a}{P_r\,F_c\,F_d}\), rounded up.</li>
+</ol>
+</div>
+<p><b>Belt tensioning:</b> cut and rejoin (laced belts only); adjust the centre distance with a screw; idler pulley next to the small pulley on the slack side (increases wrap); pivoted motor (Rockwood) drive, with eccentricity e = (P₁a + P₂b)/W (<a class="bk" data-p="540"></a>).</p>
+
+<h2>4. Worked example (Bhandari Ex. 13.8): catalogue selection</h2>
+<div class="example">
+<div class="ex-head"><b>Example 13.8</b> (<a class="bk" data-p="537"></a>). A 7.5 kW, 1440 rpm induction motor drives a fan at about 480 rpm, 24 h per day; C ≈ 1 m.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>F<sub>a</sub> = 1.3, so design power = 9.75 kW. The chart at 1440 rpm gives a <b>B section</b>.</li>
+<li>d = 200 mm (B minimum), D = 3 × 200 = 600 mm.</li>
+<li>L = 2000 + (π/2)(800) + 400²/4000 = 3296.6, so choose standard 3200 mm.</li>
+<li>Correct C: 3200 = 2C + 1256.6 + 40 000/C, so C = 950.6 mm.</li>
+<li>α = 180 − 2 sin⁻¹(400/1901.3) = 155.7°, so F<sub>d</sub> ≈ 0.94; F<sub>c</sub> (B, 3200) = 1.08.</li>
+<li>P<sub>r</sub> (B, 200 mm, 1440 rpm, ratio 3) = 5.90 + 0.46 = 6.36 kW.</li>
+<li>Belts = 7.5 × 1.3/(6.36 × 1.08 × 0.94) = 1.51, so <b>2 belts of B 3200 Lp</b>.</li>
+</ol>
+</div></div>
+
+<h2>5. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="12.8" data-tol="1.5" data-unit="kW per belt">
+<p class="q">Ex. 13.2 (<a class="bk" data-p="512"></a>): V-belt, motor pulley 300 mm at 1440 rpm, compressor pulley 900 mm, C = 1 m, μ = 0.2, θ = 40°, belt area 236.67 mm², ρ = 0.97 g/cc, allowable tension 850 N per belt. Power per belt?</p>
+<details class="sol"><p>α = 145.1° = 2.53 rad; e<sup>0.2(2.53)/sin20°</sup> = 4.40. m = 0.23 kg/m; v = 22.62 m/s; mv² = 117.7.</p><p>P₂ = (850 − 117.7)/4.40 + 117.7 = 284.1 N. kW = (850 − 284.1)(22.62)/1000 = 12.8. For 20 kW: 1.56, so 2 belts.</p></details>
+</div>
+<div class="num" data-answer="1.79" data-tol="1.5" data-unit="(belts, before rounding)">
+<p class="q">Ex. 13.7 (<a class="bk" data-p="536"></a>): pulleys 200/600 mm, groove 34°, m = 0.5 kg/m, P<sub>max</sub> = 500 N per belt, μ = 0.2, wrap 157°, 1440 rpm, 10 kW. Number of belts?</p>
+<details class="sol"><p>Effective exponent = 0.2(2.740)/sin17° = 1.874, so ratio 6.52. v = 15.08, mv² = 113.7. P₁ − P₂ = 663.1.</p><p>P₁ − 113.7 = 6.52(P₂ − 113.7) ⇒ P₁ = 897 N, P₂ = 234 N. Belts = 897/500 = 1.79, so <b>2</b>.</p></details>
+</div>
+<div class="num" data-answer="4.69" data-tol="1.5" data-unit="(belts, before rounding)">
+<p class="q">Ex. 13.9 (<a class="bk" data-p="538"></a>): 15 kW, 2880 rpm AC motor to a centrifugal pump at about 2400 rpm, 18 h per day, C ≈ 400 mm, d = 125 mm. Given F<sub>a</sub> = 1.2, B section, D = 150, standard L<sub>p</sub> = 1210 (F<sub>c</sub> = 0.87), wrap 177° (F<sub>d</sub> = 0.99), P<sub>r</sub> = 3.96 + 0.50. Number of belts?</p>
+<details class="sol"><p>15 × 1.2/(4.46 × 0.87 × 0.99) = 4.69, so <b>5 belts</b>. (Corrected C = 388.8 mm.)</p></details>
+</div>
+<div class="num" data-answer="1.59" data-tol="1.5" data-unit="(belts, before rounding)">
+<p class="q">Ex. 13.10 (<a class="bk" data-p="539"></a>): 5 kW, 1440 rpm motor to a compressor at 970 rpm, 24 h per day, C ≈ 500, d = 150 (F<sub>a</sub> = 1.2, B section, D = 224, L<sub>p</sub> = 1560 with F<sub>c</sub> = 0.92, F<sub>d</sub> = 0.98, P<sub>r</sub> = 3.83 + 0.36). Number of belts?</p>
+<details class="sol"><p>5 × 1.2/(4.19 × 0.92 × 0.98) = 1.59, so <b>2 belts</b>. (C = 484.9 mm.)</p></details>
+</div>
+
+<h2>6. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">A V-belt with a 40° groove and μ = 0.25 behaves like a flat belt with an effective coefficient of friction of about:</p>
+<ol class="opts">
+<li>0.25 × sin 20° ≈ 0.086</li>
+<li>0.25 / sin 20° ≈ 0.731</li>
+<li>0.25 / cos 20° ≈ 0.266</li>
+<li>0.25 × 2 ≈ 0.500</li>
+</ol>
+<div class="why">μ<sub>eff</sub> = μ/sin(θ/2) = 0.25/0.342 = 0.731.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Why is the V-groove angle on the pulley (34°–38°) made smaller than the belt angle (40°)?</p>
+<ol class="opts">
+<li>To let the belt bottom out in the groove</li>
+<li>To reduce the bending stress in the belt</li>
+<li>To compensate for wear of the pulley walls</li>
+<li>To keep the wedge action as the belt bends</li>
+</ol>
+<div class="why">As the belt bends round the pulley, its section distorts and its angle reduces. A slightly smaller groove keeps it wedged on the sides, never resting on the bottom (<a class="bk" data-p="522"></a>).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Which drive gives an exact speed ratio with no lubrication?</p>
+<ol class="opts">
+<li>Timing (synchronous) belt</li>
+<li>V-belt with an idler</li>
+<li>Crossed flat belt</li>
+<li>Roller chain drive</li>
+</ol>
+<div class="why">Toothed belts are positive drives (no slip) and need no lubrication. Chains are positive too but need lubrication. Friction belts creep and slip.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Dividing by sin θ instead of sin(θ/2).</li>
+<li>Forgetting to recompute C after choosing a standard pitch length.</li>
+<li>Multiplying by F<sub>c</sub> and F<sub>d</sub> instead of dividing: they reduce what each belt can carry.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §13.11–13.15, <a class="bk" data-p="522">pp. 522–542</a> (Examples 13.2, 13.7–13.10).</li>
+<li>Course slides: V-belt drive, belt types, V-belt pulleys, <a class="ppt" data-p="601">pp. 601–650</a>; belt problems <a class="ppt" data-p="734">pp. 734–737</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), belt drives (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Catalogue tables (13.15–13.22) are given in exams or in the data book. Ask me which tables your exam usually supplies and I'll make a one-page extract.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riveted Joints</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 14</p>
+<h1>Riveted joints: failure modes and efficiency</h1>
+<p class="meta">About 30 minutes · Bhandari §8.19–8.28</p>
+<div class="win"><b>Your win:</b> for any lap or butt riveted joint you can write the three strength equations per pitch length, find the weakest one, and give the joint efficiency. You can also design a boiler longitudinal joint. This covers your rivet problem sheet (Q6–Q11) and question bank Q40–Q41.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1, 12)</span>
+<details class="recall"><summary>Average shear stress in a rivet in single shear?</summary><div>τ = P/(πd²/4)</div></details>
+<details class="recall"><summary>Crushing area for a pin of diameter d in a plate of thickness t?</summary><div>Projected area d × t.</div></details>
+</div>
+
+<h2>1. Rivets and joint types</h2>
+<p>Rivets make <b>permanent</b> joints (like welds; unlike bolts, cotters and splines, which are <b>separable</b>). A rivet has a head, a shank and a point (the closing head). It is specified by shank diameter: 12, 14, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 42, 48 mm (<a class="bk" data-p="299"></a>). Hot riveting (shank at 1000–1100 °C) leaves the shank in tension and clamps the plates, so it is used for fluid-tight joints. Cold riveting is for steel up to 8–10 mm and for non-ferrous rivets.</p>
+<p><b>Where rivets still beat welds</b> (<a class="bk" data-p="300"></a>): no heat damage to heat-treated or machined parts; metals with poor weldability (aluminium alloys, aircraft); dissimilar materials (steel to friction lining); vibration and impact; thin sheets.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Type</th><th>Description</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td><b>Lap joint</b></td><td>Plates overlap; single, double or triple riveted; chain or zig-zag rows.</td><td>Forces are offset by t, so a bending moment P·t distorts the plates.</td></tr>
+<tr><td><b>Butt joint</b></td><td>Plates butt edge to edge; one or two cover straps.</td><td>Forces in one plane, no bending. Costs more because of the straps.</td></tr>
+<tr><td><b>Diamond (Lozenge)</b></td><td>Rivets in diamond pattern, one rivet in the outer row.</td><td>Bridges and trusses: narrow plates, high efficiency.</td></tr>
+</tbody></table></div>
+<p><b>Terminology:</b> pitch p ≈ 3d; margin m ≈ 1.5d; transverse (back) pitch p<sub>t</sub> = 0.8p (chain) or 0.6p (zig-zag); diagonal pitch p<sub>d</sub> (<a class="bk" data-p="303"></a>).</p>
+
+<h2>2. How it fails and the strength equations</h2>
+<p>Five failure modes: shear of rivets, tearing of plate between rivets, crushing of plate (or rivet), shear of plate in the margin, tearing of the margin. With m ≥ 1.5d the last two are avoided, so three equations remain, each <b>per pitch length</b>, with n = rivets per pitch length (<a class="bk" data-p="306"></a>):</p>
+<div class="formula"><span class="label">Strength per pitch length (Eqs 8.35–8.40)</span>
+\[ P_s = n\,\tfrac{\pi}{4}d^2\tau\ \text{(single shear)}\quad P_s = n\,(2\ \text{or}\ 1.875)\tfrac{\pi}{4}d^2\tau\ \text{(double shear)} \]
+\[ P_t = (p-d)\,t\,\sigma_t \qquad P_c = n\,d\,t\,\sigma_c \qquad P = p\,t\,\sigma_t\ \text{(solid plate)} \]
+\[ \eta = \frac{\min(P_s, P_t, P_c)}{P} \]
+</div>
+<p class="side">Double shear factor: Bhandari and the Indian Boiler Regulations take a rivet in double shear as <b>1.875×</b> as strong as in single shear. Many textbook problems (and your rivet sheet) use <b>2×</b>. Use whatever the question states. If it says nothing, write "assuming 2× for double shear".</p>
+<p><b>Caulking and fullering</b> make boiler joints leak-proof: the plate edge is bevelled to 70–75° and hammered with a caulking tool (narrow) or a fullering tool (width equal to plate thickness). Not possible below 6 mm plate (<a class="bk" data-p="307"></a>).</p>
+
+<h2>3. Worked example: question bank Q40</h2>
+<div class="example">
+<div class="ex-head"><b>Q40</b> (<a class="qb" data-p="52"></a>). A double-riveted lap joint joins 15 mm plates; rivet d = 25 mm, p = 75 mm. Ultimate stresses: 400 MPa tension, 320 MPa shear, 640 MPa crushing. Find the minimum force per pitch that ruptures the joint. Then, at (fs) = 4, find the actual stresses.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Tearing: \(P_t = (75-25)(15)(400) = 300\,000\) N.</li>
+<li>Shearing (2 rivets per pitch, single shear in a lap joint): \(P_s = 2\cdot\frac{\pi}{4}(25)^2(320) = 314\,159\) N.</li>
+<li>Crushing: \(P_c = 2(25)(15)(640) = 480\,000\) N.</li>
+<li>Rupture load = least = <b>300 kN</b> (tearing). Efficiency = 300 000 / (75·15·400) = 66.7%.</li>
+<li>Working load = 300/4 = 75 kN per pitch. Plate tension = 75 000/(50×15) = 100 MPa; rivet shear = 75 000/(2×490.9) = 76.4 MPa; crushing = 75 000/(2×25×15) = 100 MPa.</li>
+</ol>
+</div></div>
+
+<h2>4. Boiler longitudinal butt joint: the design procedure</h2>
+<div class="formula"><span class="label">Bhandari §8.27 (academic version of the Indian Boiler Regulations)</span>
+<ol>
+<li>Shell thickness: \(t = \dfrac{p_iD_i}{2\sigma_t\eta} + CA\) (CA = 1.5–2 mm).</li>
+<li>Rivet diameter (t &gt; 8 mm): Unwin's \(d = 6\sqrt t\).</li>
+<li>Outer-row pitch from \((p-d)t\sigma_t = (n_1 + 1.875n_2)\frac{\pi}{4}d^2\tau\), limited to \(p_{min}=2d\) and \(p_{max} = Ct + 41.28\) (C from Table 8.7: double-strap butt 1.75, 3.5, 4.63, 5.52, 6.0 for 1–5 rivets per pitch).</li>
+<li>Row pitch: outer→next \(p_t = 0.2p + 1.15d\); between full rows \(0.165p + 0.67d\).</li>
+<li>Margin \(m = 1.5d\). Straps (equal width): \(t_1 = 0.625t\,\frac{p-d}{p-2d}\); unequal: 0.75t wide, 0.625t narrow.</li>
+<li>Check the efficiency.</li>
+</ol>
+<p>Typical boiler permissible stresses: σ<sub>t</sub> = 80, τ = 60, σ<sub>c</sub> = 120 N/mm² (<a class="bk" data-p="314"></a>).</p>
+</div>
+
+<h2>5. Practice</h2>
+<div class="num" data-answer="53.6" data-tol="1.5" data-unit="%">
+<p class="q">Rivet sheet Q6: double-riveted lap joint, 16 mm plates, p = 90 mm, d = 25 mm. σ<sub>t</sub> = 140, τ = 110, σ<sub>c</sub> = 240 MPa. Find the efficiency.</p>
+<details class="sol"><p>P<sub>t</sub> = (90−25)(16)(140) = 145 600; P<sub>s</sub> = 2(π/4)(625)(110) = 107 992; P<sub>c</sub> = 2(25)(16)(240) = 192 000; P = 90(16)(140) = 201 600.</p><p>η = 107 992/201 600 = 53.6% (shear governs).</p></details>
+</div>
+<div class="num" data-answer="53.3" data-tol="1.5" data-unit="%">
+<p class="q">Rivet sheet Q7: single-riveted double-cover butt joint, 10 mm plates, d = 20, p = 60 mm. σ<sub>t</sub> = 100, τ = 80, σ<sub>c</sub> = 160 MPa. Efficiency? (rivets in double shear)</p>
+<details class="sol"><p>P<sub>t</sub> = 40 000; P<sub>s</sub> = 2(π/4)(400)(80) = 50 265; P<sub>c</sub> = 20(10)(160) = 32 000; P = 60 000. η = 32 000/60 000 = 53.3% (crushing governs, whichever double-shear factor you use).</p></details>
+</div>
+<div class="num" data-answer="62.6" data-tol="1.5" data-unit="%">
+<p class="q">Rivet sheet Q8: double-riveted double-cover butt joint, 12 mm plates, d = 18, p = 80 mm. σ<sub>t</sub> = 115, τ = 80, σ<sub>c</sub> = 160 MPa. Efficiency?</p>
+<details class="sol"><p>P<sub>t</sub> = (62)(12)(115) = 85 560; P<sub>s</sub> = 2×2×(π/4)(324)(80) = 81 430; P<sub>c</sub> = 2(18)(12)(160) = 69 120; P = 110 400. η = 62.6% (crushing).</p></details>
+</div>
+<div class="num" data-answer="69.2" data-tol="1.5" data-unit="%">
+<p class="q">Question bank Q41(2): double-riveted lap joint, 6 mm plates, d = 20 mm, p = 65 mm. σ<sub>t</sub> = 120, τ = 90, σ<sub>c</sub> = 180 MPa. Efficiency? (Part 1, the single-riveted version with p = 50, gives 60%.)</p>
+<details class="sol"><p>P<sub>t</sub> = (45)(6)(120) = 32 400; P<sub>s</sub> = 2(π/4)(400)(90) = 56 549; P<sub>c</sub> = 2(20)(6)(180) = 43 200; P = 65(6)(120) = 46 800. η = 69.2% (tearing).</p></details>
+</div>
+<div class="num" data-answer="66.25" data-tol="1.5" data-unit="mm">
+<p class="q">Rivet sheet Q9: design a double-riveted chain lap joint for 10 mm plates (σ<sub>t</sub> = 60, τ = 50, σ<sub>c</sub> = 80 MPa). Take d = 6√t rounded to 19 mm. Find the pitch by equating tearing and shearing strength.</p>
+<details class="sol"><p>(p − 19)(10)(60) = 2(π/4)(19²)(50) ⇒ p = 66.25, so 66 mm (p<sub>max</sub> = 2.62(10) + 41.28 = 67.5 ✓). Back pitch (chain) ≈ 2d = 38 mm.</p><p>Efficiency: P<sub>t</sub> = 28 200, P<sub>s</sub> = 28 353, P<sub>c</sub> = 30 400, P = 39 600, so η = 71.2%.</p></details>
+</div>
+<div class="num" data-answer="79.5" data-tol="1.5" data-unit="%">
+<p class="q">Bhandari Ex. 8.22 (<a class="bk" data-p="317"></a>): boiler, D<sub>i</sub> = 1 m, p<sub>i</sub> = 2.5 MPa, double-riveted double-strap butt joint (equal straps, 3 rivets per pitch, all in double shear), η ≥ 70%, CA = 2 mm, σ<sub>t</sub> = 80, τ = 60. Taking t = 25, d = 30, p = 150 mm, find the joint efficiency.</p>
+<details class="sol"><p>t = 2.5(1000)/(2·80·0.7) + 2 = 24.3 → 25 mm; d = 6√25 = 30; p = 3(1.875)(π/4)(900)(60)/(25·80) + 30 = 149.3 → 150 (≤ p<sub>max</sub> = 157).</p><p>P<sub>t</sub> = (120)(25)(80) = 240 000; P<sub>s</sub> = 5.625(π/4)(900)(60) = 238 565; P = 300 000. η = 79.5%.</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">What is the main advantage of a butt joint over a lap joint?</p>
+<ol class="opts">
+<li>It needs fewer rivets for the same load</li>
+<li>There is no bending from offset forces</li>
+<li>It is cheaper because no straps are needed</li>
+<li>It always gives higher crushing strength</li>
+</ol>
+<div class="why">In a lap joint the two forces are offset by t, which bends and warps the plates. A butt joint keeps the forces in one plane (<a class="bk" data-p="304"></a>). Its drawback is the cost of the straps.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Which failure modes are avoided by giving a margin of at least 1.5d?</p>
+<ol class="opts">
+<li>Shearing and crushing of the rivets</li>
+<li>Tearing of the plate between rivets</li>
+<li>Bending of the plates in a lap joint</li>
+<li>Shearing and tearing of the plate margin</li>
+</ol>
+<div class="why">A margin of 1.5d gives enough plate in front of the hole to prevent the margin shearing or tearing out, so only the three main equations need checking.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Why is the longitudinal joint of a boiler a butt joint, while the circumferential joint can be a lap joint?</p>
+<ol class="opts">
+<li>Hoop stress is twice the longitudinal stress</li>
+<li>Butt joints are easier to make leak-proof</li>
+<li>The circumferential joint carries no stress</li>
+<li>Indian Boiler Regulations forbid lap joints</li>
+</ol>
+<div class="why">The longitudinal seam carries the hoop (circumferential) stress, which is twice the longitudinal stress, so it needs the stronger, more efficient joint (<a class="bk" data-p="311"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Lap-joint rivets are in <b>single</b> shear. Double-strap butt-joint rivets are in <b>double</b> shear.</li>
+<li>n is rivets <em>per pitch length</em>, not the total in the joint.</li>
+<li>Efficiency compares with the solid plate of width p, not the whole plate.</li>
+<li>In boiler design, cap the pitch at p<sub>max</sub> = Ct + 41.28 (Ex. 8.21: 230 mm became 160 mm).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §8.19–8.28, <a class="bk" data-p="298">pp. 298–321</a> (Examples 8.18–8.23); answered practice problems 8.11–8.15 on <a class="bk" data-p="327">pp. 327–328</a>.</li>
+<li>Course slides: riveted joints, failure modes, efficiency, <a class="ppt" data-p="357">pp. 357–381</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 22–23, "Riveted joints" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Tutorial Q9 (four rivets, two 5 mm plates) needs Bhandari's Fig. 8.79. It's Problem 8.11 on <a class="bk" data-p="327">p. 327</a>, answers 9 mm, 50 mm, 76.34%. Solve it with the figure open, then send me your working if you don't match.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open-Coiled Springs</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 4 · Lesson 40</p>
+<h1>Open-coiled helical springs, and helical torsion springs</h1>
+<p class="meta">About 35 minutes · Bhandari §10.2, 10.14 · derivations by Castigliano's theorem</p>
+<div class="win"><b>Your win:</b> you can resolve the load on an open-coiled spring into torsion and bending of the wire, and find the shear, bending and principal stresses. You can derive its axial deflection and the rotation of its free end by Castigliano's theorem, and show both reduce to the closely coiled results as α → 0. You can also design a helical torsion spring, whose wire is in <em>bending</em>.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 38 and SOM)</span>
+<details class="recall"><summary>Closely coiled deflection, in D and in R = D/2?</summary><div>δ = 8PD³N/Gd⁴ = 64PR³N/Gd⁴.</div></details>
+<details class="recall"><summary>Strain energy of a bar of length L under torque T, and under bending moment M?</summary><div>U = T²L/2GJ and U = M²L/2EI.</div></details>
+<details class="recall"><summary>Castigliano's theorem?</summary><div>The deflection at a load, in its direction, is ∂U/∂(that load). A rotation is ∂U/∂(couple), using a fictitious couple set to zero at the end.</div></details>
+</div>
+
+<h2>1. When a spring is "open-coiled"</h2>
+<p>If the helix angle α is <b>more than about 10°</b>, the coils have large gaps and the plane of each coil is noticeably tilted (<a class="bk" data-p="394"></a>). Bhandari only defines this case and restricts his analysis to closely coiled springs. Open coils are rarer, but they appear in exam theory questions, so we derive their behaviour here. The results come from the CodeCogs springs article linked under this lesson's sources. The derivations below re-check them by energy.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 220" role="img" aria-label="Resolving the moment W R into torque along the wire and bending perpendicular to it">
+  <line x1="60" y1="150" x2="560" y2="150" class="dash"/>
+  <text x="440" y="168" class="small">plane perpendicular to the spring axis</text>
+  <line x1="106" y1="184.2" x2="425.5" y2="67.9" class="thin"/>
+  <text x="430" y="62" class="small">wire centre-line</text>
+  <path d="M260,150 A60,60 0 0 0 256.4,129.5" class="thin"/>
+  <text x="266" y="140" class="small">α</text>
+  <line x1="200" y1="150" x2="380" y2="150" class="acc"/>
+  <polygon points="368,144 380,150 368,156" class="fill-acc"/><polygon points="358,144 370,150 358,156" class="fill-acc"/>
+  <text x="300" y="172" class="acc">WR (moment vector)</text>
+  <line x1="200" y1="150" x2="358.9" y2="92.1" class="blu"/>
+  <polygon points="346,92 359,92 350,102" class="dotb"/>
+  <text x="250" y="96" class="blu">T = WR cos α</text>
+  <line x1="358.9" y1="92.1" x2="380" y2="150" class="grn"/>
+  <text x="384" y="120" class="small">M = WR sin α</text>
+  <circle cx="200" cy="150" r="3" class="fill-ink"/>
+  <text x="180" y="140" class="small">O</text>
+  <text x="70" y="40" class="small">axial load W at mean radius R gives a couple WR</text>
+  <text x="70" y="56" class="small">about a horizontal axis at every wire section</text>
+</svg>
+<figcaption>The couple WR has a vector lying in the plane perpendicular to the spring axis. The wire is tilted at α to that plane, so the vector splits into a <b>torque</b> along the wire (WR cos α) and a <b>bending moment</b> perpendicular to it (WR sin α). With α = 0 the bending part vanishes and the spring is closely coiled.</figcaption>
+</figure>
+
+<h2>2. Derivation: stresses in the wire (axial load W)</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the shear, bending, principal and maximum shear stresses in the wire (direct shear and curvature neglected).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Twisting moment \(T = WR\cos\alpha\) and bending moment \(M = WR\sin\alpha\) (figure).</li>
+<li>\(\tau = \dfrac{16T}{\pi d^3} = \dfrac{16WR\cos\alpha}{\pi d^3}\) and \(\sigma_b = \dfrac{32M}{\pi d^3} = \dfrac{32WR\sin\alpha}{\pi d^3}\).</li>
+<li>Combine them at the surface (Lesson 2): \(\tau_{max} = \sqrt{(\sigma_b/2)^2 + \tau^2} = \dfrac{16WR}{\pi d^3}\sqrt{\sin^2\alpha + \cos^2\alpha} = \boxed{\dfrac{16WR}{\pi d^3}}\). It does not depend on α, so it equals the closely coiled value.</li>
+<li>\(\sigma_1 = \dfrac{\sigma_b}{2} + \tau_{max} = \boxed{\dfrac{16WR}{\pi d^3}(1 + \sin\alpha)}\). The normal stress <em>does</em> grow with α. That matters for brittle-type failure (maximum principal stress theory) and for fatigue.</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: axial deflection by Castigliano</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> \(\delta = \dfrac{8WD^3n}{d^4\cos\alpha}\Big(\dfrac{\cos^2\alpha}{G} + \dfrac{2\sin^2\alpha}{E}\Big)\) for n turns.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Wire length: each turn advances 2πR horizontally along a helix tilted at α, so \(L = \dfrac{2\pi Rn}{\cos\alpha}\) (it is 2πRn only when α = 0).</li>
+<li>Strain energy (torsion + bending, constant along the wire): \(U = \Big(\dfrac{T^2}{2GJ} + \dfrac{M^2}{2EI}\Big)L = \dfrac{W^2R^2L}{2}\Big(\dfrac{\cos^2\alpha}{GJ} + \dfrac{\sin^2\alpha}{EI}\Big)\).</li>
+<li>Castigliano: \(\delta = \dfrac{\partial U}{\partial W} = WR^2L\Big(\dfrac{\cos^2\alpha}{GJ} + \dfrac{\sin^2\alpha}{EI}\Big)\).</li>
+<li>With J = πd⁴/32, I = πd⁴/64 and L from step 1: \(\delta = \dfrac{64WR^3n}{d^4\cos\alpha}\Big(\dfrac{\cos^2\alpha}{G} + \dfrac{2\sin^2\alpha}{E}\Big)\). Using 64R³ = 8D³ gives the boxed form above.</li>
+<li><b>Check:</b> at α = 0, \(\delta = 8WD^3n/Gd^4\), Bhandari's Eq. 10.8 ✓. Stiffness is k = W/δ as before.</li>
+</ol>
+</div></div>
+
+<h2>4. Derivation: rotation of the free end</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the angle φ through which the loaded end turns about the spring axis under axial load W.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Apply a fictitious couple M₀ about the spring axis at the free end. Its vector is vertical, along the axis. Resolved along the wire it adds M₀ sin α to the torque. Perpendicular to the wire it adds −M₀ cos α to the bending moment: \(T = WR\cos\alpha + M_0\sin\alpha\), \(M = WR\sin\alpha - M_0\cos\alpha\).</li>
+<li>\(\phi = \dfrac{\partial U}{\partial M_0}\Big|_{M_0=0} = L\Big(\dfrac{T}{GJ}\sin\alpha - \dfrac{M}{EI}\cos\alpha\Big) = WRL\sin\alpha\cos\alpha\Big(\dfrac{1}{GJ} - \dfrac{1}{EI}\Big)\).</li>
+<li>Substitute L, J and I: \(\boxed{\phi = \dfrac{64WR^2n\sin\alpha}{d^4}\Big(\dfrac{1}{G} - \dfrac{2}{E}\Big) = \dfrac{16WD^2n\sin\alpha}{d^4}\Big(\dfrac{1}{G} - \dfrac{2}{E}\Big)}\) radians.</li>
+<li>Since E = 2G(1 + ν), the bracket is \(\dfrac{\nu}{G(1 + \nu)}\). It is positive for every real material, so an open coil always turns as it stretches. It would vanish only for ν = 0 (E = 2G). A closely coiled spring (α = 0) does not turn.</li>
+</ol>
+</div></div>
+
+<h2>5. How big is the difference? (built on Bhandari Ex. 10.1's spring)</h2>
+<div class="calc"><span class="label">Open- vs closely coiled spring under axial load</span>
+<div class="inputs">
+<label>axial load W (N)<input data-v="W" type="number" value="1250"></label>
+<label>mean dia D (mm)<input data-v="D" type="number" value="42"></label>
+<label>wire dia d (mm)<input data-v="d" type="number" value="7"></label>
+<label>turns n<input data-v="n" type="number" value="8"></label>
+<label>helix angle α (°)<input data-v="al" type="number" value="20"></label>
+<label>G (N/mm²)<input data-v="G" type="number" value="81370"></label>
+<label>E (N/mm²)<input data-v="E" type="number" value="207000"></label>
+</div>
+<div class="outs">
+<output data-expr="8*W*pow(D,3)*n/(G*pow(d,4))" data-label="closely coiled δ =" data-unit="mm" data-dp="2"></output>
+<output data-expr="8*W*pow(D,3)*n/(pow(d,4)*cos(rad(al)))*(pow(cos(rad(al)),2)/G + 2*pow(sin(rad(al)),2)/E)" data-label="open-coiled δ =" data-unit="mm" data-dp="2"></output>
+<output data-expr="deg(16*W*D*D*n*sin(rad(al))/pow(d,4)*(1/G - 2/E))" data-label="end rotation φ =" data-unit="°" data-dp="2"></output>
+<output data-expr="8*W*D*cos(rad(al))/(PI*pow(d,3))" data-label="τ (torsion) =" data-unit="N/mm²" data-dp="1"></output>
+<output data-expr="16*W*D*sin(rad(al))/(PI*pow(d,3))" data-label="σ<sub>b</sub> =" data-unit="N/mm²" data-dp="1"></output>
+<output data-expr="8*W*D*(1+sin(rad(al)))/(PI*pow(d,3))" data-label="σ₁ =" data-unit="N/mm²" data-dp="1"></output>
+<output data-expr="8*W*D/(PI*pow(d,3))" data-label="τ<sub>max</sub> =" data-unit="N/mm²" data-dp="1"></output>
+</div></div>
+<p>With Ex. 10.1's spring (W = 1250 N, D = 42, d = 7, n = 8) wound open at α = 20°, the deflection rises only from 30.34 to <b>31.48 mm</b> (+3.8%). The end turns about <b>6°</b>, and σ₁ rises from 390 to <b>523 N/mm²</b> (+34%), while τ<sub>max</sub> stays at 390 N/mm². The lesson: the closely coiled formulas are good for deflection up to about 10°. What open coiling really changes is the <b>normal stress</b> and the <b>end rotation</b>. (These values leave out the Wahl factor, as the classical open-coil theory does.)</p>
+
+<h2>6. Helical torsion springs (§10.14)</h2>
+<p>The coils look like a compression spring, but the ends are formed so the spring is loaded by a <b>moment about its axis</b>: M<sub>b</sub> = Pr. Uses include door hinges, brush holders, automobile starters, door locks and window shades. The name misleads: <b>the wire is in bending</b>, each section acting as part of a curved beam, not in torsion (<a class="bk" data-p="433"></a>–434).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the stress and the angular deflection (Eqs 10.27–10.31).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Curved-beam bending: \(\sigma_b = K\dfrac{M_by}{I} = K\dfrac{32M_b}{\pi d^3}\), with Wahl's factors \(K_i = \dfrac{4C^2 - C - 1}{4C(C - 1)}\) at the inner fibre (the larger one, used for design) and \(K_o = \dfrac{4C^2 + C - 1}{4C(C + 1)}\) at the outer fibre.</li>
+<li>Energy over the wire length πDN: \(U = \dfrac{M_b^2(\pi DN)}{2EI}\). Castigliano with respect to M<sub>b</sub>: \(\theta = \dfrac{\partial U}{\partial M_b} = \dfrac{M_b\pi DN}{EI} = \boxed{\dfrac{64M_bDN}{Ed^4}}\) radians.</li>
+<li>Stiffness (moment per radian): \(\boxed{k = \dfrac{M_b}{\theta} = \dfrac{Ed^4}{64DN}}\) N·mm/rad. Note it uses <b>E</b>, not G.</li>
+<li>Practice points: load it in the <b>winding</b> direction, so the working stresses oppose the residual stresses from cold winding. Keep C between 5 and 15 (below 5 the coiling arbor breaks, above 15 pitch control is lost).</li>
+</ol>
+</div></div>
+
+<h2>7. Practice</h2>
+<div class="num" data-answer="665.8" data-tol="1" data-unit="N/mm²">
+<p class="q">Ex. 10.21 (<a class="bk" data-p="434"></a>): window-shade torsion spring, Grade 4 patented wire, S<sub>yt</sub> = 0.6S<sub>ut</sub>, (fs) = 2, D = 18 mm, M<sub>b</sub> = 250 N·mm, E = 207 000, k = 3 N·mm/rad. For the trial d = 1.6 mm (S<sub>ut</sub> = 2250), what is the induced bending stress?</p>
+<details class="sol"><p>C = 18/1.6 = 11.25, K<sub>i</sub> = [4(11.25)² − 11.25 − 1]/[4(11.25)(10.25)] = 1.071. σ<sub>b</sub> = 1.071 × 32(250)/π(1.6)³ = <b>665.8 N/mm²</b>, below the allowable 0.6(2250)/2 = 675 ✓. The first trial, d = 1.4 (S<sub>ut</sub> = 2290), gave 985 against an allowable of 687 ✗.</p></details>
+</div>
+<div class="num" data-answer="393" data-tol="1" data-unit="coils">
+<p class="q">Ex. 10.21 continued: number of active coils for k = 3 N·mm/rad?</p>
+<details class="sol"><p>N = Ed⁴/(64Dk) = 207 000(1.6)⁴/[64(18)(3)] = 392.5, so <b>393 coils</b>. A very soft rate needs a lot of wire.</p></details>
+</div>
+<div class="num" data-answer="31.48" data-tol="1" data-unit="mm">
+<p class="q">Application on Ex. 10.1's spring (<a class="bk" data-p="407"></a>): W = 1250 N, D = 42, d = 7, n = 8, G = 81 370, E = 207 000. If it were open-coiled at α = 20°, what would its axial deflection be?</p>
+<details class="sol"><p>δ = [8(1250)(42)³(8)/(7⁴ cos 20°)][cos²20°/81 370 + 2 sin²20°/207 000] = 2.627 × 10⁶ × (1.0852 × 10⁻⁵ + 1.130 × 10⁻⁶) = <b>31.48 mm</b>, against 30.34 mm closely coiled.</p></details>
+</div>
+<div class="num" data-answer="523.1" data-tol="1" data-unit="N/mm²">
+<p class="q">Same spring at α = 20°: maximum principal stress in the wire?</p>
+<details class="sol"><p>16WR/πd³ = 8WD/πd³ = 8(1250)(42)/π(343) = 389.8. σ₁ = 389.8(1 + sin 20°) = <b>523.1 N/mm²</b>. τ<sub>max</sub> stays at 389.8.</p></details>
+</div>
+
+<h2>8. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">Under an axial load, the wire of an open-coiled helical spring is subjected to:</p>
+<ol class="opts">
+<li>pure torsion only, like a closed coil</li>
+<li>pure bending only, like a torsion spring</li>
+<li>combined torsion and bending of the wire</li>
+<li>direct tension along the wire axis only</li>
+</ol>
+<div class="why">The couple WR resolves into T = WR cos α along the wire and M = WR sin α across it.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">For the same W, R and d, the maximum shear stress in an open-coiled spring (helix angle α) compared with a closely coiled one is:</p>
+<ol class="opts">
+<li>the same, 16WR/πd³</li>
+<li>larger by (1 + sin α)</li>
+<li>smaller by the factor cos α</li>
+<li>larger by the factor sec α</li>
+</ol>
+<div class="why">τ<sub>max</sub> = √((σ<sub>b</sub>/2)² + τ²) = (16WR/πd³)√(sin²α + cos²α). It is the principal <em>normal</em> stress that grows by (1 + sin α).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">The wire of a helical torsion spring is mainly subjected to:</p>
+<ol class="opts">
+<li>torsional shear stress</li>
+<li>bending stress</li>
+<li>direct shear stress</li>
+<li>axial tensile stress</li>
+</ol>
+<div class="why">The applied moment acts about the coil axis, and each wire section carries it as a bending moment (§10.14).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">The free end of an open-coiled spring under axial load would <em>not</em> rotate if the material had:</p>
+<ol class="opts">
+<li>E equal to G</li>
+<li>E equal to 3G</li>
+<li>a helix angle of 45°</li>
+<li>E equal to 2G</li>
+</ol>
+<div class="why">φ ∝ (1/G − 2/E), which is zero when E = 2G, that is ν = 0. Real materials have ν &gt; 0, so the end turns.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Open coil: the wire length is 2πRn/cos α. Leaving out sec α loses the cos α in the denominator.</li>
+<li>Do not mix the R form (64WR³n) with the D form (8WD³n) in one line.</li>
+<li>Torsion spring stiffness is per <b>radian</b>. Convert a rotation given in degrees or turns first.</li>
+<li>Torsion springs: use E in the deflection and K<sub>i</sub> for the maximum stress.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §10.2 (closely vs open coiled, <a class="bk" data-p="394">p. 394</a>) and §10.14 (helical torsion springs, <a class="bk" data-p="433">pp. 433–435</a>).</li>
+<li>CodeCogs engineering library, "Springs": open- and closed-coiled helical spring theory (<a href="https://www.codecogs.com/library/engineering/materials/springs.php" target="_blank" rel="noopener">link</a>). The derivations above re-check its results by Castigliano.</li>
+<li>Course slides, Unit IV springs, <a class="ppt" data-p="742">pp. 742–750</a>.</li>
+</ul></div>
+<div class="ask"><p>Which way does the free end turn, winding up or unwinding? Ask me and we'll work out the sign from the moment vectors together.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit4-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

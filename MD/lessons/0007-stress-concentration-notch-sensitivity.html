@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stress Concentration</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 7</p>
+<h1>Stress concentration and notch sensitivity</h1>
+<p class="meta">About 20 minutes · Bhandari §5.1–5.3, §5.8</p>
+<div class="win"><b>Your win:</b> you know <em>when</em> to apply a stress concentration factor (and when to ignore it), and you can turn K<sub>t</sub> and q into K<sub>f</sub> and K<sub>d</sub> to finish the corrected endurance limit.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 6)</span>
+<details class="recall"><summary>Write the corrected endurance limit equation.</summary><div>\(S_e = K_aK_bK_cK_d\,S'_e\), with \(S'_e = 0.5S_{ut}\) for steel.</div></details>
+<details class="recall"><summary>K<sub>c</sub> for 90% reliability?</summary><div>0.897</div></details>
+</div>
+
+<h2>1. What K<sub>t</sub> is</h2>
+<p>The elementary formulas (P/A, My/I, Tr/J) assume a uniform section. Holes, shoulders, keyways, threads and scratches make the stress shoot up locally (<a class="bk" data-p="141"></a>):</p>
+<div class="formula"><span class="label">Theoretical stress concentration factor (Eq. 5.1)</span>
+\[ K_t = \frac{\sigma_{max}}{\sigma_o} = \frac{\tau_{max}}{\tau_o} \]
+<p>\(\sigma_o\) is the nominal stress at the <b>minimum</b> section: for a plate with a hole, \(\sigma_o = P/(w-d)t\); for a shouldered shaft in bending, \(\sigma_o = 32M_b/\pi d^3\) with d the smaller diameter.</p>
+</div>
+<p>K<sub>t</sub> depends only on geometry and comes from Peterson's charts (Bhandari Figs 5.2–5.6). Elliptical hole: \(K_t = 1 + 2a/b\), where a is the half-width across the load. A circular hole gives K<sub>t</sub> = 3. A sharp crack (b → 0) gives K<sub>t</sub> → ∞ (<a class="bk" data-p="144"></a>).</p>
+<p><b>Causes</b> (<a class="bk" data-p="142"></a>): variation in material properties (blow holes, inclusions); load applied over a small area (gear teeth, cam and follower, ball and race); abrupt change of section (shoulders); discontinuities (oil holes, keyways, threads); machining scratches and stamp marks.</p>
+
+<h2>2. When to use it: the rule examiners love</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Material and load</th><th>Use stress concentration?</th><th>Why (<a class="bk" data-p="145"></a>)</th></tr></thead>
+<tbody>
+<tr><td>Ductile, <b>static</b></td><td><b>No</b>, ignore K<sub>t</sub></td><td>Local yielding redistributes the stress, and the yielded zone is tiny.</td></tr>
+<tr><td>Ductile, <b>fluctuating</b></td><td><b>Yes</b>, use K<sub>f</sub> (via K<sub>d</sub> = 1/K<sub>f</sub>)</td><td>The local peak can exceed the endurance limit and start a fatigue crack.</td></tr>
+<tr><td>Brittle (cast iron), <b>static or fluctuating</b></td><td><b>Yes</b>, use K<sub>t</sub></td><td>No yielding, so the peak stress cracks the material directly.</td></tr>
+</tbody></table></div>
+
+<h2>3. Notch sensitivity: K<sub>t</sub> overstates the real damage</h2>
+<p>Real materials lose less endurance limit than K<sub>t</sub> predicts. The <b>fatigue stress concentration factor</b> K<sub>f</sub> is the endurance limit of a notch-free specimen divided by that of the notched one. The <b>notch sensitivity</b> q links the two (<a class="bk" data-p="154"></a>–155):</p>
+<div class="formula"><span class="label">Eqs 5.11, 5.12, 5.27</span>
+\[ q = \frac{K_f - 1}{K_t - 1} \qquad K_f = 1 + q\,(K_t - 1) \qquad K_d = \frac{1}{K_f} \]
+<p>q = 0: no sensitivity, K<sub>f</sub> = 1. q = 1: fully sensitive, K<sub>f</sub> = K<sub>t</sub>. q comes from Figs 5.22–5.23 (it rises with S<sub>ut</sub> and notch radius). If in doubt, take q = 1 (safe).</p>
+</div>
+<div class="calc"><span class="label">K<sub>f</sub> and K<sub>d</sub> from K<sub>t</sub> and q</span>
+<div class="inputs">
+<label>K<sub>t</sub><input data-v="kt" type="number" value="2.51" step="0.01"></label>
+<label>q<input data-v="q" type="number" value="0.8" step="0.05"></label>
+</div>
+<div class="outs">
+<output data-expr="1+q*(kt-1)" data-label="K<sub>f</sub> =" data-dp="3"></output>
+<output data-expr="1/(1+q*(kt-1))" data-label="K<sub>d</sub> = 1/K<sub>f</sub> =" data-dp="4"></output>
+</div></div>
+
+<h2>4. Reducing stress concentration</h2>
+<p>Think of stress as fluid flowing through the part. Sharp bends in the "force-flow lines" crowd them together. Smooth the bends (<a class="bk" data-p="145"></a>–148):</p>
+<ul>
+<li><b>Tension member with a notch:</b> add multiple notches, drill extra holes, or remove unneeded material (the principle of minimisation of material).</li>
+<li><b>Shouldered shaft:</b> use the largest fillet radius the mating part allows, undercut the shoulder, or cut a relief notch.</li>
+<li><b>Keyway:</b> fillet the bottom corners or drill two holes beside it. Use K<sub>t</sub> = 3 for a keyed shaft under combined bending and torsion.</li>
+<li><b>Threaded rod:</b> undercut between shank and thread, or reduce the shank to the core diameter (straight force flow, no concentration).</li>
+</ul>
+
+<h2>5. Worked example (Bhandari Ex. 5.1, question bank Q13)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 5.1</b> (<a class="bk" data-p="148"></a>). A flat plate of grey cast iron FG 200, (fs) = 2.5, carries a static 5 kN tensile force. It is 45 mm wide, stepping down to 30 mm through a 5 mm fillet, and the 30 mm part has a 15 mm hole. K<sub>t</sub> = 1.8 at the fillet and 2.16 at the hole. Find the thickness t.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Brittle material, so use K<sub>t</sub> even though the load is static.</b> Allowable \(\sigma_{max} = 200/2.5 = 80\) N/mm².</li>
+<li><b>Fillet section</b> (width 30): \(\sigma_o = 5000/30t\), so \(\sigma_{max} = 1.8 \times 5000/30t = 300/t\).</li>
+<li><b>Hole section</b> (net width 30 − 15 = 15): \(\sigma_o = 5000/15t\), so \(\sigma_{max} = 2.16 \times 5000/15t = 720/t\).</li>
+<li>The hole governs: \(720/t = 80 \Rightarrow t = 9\) mm.</li>
+</ol>
+</div></div>
+
+<h2>6. Practice</h2>
+<div class="num" data-answer="36.84" data-tol="1" data-unit="mm">
+<p class="q">Question bank Q14 (Bhandari Ex. 5.3, <a class="qb" data-p="23"></a>): a plate of hot-rolled steel 20C8 (S<sub>ut</sub> = 440 N/mm²), 50 mm wide with a 10 mm central hole, carries a completely reversed axial load of ±30 kN. q = 0.8, K<sub>t</sub> = 2.51, K<sub>a</sub> = 0.67, K<sub>b</sub> = 0.85, reliability 90%, (fs) = 2. Find t for infinite life.</p>
+<details class="sol">
+<p>\(K_f = 1 + 0.8(2.51 - 1) = 2.208\), so \(K_d = 0.4529\).</p>
+<p>\(S_e = 0.67(0.85)(0.897)(0.4529)(220) = 50.9\) N/mm². Axial: \((S_e)_a = 0.8(50.9) = 40.72\). Permissible amplitude \(= 20.36\) N/mm².</p>
+<p>\(\dfrac{30\,000}{(50-10)t} = 20.36\Rightarrow t = 36.84\) mm.</p>
+</details>
+</div>
+<div class="num" data-answer="41.55" data-tol="1" data-unit="mm">
+<p class="q">Bhandari Ex. 5.2: a non-rotating shaft of brittle material (S<sub>ut</sub> = 300 N/mm², (fs) = 3) carries 2.5 kN at mid-span between bearings 1000 mm apart. The central part has diameter 1.1d. It steps down to d through a fillet 350 mm from each bearing, where K<sub>t</sub> = 1.61. Find d.</p>
+<details class="sol">
+<p>Reactions 1250 N. Fillet: \(M = 1250\times350\), \(\sigma = 1.61\times\dfrac{32(437\,500)}{\pi d^3} = \dfrac{7.175\times10^6}{d^3}\).</p>
+<p>Centre: \(M = 1250\times500\), \(\sigma = \dfrac{32(625\,000)}{\pi(1.1d)^3} = \dfrac{4.783\times10^6}{d^3}\). The fillet governs.</p>
+<p>\(7.175\times10^6/d^3 = 100\Rightarrow d = 41.55\) mm. Brittle material, so K<sub>t</sub> is used under static load.</p>
+</details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">A mild-steel bracket with a drilled hole carries a steady static load. How do you treat the hole?</p>
+<ol class="opts">
+<li>Multiply the nominal stress by K<sub>t</sub> = 3</li>
+<li>Multiply the nominal stress by K<sub>f</sub> from q</li>
+<li>Ignore K<sub>t</sub>; use the net section only</li>
+<li>Reduce S<sub>yt</sub> by the factor K<sub>d</sub></li>
+</ol>
+<div class="why">Ductile material under static load: local yielding at the hole redistributes the stress, so K<sub>t</sub> is ignored (<a class="bk" data-p="145"></a>). You still use the reduced net area for the nominal stress.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">If q = 0 for a material, what is K<sub>f</sub>?</p>
+<ol class="opts">
+<li>1, the notch has no fatigue effect</li>
+<li>K<sub>t</sub>, the full theoretical value</li>
+<li>0, the endurance limit vanishes</li>
+<li>2, the usual design assumption</li>
+</ol>
+<div class="why">\(K_f = 1 + q(K_t-1)\). With q = 0, K<sub>f</sub> = 1: the material is insensitive to the notch.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Which change <em>reduces</em> the stress concentration at a shaft shoulder?</p>
+<ol class="opts">
+<li>Making the fillet radius smaller</li>
+<li>Undercutting to allow a larger fillet</li>
+<li>Increasing the shoulder step height</li>
+<li>Adding a sharp groove beside it</li>
+</ol>
+<div class="why">A larger fillet radius smooths the force flow. Undercutting the shoulder lets you fit a larger radius without changing the seat for the mating part (Bhandari Fig. 5.10).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using K<sub>t</sub> for a ductile part under static load. Most marks are lost here.</li>
+<li>Multiplying the stress by K<sub>f</sub> <em>and</em> dividing S<sub>e</sub> by K<sub>f</sub>. That counts it twice. Bhandari reduces S<sub>e</sub> through K<sub>d</sub>.</li>
+<li>Using the gross width instead of the net width (w − d) at a hole.</li>
+<li>Checking only one section. Check every candidate (fillet, hole, mid-span) and keep the worst.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §5.1–5.3, <a class="bk" data-p="141">pp. 141–149</a>; notch sensitivity §5.8, <a class="bk" data-p="154">pp. 154–155</a>.</li>
+<li>Course slides: stress concentration, K<sub>t</sub>, notch sensitivity, <a class="ppt" data-p="200">pp. 200–204, 230–235</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 9, "Stress concentration factor" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Not sure how to read K<sub>t</sub> from a Peterson chart (D/d, r/d)? Ask me and I'll walk through one with you.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

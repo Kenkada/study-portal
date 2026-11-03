@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotter Joint</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 12</p>
+<h1>Design of the socket-and-spigot cotter joint</h1>
+<p class="meta">About 30 minutes · Bhandari §4.9–4.10</p>
+<div class="win"><b>Your win:</b> you can design a cotter joint from scratch: write the ten failure equations, size every dimension, check each one, and revise when a check fails (as it does in your Tutorial Q6).</div>
+
+<div class="recall-set"><span class="label">Warm-up (Unit 1)</span>
+<details class="recall"><summary>Permissible shear stress by DET from S<sub>yt</sub> and (fs)?</summary><div>\(\tau = 0.577S_{yt}/(fs)\). By MSST it is \(0.5S_{yt}/(fs)\).</div></details>
+<details class="recall"><summary>Stress on a pin pressed against a hole: which area?</summary><div>The projected area, length × diameter.</div></details>
+</div>
+
+<h2>1. What it is and where it's used</h2>
+<p>A cotter joint connects two <b>co-axial rods</b> carrying axial tension or compression, never rotating shafts that transmit torque. Examples: piston rod to crosshead, valve spindle to fork, pump rod joints, foundation bolts (<a class="bk" data-p="85"></a>). A tapered steel wedge, the <b>cotter</b>, passes through slots in the <b>socket</b> (on rod A) and the <b>spigot</b> (on rod B). Driving it in draws the rods together. The taper (1 in 24 to 1 in 32, on one side only) keeps it tight and makes it easy to knock out. Slot clearance is 1.5–3 mm.</p>
+<p><b>Advantages:</b> quick to assemble and dismantle, the wedge action gives a high tightening force, and it is simple to design and make.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 270" role="img" aria-label="Section through socket and spigot cotter joint">
+  <line x1="10" y1="135" x2="650" y2="135" class="dash"/>
+  <!-- rod A -->
+  <rect x="20" y="119" width="130" height="32" class="part"/>
+  <text x="60" y="113" class="small">rod A, d</text>
+  <!-- socket body outer d1 -->
+  <rect x="150" y="95" width="160" height="80" class="part"/>
+  <!-- socket collar d4 -->
+  <rect x="310" y="80" width="28" height="110" class="part"/>
+  <!-- bore d2 -->
+  <rect x="200" y="111" width="138" height="48" fill="var(--paper)" stroke="none"/>
+  <!-- spigot inside socket d2 -->
+  <rect x="210" y="111" width="128" height="48" class="part2"/>
+  <!-- spigot collar d3 -->
+  <rect x="338" y="99" width="26" height="72" class="part2"/>
+  <!-- rod B -->
+  <rect x="364" y="119" width="270" height="32" class="part2"/>
+  <text x="520" y="113" class="small">rod B, d</text>
+  <!-- cotter -->
+  <rect x="252" y="55" width="14" height="165" class="hot"/>
+  <text x="270" y="52" class="acc">cotter: thickness t, width b</text>
+  <!-- P arrows -->
+  <line x1="40" y1="200" x2="10" y2="200" class="acc"/><polygon points="10,200 20,195 20,205" class="fill-acc"/><text x="22" y="220" class="acc">P</text>
+  <line x1="610" y1="200" x2="645" y2="200" class="acc"/><polygon points="648,200 638,195 638,205" class="fill-acc"/><text x="620" y="220" class="acc">P</text>
+  <!-- dims -->
+  <line x1="160" y1="95" x2="160" y2="175" class="thin"/><text x="164" y="190" class="small">d₁</text>
+  <line x1="324" y1="80" x2="324" y2="190" class="thin"/><text x="318" y="204" class="small">d₄</text>
+  <line x1="351" y1="99" x2="351" y2="171" class="thin"/><text x="345" y="92" class="small">d₃</text>
+  <line x1="230" y1="111" x2="230" y2="159" class="thin"/><text x="219" y="107" class="small">d₂</text>
+  <line x1="210" y1="240" x2="252" y2="240" class="blu"/><text x="224" y="256" class="blu small">a</text>
+  <line x1="266" y1="240" x2="338" y2="240" class="blu"/><text x="296" y="256" class="blu small">c</text>
+  <line x1="338" y1="232" x2="364" y2="232" class="thin"/><text x="342" y="226" class="small">t₁</text>
+  <text x="160" y="88" class="small">socket</text><text x="372" y="190" class="small">spigot collar</text>
+</svg>
+<figcaption>Section through the joint, simplified from Bhandari Fig. 4.11. a = spigot end beyond the slot; c = socket end beyond the slot.</figcaption>
+</figure>
+
+<h2>2. Ten ways it can fail, ten equations</h2>
+<p>Assumptions: axial tension, stress concentration at the slots ignored, initial tightening stress ignored. A higher (fs) covers these (<a class="bk" data-p="87"></a>–90).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>#</th><th>Failure</th><th>Equation (Bhandari)</th><th>Gives</th></tr></thead>
+<tbody>
+<tr><td>i</td><td>Tension in rod</td><td>\(P = \frac{\pi}{4}d^2\sigma_t\)</td><td>d</td></tr>
+<tr><td>ii</td><td>Tension in spigot at the slot</td><td>\(P = \left[\frac{\pi}{4}d_2^2 - d_2t\right]\sigma_t\)</td><td>d₂ (quadratic)</td></tr>
+<tr><td>iii</td><td>Tension in socket at the slot</td><td>\(P = \left[\frac{\pi}{4}(d_1^2-d_2^2) - (d_1-d_2)t\right]\sigma_t\)</td><td>d₁ (quadratic)</td></tr>
+<tr><td>iv</td><td>Double shear of cotter</td><td>\(P = 2bt\tau\)</td><td>b</td></tr>
+<tr><td>v</td><td>Double shear of spigot end</td><td>\(P = 2ad_2\tau\)</td><td>a</td></tr>
+<tr><td>vi</td><td>Double shear of socket end</td><td>\(P = 2(d_4-d_2)c\,\tau\)</td><td>c</td></tr>
+<tr><td>vii</td><td>Crushing of spigot end</td><td>\(P = t\,d_2\,\sigma_c\)</td><td>check</td></tr>
+<tr><td>viii</td><td>Crushing of socket end</td><td>\(P = (d_4-d_2)\,t\,\sigma_c\)</td><td>check / d₄</td></tr>
+<tr><td>ix</td><td>Bending of a loose cotter</td><td>\(\sigma_b = \dfrac{(P/2)\left[\frac{d_2}{4} + \frac{d_4-d_2}{6}\right]}{tb^2/6}\)</td><td>b (take the larger of iv, ix)</td></tr>
+<tr><td>x</td><td>Collar (slides): crushing and shear</td><td>\(P = \frac{\pi}{4}(d_3^2-d_2^2)\sigma_c\); \(P = \pi d_2 t_1\tau\)</td><td>d₃, t₁</td></tr>
+</tbody></table></div>
+<div class="formula"><span class="label">Empirical proportions (when not calculated)</span>
+<p>t = 0.31d · d₁ = 1.75d · d₂ = 1.21d · d₃ = 1.5d · d₄ = 2.4d · a = c = 0.75d · b = 1.6d · t₁ = 0.45d · taper 1 in 32 · clearance 1.5–3 mm (<a class="bk" data-p="90"></a>)</p>
+</div>
+<p class="side">Why a lower (fs) for the cotter (4) than for the rods and socket (6) in Ex. 4.2? The cotter has no stress concentration and is cheap to replace. If something must fail, it should be the cotter (<a class="bk" data-p="91"></a>).</p>
+
+<h2>3. Worked example (Bhandari Ex. 4.2)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 4.2</b> (<a class="bk" data-p="91"></a>). Design a cotter joint for 50 kN axial tension. Material 30C8 (S<sub>yt</sub> = 400). (fs) = 6 for rods, socket and spigot; 4 for the cotter. S<sub>yc</sub> = 2S<sub>yt</sub>, S<sub>sy</sub> = 0.5S<sub>yt</sub>.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Permissible stresses.</b> Rods/ends: σ<sub>t</sub> = 66.67, σ<sub>c</sub> = 133.33, τ = 33.33. Cotter: σ<sub>t</sub> = σ<sub>b</sub> = 100, τ = 50 N/mm².</li>
+<li><b>Rod:</b> \(d = \sqrt{4P/\pi\sigma_t} = 30.9\), so 32 mm. <b>Cotter thickness:</b> t = 0.31(32) = 9.92, so 10 mm.</li>
+<li><b>Spigot:</b> \(\frac{\pi}{4}d_2^2 - 10d_2 = 750 \Rightarrow d_2 = 37.9\), so 40 mm.</li>
+<li><b>Socket:</b> \(\frac{\pi}{4}(d_1^2 - 40^2) - 10(d_1 - 40) = 750 \Rightarrow d_1 = 52.0\), so 55 mm.</li>
+<li><b>Collars and ends:</b> d₃ = 1.5d = 48, d₄ = 2.4d = 76.8 → 80, a = c = 0.75d = 24 mm.</li>
+<li><b>Cotter width:</b> shear \(b = P/2t\tau = 50\) mm; bending \(b^2 = \frac{3P}{t\sigma_b}\left[\frac{40}{4} + \frac{80-40}{6}\right] \Rightarrow b = 50\) mm. So b = 50 mm.</li>
+<li><b>Checks:</b> spigot crushing \(P/td_2 = 125 &lt; 133.3\) ✓; spigot shear \(P/2ad_2 = 26.0 &lt; 33.3\) ✓; socket crushing \(P/(d_4-d_2)t = 125\) ✓; socket shear 26.0 ✓. t₁ = 0.45d = 15 mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice: Tutorial sheet 2, Q6 (cotter part)</h2>
+<div class="problem"><span class="ptitle">Tutorial Q6 (<a class="tut"></a>)</span>Design a socket-and-spigot cotter joint for 65 kN. Material 40C8, S<sub>yt</sub> = 460 N/mm², (fs) = 4, distortion energy theory. Bending and crushing stresses may be 30% more than tensile. So σ<sub>t</sub> = 115, σ<sub>c</sub> = σ<sub>b</sub> = 149.5, τ = 0.577(115) = 66.36 N/mm².</div>
+<div class="num" data-answer="26.83" data-tol="1" data-unit="mm">
+<p class="q">(a) Rod diameter before rounding.</p>
+<details class="sol"><p>\(d = \sqrt{4(65\,000)/\pi(115)} = 26.83\), so 28 mm.</p></details>
+</div>
+<div class="num" data-answer="48.3" data-tol="1.5" data-unit="mm">
+<p class="q">(b) With the empirical t = 0.31d ≈ 9 mm, tension in the spigot needs d₂ = 33.2 mm. What d₂ does <em>spigot crushing</em> demand?</p>
+<details class="sol"><p>\(d_2 = P/(t\sigma_c) = 65\,000/(9\times149.5) = 48.3\) mm. Far more than tension needs, so the design is unbalanced. The cure: <b>thicken the cotter</b>. With t = 12 mm, tension needs d₂ = 35.5 and crushing 36.2, so take d₂ = 38 mm and both checks pass (σ<sub>t</sub> = 95.9, σ<sub>c</sub> = 142.5).</p></details>
+</div>
+<div class="num" data-answer="48.15" data-tol="1.5" data-unit="mm">
+<p class="q">(c) With t = 12 mm and d₂ = 38 mm, find the socket outer diameter d₁ from socket tension.</p>
+<details class="sol"><p>\(\frac{\pi}{4}(d_1^2 - 38^2) - 12(d_1 - 38) = 565.2 \Rightarrow 0.7854d_1^2 - 12d_1 - 1243.3 = 0 \Rightarrow d_1 = 48.15\), so 50 mm.</p></details>
+</div>
+<div class="num" data-answer="74.2" data-tol="1.5" data-unit="mm">
+<p class="q">(d) Socket collar diameter d₄ from crushing of the socket end.</p>
+<details class="sol"><p>\(d_4 = d_2 + P/(t\sigma_c) = 38 + 36.2 = 74.2\), so 75 mm (larger than the empirical 2.4d = 67 mm).</p></details>
+</div>
+<div class="num" data-answer="41.3" data-tol="1.5" data-unit="mm">
+<p class="q">(e) Cotter width b: the larger of shear and bending (t = 12, d₂ = 38, d₄ = 75).</p>
+<details class="sol"><p>Shear: \(b = 65\,000/(2\times12\times66.36) = 40.8\). Bending: \(b^2 = \frac{3(65\,000)}{12(149.5)}\left[\frac{38}{4}+\frac{37}{6}\right] = 1703 \Rightarrow b = 41.3\). So b = 42 mm.</p><p>Remaining: a = c = 0.75d = 21 mm (shear needs only about 13); d₃ from collar crushing \(= \sqrt{38^2 + 4P/\pi\sigma_c} = 44.7\), so 45 mm; t₁ = 0.45d = 12.6, so 13 mm.</p></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">Why is the cotter tapered on one side only?</p>
+<ol class="opts">
+<li>A double taper would weaken the cotter in shear</li>
+<li>Tapering both sides prevents the joint from tightening</li>
+<li>One taper is easier to machine and gives no loss</li>
+<li>One taper lets the cotter carry the bending load</li>
+</ol>
+<div class="why">Machining a taper on two sides is harder and offers no specific advantage (<a class="bk" data-p="86"></a>).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Which area resists crushing of the spigot end?</p>
+<ol class="opts">
+<li>t × d₂, cotter thickness times spigot diameter</li>
+<li>a × d₂, spigot end length times spigot diameter</li>
+<li>b × t, cotter width times cotter thickness</li>
+<li>π d₂²/4, full cross-section of the spigot end</li>
+</ol>
+<div class="why">The cotter bears on a narrow rectangle t wide and d₂ long (Eq. 4.25h). a × d₂ is a <em>shear</em> area (two of them).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Can a cotter joint connect two rotating shafts that transmit torque?</p>
+<ol class="opts">
+<li>Yes, if the cotter is designed for torsional shear</li>
+<li>Yes, when the shafts run at low speed only</li>
+<li>No, because the taper loosens at high speed</li>
+<li>No, it is meant only for axial force</li>
+</ol>
+<div class="why">Bhandari: "It is not used for connecting shafts that rotate and transmit torque." Use a coupling for that (Lessons 28–29).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Spigot tension area: don't forget to subtract the slot (d₂t).</li>
+<li>Calculating b from shear only. Always check bending too.</li>
+<li>Skipping the crushing checks. In Tut Q6 they govern.</li>
+<li>Not drawing the dimensioned sketch. Design questions expect one (Bhandari Fig. 4.17).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §4.9–4.10, <a class="bk" data-p="85">pp. 85–94</a> (Examples 4.2–4.4).</li>
+<li>Course slides: design of cotter joint, collar failures, <a class="ppt" data-p="283">pp. 283–292</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 14, "Design of cotter and knuckle joints" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want me to check your own full Tut Q6 solution, sketch included? Paste your numbers step by step.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

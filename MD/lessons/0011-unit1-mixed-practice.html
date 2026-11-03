@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 1 Practice</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 11</p>
+<h1>Unit 1 mixed practice</h1>
+<p class="meta">About 40 minutes · no new content · do it a few days after Lesson 10</p>
+<div class="win"><b>Your win:</b> for any Unit 1 problem, you can recognise the method yourself. The questions are deliberately shuffled across topics, as in the exam, because <em>choosing</em> the method is the skill being tested.</div>
+
+<div class="note"><p>How to use this page: for each problem, first write down in one line which method you'll use (failure theory? stress concentration? S–N? Goodman?). Then solve on paper and type only the final number. Mixed-up practice feels harder than blocked practice. That's intended: it builds long-term retention, not just short-term fluency.</p></div>
+
+<h2>Part A: name the method (no calculation)</h2>
+<div class="mcq" data-correct="2">
+<p class="q">A grey cast-iron C-frame carries a static 15 kN load. The section has both direct and bending stress. What governs the design?</p>
+<ol class="opts">
+<li>Maximum shear stress theory, with S<sub>yt</sub></li>
+<li>Maximum principal stress, with S<sub>ut</sub> and K<sub>t</sub></li>
+<li>Modified Goodman diagram, with S<sub>e</sub></li>
+<li>Distortion energy theory, ignoring K<sub>t</sub></li>
+</ol>
+<div class="why">Brittle material under static load: compare the largest normal stress with S<sub>ut</sub>/(fs). Any stress concentration is applied because cast iron cannot yield locally (Lessons 2, 7).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">A steel shaft's torque varies 100 → 400 N·m and there is no bending. What is the design condition?</p>
+<ol class="opts">
+<li>Goodman line with S<sub>e</sub> and S<sub>ut</sub></li>
+<li>Soderberg line with S<sub>e</sub> and S<sub>yt</sub></li>
+<li>S–N line from 0.9 S<sub>ut</sub> to S<sub>e</sub></li>
+<li>τ<sub>a</sub> = S<sub>se</sub>/(fs), then check τ<sub>max</sub></li>
+</ol>
+<div class="why">For fluctuating torsion, Bhandari's modified Goodman diagram is horizontal at S<sub>se</sub>: mean shear has no effect until yielding (Lesson 9).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A component must survive 50 000 cycles of reversed bending at a stress above its corrected S<sub>e</sub>. Which tool do you use?</p>
+<ol class="opts">
+<li>S–N line between 10³ and 10⁶ cycles</li>
+<li>Miner's rule with a single stress level</li>
+<li>Gerber parabola with zero mean stress</li>
+<li>Endurance limit divided by safety factor</li>
+</ol>
+<div class="why">Finite life under reversed stress: read the fatigue strength (or life) off the log–log line from (10³, 0.9S<sub>ut</sub>) to (10⁶, S<sub>e</sub>) (Lesson 8).</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">You must choose between steel and aluminium for a light, stiff square-section beam. Which index ranks them?</p>
+<ol class="opts">
+<li>S/ρ, strength per unit weight</li>
+<li>E/ρ, specific modulus of the tie</li>
+<li>E<sup>1/2</sup>/ρ, from beam stiffness</li>
+<li>S<sup>2/3</sup>/ρ, from beam strength</li>
+</ol>
+<div class="why">Iso-rigidity for a square beam: deflection ∝ 1/(E a⁴), so mass ∝ ρ/E<sup>1/2</sup> (Lesson 5).</div>
+</div>
+
+<h2>Part B: solve</h2>
+<div class="num" data-answer="33.65" data-tol="1.5" data-unit="mm">
+<p class="q">Bhandari Ex. 4.12 (question bank Q11): a wall bracket of grey cast iron FG 200, (fs) = 3.5, has a rectangular section with depth 2t and width t. A 5 kN force at 60° to the vertical acts on it. At the critical section, its horizontal component has an arm of 150 mm and its vertical component an arm of 300 mm. The horizontal component also causes direct tension. Use maximum normal stress theory to find t.</p>
+<details class="sol"><p>P<sub>h</sub> = 4330 N, P<sub>v</sub> = 2500 N, M = 4330(150) + 2500(300) = 1.3995×10⁶ N·mm.</p><p>\(\sigma_b = \frac{M(t)}{t(2t)^3/12} = \frac{2.099\times10^6}{t^3}\); \(\sigma_t = \frac{4330}{2t^2} = \frac{2165}{t^2}\).</p><p>\(\sigma_b + \sigma_t = 200/3.5 = 57.14 \Rightarrow t = 33.65\) mm, so the section is 35 × 70 mm.</p></details>
+</div>
+<div class="num" data-answer="29.99" data-tol="1" data-unit="mm">
+<p class="q">Bhandari Ex. 4.14 (Q12): at section XX of an overhang crank, the 1 kN crankpin force gives M<sub>b</sub> = 175 N·m and M<sub>t</sub> = 500 N·m. Steel 30C8 (S<sub>yt</sub> = 400), (fs) = 2. Use maximum shear stress theory to find d.</p>
+<details class="sol"><p>τ<sub>allow</sub> = 0.5(400)/2 = 100. \(\frac{16}{\pi d^3}\sqrt{175^2+500^2}\times10^3 = 100 \Rightarrow d = 29.99\), so use 30 mm.</p></details>
+</div>
+<div class="num" data-answer="57.24" data-tol="1" data-unit="mm">
+<p class="q">Bhandari Ex. 4.11: a cast-iron FG 200 cantilever ((fs) = 2.5, depth = 2 × width w) supports a pulley. The bending moment at the fixed end works out to 10 × 10⁶ N·mm. Find w.</p>
+<details class="sol"><p>I = w(2w)³/12 = (2/3)w⁴, y = w. \(80 = \frac{10^7(w)}{(2/3)w^4} = \frac{1.5\times10^7}{w^3}\Rightarrow w = 57.24\) mm, so the section is 60 × 120 mm.</p></details>
+</div>
+<div class="num" data-answer="11.78" data-tol="1.5" data-unit="mm">
+<p class="q">Bhandari Ex. 5.18: same cantilever as Ex. 5.12 (S<sub>e</sub> = 126.11, S<sub>ut</sub> = 600, (M<sub>b</sub>)<sub>a</sub> = 10 000 N·mm, tan θ = 2, (fs) = 2), but now use the <b>Gerber</b> criterion. Find d.</p>
+<details class="sol"><p>\(\frac{S_a}{126.11} + \left(\frac{S_a}{2\times600}\right)^2 = 1\Rightarrow S_a^2 + 11\,418.6S_a - 1200^2 = 0\Rightarrow S_a = 124.8\).</p><p>\(\frac{32(10\,000)}{\pi d^3} = \frac{124.8}{2}\Rightarrow d = 11.78\) mm. Slightly smaller than the Goodman result (12.13), as expected.</p></details>
+</div>
+<div class="num" data-answer="336" data-tol="1.5" data-unit="kN">
+<p class="q">Bhandari Ex. 5.16: a polished steel bar, 30 mm diameter, has a groove 2 mm deep (net diameter 26 mm). K<sub>t</sub> = 1.8, q = 0.95. S<sub>ut</sub> = 1250, S′<sub>e</sub> = 600 MPa, K<sub>b</sub> = 0.85, reliability 90%. Axial force varies 0 → P<sub>max</sub>. Find the largest P<sub>max</sub> for 10⁵ cycles (no extra (fs)).</p>
+<details class="sol"><p>K<sub>f</sub> = 1.76. \(S_e = 1(0.85)(0.897)(1/1.76)(600) = 259.8\). S–N at 10⁵ cycles: \(\log S_f = \log1125 - \frac{\log1125-\log259.8}{3}(2) \Rightarrow S_f = 423.6\).</p><p>Repeated load gives tan θ = 1. Goodman with S<sub>f</sub> in place of S<sub>e</sub>: \(S_a = 1/(1/423.6+1/1250) = 316.4\).</p><p>\(\frac{P/2}{\frac{\pi}{4}(26)^2} = 316.4\Rightarrow P = 336\) kN.</p></details>
+</div>
+<div class="num" data-answer="0.52" data-tol="2">
+<p class="q">Aluminium (ρ = 2.70, S = 200) versus steel (ρ = 7.85, S = 300). Find m<sub>Al</sub>/m<sub>steel</sub> for a tie of equal <em>strength</em>.</p>
+<details class="sol"><p>(2.70/7.85)(300/200) = 0.52.</p></details>
+</div>
+<div class="num" data-answer="93.0" data-tol="1.5" data-unit="N/mm²">
+<p class="q">Recall Lesson 4: a 1000 N weight falls 10 mm onto the collar of a 1 m steel bar of area 500 mm² (E = 207 000). Find the impact stress.</p>
+<details class="sol"><p>\(\sigma_i = \frac{W}{A}\left[1+\sqrt{1+\frac{2hAE}{Wl}}\right] = 2(1+\sqrt{2071}) = 93.0\) N/mm².</p></details>
+</div>
+<div class="num" data-answer="1.25" data-tol="0.5">
+<p class="q">What is the second number of the R10 series (starting at 1)?</p>
+<details class="sol"><p>\(10^{1/10} = 1.2589\), which rounds to 1.25.</p></details>
+</div>
+
+<h2>Part C: theory you should be able to write in 5 minutes</h2>
+<div class="recall-set"><span class="label">Answer aloud or on paper, then open to check</span>
+<details class="recall"><summary>Explain the design process from need to financial viability, with an example.</summary><div>Need → analysis/problem definition (specifications) → conceptual design (alternatives) → technical viability (physically realisable?) → economic viability (value &gt; cost?) → financial viability (can it be funded?) → preliminary and detailed design. See <a class="lesson" data-l="0003"></a>.</div></details>
+<details class="recall"><summary>List six factors that decide the factor of safety.</summary><div>Effect of failure, type of load, accuracy of force analysis, material (ductile/brittle), required reliability, cost, testing possible or not, service conditions, quality of manufacture.</div></details>
+<details class="recall"><summary>Distinguish low-cycle and high-cycle fatigue.</summary><div>Below about 10³ cycles: low-cycle, involves local plastic yielding, designed on S<sub>ut</sub>/S<sub>yt</sub>. Above 10³: high-cycle, designed on the endurance limit.</div></details>
+<details class="recall"><summary>Four methods to reduce stress concentration.</summary><div>Larger fillet radius; undercut shoulder; additional (relief) notches or holes; remove unneeded material; reduce shank to the thread core diameter; drill holes beside keyways.</div></details>
+<details class="recall"><summary>Why is the Goodman line preferred to Gerber in design?</summary><div>It lies inside the failure points (safe), it is a straight line (simpler), and a rough sketch is enough.</div></details>
+</div>
+
+<div class="src"><ul>
+<li>Bhandari Short-Answer Questions and Problems for Practice at the end of Ch. 4 (<a class="bk" data-p="137">pp. 137–140</a>) and Ch. 5 (<a class="bk" data-p="182">pp. 182–183</a>). Do two of each.</li>
+<li>Your question bank Q1–Q22 (<a class="qb" data-p="5"></a>).</li>
+</ul></div>
+<div class="ask"><p>Score below 70% on Part B? Tell me which problems you missed and I'll write a short targeted drill on just those methods.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

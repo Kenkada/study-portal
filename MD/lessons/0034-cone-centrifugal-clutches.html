@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cone and Centrifugal Clutches</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 34</p>
+<h1>Friction clutches II: cone and centrifugal clutches; energy and heat</h1>
+<p class="meta">About 35 minutes · Bhandari §11.5–11.8</p>
+<div class="win"><b>Your win:</b> you can derive the torque of a cone clutch (and why α ≈ 12.5°), the torque of a centrifugal clutch from shoe mass and speeds, and the energy dissipated during engagement, which comes out independent of torque. You can then design all three.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 33)</span>
+<details class="recall"><summary>Uniform wear plate-clutch torque?</summary><div>M<sub>t</sub> = μP(D + d)/4</div></details>
+<details class="recall"><summary>Where is pressure greatest under uniform wear?</summary><div>At the inner radius (pr = constant).</div></details>
+</div>
+
+<h2>1. Cone clutch: derivation</h2>
+<p>An inner cone (lined with leather, cork or asbestos) slides on splines into an outer cone keyed to the driver. A spring engages it and a fork disengages it. The wedge action gives a large normal force from a small axial force. Drawback: the shafts must be accurately co-axial (<a class="bk" data-p="461"></a>).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Eqs 11.11–11.19 for semi-cone angle α.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>An elemental frustum between r and r + dr has slant width dr/sin α, so area dA = 2πr dr/sin α.</li>
+<li>Normal force p dA; friction μp dA; torque μp dA·r = \(\dfrac{2\pi\mu p r^2 dr}{\sin\alpha}\).</li>
+<li>Axial component of the normal force: p dA sin α = 2πp r dr. That is the <em>same</em> as for a flat plate, so P = 2π∫pr dr is unchanged.</li>
+<li>So every plate result is simply divided by sin α. Uniform wear: \(\boxed{M_t = \dfrac{\mu P(D+d)}{4\sin\alpha}}\), P = πp<sub>a</sub>d(D − d)/2. Uniform pressure: \(M_t = \dfrac{\mu P}{3\sin\alpha}\dfrac{D^3-d^3}{D^2-d^2}\).</li>
+<li>Face width of lining: \(b = \dfrac{D - d}{2\sin\alpha}\).</li>
+<li><b>Choice of α</b>: smaller α means more torque (∝ 1/sin α), but if α &lt; the friction angle φ (tan⁻¹ 0.2 = 11.3°) the cone <b>self-engages</b> (grabs) and is hard to release. So α = <b>12.5°</b>. At 12.5° a cone carries 1/sin 12.5° = <b>4.62×</b> the torque of a plate of the same diameters and force (<a class="bk" data-p="463"></a>).</li>
+</ol>
+</div></div>
+
+<h2>2. Centrifugal clutch: derivation</h2>
+<p>Shoes on a spider (input shaft) are held in by springs. As speed rises, centrifugal force overcomes the springs and the lined shoes press on the drum (output shaft). It engages automatically and smoothly once the engine is running. <b>Applications:</b> mopeds, chain saws, lawnmowers, golf carts (light duty); cranes, cement and ball mills, even tanks (high-inertia loads that need a time delay) (<a class="bk" data-p="465"></a>).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the torque of a centrifugal clutch with z shoes of mass m, CG radius r<sub>g</sub>, drum radius r<sub>d</sub> (Eqs 11.20–11.23; r in mm, hence the 1000).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Engagement begins at ω₁, where centrifugal force just equals the spring force: \(P_s = \dfrac{m\omega_1^2 r_g}{1000}\).</li>
+<li>At running speed ω₂: net radial force on the drum = \(\dfrac{m\omega_2^2 r_g}{1000} - P_s = \dfrac{m r_g(\omega_2^2 - \omega_1^2)}{1000}\).</li>
+<li>Friction force per shoe = μ × net force; torque per shoe = friction × r<sub>d</sub>.</li>
+<li>Total: \(\boxed{M_t = \dfrac{\mu\,m\,r_g\,r_d\,z\,(\omega_2^2 - \omega_1^2)}{1000}}\) (N·mm).</li>
+<li>Lining size from bearing pressure: net force = p<sub>a</sub> × l × b, with arc length l = r<sub>d</sub>θ (θ ≈ 70° per shoe in Bhandari's examples).</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: energy dissipated while engaging</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the slip time and the heat generated when a clutch (constant torque M<sub>t</sub>) connects inertias I₁ (driver, ω₁) and I₂ (driven, ω₂) (Eqs 11.24–11.27).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Equations of motion: I₁α₁ = −M<sub>t</sub> (driver slows), I₂α₂ = +M<sub>t</sub> (driven speeds up).</li>
+<li>Relative speed: \(\omega_{rel}(t) = (\omega_1 - \omega_2) - M_t\left(\dfrac{I_1 + I_2}{I_1I_2}\right)t\).</li>
+<li>Slip ends when ω<sub>rel</sub> = 0: \(\boxed{t_1 = \dfrac{(\omega_1-\omega_2)I_1I_2}{(I_1+I_2)M_t}}\).</li>
+<li>Heat = ∫M<sub>t</sub> ω<sub>rel</sub> dt from 0 to t₁. Substituting t₁: \(\boxed{E = \dfrac12\,\dfrac{I_1I_2}{I_1+I_2}(\omega_1-\omega_2)^2}\). It is <b>independent of the clutch torque</b>: a stronger clutch engages faster but dissipates the same energy.</li>
+<li>Temperature rise Δt = E/(mc), with c ≈ 500 J/kg°C for steel or cast iron. Cooling follows \(T - T_a = (T_i - T_a)e^{-(Ah/mc)t}\), so frequent engagements build up heat (<a class="bk" data-p="469"></a>).</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="270.8" data-tol="1" data-unit="mm">
+<p class="q">Ex. 11.10 (<a class="bk" data-p="463"></a>): cone clutch, 30 kW at 500 rpm, μ = 0.2, p<sub>a</sub> = 0.35, α = 12.5°, D = 300 mm, uniform wear. Inner diameter?</p>
+<details class="sol"><p>M<sub>t</sub> = 572 958 = π(0.2)(0.35)d(300² − d²)/(8 sin 12.5°) ⇒ d = 270.8, so 270 mm. b = 30/(2 sin 12.5°) = 69.3 mm. P = 4M<sub>t</sub> sin α/(μ(D + d)) = 4351 N.</p></details>
+</div>
+<div class="num" data-answer="106.6" data-tol="1" data-unit="kJ">
+<p class="q">Ex. 11.11 (<a class="bk" data-p="464"></a>): a cone clutch brings a 150 kg rotor (k = 250 mm) from rest to 1440 rpm in 40 s. Heat generated per engagement? (Constant acceleration; work = M<sub>t</sub> × angle slipped at the mean speed.)</p>
+<details class="sol"><p>α = 150.8/40 = 3.77 rad/s²; M<sub>t</sub> = Iα = 150(0.25²)(3.77) = 35.34 N·m. Angle = (150.8/2)(40) = 3016 rad. Heat = 35.34 × 3016 = 106.6 kJ. (Dimensions: d = 159.1, D = 177.3, b = 42 mm, P = 455 N.)</p></details>
+</div>
+<div class="num" data-answer="2.68" data-tol="1" data-unit="kg">
+<p class="q">Ex. 11.12 (<a class="bk" data-p="466"></a>): centrifugal clutch, 20 kW at 750 rpm, 4 shoes, engagement at 500 rpm, r<sub>d</sub> = 165, r<sub>g</sub> = 140 mm, μ = 0.3. Mass of each shoe?</p>
+<details class="sol"><p>ω₂ = 78.54, ω₁ = 52.36 rad/s; M<sub>t</sub> = 254 648 N·mm. m = 1000M<sub>t</sub>/(0.3 × 140 × 165 × 4 × (78.54² − 52.36²)) = 2.68 kg. Lining (θ = 70°, l = 200 mm): b = 64.3 → 65 mm.</p></details>
+</div>
+<div class="num" data-answer="77.3" data-tol="1" data-unit="kW">
+<p class="q">Ex. 11.13 (<a class="bk" data-p="467"></a>): 4 shoes of 1.5 kg, r<sub>g</sub> = 110, r<sub>d</sub> = 140, μ = 0.3, spring force 700 N at the start of engagement, running at 1440 rpm. Power transmitted?</p>
+<details class="sol"><p>700 = 1.5ω₁²(110)/1000 ⇒ ω₁ = 65.13 rad/s (622 rpm). M<sub>t</sub> = 0.3(1.5)(110)(140)(4)(150.8² − 65.13²)/1000 = 512 785 N·mm, so 77.3 kW.</p></details>
+</div>
+<div class="num" data-answer="2046" data-tol="1" data-unit="J">
+<p class="q">Ex. 11.14 (<a class="bk" data-p="470"></a>): single-plate clutch, 10 kW at 2000 rpm; input 20 kg, k = 75 mm; output (initially at rest) 35 kg, k = 125 mm. Heat generated during engagement?</p>
+<details class="sol"><p>I₁ = 0.1125, I₂ = 0.5469 kg·m²; ω₁ = 209.44 rad/s. E = ½(209.44²)(0.1125 × 0.5469/0.6594) = 2046 J. Time t₁ = 0.41 s with M<sub>t</sub> = 47.75 N·m.</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">Reducing the semi-cone angle of a cone clutch below the friction angle causes:</p>
+<ol class="opts">
+<li>a sharp drop in its torque capacity</li>
+<li>uniform pressure instead of uniform wear</li>
+<li>self-engagement and difficulty disengaging</li>
+<li>loss of the wedge action between the cones</li>
+</ol>
+<div class="why">With α &lt; φ the wedge locks: the cone grabs and needs a large force to release. Hence α ≈ 12.5° &gt; 11.3°.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">The energy dissipated as heat during clutch engagement depends on:</p>
+<ol class="opts">
+<li>the inertias and the initial speed difference only</li>
+<li>the clutch torque and the time to engage only</li>
+<li>the coefficient of friction and the plate area</li>
+<li>the clutch torque and the friction radius</li>
+</ol>
+<div class="why">E = ½[I₁I₂/(I₁ + I₂)](Δω)², with no M<sub>t</sub> in it. Torque only changes how fast it happens.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">In a centrifugal clutch, the torque transmitted is proportional to:</p>
+<ol class="opts">
+<li>ω₂ − ω₁</li>
+<li>ω₂² alone</li>
+<li>(ω₂ − ω₁)²</li>
+<li>ω₂² − ω₁²</li>
+</ol>
+<div class="why">The net radial force = mr<sub>g</sub>(ω₂² − ω₁²): centrifugal force at running speed minus the spring force set at engagement speed.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Cone clutch: dividing P (not M<sub>t</sub>) by sin α. The axial force formula is the same as for a plate.</li>
+<li>Centrifugal clutch: forgetting the spring force (using ω₂² alone), or mixing mm and m.</li>
+<li>Energy: using I₁ + I₂ instead of I₁I₂/(I₁ + I₂).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §11.5–11.8, <a class="bk" data-p="461">pp. 461–470</a> (Examples 11.10–11.14).</li>
+<li>Course slides: cone clutch, centrifugal clutch, <a class="ppt" data-p="576">pp. 576–594</a>; problems <a class="ppt" data-p="706">pp. 706–707</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), clutches (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Interested in the lumped-heat-capacity cooling curve (Fig. 11.19) and how often a clutch may be engaged? Ask me to work a quick temperature-rise example.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

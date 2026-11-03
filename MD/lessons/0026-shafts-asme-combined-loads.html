@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaft Design II</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 26</p>
+<h1>Shafts with pulleys and gears: the ASME code</h1>
+<p class="meta">About 35 minutes · Bhandari §9.4</p>
+<div class="win"><b>Your win:</b> you can turn belt tensions and gear-tooth forces into vertical and horizontal bending-moment diagrams, find the critical section, and size the shaft by the ASME code with shock factors k<sub>b</sub>, k<sub>t</sub>. This is the most common long shaft question.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 25)</span>
+<details class="recall"><summary>Equivalent torque by MSST?</summary><div>T<sub>e</sub> = √(M<sub>b</sub>² + M<sub>t</sub>²)</div></details>
+<details class="recall"><summary>Shaft diameter scales with torque as…</summary><div>T<sup>1/3</sup> on strength, T<sup>1/4</sup> on rigidity.</div></details>
+</div>
+
+<h2>1. Derivation: what a pulley and a gear do to a shaft</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the forces and torque a belt pulley and a spur gear apply to their shaft.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Pulley</b> of radius R with tight and slack tensions P₁, P₂: torque M<sub>t</sub> = (P₁ − P₂)R. The shaft feels a transverse pull (P₁ + P₂) along the belt direction, plus the pulley weight acting downward.</li>
+<li>Belt tension ratio for wrap angle θ and friction μ: P₁/P₂ = e<sup>μθ</sup> (derived in Lesson 30). With M<sub>t</sub> known, solve P₁ − P₂ = M<sub>t</sub>/R together with P₁/P₂ = e<sup>μθ</sup>.</li>
+<li><b>Spur gear</b> of pitch diameter d′ with pressure angle α: tangential force P<sub>t</sub> = 2M<sub>t</sub>/d′ (gives torque and bending in the tangential plane); radial force P<sub>r</sub> = P<sub>t</sub> tan α (towards the gear centre, in the plane of the centres).</li>
+<li>Resolve every force into a <b>vertical</b> and a <b>horizontal</b> plane. Find the bearing reactions and BMD in each plane. At every section: \(M_b = \sqrt{M_V^2 + M_H^2}\).</li>
+<li>The critical section has the largest combination of M<sub>b</sub> and M<sub>t</sub>. Usually it's the largest M<sub>b</sub>, since M<sub>t</sub> is constant between the driving and driven elements.</li>
+</ol>
+</div></div>
+
+<h2>2. The ASME code (§9.4)</h2>
+<div class="formula"><span class="label">Eqs 9.14, 9.15</span>
+\[ \tau_{max} = \min(0.30\,S_{yt},\ 0.18\,S_{ut}),\ \ \times 0.75 \text{ if there is a keyway} \]
+\[ \tau_{max} = \frac{16}{\pi d^3}\sqrt{(k_bM_b)^2 + (k_tM_t)^2} \]
+</div>
+<div class="tbl-wrap"><table>
+<caption>Combined shock and fatigue factors, rotating shafts (Table 9.2, <a class="bk" data-p="334"></a>)</caption>
+<thead><tr><th>Load</th><th class="num">k<sub>b</sub></th><th class="num">k<sub>t</sub></th></tr></thead>
+<tbody>
+<tr><td>Gradually applied</td><td class="num">1.5</td><td class="num">1.0</td></tr>
+<tr><td>Suddenly applied, minor shock</td><td class="num">1.5–2.0</td><td class="num">1.0–1.5</td></tr>
+<tr><td>Suddenly applied, heavy shock</td><td class="num">2.0–3.0</td><td class="num">1.5–3.0</td></tr>
+</tbody></table></div>
+<p class="side">Why k<sub>b</sub> ≥ 1.5 even for steady load: a rotating shaft under a steady transverse load sees <em>fully reversed</em> bending stress every revolution (Lesson 6). The factor stands in for fatigue. The ASME code is the maximum shear stress theory with these factors.</p>
+
+<h2>3. Worked example (Bhandari Ex. 9.5): gear plus overhung pulley</h2>
+<div class="example">
+<div class="ex-head"><b>Example 9.5</b> (<a class="bk" data-p="339"></a>). Bearings A and C are 800 mm apart. Spur gear B (pitch Ø300, 20°) is midway between them; pulley D (Ø450) overhangs C by 400 mm with vertical belts, P₁ = 3P₂. 20 kW at 500 rpm passes from pulley to gear. Gear forces: P<sub>t</sub> horizontal, P<sub>r</sub> vertical downward. Both keyed. 50C4 (S<sub>ut</sub> = 700, S<sub>yt</sub> = 460), k<sub>b</sub> = k<sub>t</sub> = 1.5.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Allowable: min(0.30 × 460 = 138, 0.18 × 700 = 126) = 126, × 0.75 for keyways = <b>94.5 N/mm²</b>.</li>
+<li>M<sub>t</sub> = 60×10⁶ × 20/(2π × 500) = 381 972 N·mm.</li>
+<li>Pulley: (P₁ − P₂)(225) = M<sub>t</sub> and P₁ = 3P₂ ⇒ P₁ = 2546.5, P₂ = 848.8; belt pull 3395.3 N downward at D.</li>
+<li>Gear: P<sub>t</sub> = M<sub>t</sub>/150 = 2546.5 N (horizontal); P<sub>r</sub> = 2546.5 tan 20° = 926.8 N (vertical).</li>
+<li>Vertical plane: moments about A give R<sub>C</sub> = (926.8 × 400 + 3395.3 × 1200)/800 = 5556.4 N, so R<sub>A</sub> = −1234.2 N. M<sub>V</sub> at C = 3395.3 × 400 = 1 358 124; at B = −493 692 N·mm.</li>
+<li>Horizontal plane: R<sub>A</sub> = R<sub>C</sub> = 1273.2 N; M<sub>H</sub> at B = 509 296 N·mm, zero at C.</li>
+<li>Resultant: B: √(493 692² + 509 296²) = 709 300; C: 1 358 124 N·mm. <b>C is critical.</b></li>
+<li>\(d^3 = \frac{16}{\pi(94.5)}\sqrt{(1.5\times1\,358\,124)^2 + (1.5\times381\,972)^2}\Rightarrow d = 48.5\) mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="42.53" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.3 (<a class="bk" data-p="337"></a>): line shaft, pulleys keyed, 40C8 (S<sub>ut</sub> = 650, S<sub>yt</sub> = 380), k<sub>b</sub> = 1.5, k<sub>t</sub> = 1.0. Maximum belt tension 2.7 kN on the smaller pulley A (Ø250, ratio 3:1). The resultant moment at A works out to 847 703 N·mm. Diameter?</p>
+<details class="sol"><p>Allowable: min(114, 117) = 114, × 0.75 = 85.5. M<sub>t</sub> = (2700 − 900)(125) = 225 000.</p><p>\(d^3 = \frac{16}{\pi(85.5)}\sqrt{(1.5 \times 847\,703)^2 + 225\,000^2}\Rightarrow d = 42.53\) mm. (The smaller pulley always carries the larger tension for a given torque.)</p></details>
+</div>
+<div class="num" data-answer="68.59" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.4 (<a class="bk" data-p="338"></a>): gearbox intermediate shaft, keyed gears, FeE 580 (S<sub>ut</sub> = 770, S<sub>yt</sub> = 580), k<sub>b</sub> = 1.5, k<sub>t</sub> = 2.0. Critical resultant M<sub>b</sub> = 3 498 327 N·mm, M<sub>t</sub> = 1 989 450 N·mm. Diameter?</p>
+<details class="sol"><p>Allowable: min(174, 138.6) × 0.75 = 103.95. \(d^3 = \frac{16}{\pi(103.95)}\sqrt{(1.5\times3\,498\,327)^2 + (2\times1\,989\,450)^2}\Rightarrow d = 68.59\) mm.</p></details>
+</div>
+<div class="num" data-answer="32.95" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.6 (<a class="bk" data-p="340"></a>): helical gear plus overhung bevel gear, keyed, 45C8 (S<sub>ut</sub> = 600, S<sub>yt</sub> = 380), k<sub>b</sub> = 2.0, k<sub>t</sub> = 1.5. Largest M<sub>b</sub> = 263 284 N·mm, M<sub>t</sub> = 144 000 N·mm. Diameter?</p>
+<details class="sol"><p>Allowable: min(114, 108) × 0.75 = 81. \(d^3 = \frac{16}{\pi(81)}\sqrt{(2\times263\,284)^2 + (1.5\times144\,000)^2}\Rightarrow d = 32.95\) mm. Rigidity later raises this to 45.4 mm (Ex. 9.9).</p></details>
+</div>
+<div class="num" data-answer="45.13" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.7 (<a class="bk" data-p="341"></a>): armature shaft of a 40 kW, 720 rpm motor. A 7 kN magnetic pull is spread over the middle 700 mm of a 1000 mm bearing span, and a keyed pulley overhangs bearing B by 300 mm with a 4 kN total belt pull, giving M<sub>b</sub> = 1.2 × 10⁶ N·mm at B. S<sub>ut</sub> = 770, S<sub>yt</sub> = 580, k<sub>b</sub> = 1.5, k<sub>t</sub> = 1.0. Diameter?</p>
+<details class="sol"><p>M<sub>t</sub> = 530 516 N·mm; allowable 103.95. \(d^3 = \frac{16}{\pi(103.95)}\sqrt{(1.8\times10^6)^2 + 530\,516^2}\Rightarrow d = 45.13\) mm.</p></details>
+</div>
+<div class="num" data-answer="45.47" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.1 (<a class="bk" data-p="335"></a>), MSST without ASME factors: pulley B (Ø500, vertical belt, P<sub>max</sub> = 2.5 kN, μ = 0.24, θ = 180°) drives pulley C (Ø250, horizontal belt). 30C8, (fs) = 3. The resultant moment at C is 1 185 625 N·mm. Diameter?</p>
+<details class="sol"><p>e<sup>0.24π</sup> = 2.125, so P₂ = 1176.5 and M<sub>t</sub> = (2500 − 1176.5)(250) = 330 883. τ = 66.67.</p><p>\(d^3 = \frac{16}{\pi(66.67)}\sqrt{1\,185\,625^2 + 330\,883^2}\Rightarrow d = 45.47\) mm. (Pulley C: P₃ = 5000, P₄ = 2353 N. The smaller pulley carries higher tensions.)</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A spur gear (pressure angle 20°) transmits a tangential force of 2 kN. The radial force on the shaft is about:</p>
+<ol class="opts">
+<li>0.68 kN, which is 2 sin 20°</li>
+<li>1.88 kN, which is 2 cos 20°</li>
+<li>0.73 kN, which is 2 tan 20°</li>
+<li>5.49 kN, which is 2 / tan 20°</li>
+</ol>
+<div class="why">P<sub>r</sub> = P<sub>t</sub> tan α = 2 × 0.364 = 0.728 kN. The total tooth force is P<sub>t</sub>/cos α = 2.13 kN.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Why is the bending moment multiplied by k<sub>b</sub> ≥ 1.5 in the ASME code even for steady loads?</p>
+<ol class="opts">
+<li>Bending stress fully reverses each revolution</li>
+<li>The yield strength in bending is lower</li>
+<li>Keyways always reduce bending strength</li>
+<li>Belt tensions are never known exactly</li>
+</ol>
+<div class="why">A point on a rotating shaft passes from tension to compression every turn, which is fatigue loading. The factor covers it in a static-looking formula.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Two pulleys on one shaft carry the same torque. The belt tensions are higher on:</p>
+<ol class="opts">
+<li>the larger pulley, which has more wrap</li>
+<li>whichever pulley has the vertical belt</li>
+<li>both pulleys equally, since torque is equal</li>
+<li>the smaller pulley, with the shorter arm</li>
+</ol>
+<div class="why">(P₁ − P₂) = M<sub>t</sub>/R: a smaller R needs larger tensions, so the bigger bending load comes from the smaller pulley (Bhandari Ex. 9.3).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Forgetting the 0.75 keyway factor, or taking the larger of 0.30S<sub>yt</sub> and 0.18S<sub>ut</sub> (take the smaller).</li>
+<li>Adding vertical and horizontal moments directly. Combine them vectorially at the same section.</li>
+<li>Ignoring the pulley's own weight when it is given.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §9.4, <a class="bk" data-p="334">pp. 334–342</a> (Examples 9.1, 9.3–9.7).</li>
+<li>Course slides: shaft with pulleys and gears, worked problems, <a class="ppt" data-p="483">pp. 483–503</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 33, "Shafts: static loading" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Drawing combined BMDs in two planes is where most mistakes happen. Send me a photo or description of your diagrams for any of these examples and I'll check them.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

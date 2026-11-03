@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaft Design I</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 25</p>
+<h1>Shafts: design on strength and torsional rigidity</h1>
+<p class="meta">About 30 minutes · Bhandari §9.1–9.3, 9.5–9.7</p>
+<div class="win"><b>Your win:</b> you can <em>derive</em> the equivalent torque and equivalent bending moment, size solid and hollow shafts on strength and on twist, and prove why a hollow shaft is stronger than a solid one of the same weight. Each of these comes up as a derivation question and as a GATE-style one-liner.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 2, 4)</span>
+<details class="recall"><summary>Principal shear stress for σ<sub>x</sub> and τ?</summary><div>\(\tau_{max} = \sqrt{(\sigma_x/2)^2 + \tau^2}\)</div></details>
+<details class="recall"><summary>Angle of twist of a solid shaft in degrees?</summary><div>θ = 584 M<sub>t</sub> l/(G d⁴)</div></details>
+</div>
+
+<h2>1. Shafts and where they're used</h2>
+<p>A <b>transmission shaft</b> is a rotating element of circular section that carries gears, pulleys or sprockets and transmits power. It is stepped (largest in the middle, smallest at the bearing seats), and the shoulders locate the parts. Fillets reduce stress concentration (<a class="bk" data-p="330"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Name</th><th>Meaning</th><th>Application</th></tr></thead>
+<tbody>
+<tr><td>Axle</td><td>carries wheels or drums; mostly bending, little or no torque</td><td>railway wagon axle (automobile rear axle also carries torque)</td></tr>
+<tr><td>Spindle</td><td>short rotating shaft</td><td>machine-tool spindles, lathe drive</td></tr>
+<tr><td>Countershaft / jackshaft</td><td>secondary shaft driven from the main shaft</td><td>multi-stage gearboxes</td></tr>
+<tr><td>Line shaft</td><td>shafts coupled end to end, driving many machines by belts</td><td>old group-drive workshops (obsolete)</td></tr>
+<tr><td>Flexible shaft</td><td>wire-coil core in a casing: low bending stiffness, high torsional stiffness</td><td>speedometer drives, portable grinders, concrete vibrators</td></tr>
+</tbody></table></div>
+<p><b>Materials:</b> 30C8, 40C8 (machinery steels); 45C8, 50C8 or alloy steels (40Cr4Mo2, 40Ni14…) for higher strength. Hot-rolled, then turned and ground. Cold-drawn shafts are stronger but distort when keyways are cut, because residual stresses are released (<a class="bk" data-p="331"></a>).</p>
+
+<h2>2. Derivation: equivalent torque and equivalent bending moment</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the design equations for a solid shaft under bending moment M<sub>b</sub> and torque M<sub>t</sub> (Bhandari Eqs 9.6–9.10).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>At the outer fibre: \(\sigma_x = \dfrac{32M_b}{\pi d^3}\) (bending) and \(\tau = \dfrac{16M_t}{\pi d^3}\) (torsion). There is no σ<sub>y</sub>.</li>
+<li>From Mohr's circle (centre σ<sub>x</sub>/2, radius √((σ<sub>x</sub>/2)² + τ²)): \(\sigma_1 = \dfrac{\sigma_x}{2} + \sqrt{\left(\dfrac{\sigma_x}{2}\right)^2 + \tau^2}\) and \(\tau_{max} = \sqrt{\left(\dfrac{\sigma_x}{2}\right)^2 + \tau^2}\).</li>
+<li>Substitute: \(\dfrac{\sigma_x}{2} = \dfrac{16M_b}{\pi d^3}\), so \(\tau_{max} = \dfrac{16}{\pi d^3}\sqrt{M_b^2 + M_t^2}\).</li>
+<li>Compare with pure torsion, τ = 16T/πd³. The shaft behaves as if under a single torque \(\boxed{T_e = \sqrt{M_b^2 + M_t^2}}\), the <b>equivalent torsional moment</b>. It goes with maximum shear stress theory (ductile shafts).</li>
+<li>Likewise \(\sigma_1 = \dfrac{16}{\pi d^3}\left[M_b + \sqrt{M_b^2+M_t^2}\right] = \dfrac{32}{\pi d^3}\cdot\tfrac12\left[M_b + \sqrt{M_b^2+M_t^2}\right]\). Compare with pure bending, σ = 32M/πd³: \(\boxed{M_e = \tfrac12\left[M_b + \sqrt{M_b^2+M_t^2}\right]}\), the <b>equivalent bending moment</b>. It goes with maximum principal stress theory.</li>
+</ol>
+</div></div>
+<p class="side">Bhandari writes the principal-stress result as \(\sigma_1 = \frac{16}{\pi d^3}[M_b + \sqrt{M_b^2+M_t^2}]\) and calls the bracket the "equivalent bending moment". Many GATE sources define M<sub>e</sub> with the ½ so that it sits in 32M<sub>e</sub>/πd³. Both are the same physics. Know which form the question uses.</p>
+
+<div class="formula"><span class="label">Design equations (Eqs 9.8–9.13)</span>
+\[ \frac{16}{\pi d^3}\sqrt{M_b^2+M_t^2} = \frac{0.5S_{yt}}{(fs)}\ \text{(MSST)} \qquad \frac{16}{\pi d^3}\left[M_b+\sqrt{M_b^2+M_t^2}\right] = \frac{S_{yt}}{(fs)}\ \text{(MPST)} \]
+\[ \theta^\circ = \frac{584\,M_t\,l}{G\,d^4}\quad\text{(limits: 0.25°/m machine tools; 3°/m line shafts; G ≈ 79 300 N/mm²)} \]
+</div>
+
+<h2>3. Derivation: why a hollow shaft is stronger for the same weight</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the torque-capacity ratio of a hollow shaft (k = d<sub>i</sub>/d<sub>o</sub>) to a solid shaft of the same material, length and <em>weight</em>.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Same weight means the same area: \(d_o^2(1-k^2) = d^2\), so \(d_o = d/\sqrt{1-k^2}\).</li>
+<li>Torque capacity at the same τ: solid \(T_s = \frac{\pi}{16}d^3\tau\); hollow \(T_h = \frac{\pi}{16}d_o^3(1-k^4)\tau\).</li>
+<li>\(\dfrac{T_h}{T_s} = \dfrac{d_o^3(1-k^4)}{d^3} = \dfrac{1-k^4}{(1-k^2)^{3/2}} = \boxed{\dfrac{1+k^2}{\sqrt{1-k^2}}}\).</li>
+<li>For k = 0.6: (1.36)/0.8 = <b>1.70</b>. The hollow shaft carries 70% more torque for the same weight, because the material near the centre (where stress is nearly zero) has been moved outward where it works hardest (<a class="bk" data-p="342"></a>).</li>
+</ol>
+</div></div>
+<div class="formula"><span class="label">Hollow shaft (Eqs 9.18–9.26): replace d³ by d<sub>o</sub>³(1 − k⁴) and d⁴ by d<sub>o</sub>⁴(1 − k⁴)</span>
+\[ \tau_{max} = \frac{16\sqrt{M_b^2+M_t^2}}{\pi d_o^3(1-k^4)} \qquad \theta^\circ = \frac{584\,M_tl}{G\,d_o^4(1-k^4)} \]
+<p><b>Hollow shafts:</b> stiffer, stronger and with higher natural frequency per unit weight, but costlier and bigger in diameter. <b>Applications:</b> automobile propeller shafts, railway axles, drill rods (coolant passage), epicyclic gearboxes with one shaft running inside another (<a class="bk" data-p="343"></a>).</p>
+</div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="42.78" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.2 (<a class="bk" data-p="336"></a>): 7.5 kW at 360 rpm; maximum bending moment 952 927.5 N·mm at bearing A (from overhung pulley loads); 40C8 (S<sub>yt</sub> = 380), (fs) = 3. Diameter on strength (MSST)?</p>
+<details class="sol"><p>M<sub>t</sub> = 60×10⁶ × 7.5/(2π × 360) = 198 944 N·mm; τ = 0.5(380)/3 = 63.33. \(d^3 = \frac{16}{\pi(63.33)}\sqrt{952\,927.5^2 + 198\,944^2}\Rightarrow d = 42.78\) mm.</p></details>
+</div>
+<div class="num" data-answer="41.37" data-tol="1" data-unit="mm">
+<p class="q">Same shaft: diameter for a twist of 0.5° per metre (G = 79 300)?</p>
+<details class="sol"><p>\(d^4 = \frac{584(198\,944)(1000)}{79\,300(0.5)}\Rightarrow d = 41.37\) mm. Strength governs here (42.78 mm).</p></details>
+</div>
+<div class="num" data-answer="45.38" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.9 (<a class="bk" data-p="342"></a>): M<sub>t</sub> = 144 000 N·mm acts over 800 mm between two gears; allowed twist 0.25°/m (so 0.2° over 800 mm); G = 79 300. Diameter on rigidity? (Strength gave only 32.95 mm.)</p>
+<details class="sol"><p>\(d^4 = 584(144\,000)(800)/(79\,300 \times 0.2)\Rightarrow d = 45.38\) mm. <b>Rigidity governs</b>, which is why you check both (<a class="bk" data-p="342"></a>, Step III).</p></details>
+</div>
+<div class="num" data-answer="39.12" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.10 (<a class="bk" data-p="344"></a>): hollow propeller shaft, 45 kW at 500 rpm, d<sub>i</sub> = 0.6d<sub>o</sub>, τ = 84 N/mm². Outer diameter?</p>
+<details class="sol"><p>M<sub>t</sub> = 859 437 N·mm. \(84 = \frac{16(859\,437)}{\pi d_o^3(1-0.6^4)}\Rightarrow d_o = 39.12\), d<sub>i</sub> = 23.47 mm.</p></details>
+</div>
+<div class="num" data-answer="51.81" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.11 (<a class="bk" data-p="345"></a>): hollow shaft (k = 0.6), 40C8, (fs) = 3. A 1000 mm pulley overhangs the bearing by 250 mm; belt tensions 3 kN and 1 kN (vertical); pulley weight 500 N. Outer diameter?</p>
+<details class="sol"><p>M<sub>t</sub> = (3000 − 1000)(500) = 10⁶; M<sub>b</sub> = (3000 + 1000 + 500)(250) = 1.125×10⁶ N·mm.</p><p>\(63.33 = \frac{16\sqrt{1.125^2+1^2}\times10^6}{\pi d_o^3(1-0.1296)}\Rightarrow d_o = 51.81\), d<sub>i</sub> = 31.09 mm.</p></details>
+</div>
+<div class="num" data-answer="1.207" data-tol="1" data-unit="× d">
+<p class="q">Ex. 9.12 (<a class="bk" data-p="345"></a>, a derivation): a solid shaft (diameter d) is replaced by a hollow shaft equally strong in torsion and half the weight per metre. Find d<sub>o</sub>/d.</p>
+<details class="sol"><p>Equal strength: \((d_o^4 - d_i^4)/d_o = d^3\). Half weight: \(d_o^2 - d_i^2 = d^2/2\), so \(d_i^4 = (d_o^2 - d^2/2)^2\).</p><p>Eliminate d<sub>i</sub>: \(d_o^4 - d^3d_o = d_o^4 - d_o^2d^2 + d^4/4\Rightarrow d_o^2 - d\,d_o - d^2/4 = 0\Rightarrow d_o = \frac{1+\sqrt2}{2}d = 1.207d\).</p></details>
+</div>
+
+<h2>5. GATE corner (GATE-style conceptual questions)</h2>
+<div class="mcq" data-correct="2">
+<p class="q">A ductile shaft carries M = 3 kN·m and T = 4 kN·m. By maximum shear stress theory, the equivalent torque is:</p>
+<ol class="opts">
+<li>7.0 kN·m, the sum of the two</li>
+<li>5.0 kN·m, the root of the sum of squares</li>
+<li>4.0 kN·m, the larger of the two</li>
+<li>4.0 kN·m, half of M plus T</li>
+</ol>
+<div class="why">T<sub>e</sub> = √(3² + 4²) = 5 kN·m. (The equivalent bending moment with the ½ would be ½(3 + 5) = 4 kN·m. Don't confuse them.)</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">At a fixed allowable twist per metre, doubling the torque changes the required shaft diameter by a factor of:</p>
+<ol class="opts">
+<li>2</li>
+<li>2<sup>1/3</sup> ≈ 1.26</li>
+<li>√2 ≈ 1.41</li>
+<li>2<sup>1/4</sup> ≈ 1.19</li>
+</ol>
+<div class="why">θ ∝ T/d⁴, so d ∝ T<sup>1/4</sup>. On strength d ∝ T<sup>1/3</sup>. These exponents are favourite GATE ratios.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A hollow shaft has the same outer diameter as a solid one and d<sub>i</sub>/d<sub>o</sub> = 0.5. Its torque capacity at the same stress is:</p>
+<ol class="opts">
+<li>93.75% of the solid shaft's</li>
+<li>75.00% of the solid shaft's</li>
+<li>50.00% of the solid shaft's</li>
+<li>87.50% of the solid shaft's</li>
+</ol>
+<div class="why">T<sub>h</sub>/T<sub>s</sub> = 1 − k⁴ = 1 − 0.0625 = 0.9375, while the weight drops to 1 − k² = 75%. Removing the core costs little strength.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">A flexible shaft must have:</p>
+<ol class="opts">
+<li>High bending stiffness and low torsional stiffness</li>
+<li>Low bending stiffness and low torsional stiffness</li>
+<li>Low bending stiffness and high torsional stiffness</li>
+<li>High bending stiffness and high torsional stiffness</li>
+</ol>
+<div class="why">It must bend round obstacles yet transmit torque (<a class="bk" data-p="346"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using the bending moment at the pulley when the maximum is at a bearing (overhung pulleys). Always draw the BMD.</li>
+<li>Forgetting to combine vertical and horizontal moments: \(M = \sqrt{M_V^2 + M_H^2}\) at each section.</li>
+<li>Checking strength only when a twist limit is given.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §9.1–9.3, 9.5–9.7, <a class="bk" data-p="330">pp. 330–346</a> (Examples 9.2, 9.8–9.12).</li>
+<li>Course slides: design of shaft, strength basis, hollow shaft, rigidity, <a class="ppt" data-p="465">pp. 465–503</a>.</li>
+<li>NPTEL Design of Machine Elements I, Module 8, Lectures 33–35, "Shafts" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want the hollow-vs-solid comparison done for equal <em>stiffness</em> instead of equal strength? Ask me. It's a nice GATE twist.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

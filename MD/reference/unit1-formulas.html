@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 1 Formulas</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body class="ref">
+<main class="page">
+<p class="kicker">Reference · Unit 1</p>
+<h1>Design basics, materials and fatigue: formula and procedure sheet</h1>
+<p class="meta">Notation follows Bhandari. N, mm, N/mm² (= MPa) throughout. Prints on 2–3 pages.</p>
+
+<h2>Allowable stress and factor of safety</h2>
+<div class="grid2">
+<div class="card"><h3>Allowable stress (§4.2)</h3>
+\[ \sigma = \tfrac{S_{yt}}{(fs)}\ \text{ductile} \quad \sigma = \tfrac{S_{ut}}{(fs)}\ \text{brittle} \quad \tau = \tfrac{S_{sy}}{(fs)} \]
+<p>S<sub>sy</sub> = 0.5 S<sub>yt</sub> (MSST) or 0.577 S<sub>yt</sub> (DET). FG 200 means S<sub>ut</sub> = 200.</p></div>
+<div class="card"><h3>Typical (fs) (Bhandari pp. 78–79)</h3>
+<p>Cast iron 3–5 on S<sub>ut</sub> · ductile static 1.5–2 on S<sub>yt</sub> · fatigue 1.3–1.5 on S<sub>e</sub> · contact 1.8–2.5 · buckling 3–6 · simple parts up to 5.</p></div>
+</div>
+
+<h2>Stresses (Lesson 1)</h2>
+<div class="grid2">
+<div class="card"><h3>Basic</h3>
+\[ \sigma=\tfrac{P}{A},\ \ \tau=\tfrac{P}{A},\ \ \delta=\tfrac{Pl}{AE},\ \ \sigma_b=\tfrac{M_by}{I},\ \ \tau=\tfrac{M_tr}{J} \]
+<p>Solid round: σ<sub>b</sub> = 32M/πd³, τ = 16T/πd³. I<sub>rect</sub> = bd³/12; I = πd⁴/64; J = πd⁴/32; hollow J = 2I.</p></div>
+<div class="card"><h3>Torque, twist, eccentric load</h3>
+\[ M_t = \tfrac{60\times10^6\,kW}{2\pi n}\ (\text{N·mm}) \quad \theta^\circ = \tfrac{584M_tl}{Gd^4} \quad \sigma = \tfrac{P}{A}\pm\tfrac{Pey}{I} \]
+<p>Steel E = 207 000, G = 80 000; CI E = 100 000, G = 40 000.</p></div>
+<div class="card"><h3>Impact (§5.16)</h3>
+\[ \sigma_i=\tfrac{W}{A}\Big[1+\sqrt{1+\tfrac{2hAE}{Wl}}\Big] \]
+<p>Suddenly applied (h = 0): σ = 2W/A. Modulus of resilience u = S<sub>yt</sub>²/2E.</p></div>
+</div>
+
+<h2>Principal stresses and failure theories (Lesson 2)</h2>
+<div class="grid2">
+<div class="card"><h3>Principal stresses</h3>
+\[ \sigma_{1,2}=\tfrac{\sigma_x+\sigma_y}{2}\pm\sqrt{\big(\tfrac{\sigma_x-\sigma_y}{2}\big)^2+\tau^2},\quad \tau_{max}=\sqrt{\big(\tfrac{\sigma_x-\sigma_y}{2}\big)^2+\tau^2} \]</div>
+<div class="card"><h3>Shaft with M<sub>b</sub> and M<sub>t</sub></h3>
+\[ \text{MPST: } \tfrac{16}{\pi d^3}\big(M_b+\sqrt{M_b^2+M_t^2}\big)=\tfrac{S}{(fs)} \]
+\[ \text{MSST: } \tfrac{16}{\pi d^3}\sqrt{M_b^2+M_t^2}=\tfrac{0.5S_{yt}}{(fs)} \]
+\[ \text{DET: } \tfrac{16}{\pi d^3}\sqrt{4M_b^2+3M_t^2}=\tfrac{S_{yt}}{(fs)} \]</div>
+<div class="card"><h3>Choosing</h3>
+<p>Brittle → MPST. Ductile → MSST (easy, conservative, hexagon inside ellipse) or DET (accurate). DET for σ + τ: \(\sqrt{\sigma^2+3\tau^2}\). Biaxial: \(\sqrt{\sigma_1^2-\sigma_1\sigma_2+\sigma_2^2}\).</p></div>
+</div>
+
+<h2>Design process, criteria, materials (Lessons 3–5)</h2>
+<div class="grid2">
+<div class="card"><h3>Design process (syllabus wording)</h3>
+<p>Need → analysis (specs) → conceptual design (alternatives) → technical viability → economic viability → financial viability → preliminary → detailed design → drawings. Shigley phases: need, definition, synthesis, analysis and optimisation, evaluation, presentation.</p></div>
+<div class="card"><h3>Design criteria</h3>
+<p><b>Strength</b> σ ≤ S/(fs) · <b>Stiffness</b> δ, θ ≤ limit (E, G govern) · <b>Resilience</b> elastic energy, u = S<sub>yt</sub>²/2E · <b>Production and maintenance</b>: DFMA, standard parts, accessibility.</p></div>
+<div class="card"><h3>Preferred numbers</h3>
+<p>R5 1.58 · R10 1.26 · R20 1.12 · R40 1.06 · R80 1.03. R5: 1, 1.6, 2.5, 4, 6.3, 10. R10: 1, 1.25, 1.6, 2, 2.5, 3.15, 4, 5, 6.3, 8, 10. R20/4 ratio = 1.122⁴ = 1.585. Range a → b in m steps: f = (b/a)<sup>1/m</sup>.</p></div>
+<div class="card"><h3>Iso-strength / iso-rigidity indices (maximise)</h3>
+<table><tr><th>Member</th><th>Strength</th><th>Stiffness</th></tr>
+<tr><td>Tie</td><td>S/ρ</td><td>E/ρ</td></tr>
+<tr><td>Beam (square)</td><td>S<sup>2/3</sup>/ρ</td><td>E<sup>1/2</sup>/ρ</td></tr>
+<tr><td>Beam (fixed b)</td><td>S<sup>1/2</sup>/ρ</td><td>E<sup>1/3</sup>/ρ</td></tr>
+<tr><td>Shaft (torsion)</td><td>S<sub>s</sub><sup>2/3</sup>/ρ</td><td>G<sup>1/2</sup>/ρ</td></tr></table>
+<p>Mass ratio = (ρ₂/ρ₁)(P₁/P₂)<sup>exponent</sup>. For cost, use ρC<sub>m</sub>.</p></div>
+</div>
+
+<h2>Fatigue (Lessons 6–10)</h2>
+<div class="grid2">
+<div class="card"><h3>Cyclic stress</h3>
+\[ \sigma_m=\tfrac12(\sigma_{max}+\sigma_{min})\quad \sigma_a=\tfrac12(\sigma_{max}-\sigma_{min}) \]
+<p>Tension +, compression −. Repeated: σ<sub>min</sub> = 0. Reversed: σ<sub>m</sub> = 0.</p></div>
+<div class="card"><h3>Endurance limit</h3>
+\[ S_e = K_aK_bK_cK_d\,S'_e,\quad S'_e=0.5S_{ut}\ (\text{steel}) \]
+<p>0.4S<sub>ut</sub> cast iron, cast steel, wrought Al; 0.3 cast Al. K<sub>b</sub>: ≤ 7.5 mm 1; ≤ 50 mm 0.85; &gt; 50 mm 0.75 (axial 1). K<sub>c</sub>: 50% 1, 90% 0.897, 95% 0.868, 99% 0.814, 99.9% 0.753. K<sub>a</sub> = 1 for polished and for grey CI. Axial (S<sub>e</sub>)<sub>a</sub> = 0.8S<sub>e</sub>; torsion S<sub>se</sub> = 0.5 or 0.577 S<sub>e</sub>.</p></div>
+<div class="card"><h3>Stress concentration</h3>
+\[ K_t=\tfrac{\sigma_{max}}{\sigma_o},\ \ K_f=1+q(K_t-1),\ \ K_d=\tfrac1{K_f} \]
+<p>Ductile static: ignore. Ductile fatigue: use K<sub>f</sub>. Brittle: always K<sub>t</sub>. Circular hole K<sub>t</sub> = 3; elliptical 1 + 2a/b; keyway (bending + torsion) K<sub>t</sub> = 3.</p></div>
+<div class="card"><h3>Reversed stress (§5.10)</h3>
+<p>Infinite: σ<sub>a</sub> = S<sub>e</sub>/(fs); τ<sub>a</sub> = S<sub>se</sub>/(fs).</p>
+\[ \log S_f=\log(0.9S_{ut})-\tfrac{\log(0.9S_{ut})-\log S_e}{3}(\log N-3) \]
+<p>Miner: Σ n<sub>i</sub>/N<sub>i</sub> = 1, or 1/N = Σ α<sub>i</sub>/N<sub>i</sub>.</p></div>
+<div class="card"><h3>Fluctuating stress (§5.12–5.14)</h3>
+\[ \tfrac{S_m}{S_{yt}}+\tfrac{S_a}{S_e}=1\ \text{(Soderberg)} \quad \tfrac{S_m}{S_{ut}}+\tfrac{S_a}{S_e}=1\ \text{(Goodman)} \]
+\[ \tfrac{S_a}{S_e}+\big(\tfrac{S_m}{S_{ut}}\big)^2=1\ \text{(Gerber)} \]
+<p>tan θ = σ<sub>a</sub>/σ<sub>m</sub> = P<sub>a</sub>/P<sub>m</sub>. Goodman ∩: S<sub>a</sub> = 1/(1/S<sub>e</sub> + 1/(S<sub>ut</sub>tanθ)). Check S<sub>a</sub> + S<sub>m</sub> ≤ S<sub>yt</sub>. Design σ<sub>a</sub> = S<sub>a</sub>/(fs). Torsion: τ<sub>a</sub> = S<sub>se</sub>/(fs), τ<sub>max</sub> ≤ S<sub>sy</sub>/(fs). Finite life with mean: S<sub>f</sub> = σ<sub>a</sub>S<sub>ut</sub>/(S<sub>ut</sub> − σ<sub>m</sub>).</p></div>
+<div class="card"><h3>Combined (§5.15) and Soderberg equivalents</h3>
+\[ \sigma_m=\sqrt{\sigma_{xm}^2+3\tau_m^2},\ \ \sigma_a=\sqrt{\sigma_{xa}^2+3\tau_a^2} \]
+<p>Then the Goodman diagram. Slides' method: \(\sigma_{eq}=\sigma_m+\sigma_a\frac{S_{yt}}{S_e}\frac{K_f}{K_{sur}K_{sz}}\), same for τ; then \(\frac{16}{\pi d^3}\sqrt{M_{eq}^2+T_{eq}^2}=\frac{S_{sy}}{(fs)}\).</p></div>
+</div>
+
+<h2>Answer layout that earns full method marks</h2>
+<div class="card"><p><b>Given</b> (list with units) → <b>Step I</b> material and permissible stress (show S/(fs)) → <b>Step II</b> forces, moments, mean and amplitude → <b>Step III</b> stress expression in terms of the unknown → <b>Step IV</b> solve, round <em>up</em> to a standard size → <b>Step V</b> check (yield, assumed K<sub>b</sub>, other sections). Sketch the FBD / Goodman / S–N diagram.</p></div>
+<p class="small">Lessons: <a class="lesson" data-l="0001"></a> · <a class="lesson" data-l="0002"></a> · <a class="lesson" data-l="0005"></a> · <a class="lesson" data-l="0006"></a> · <a class="lesson" data-l="0009"></a> · <a class="lesson" data-l="0010"></a></p>
+</main>
+</body>
+</html>

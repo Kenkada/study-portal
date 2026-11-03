@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keys and Splines</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 27</p>
+<h1>Keys and splines</h1>
+<p class="meta">About 30 minutes · Bhandari §9.8–9.15</p>
+<div class="win"><b>Your win:</b> you can classify keys by type and use, derive the shear and crushing equations for a flat key (and why σ<sub>c</sub> = 2τ for a square key), derive the "key length ≈ 1.5d" rule, and size Kennedy keys and splines.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1, 7)</span>
+<details class="recall"><summary>Stress concentration factor for a keyed shaft under bending and torsion (Bhandari)?</summary><div>K<sub>t</sub> = 3. The keyway is the main drawback of keyed joints.</div></details>
+<details class="recall"><summary>ASME allowable shear stress reduction with a keyway?</summary><div>× 0.75</div></details>
+</div>
+
+<h2>1. Types of key and where each is used</h2>
+<p>A key connects a shaft to a hub (pulley, gear, sprocket) to <b>transmit torque</b> and <b>prevent relative rotation</b>. Most keys also stop axial sliding; feather keys and splines don't. Material: steel with S<sub>ut</sub> ≥ 600 N/mm² (45C8, 50C8) (<a class="bk" data-p="347"></a>).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Key</th><th>How it works</th><th>For / against</th><th>Application</th></tr></thead>
+<tbody>
+<tr><td><b>Saddle</b> (hollow, flat)</td><td>keyway in hub only; torque by <b>friction</b></td><td>cheap, no shaft weakening / slips under heavy torque</td><td>light duty</td></tr>
+<tr><td><b>Sunk</b> square / flat (parallel or taper 1:100, gib-head)</td><td>half in shaft, half in hub; torque by <b>shear</b> (positive drive)</td><td>heavy duty / two keyways, shaft weakened</td><td>square: general machinery; flat: machine tools (more stable)</td></tr>
+<tr><td><b>Feather</b></td><td>parallel key fixed to one part, sliding fit in the other</td><td>allows axial movement while transmitting torque</td><td>clutches, gear-shifting</td></tr>
+<tr><td><b>Woodruff</b></td><td>semicircular disc in a circular seat; self-aligning</td><td>suits tapered shafts, won't slip / deep seat weakens the shaft, no axial movement</td><td>tapered shafts in machine tools and automobiles</td></tr>
+<tr><td><b>Kennedy</b></td><td>two square keys at 90°, hub bored off-centre and forced concentric</td><td>very high torque</td><td>heavy duty</td></tr>
+<tr><td><b>Splines</b></td><td>keys integral with the shaft (straight, involute 30°, serrations)</td><td>axial sliding with high torque; involute self-centring / costlier</td><td>automobile gearboxes, sliding gears</td></tr>
+</tbody></table></div>
+<p><b>Rules of thumb</b> (<a class="bk" data-p="348"></a>): square key b = h = d/4, l ≥ 1.5d. Flat key b = d/4, h = 2b/3 = d/6, l = 1.5d. Standard sizes: Table 9.3 (e.g. 25–30 mm shaft: 8 × 7; 44–50: 14 × 9; 58–65: 18 × 11; 75–85: 22 × 14).</p>
+
+<h2>2. Derivation: stresses in a flat key</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Bhandari Eqs 9.27–9.29 for a key of width b, height h and length l on a shaft of diameter d carrying torque M<sub>t</sub>.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Assume the force on the key acts tangentially at the shaft surface: \(P = \dfrac{M_t}{d/2} = \dfrac{2M_t}{d}\).</li>
+<li><b>Shear</b> across the plane at the shaft surface, area b·l: \(\tau = \dfrac{P}{bl} = \boxed{\dfrac{2M_t}{dbl}}\).</li>
+<li><b>Crushing</b> on the side face; the key bears on about h/2 in the shaft (or hub), so the area is (h/2)·l: \(\sigma_c = \dfrac{P}{(h/2)l} = \boxed{\dfrac{4M_t}{dhl}}\).</li>
+<li>For a <b>square key</b> (h = b): \(\sigma_c = \dfrac{4M_t}{dbl} = 2\tau\). The crushing stress is twice the shear stress. Since S<sub>yc</sub> ≈ 2S<sub>sy</sub> (MSST: S<sub>sy</sub> = 0.5S<sub>yt</sub>, S<sub>yc</sub> = S<sub>yt</sub>), a square key is <b>equally strong in shear and crushing</b>. That's why Ex. 9.13 gives the same length both ways.</li>
+</ol>
+</div></div>
+
+<h2>3. Derivation: why key length ≈ 1.5d</h2>
+<div class="example">
+<div class="ex-head"><b>Derive</b> the length of a square key (b = d/4) that is as strong in shear as the shaft is in torsion (same material and allowable τ).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Torque the key can carry in shear: \(M_t = \tau\,b\,l\,\dfrac{d}{2}\).</li>
+<li>Torque the shaft can carry: \(M_t = \dfrac{\pi d^3}{16}\tau\).</li>
+<li>Equate: \(b\,l\,\dfrac{d}{2} = \dfrac{\pi d^3}{16}\Rightarrow l = \dfrac{\pi d^2}{8b}\).</li>
+<li>With b = d/4: \(l = \dfrac{\pi d}{2} = 1.571d\). Hence the industrial rule "l ≥ 1.5d" (<a class="bk" data-p="348"></a>).</li>
+</ol>
+</div></div>
+
+<div class="formula"><span class="label">Kennedy key (Eqs 9.30, 9.31), with each key carrying M<sub>t</sub>/2</span>
+\[ \tau = \frac{M_t}{\sqrt2\,d\,b\,l} \qquad \sigma_c = \frac{\sqrt2\,M_t}{d\,b\,l} \]
+<p>The force on each key is P = (M<sub>t</sub>/2)/(d/2) = M<sub>t</sub>/d. The key sits at 45°: its shear plane (diagonal) is √2·b long, and its bearing face is b/√2 wide.</p>
+</div>
+<div class="formula"><span class="label">Straight splines (Eq. 9.32), with n splines, major D, minor d, hub length l, pressure p<sub>m</sub> (≤ 6.5 N/mm²)</span>
+\[ M_t = p_m\cdot\underbrace{\tfrac12(D-d)\,l\,n}_{\text{area}}\cdot\underbrace{\tfrac{D+d}{4}}_{R_m} = \tfrac18\,p_m\,l\,n\,(D^2-d^2) \]
+<p>Force to slide the hub: friction μP with P = M<sub>t</sub>/R<sub>m</sub>.</p>
+</div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="34.6" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.13 (<a class="bk" data-p="351"></a>): square key for a gear on a 25 mm shaft, 15 kW at 720 rpm, 50C4 (S<sub>yt</sub> = S<sub>yc</sub> = 460), (fs) = 3. With b = h = 6 mm, find the key length.</p>
+<details class="sol"><p>M<sub>t</sub> = 198 944 N·mm; τ = 230/3 = 76.67, σ<sub>c</sub> = 153.33. Shear: l = 2M<sub>t</sub>/(τdb) = 34.6; crushing: l = 4M<sub>t</sub>/(σ<sub>c</sub>dh) = 34.6. Key 6 × 6 × 35 mm.</p></details>
+</div>
+<div class="num" data-answer="49.56" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.14 (<a class="bk" data-p="352"></a>): flat key 16 × 10 on a 50 mm shaft, 475 N·m, S<sub>yt</sub> = S<sub>yc</sub> = 230, (fs) = 3. Length?</p>
+<details class="sol"><p>τ = 38.33 gives l = 30.98; σ<sub>c</sub> = 76.67 gives l = 4(475 000)/(76.67 × 50 × 10) = 49.56. Crushing governs (a flat key is weaker in crushing), so 50 mm.</p></details>
+</div>
+<div class="num" data-answer="31.10" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.15 (<a class="bk" data-p="353"></a>): Kennedy keys 10 × 10 on a 40 mm shaft, 35 kW at 300 rpm, 45C8 (S<sub>yt</sub> = S<sub>yc</sub> = 380), (fs) = 3, distortion energy theory. Required length?</p>
+<details class="sol"><p>M<sub>t</sub> = 1 114 085; τ = 0.577(380)/3 = 73.09; σ<sub>c</sub> = 126.67. Shear: l = M<sub>t</sub>/(√2 dbτ) = 26.95; crushing: l = √2M<sub>t</sub>/(dbσ<sub>c</sub>) = 31.10 mm, which governs.</p></details>
+</div>
+<div class="num" data-answer="109.3" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.17 (<a class="bk" data-p="355"></a>): splines 8 × 52 × 60, 20 kW at 300 rpm, p<sub>m</sub> = 6.5 N/mm², μ = 0.06. Hub length?</p>
+<details class="sol"><p>M<sub>t</sub> = 636 620. l = 8M<sub>t</sub>/(p<sub>m</sub> n (D² − d²)) = 8(636 620)/(6.5 × 8 × 896) = 109.3 → 110 mm. Shifting force: P = M<sub>t</sub>/28 = 22 736 N, so μP = 1364 N.</p></details>
+</div>
+<div class="num" data-answer="3.37" data-tol="1.5">
+<p class="q">Ex. 9.16 (<a class="bk" data-p="353"></a>): a Woodruff key (Ø20 disc, 6 mm thick, seated 4 mm off the centre line) on a 30 mm shaft, 5 kW at 300 rpm, S<sub>yc</sub> = 460. The key area in contact with the hub is 77.81 mm². Factor of safety against crushing?</p>
+<details class="sol"><p>P = M<sub>t</sub>/15 = 159 155/15 = 10 610 N; σ<sub>c</sub> = 10 610/77.81 = 136.4, so (fs) = 460/136.4 = 3.37. Shear on chord CD = 18.33 mm × 6 mm gives τ = 96.5 and (fs) = 0.577(460)/96.5 = 2.75.</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="2">
+<p class="q">For a square key transmitting torque, the ratio of crushing stress to shear stress is:</p>
+<ol class="opts">
+<li>0.5, since crushing area is twice the shear area</li>
+<li>2, since crushing area is half the shear area</li>
+<li>1, since both act over the same key surface</li>
+<li>√2, since the key carries load at 45 degrees</li>
+</ol>
+<div class="why">Shear area = b·l; crushing area = (h/2)·l = (b/2)·l, so σ<sub>c</sub>/τ = 2.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">A square key of side d/4 is to be as strong in shear as the shaft is in torsion. Its length should be:</p>
+<ol class="opts">
+<li>d, equal to the shaft diameter</li>
+<li>πd/4, about 0.79 times the diameter</li>
+<li>2d, twice the shaft diameter</li>
+<li>πd/2, about 1.57 times the diameter</li>
+</ol>
+<div class="why">l = πd²/(8b) = πd/2 with b = d/4 (derivation above).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Which connection lets a gear slide along its shaft while transmitting torque?</p>
+<ol class="opts">
+<li>A feather key or splines</li>
+<li>A gib-head taper key</li>
+<li>A Woodruff key</li>
+<li>A hollow saddle key</li>
+</ol>
+<div class="why">The feather key (fixed to one member, sliding fit in the other) and splines allow axial movement. Taper and Woodruff keys lock axially. A saddle key relies on friction (<a class="bk" data-p="349"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using h instead of b in the shear equation. Shear uses width b; crushing uses h/2. (Bhandari's own Ex. 9.24 misprints this: the key shear there should be 2M<sub>t</sub>/(dbl) = 73.7 N/mm², not 168.4.)</li>
+<li>Forgetting that each Kennedy key takes half the torque.</li>
+<li>Calling a saddle key "positive". It transmits by friction.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §9.8–9.15, <a class="bk" data-p="346">pp. 346–356</a> (Examples 9.13–9.17).</li>
+<li>Course slides: design of keys, square-key loading and stresses, <a class="ppt" data-p="504">pp. 504–513</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 15, "Keys: types and design" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want the derivation of the Woodruff key areas (sector minus triangle)? Ask me and I'll walk through the geometry of Ex. 9.16.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

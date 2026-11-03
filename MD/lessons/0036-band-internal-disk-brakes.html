@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Band and Disk Brakes</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 36</p>
+<h1>Brakes II: internal expanding, band and disk brakes</h1>
+<p class="meta">About 35 minutes · Bhandari §12.6–12.9</p>
+<div class="win"><b>Your win:</b> you can derive the moments on an internal expanding shoe (and why a car's leading shoe is self-energising), the band-brake tensions with the self-locking condition of a differential band brake, and the torque of a caliper disc brake. You can also estimate brake temperature rise.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 30, 35)</span>
+<details class="recall"><summary>Flat-belt tension ratio at zero speed?</summary><div>P₁/P₂ = e<sup>μθ</sup>, which is exactly the band-brake equation.</div></details>
+<details class="recall"><summary>Self-locking condition of a block brake?</summary><div>a ≤ μc</div></details>
+</div>
+
+<h2>1. Internal expanding shoe brake: derivation</h2>
+<p>A shoe pivoted at one end is pushed outward against the inside of the drum at the other end (by a hydraulic cylinder or cam). It is used on automobiles (two shoes), conveyors and hoists. <b>For:</b> simple, cheap, reliable, little maintenance, small effort for large torque, sealed from dirt. <b>Against:</b> poor heat dissipation; may self-lock as it wears if badly designed (<a class="bk" data-p="485"></a>).</p>
+<div class="example">
+<div class="ex-head"><b>Derive</b> Eqs 12.16–12.23: angles φ are measured from the line joining the drum centre to the pivot (distance h); the lining runs from θ₁ to θ₂; C is the arm of P about the pivot.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>The shoe rotates about its pivot, so the deformation (and pressure) at a point is ∝ its distance from the pivot measured perpendicular to the radius, h sin φ. So \(p = p_{max}\dfrac{\sin\varphi}{\sin\varphi_{max}}\), with φ<sub>max</sub> = 90° if θ₂ ≥ 90°, otherwise θ₂.</li>
+<li>Element: dN = pRw dφ. Moment arms about the pivot: normal force h sin φ; friction force (R − h cos φ).</li>
+<li>\(M_n = \int dN\,h\sin\varphi = \dfrac{p_{max}Rwh}{4\sin\varphi_{max}}\left[2(\theta_2-\theta_1) - (\sin2\theta_2 - \sin2\theta_1)\right]\).</li>
+<li>\(M_f = \int\mu\,dN(R - h\cos\varphi) = \dfrac{\mu p_{max}Rw}{4\sin\varphi_{max}}\left[4R(\cos\theta_1-\cos\theta_2) - h(\cos2\theta_1-\cos2\theta_2)\right]\).</li>
+<li>Torque: \(M_t = \dfrac{\mu R^2 p_{max}w(\cos\theta_1 - \cos\theta_2)}{\sin\varphi_{max}}\).</li>
+<li>Moments on the shoe about the pivot: <b>leading shoe</b> (friction moment adds to P's moment): \(P = \dfrac{M_n - M_f}{C}\), self-energising. <b>Trailing shoe</b>: \(P = \dfrac{M_n + M_f}{C}\), which needs more effort. Self-locking if M<sub>f</sub> ≥ M<sub>n</sub>.</li>
+<li>With the same P on both shoes, the trailing shoe develops less pressure (p′<sub>max</sub> = P·C/(M<sub>n</sub> + M<sub>f</sub>) per unit p<sub>max</sub>), so it carries less torque. Braking in reverse is weaker. Ergonomics: pedal force 22–25 N (11–17 N with a booster), pedal travel ≤ 150 mm, design for 1g deceleration (<a class="bk" data-p="487"></a>).</li>
+</ol>
+</div></div>
+
+<h2>2. Band brakes</h2>
+<div class="formula"><span class="label">Simple and differential band brake (Eqs 12.24–12.28)</span>
+\[ \frac{P_1}{P_2} = e^{\mu\theta} \qquad M_t = (P_1 - P_2)R \qquad p_{max} = \frac{P_1}{Rw} \]
+<p>Simple band (slack end at the fulcrum, arm a): P = P₂a/l. Differential band (ends at arms b and a on either side of the fulcrum): \(P = \dfrac{P_2a - P_1b}{l} = \dfrac{P_2(a - b\,e^{\mu\theta})}{l}\), <b>self-locking if a ≤ b·e<sup>μθ</sup></b>.</p>
+</div>
+<p>The pressure under the band varies with the local tension (dN = P dφ, so p = P/Rw), and is highest at the tight end. Self-locking is avoided in speed-control brakes but <b>used deliberately in back-stop brakes</b>: the drum turns freely one way and locks if it tries to reverse (bucket elevators, hoists after a power failure). <b>For:</b> simple, few parts, easily made, reliable. <b>Against:</b> poor heat dissipation, uneven lining wear. <b>Applications:</b> bucket conveyors, hoists, chain saws, back-stops (<a class="bk" data-p="490"></a>–492).</p>
+
+<h2>3. Caliper disc brake</h2>
+<div class="formula"><span class="label">Annular pad, uniform pressure (Eqs 12.29–12.33)</span>
+\[ R_f = \frac{2}{3}\frac{R_o^3 - R_i^3}{R_o^2 - R_i^2} \qquad M_t = \mu P R_f\ \text{per pad face} \qquad A = \tfrac12\theta(R_o^2 - R_i^2) \qquad P = p_{av}A \]
+<p>Circular pad of radius R at distance e: R<sub>f</sub> = δe (δ = 0.9693 for R/e = 0.2, Table 12.1).</p>
+</div>
+<p><b>Advantages</b> of disc brakes (<a class="bk" data-p="494"></a>): simple to install and service, high torque in a small volume, good heat dissipation (the pad covers only part of the disc), <b>no fade</b>, can never self-lock, equally effective in both directions, braking torque linear in actuating force, balanced axial force (no bearing thrust). <b>Applications:</b> motorcycle front wheels, cars, lift trucks, farm machinery.</p>
+<div class="formula"><span class="label">Thermal check (§12.9)</span>
+\[ \Delta t = \frac{E}{mc} \qquad \text{or limit } pv\ \text{(N/mm}^2\cdot\text{m/min): 115 intermittent, 175 continuous with good cooling, 125 vehicles} \]
+</div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="2089.9" data-tol="1" data-unit="N">
+<p class="q">Ex. 12.8 (<a class="bk" data-p="487"></a>): automotive double-shoe brake, w = 40, p<sub>max</sub> = 1, μ = 0.32, R = 125, h = 100, θ₁ = 0, θ₂ = 120°, C = 187.5 mm. Actuating force (from the leading shoe)?</p>
+<details class="sol"><p>sin φ<sub>max</sub> = 1. M<sub>f</sub> = 0.32(125)(40)[4(125)(1.5) − 100(1.5)]/4 = 240 000; M<sub>n</sub> = (125)(40)(100)[2(2.094) + 0.866]/4 = 631 852 N·mm.</p><p>P = (631 852 − 240 000)/187.5 = 2089.9 N. Torque: leading shoe 300 000; trailing p′<sub>max</sub> = 0.45, so 135 000; total 435 N·m.</p></details>
+</div>
+<div class="num" data-answer="318.7" data-tol="1.5" data-unit="N">
+<p class="q">Ex. 12.10 (<a class="bk" data-p="492"></a>): differential band brake, band 100 × 3 mm, σ ≤ 50, μ = 0.25, wrap 240°, R = 300; band ends at 50 mm (tight) and 200 mm (slack) from the fulcrum; lever 950 mm. Actuating force?</p>
+<details class="sol"><p>P₁ = 50 × 100 × 3 = 15 000 N; e<sup>0.25(4.189)</sup> = 2.85, so P₂ = 5264 N. P = (5264 × 200 − 15 000 × 50)/950 = 318.7 N. M<sub>t</sub> = (15 000 − 5264)(0.3) = 2921 N·m. a/b = 4 &gt; 2.85, so <b>not self-locking</b>.</p></details>
+</div>
+<div class="num" data-answer="0.1336" data-tol="1.5">
+<p class="q">Ex. 12.11 (<a class="bk" data-p="493"></a>): back-stop band brake with wrap 240°; geometry requires P₁/P₂ &gt; 87.5/50 = 1.75 to lock reverse rotation. Minimum μ?</p>
+<details class="sol"><p>e<sup>μ(4.189)</sup> &gt; 1.75 ⇒ μ &gt; ln 1.75/4.189 = 0.1336. With p<sub>max</sub> = 0.3, R = 150, w = 75: P₁ = 3375, P₂ = 1929 N, so torque = 217 N·m.</p></details>
+</div>
+<div class="num" data-answer="77.5" data-tol="1.5" data-unit="degrees">
+<p class="q">Ex. 12.12 (<a class="bk" data-p="495"></a>): caliper disc brake, 1500 N·m, 2 pads, R<sub>o</sub> = 150, R<sub>i</sub> = 100, μ = 0.35, p<sub>av</sub> = 2 MPa. Angular size of each pad?</p>
+<details class="sol"><p>Per pad 750 N·m. R<sub>f</sub> = 126.67 mm, so P = 750 000/(0.35 × 126.67) = 16 917 N. A = P/2 = 8458 mm² = ½θ(150² − 100²) ⇒ θ = 1.353 rad = 77.5°, use 80°.</p></details>
+</div>
+<div class="num" data-answer="7.3" data-tol="2" data-unit="°C">
+<p class="q">Ex. 12.14 (<a class="bk" data-p="497"></a>): a 100 kg flywheel (k = 350 mm) at 500 rpm is stopped; brake drum assembly 5 kg of cast iron, c = 460 J/kg°C, absorbing all the heat. Temperature rise?</p>
+<details class="sol"><p>E = ½(100)(0.35²)(52.36²) = 16 792 J, so Δt = 16 792/(5 × 460) = <b>7.3 °C</b>. (Bhandari prints E = 167 921 J and 73 °C, a factor-of-10 slip.)</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="4">
+<p class="q">In a band brake, the maximum pressure between band and drum occurs:</p>
+<ol class="opts">
+<li>at the slack end of the band</li>
+<li>uniformly along the whole band</li>
+<li>at the middle of the arc of contact</li>
+<li>at the tight end of the band</li>
+</ol>
+<div class="why">p = P/(Rw) follows the local band tension, which is largest (P₁) at the tight end.</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">A differential band brake is self-locking when (a = slack-end arm, b = tight-end arm):</p>
+<ol class="opts">
+<li>a ≥ b e<sup>μθ</sup></li>
+<li>a ≤ b e<sup>μθ</sup></li>
+<li>a = b</li>
+<li>b ≤ a e<sup>μθ</sup></li>
+</ol>
+<div class="why">P = P₂(a − b e<sup>μθ</sup>)/l ≤ 0 when a ≤ b e<sup>μθ</sup>.</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">Why does an automobile drum brake brake less effectively in reverse?</p>
+<ol class="opts">
+<li>The leading shoe becomes a trailing shoe and loses self-energising action</li>
+<li>Hydraulic pressure is lower when the car moves backwards</li>
+<li>The coefficient of friction depends on the direction of sliding</li>
+<li>The drum expands more when it rotates in reverse</li>
+</ol>
+<div class="why">In forward motion, friction on the leading shoe helps P (P = (M<sub>n</sub> − M<sub>f</sub>)/C). Reversing swaps the roles (<a class="bk" data-p="487"></a>).</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">"Brake fade" means:</p>
+<ol class="opts">
+<li>the lining wearing unevenly from end to end</li>
+<li>the brake locking up as the lining wears</li>
+<li>loss of friction (torque) at high temperature</li>
+<li>a gradual drop in hydraulic fluid pressure</li>
+</ol>
+<div class="why">μ falls as the lining heats up. Disc brakes cool better and resist fade.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Measuring φ from the wrong line in shoe brakes. Measure from the drum centre to the pivot.</li>
+<li>Band brake: θ in radians, and P₁ is at the end where the drum drags the band away (it depends on the direction of rotation).</li>
+<li>Disc brake: torque per pad times the number of pads (and of calipers).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §12.6–12.9, <a class="bk" data-p="485">pp. 485–497</a> (Examples 12.8–12.14).</li>
+<li>Course slides: band brakes, differential band brake, disc brakes, <a class="ppt" data-p="683">pp. 683–702</a>; problems <a class="ppt" data-p="717">pp. 717–730</a>.</li>
+<li>NPTEL Machine Design II (IIT Madras), brakes (<a href="https://nptel.ac.in/courses/112106137" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Ex. 12.9 (four-shoe brake) extends Ex. 12.8 to θ₁ = 15°, θ₂ = 75°. Try it (answer ≈ 2182 N·m) and ask me if the φ<sub>max</sub> = θ₂ case trips you up.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

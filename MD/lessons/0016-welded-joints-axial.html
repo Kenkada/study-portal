@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welded Joints I</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 16</p>
+<h1>Welded joints: butt and fillet welds under direct load</h1>
+<p class="meta">About 25 minutes · Bhandari §8.1–8.11, 8.15–8.17</p>
+<div class="win"><b>Your win:</b> you can size butt and fillet welds for axial loads: parallel, transverse, mixed, unsymmetrical (angle sections), and fluctuating loads. This covers question bank Q23–Q25 and Q31.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 7, 14)</span>
+<details class="recall"><summary>Name two situations where riveting is still preferred to welding.</summary><div>Heat-treated or machined parts that welding heat would damage; aluminium alloys (poor weldability); dissimilar materials; vibration/impact; thin sheets (aircraft).</div></details>
+<details class="recall"><summary>Ductile part, static load, stress raiser: use K<sub>t</sub>?</summary><div>No. Same for welds: Kf only under fluctuating load.</div></details>
+</div>
+
+<h2>1. Welding: why, how, and its drawbacks</h2>
+<p><b>Advantages over riveting</b> (<a class="bk" data-p="272"></a>): lighter (no straps, gussets or rivet holes), cheaper, leak-proof, faster, no holes so no stress concentration, neater, often stronger than the plates, easy to modify. <b>Over castings:</b> lighter, metal only where needed, lower capital cost (no foundry or patterns). <b>Disadvantages:</b> poor vibration damping, distortion and residual stresses (need stress relief), quality depends on welder skill, inspection costly.</p>
+<p><b>Processes</b> (<a class="bk" data-p="273"></a>): fusion (thermit, gas, electric arc) and heat-plus-pressure (forge, electric resistance spot/seam). <b>Stress relief</b>: preheating, normalising or annealing at 550–675 °C, peening.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 200" role="img" aria-label="Fillet weld cross-section showing leg and throat">
+  <rect x="40" y="120" width="260" height="30" class="part"/>
+  <rect x="150" y="40" width="30" height="80" class="part2"/>
+  <polygon points="180,120 230,120 180,70" class="hot"/>
+  <line x1="180" y1="120" x2="205" y2="95" class="ln"/>
+  <text x="196" y="138" class="small">h (leg)</text>
+  <text x="140" y="96" class="small" text-anchor="end">h</text>
+  <text x="212" y="90" class="acc small">throat t = h cos 45° = 0.707h</text>
+  <text x="40" y="180" class="small">Failure is by shear on the throat plane (45° for parallel welds; 67.5° for transverse).</text>
+  <g transform="translate(360,0)">
+    <rect x="20" y="50" width="250" height="40" class="part"/>
+    <rect x="20" y="95" width="250" height="40" class="part2"/>
+    <text x="30" y="40" class="small">butt weld: throat = plate thickness t</text>
+    <polygon points="135,50 165,50 158,90 142,90" class="hot"/>
+    <text x="30" y="160" class="small">σ = P / (t·l); strength = weld matched to plate</text>
+  </g>
+</svg>
+<figcaption>Leg h and throat t of a fillet weld (Bhandari Figs 8.3, 8.7).</figcaption>
+</figure>
+
+<h2>2. Strength equations</h2>
+<div class="formula"><span class="label">Butt weld (Eqs 8.1–8.3)</span>
+\[ P = \sigma_t\,t\,l\,\eta \]
+<p>Throat = plate thickness. Reinforcement is ignored. η = joint efficiency, if a code requires it.</p>
+</div>
+<div class="formula"><span class="label">Fillet welds (Eqs 8.4–8.10)</span>
+\[ t = 0.707h \qquad \text{parallel: } P = 0.707\,h\,l\,\tau\ (\times2\ \text{for two welds} = 1.414hl\tau) \qquad \text{transverse: } P = 0.707\,h\,l\,\sigma_t \]
+<p>Add <b>15 mm</b> to each weld length for starting and stopping the weld run. AWS static shear stress: 94 N/mm².</p>
+</div>
+<p>Exact analysis (<a class="bk" data-p="281"></a>–283): maximum shear is on the 45° plane for a parallel weld (\(\tau_{max} = P/0.707hl\)) and on the 67.5° plane for a transverse weld (\(\tau_{max} = 1.21P/hl\)). So a transverse weld is <b>1.17×</b> stronger. Designing it with the parallel-weld shear equation is therefore safe and simpler.</p>
+<div class="formula"><span class="label">Unsymmetrical section (angle) loaded through its CG (Eqs 8.18–8.20)</span>
+\[ l_1 + l_2 = l = \frac{P}{0.707h\tau} \qquad l_1y_1 = l_2y_2 \]
+<p>y₁, y₂ are the distances from the angle's centroid to each weld line. The weld nearer the centroid is longer.</p>
+</div>
+<div class="formula"><span class="label">Fluctuating load (§8.16): use K<sub>f</sub> on the weld (Jennings, Table 8.3)</span>
+<p>Reinforced butt 1.2 · toe of transverse fillet 1.5 · end of parallel fillet 2.7 · T-butt with sharp corners 2.0. Then design with Lesson 6's \(S_e = K_aK_bK_cK_dS'_e\).</p>
+</div>
+
+<h2>3. Worked example (Bhandari Ex. 8.5, question bank Q24)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 8.5</b> (<a class="bk" data-p="280"></a>). A plate 100 mm wide and 10 mm thick is joined by one transverse and two parallel fillet welds (h = 10). The joint must be as strong as the plate. Permissible σ<sub>t</sub> = 70, τ = 50 N/mm². Find each parallel weld length.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Plate strength: P = 100 × 10 × 70 = 70 000 N.</li>
+<li>Transverse weld (across the 100 mm width): P₁ = 0.707(10)(100)(70) = 49 490 N.</li>
+<li>Two parallel welds: P₂ = 1.414(10)(l)(50) = 707 l.</li>
+<li>70 000 = 49 490 + 707 l ⇒ l = 29.0 mm; add 15 mm, so l = 44 → 45 mm.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice</h2>
+<div class="num" data-answer="52.6" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 8.2: a 100 × 10 mm plate is welded by two parallel fillet welds (h = 10 mm) and carries 50 kN static. τ = 94 N/mm². Required length of each weld, including the 15 mm allowance?</p>
+<details class="sol"><p>50 000 = 1.414(10)(l)(94) ⇒ l = 37.6; +15 = 52.6, so 55 mm.</p></details>
+</div>
+<div class="num" data-answer="23.68" data-tol="1.5" data-unit="mm">
+<p class="q">Question bank Q31 / Bhandari Problem 8.2: a plate 80 mm wide and 10 mm thick, one transverse and two parallel fillet welds, joint as strong as the plate. σ<sub>t</sub> = 100, τ = 70 N/mm². Length of each parallel weld (book answer excludes the 15 mm)?</p>
+<details class="sol"><p>Plate: 80 000 N. Transverse: 0.707(10)(80)(100) = 56 560. Parallel: 1.414(10)(70)l = 989.8l. So l = 23.68 mm.</p></details>
+</div>
+<div class="num" data-answer="262.4" data-tol="1.5" data-unit="mm">
+<p class="q">Question bank Q25 (<a class="qb" data-p="36"></a>): a 200 × 150 × 10 angle is welded along its 200 mm leg by top and bottom fillet welds (h = 10) and carries 200 kN through its centroid. τ = 75 N/mm². The centroid is 60.9 mm from the bottom (outer face of the 150 mm leg). Find the <em>bottom</em> weld length.</p>
+<details class="sol"><p>Total l = 200 000/(0.707 × 10 × 75) = 377.2 mm. Moments about the centroid: l<sub>top</sub>(200 − 60.9) = l<sub>bot</sub>(60.9).</p><p>l<sub>bot</sub> = 377.2 × 139.1/200 = 262.4 mm; l<sub>top</sub> = 114.8 mm. (Centroid: [200·10·100 + 140·10·5]/3400 = 60.9 mm.)</p></details>
+</div>
+<div class="num" data-answer="107.1" data-tol="2" data-unit="mm">
+<p class="q">Question bank Q23 (<a class="qb" data-p="34"></a>): plate 75 × 12.5 mm, one transverse and two parallel fillet welds (h = 12.5). σ<sub>t</sub> = 70, τ = 56 MPa. For <em>fatigue</em> loading, reduce by K<sub>f</sub> = 1.5 (transverse) and 2.7 (parallel). Length of each parallel weld, adding 12.5 mm for start/stop (the slides' Khurmi convention)?</p>
+<details class="sol"><p>Plate: 75 × 12.5 × 70 = 65 625 N. Transverse: 0.707(12.5)(75)(70/1.5) = 30 932. Parallel: 1.414(12.5)(56/2.7)l = 366.6l.</p><p>l = 94.6 + 12.5 = 107.1 mm. For static loading it would be only 19.4 + 12.5 = 31.9 mm. Fatigue more than triples the weld.</p></details>
+</div>
+<div class="num" data-answer="107.6" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 8.17: a reinforced butt weld (throat 25 mm) carries ±100 kN. Weld metal S<sub>ut</sub> = 450; K<sub>a</sub> = 0.52 (forged-equivalent), K<sub>b</sub> = 0.85, 90% reliability, K<sub>f</sub> = 1.2, (fs) = 2. Find the weld length.</p>
+<details class="sol"><p>S<sub>e</sub> = 0.52(0.85)(0.897)(1/1.2)(225) = 74.34; allowable amplitude 37.17. l = 100 000/(25 × 37.17) = 107.6 → 110 mm.</p></details>
+</div>
+<div class="num" data-answer="1.39" data-tol="1.5" data-unit="N/mm²">
+<p class="q">Ex. 8.1: a gas tank (D = 2.5 m, t = 12 mm) has hemispherical ends butt-welded on (σ<sub>t</sub> = 85, η = 0.85). Allowable internal pressure?</p>
+<details class="sol"><p>Weld force = σ<sub>t</sub> t (πD) η = 85(12)(π × 2500)(0.85) = 6.81 × 10⁶ N. Pressure = force/(πD²/4) = 1.39 N/mm².</p></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">Why is a single transverse fillet weld not preferred?</p>
+<ol class="opts">
+<li>It cannot carry any tensile load</li>
+<li>It needs a bigger leg than a parallel weld</li>
+<li>The unwelded plate edge can warp out of shape</li>
+<li>It always fails before the plate does</li>
+</ol>
+<div class="why">With only one transverse weld, the free edge of the other plate can deflect, so a double transverse weld is preferred (<a class="bk" data-p="275"></a>).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">Why is a normal (flat-faced, triangular) fillet weld preferred over a convex weld?</p>
+<ol class="opts">
+<li>The convex weld has a smaller throat</li>
+<li>The convex weld costs more and concentrates stress</li>
+<li>The normal weld can be laid without filler metal</li>
+<li>Codes prohibit convex welds on machine parts</li>
+</ol>
+<div class="why">A convex weld needs more filler metal and labour and produces more stress concentration (<a class="bk" data-p="276"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using h instead of 0.707h in the throat area.</li>
+<li>Forgetting the start/stop allowance: 15 mm in Bhandari (some books use 12.5 mm). Say which.</li>
+<li>Applying K<sub>f</sub> to static loads. Only fluctuating loads need it.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §8.1–8.11, <a class="bk" data-p="272">pp. 272–285</a>; strength and fatigue §8.15–8.17, <a class="bk" data-p="295">pp. 295–298</a>.</li>
+<li>Course slides: design of welded joints, <a class="ppt" data-p="296">pp. 296–300</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 24–25, "Welded joints" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Not sure which plane a weld fails on, or why the transverse weld is 1.17× stronger? Ask me for the derivation in five lines.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

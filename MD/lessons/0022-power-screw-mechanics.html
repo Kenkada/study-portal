@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Screws</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 22</p>
+<h1>Power screws: torque, efficiency and self-locking</h1>
+<p class="meta">About 30 minutes · Bhandari §6.1–6.13</p>
+<div class="win"><b>Your win:</b> for any square or trapezoidal screw you can find the torque to raise and lower a load (with collar friction), the overall efficiency and the effort, and say whether the screw is self-locking.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 18)</span>
+<details class="recall"><summary>Pitch vs lead?</summary><div>Pitch: thread-to-thread distance. Lead: axial travel per turn = (number of starts) × pitch.</div></details>
+<details class="recall"><summary>Why are V threads used for fastening?</summary><div>High friction resists loosening, the opposite of what a power screw needs.</div></details>
+</div>
+
+<h2>1. What a power screw is</h2>
+<p>A power (translation) screw converts rotation into linear motion to transmit power: screw jacks, lathe lead screws, vices, testing machines (<a class="bk" data-p="184"></a>). <b>Advantages:</b> large load capacity, compact, simple, large mechanical advantage, precise motion, can be self-locking. <b>Disadvantages:</b> low efficiency (often around 40% or less) and wear.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Thread</th><th>For</th><th>Against</th><th>Used in</th></tr></thead>
+<tbody>
+<tr><td><b>Square</b></td><td>highest efficiency; no radial (bursting) pressure on the nut</td><td>hard to make (single-point tool); weaker at the root; wear can't be taken up</td><td>screw jacks, presses, clamps</td></tr>
+<tr><td><b>Trapezoidal (30°) / Acme (29°)</b></td><td>cheap (milled); stronger root; split nut takes up wear</td><td>lower efficiency; side thrust on the nut</td><td>lathe lead screws, machine tools</td></tr>
+<tr><td><b>Buttress</b></td><td>efficient, strong, cheap, wear compensation</td><td>load in <em>one</em> direction only</td><td>vices, gun barrels</td></tr>
+</tbody></table></div>
+<p><b>Multi-start screws</b> move faster and are more efficient (larger helix angle), but give less mechanical advantage and may lose self-locking. Designations: Sq 30 × 6, Tr 40 × 7, Tr 40 × 14 (P7) = two-start (<a class="bk" data-p="187"></a>).</p>
+
+<h2>2. The screw as an inclined plane</h2>
+<figure>
+<svg class="fig" viewBox="0 0 660 220" role="img" aria-label="Developed thread as an inclined plane">
+  <polygon points="40,190 330,190 330,60" class="part2"/>
+  <text x="170" y="210" text-anchor="middle">π d<tspan baseline-shift="sub" font-size="9">m</tspan> (one turn, developed)</text>
+  <text x="340" y="130">lead l</text>
+  <path d="M90,190 A50,50 0 0 0 86,170" class="thin"/><text x="96" y="182" class="small">α</text>
+  <text x="120" y="110" class="small">tan α = l / (π d<tspan baseline-shift="sub" font-size="8">m</tspan>)</text>
+  <g transform="translate(400,10)">
+    <text x="0" y="14">Raising: P = W tan(φ + α)</text>
+    <text x="0" y="38">Lowering: P = W tan(φ − α)</text>
+    <text x="0" y="62">μ = tan φ (friction angle)</text>
+    <text x="0" y="96" class="acc">Self-locking if φ ≥ α, i.e. μ ≥ tan α</text>
+    <text x="0" y="120">Overhauling if φ &lt; α (load runs down)</text>
+    <text x="0" y="156">Torque at mean radius: M<tspan baseline-shift="sub" font-size="9">t</tspan> = P·d<tspan baseline-shift="sub" font-size="9">m</tspan>/2</text>
+  </g>
+</svg>
+<figcaption>Unwrap one turn of the thread and it becomes a slope of angle α. Raising the load means pushing it up the slope (Bhandari Figs 6.5–6.7).</figcaption>
+</figure>
+
+<div class="formula"><span class="label">Square threads (Eqs 6.1–6.10)</span>
+\[ d_c = d - p \qquad d_m = d - 0.5p \qquad \tan\alpha = \frac{l}{\pi d_m} \]
+\[ M_t = \frac{Wd_m}{2}\tan(\phi+\alpha)\ \text{(raise)} \qquad M_t = \frac{Wd_m}{2}\tan(\phi-\alpha)\ \text{(lower)} \qquad \eta = \frac{\tan\alpha}{\tan(\phi+\alpha)} \]
+<p>Maximum efficiency at \(\alpha = 45° - \phi/2\): \(\eta_{max} = \frac{1-\sin\phi}{1+\sin\phi}\). A self-locking square screw has η &lt; 50%.</p>
+</div>
+<div class="formula"><span class="label">Trapezoidal / Acme: replace μ by μ sec θ (θ = 15° or 14.5°) (Eqs 6.12–6.16)</span>
+\[ M_t = \frac{Wd_m}{2}\cdot\frac{\mu\sec\theta + \tan\alpha}{1 - \mu\sec\theta\tan\alpha}\ \text{(raise)} \qquad \eta = \frac{\tan\alpha\,(1-\mu\sec\theta\tan\alpha)}{\mu\sec\theta + \tan\alpha} \]
+</div>
+<div class="formula"><span class="label">Collar friction (uniform wear) and overall efficiency (Eqs 6.18–6.20)</span>
+\[ (M_t)_c = \frac{\mu_c W}{4}(D_o + D_i) = \mu_c W R_m \qquad (M_t)_t = M_t + (M_t)_c \qquad \eta_o = \frac{Wl}{2\pi (M_t)_t} \]
+<p>μ ≈ 0.15 for lubricated threads. Collar: Table 6.3 (e.g. soft steel on cast iron 0.12 running). Thrust ball bearing: 0.01–0.02 (<a class="bk" data-p="194"></a>).</p>
+</div>
+
+<div class="calc"><span class="label">Square-thread calculator</span>
+<div class="inputs">
+<label>W (N)<input data-v="W" type="number" value="15000"></label>
+<label>d (mm)<input data-v="d" type="number" value="50"></label>
+<label>pitch p (mm)<input data-v="p" type="number" value="8"></label>
+<label>starts<input data-v="n" type="number" value="3"></label>
+<label>μ threads<input data-v="mu" type="number" value="0.15" step="0.01"></label>
+<label>μ collar<input data-v="muc" type="number" value="0.15" step="0.01"></label>
+<label>D<sub>o</sub> + D<sub>i</sub> collar (mm)<input data-v="Ds" type="number" value="165"></label>
+</div>
+<div class="outs">
+<output data-expr="deg(atan(n*p/(pi*(d-0.5*p))))" data-label="α =" data-unit="°" data-dp="3"></output>
+<output data-expr="W*(d-0.5*p)/2*tan(atan(mu)+atan(n*p/(pi*(d-0.5*p))))+muc*W/4*Ds" data-label="raise torque =" data-unit="N·mm" data-dp="0"></output>
+<output data-expr="W*(d-0.5*p)/2*tan(atan(mu)-atan(n*p/(pi*(d-0.5*p))))+muc*W/4*Ds" data-label="lower torque =" data-unit="N·mm" data-dp="0"></output>
+<output data-expr="W*n*p/(2*pi*(W*(d-0.5*p)/2*tan(atan(mu)+atan(n*p/(pi*(d-0.5*p))))+muc*W/4*Ds))*100" data-label="overall η =" data-unit="%" data-dp="1"></output>
+<output data-expr="mu>=n*p/(pi*(d-0.5*p))" data-label="threads self-locking?" data-true="yes (φ ≥ α)" data-false="no (overhauling)"></output>
+</div></div>
+<p class="small">Preloaded with Bhandari Ex. 6.1. The thread torque alone for lowering is negative (overhauling), but collar friction makes the whole assembly hold the load.</p>
+
+<h2>3. Worked example (Bhandari Ex. 6.1)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 6.1</b> (<a class="bk" data-p="196"></a>). A triple-threaded square screw, d = 50 mm, p = 8 mm; collar D<sub>o</sub> = 100, D<sub>i</sub> = 65 mm; μ = 0.15 (threads and collar); W = 15 kN; uniform wear. Find the raising torque, the lowering torque, and the force at a 500 mm radius to raise.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>l = 3 × 8 = 24 mm; d<sub>m</sub> = 50 − 4 = 46 mm; tan α = 24/(π·46) ⇒ α = 9.429°; φ = 8.531°.</li>
+<li>Thread torque (raise) = 15 000 × 23 × tan(17.96°) = 111 831 N·mm. Collar = 0.15 × 15 000 × 165/4 = 92 812.5 N·mm. Total = <b>204.6 N·m</b>.</li>
+<li>Thread torque (lower) = 15 000 × 23 × tan(−0.898°) = −5408 N·mm (φ &lt; α: the threads alone overhaul). Total = −5408 + 92 812.5 = <b>87.4 N·m</b>. Collar friction holds the load.</li>
+<li>Force at 500 mm = 204 644/500 = <b>409.3 N</b>.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="3378" data-tol="1" data-unit="N·m">
+<p class="q">Ex. 6.2 (<a class="bk" data-p="197"></a>): double-threaded ISO trapezoidal screw, d = 100, p = 12, W = 300 kN, μ = 0.15, no collar friction. Raising torque?</p>
+<details class="sol"><p>l = 24, d<sub>m</sub> = 94, tan α = 0.0813; μ sec 15° = 0.1553. M<sub>t</sub> = 300 000 × 47 × (0.1553 + 0.0813)/(1 − 0.1553 × 0.0813) = 3378.7 N·m. Lowering 1030.4 N·m; η = 33.9%.</p></details>
+</div>
+<div class="num" data-answer="2869" data-tol="1" data-unit="N">
+<p class="q">Ex. 6.3 (<a class="bk" data-p="197"></a>): machine vice, single-start square Sq 22 × 5; collar 55/45 mm; μ = 0.15 threads, 0.17 collar; operator applies 125 N at 150 mm. Clamping force?</p>
+<details class="sol"><p>d<sub>m</sub> = 19.5, α = 4.666°. Thread torque = 2.286W; collar = 0.17 × W × 100/4 = 4.25W. 125 × 150 = 6.536W ⇒ W = 2869 N. Overall η = 2869 × 5/(2π × 18 750) = 12.2%.</p></details>
+</div>
+<div class="num" data-answer="52.41" data-tol="1" data-unit="N">
+<p class="q">Ex. 6.4 (<a class="bk" data-p="198"></a>): gate valve, Sq 40 × 7 single start, gate weight 5 kN, frictional resistance 2 kN, thrust washer 40/80 mm, μ = 0.15 threads and 0.12 washer, two arms each at 500 mm. Force per arm to <em>raise</em> the gate?</p>
+<details class="sol"><p>Raising: W = 5000 + 2000 = 7000 N (friction opposes motion). Thread torque 27 210, collar 0.12 × 7000 × 120/4 = 25 200; total 52 410 N·mm = 2P × 500 ⇒ P = 52.4 N.</p><p>Lowering: W = 5000 − 2000 = 3000 N, giving P = 15.6 N. η = 14.9%. Nut: z = 4(7000)/(π × 5 × (40² − 33²)) = 3.49, so 4 threads and a 28 mm nut.</p></details>
+</div>
+<div class="num" data-answer="12.94" data-tol="1.5" data-unit="%">
+<p class="q">Ex. 6.6 (<a class="bk" data-p="200"></a>): lathe lead screw, single-start Tr 52 × 8, axial force 2 kN, collar 100/60 mm, μ = 0.15 threads and 0.12 collar, 30 rpm. Efficiency?</p>
+<details class="sol"><p>d<sub>m</sub> = 48, tan α = 0.0531, μ sec θ = 0.1553. Thread torque 10 086; collar 9600; total 19 686 N·mm. Power = 2π(30)(19 686)/60×10⁶ = 0.062 kW. η = 2000 × 8/(2π × 19 686) = 12.9%.</p></details>
+</div>
+<div class="num" data-answer="6722" data-tol="1" data-unit="N">
+<p class="q">Ex. 6.11 (<a class="bk" data-p="215"></a>): differential screw jack, upper screw RH 50 × 12, lower RH 50 × 8, the nut turned by 100 N at 500 mm, μ = 0.15. Load raised?</p>
+<details class="sol"><p>Upper screw moves up the "incline": M₁ = W(44/2)tan(8.531° + 4.962°) = 5.279W. Lower screw moves down relative to the nut: M₂ = W(46/2)tan(8.531° − 3.169°) = 2.159W.</p><p>50 000 = 7.438W ⇒ W = 6722 N. η = 4W/(2π × 50 000) = 8.6%. The load rises (12 − 8) = 4 mm per turn.</p></details>
+</div>
+
+<div class="mcq" data-correct="1">
+<p class="q">Neglecting collar friction, when is a power screw self-locking?</p>
+<ol class="opts">
+<li>When μ is at least tan α (friction angle ≥ helix angle)</li>
+<li>When its efficiency is more than fifty per cent</li>
+<li>When it has two or more starts on the thread</li>
+<li>When the collar has a thrust ball bearing fitted</li>
+</ol>
+<div class="why">Self-locking: φ ≥ α ⇔ μ ≥ l/πd<sub>m</sub> (Eq. 6.9). Its efficiency is then below 50%. More starts increase α, which works against self-locking.</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">Why does a trapezoidal thread need more torque than a square thread of the same size?</p>
+<ol class="opts">
+<li>Its helix angle is always larger</li>
+<li>Its mean diameter is always smaller</li>
+<li>Its normal force is W sec θ, so friction rises</li>
+<li>Its collar friction is always larger</li>
+</ol>
+<div class="why">The flank is inclined at θ, so the normal force is W/cos θ and the friction is μW sec θ. Hence "μ sec θ" in place of μ (<a class="bk" data-p="192"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using the pitch instead of the lead in tan α for a multi-start screw.</li>
+<li>Forgetting the collar torque, or using it in a self-locking check that asks about the threads alone.</li>
+<li>In a gate valve, the axial load differs for raising (W + F) and lowering (W − F).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §6.1–6.13, <a class="bk" data-p="184">pp. 184–201</a> (Examples 6.1–6.7); differential screw §6.16, <a class="bk" data-p="214">pp. 214–215</a>.</li>
+<li>Course slides: power screws, forms of threads, torque, efficiency, <a class="ppt" data-p="420">pp. 420–441</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 20–21, "Power screws" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Note: question bank Q39 and Q42–Q45 and Tutorial Q8 are Bhandari's end-of-chapter Problems 6.1–6.5, not Examples. Tutorial Q3 and Q4 come from Shigley. If you want any of them, tell me and I'll check your working.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

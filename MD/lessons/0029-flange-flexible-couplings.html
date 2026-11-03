@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flange Couplings</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 29</p>
+<h1>Couplings II: rigid flange and bushed-pin flexible couplings</h1>
+<p class="meta">About 35 minutes · Bhandari §9.21–9.24</p>
+<div class="win"><b>Your win:</b> you can derive the bolt equations for a rigid flange coupling (bolts in shear <em>or</em> bolts preloaded for friction), design a complete protected flange coupling, and design a bushed-pin flexible coupling including the pin bending check, which is usually what governs.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 28, 33 preview)</span>
+<details class="recall"><summary>Clamp coupling bolt force?</summary><div>P₁ = 2M<sub>t</sub>/(f d n)</div></details>
+<details class="recall"><summary>Friction radius of an annulus under uniform pressure (you'll derive it properly in Lesson 33)?</summary><div>R<sub>f</sub> = (2/3)(R<sub>o</sub>³ − R<sub>i</sub>³)/(R<sub>o</sub>² − R<sub>i</sub>²)</div></details>
+</div>
+
+<h2>1. Rigid flange coupling</h2>
+<p>Two cast-iron flanges are keyed to the shafts and bolted together on a pitch circle. A spigot and recess align them. The <b>protected</b> type has a rim shrouding the bolt heads for operator safety. <b>For:</b> high torque, simple, easy to assemble. <b>Against:</b> no misalignment tolerance, no shock absorption, large radial size (<a class="bk" data-p="362"></a>).</p>
+<div class="formula"><span class="label">Standard proportions (Fig. 9.35)</span>
+<p>Hub d<sub>h</sub> = 2d · hub length l<sub>h</sub> = 1.5d · bolt PCD D = 3d · flange thickness t = 0.5d · rim t₁ = 0.25d · spigot d<sub>r</sub> = 1.5d · outer D₀ = 4d + 2t₁ · bolts N = 3 (d ≤ 40), 4 (40–100), 6 (100–180)</p>
+</div>
+
+<div class="example">
+<div class="ex-head"><b>Derive</b> the bolt-size equations for the two ways bolts can transmit torque (Eqs 9.41–9.47).</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Case I: bolts fitted in reamed holes (finger tight, they act in shear).</b> Each bolt carries P at radius D/2: \(M_t = N\,P\,\dfrac{D}{2}\), with \(P = \dfrac{\pi}{4}d_1^2\tau\). So \(\boxed{\tau = \dfrac{8M_t}{\pi D N d_1^2}}\). The bolt sees <em>direct</em> shear, not torsion.</li>
+<li>Crushing of the bolt in the flange (bearing length = flange thickness t): \(M_t = N\,(d_1 t\sigma_c)\,\dfrac{D}{2}\Rightarrow \sigma_c = \dfrac{2M_t}{N d_1 t D}\).</li>
+<li><b>Case II: bolts in clearance holes, preloaded P<sub>i</sub> (friction between flanges).</b> Normal force N·P<sub>i</sub>; friction acts at the friction radius of the contact annulus: \(R_f = \dfrac{2}{3}\dfrac{R_o^3 - R_i^3}{R_o^2 - R_i^2}\) (uniform pressure). So \(\boxed{M_t = \mu P_i N R_f}\), and the bolt is sized in <em>tension</em>: \(P_i = \frac{\pi}{4}d_1^2\sigma_t\).</li>
+<li><b>Flange checks:</b> hub as a hollow shaft, \(\tau = 16M_td_h/\pi(d_h^4 - d^4)\); flange shearing off the hub along the cylinder πd<sub>h</sub>·t at radius d<sub>h</sub>/2: \(M_t = \pi d_h t\,\tau\,\dfrac{d_h}{2}\Rightarrow \tau = \dfrac{2M_t}{\pi d_h^2 t}\).</li>
+</ol>
+</div></div>
+
+<h2>2. Bushed-pin flexible coupling</h2>
+<p>Like a flange coupling, but the bolts become <b>pins</b> fixed in the output flange, carrying <b>rubber bushes</b> (brass-lined) in the input flange. There is a gap between the flanges. It tolerates misalignment (about 0.5 mm lateral or axial, 1.5° angular), absorbs shock and vibration, and carries high torque. It costs more and is bigger (<a class="bk" data-p="368"></a>). <b>Why misalignment exists:</b> shaft deflection, mounting tolerances, separately built units (motor + gearbox), thermal expansion.</p>
+<div class="formula"><span class="label">Equations (Eqs 9.48–9.52)</span>
+\[ M_t = N\,P\,\frac{D}{2},\quad P = p_m D_b l_b\ (p_m \approx 1\ \text{N/mm}^2,\ l_b = D_b) \Rightarrow D_b^2 = \frac{2M_t}{DN} \]
+\[ \tau_{pin} = \frac{8M_t}{\pi d_1^2 D N} \le 35\ \text{N/mm}^2 \qquad d_1 \approx \frac{0.5d}{\sqrt N} \qquad \sigma_b = \frac{32\,P\,(\text{gap} + l_b/2)}{\pi d_1^3} \]
+<p>Proportions: d<sub>h</sub> = 2d, l<sub>h</sub> = 1.5d, D = 3d–4d, t = 0.5d, t₁ = 0.25d. The pin is a cantilever from the output flange, with the bush load P spread over l<sub>b</sub>, so the arm to the section is gap + l<sub>b</sub>/2. Peripheral speed ≤ 30 m/s.</p>
+</div>
+<p class="side">Why a flexible coupling has a bigger bolt circle or more pins than a rigid one for the same shaft: the rubber can only take about 1 N/mm², so the force per pin must be small, which needs a larger D or more pins (<a class="bk" data-p="371"></a>). Place couplings close to bearings to keep shaft bending small.</p>
+
+<h2>3. Worked example (Bhandari Ex. 9.22): complete rigid coupling</h2>
+<div class="example">
+<div class="ex-head"><b>Example 9.22</b> (<a class="bk" data-p="366"></a>). 37.5 kW at 180 rpm, service factor 1.5. Shaft 40C8 (S<sub>yt</sub> = 380, fs 2.5); keys and bolts 30C8 (S<sub>yt</sub> = 400, S<sub>yc</sub> = 1.5S<sub>yt</sub>, fs 2.5); flanges FG 200 (fs 6 on S<sub>su</sub> = 0.5S<sub>ut</sub>).</div>
+<div class="ex-body">
+<ol class="steps">
+<li>Allowables: shaft τ = 76; keys and bolts τ = 80, σ<sub>c</sub> = 240; flange τ = 16.67 N/mm².</li>
+<li>M<sub>t</sub> = 1.5 × 60×10⁶ × 37.5/(2π × 180) = 2 984 155 N·mm ⇒ d = 58.5, so 60 mm.</li>
+<li>Proportions: d<sub>h</sub> = 120, l<sub>h</sub> = 90, D = 180, t = 30, t₁ = 15, d<sub>r</sub> = 90, D₀ = 270 mm.</li>
+<li>Hub: τ = M<sub>t</sub>(60)/[π(120⁴ − 60⁴)/32] = 9.38 ✓. Flange at hub: 2M<sub>t</sub>/(π × 120² × 30) = 4.40 ✓.</li>
+<li>Bolts (N = 4): d₁² = 8M<sub>t</sub>/(π × 180 × 4 × 80) ⇒ d₁ = 11.5, so 12 mm. Crushing 2M<sub>t</sub>/(4 × 12 × 30 × 180) = 23.0 ✓.</li>
+<li>Key 18 × 11 × 90: τ = 61.4 ✓, σ<sub>c</sub> = 201 ✓.</li>
+</ol>
+</div></div>
+
+<h2>4. Practice (Bhandari Examples)</h2>
+<div class="num" data-answer="4.30" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 9.20 (<a class="bk" data-p="365"></a>): rigid coupling, 20 kW at 720 rpm, 4 bolts on a 125 mm PCD in reamed holes, 45C8 (S<sub>yt</sub> = 380), (fs) = 3, distortion energy theory. Bolt diameter?</p>
+<details class="sol"><p>τ = 0.577(380)/3 = 73.09; M<sub>t</sub> = 265 258. d₁² = 8(265 258)/(π × 125 × 4 × 73.09) ⇒ d₁ = 4.3 mm (use a practical minimum such as M8).</p></details>
+</div>
+<div class="num" data-answer="14.2" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 9.21 (<a class="bk" data-p="366"></a>): 50 kW at 300 rpm, 6 bolts in <em>clearance</em> holes, flange OD 200, recess Ø150, μ = 0.15, 45C8 (fs 3). Bolt core diameter?</p>
+<details class="sol"><p>M<sub>t</sub> = 1 591 549; R<sub>f</sub> = (2/3)(100³ − 75³)/(100² − 75²) = 88.1 mm. P<sub>i</sub> = M<sub>t</sub>/(μNR<sub>f</sub>) = 20 073 N. d₁ = √(4P<sub>i</sub>/(π × 126.67)) = 14.2 mm.</p></details>
+</div>
+<div class="num" data-answer="15.33" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 9.23 (<a class="bk" data-p="372"></a>): flexible coupling, 15 kW at 100 rpm, 6 pins on a 200 mm PCD; bush length 35, gap 5 mm; τ = 35, σ<sub>b</sub> = 152. Pin diameter from <em>bending</em>?</p>
+<details class="sol"><p>M<sub>t</sub> = 1 432 394; P = 2M<sub>t</sub>/(DN) = 2387 N. M<sub>b</sub> = P(5 + 35/2) = 2387 × 22.5. 152 = 32M<sub>b</sub>/πd₁³ ⇒ d₁ = 15.33 mm (shear needs only 9.32 mm).</p></details>
+</div>
+<div class="num" data-answer="10.82" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 9.24 (<a class="bk" data-p="372"></a>): bushed-pin coupling for a 20 kW, 720 rpm motor; starting torque 1.5×; d = 30, D = 4d = 120, 6 pins; pin σ<sub>b</sub> = 200; rubber p<sub>m</sub> = 1, l<sub>b</sub> = D<sub>b</sub>; gap 5 mm. Pin diameter from bending (with l<sub>b</sub> = 35)?</p>
+<details class="sol"><p>M<sub>t</sub> = 397 887; D<sub>b</sub> = √(2M<sub>t</sub>/(DN)) = 33.2, so 35 mm. P = 2M<sub>t</sub>/(DN) = 1105 N. M<sub>b</sub> = 1105 × 22.5 ⇒ d₁ = 10.82, so 12 mm. The empirical 0.5d/√N = 6.1 → 7 mm passes shear (28.7 &lt; 35) but <b>fails bending</b>. Bending governs.</p></details>
+</div>
+<div class="num" data-answer="9" data-tol="1" data-unit="coils">
+<p class="q">Ex. 9.25 (<a class="bk" data-p="375"></a>): multiflex coupling, 15 kW at 720 rpm, coils 4 × 2 mm at R = 30 mm, FeE 220, (fs) 2.5, distortion energy theory; each coil is in double shear. Number of coils?</p>
+<details class="sol"><p>τ = 0.577(220)/2.5 = 50.78. M<sub>t</sub> = 2Aτ N R ⇒ N = 198 944/(2 × 8 × 50.78 × 30) = 8.2, so 9 coils.</p></details>
+</div>
+
+<h2>5. GATE corner</h2>
+<div class="mcq" data-correct="1">
+<p class="q">The bolts of a rigid flange coupling fitted in reamed holes are subjected to:</p>
+<ol class="opts">
+<li>Direct shear stress and crushing on their shanks</li>
+<li>Torsional shear stress about their own axes</li>
+<li>Pure tensile stress from the bolt preload</li>
+<li>Bending stress from the gap between flanges</li>
+</ol>
+<div class="why">Each bolt carries a tangential force P = 2M<sub>t</sub>/(ND): direct shear on the shank and bearing on the flange. No torque acts about the bolt axis (<a class="bk" data-p="364"></a>).</div>
+</div>
+<div class="mcq" data-correct="3">
+<p class="q">In a bushed-pin flexible coupling, the pin diameter is usually decided by:</p>
+<ol class="opts">
+<li>Bearing pressure on the brass lining</li>
+<li>Direct shear at 35 N/mm² (IS 2693)</li>
+<li>Bending as a cantilever across the gap</li>
+<li>Crushing of the cast-iron output flange</li>
+</ol>
+<div class="why">In both Bhandari examples, bending gives the larger diameter (15.3 vs 9.3 mm; 10.8 vs 7 mm).</div>
+</div>
+<div class="mcq" data-correct="2">
+<p class="q">For a flange coupling with bolts in clearance holes, the torque capacity is proportional to:</p>
+<ol class="opts">
+<li>the bolt shear area and the pitch circle radius</li>
+<li>the bolt preload, μ and the friction radius</li>
+<li>the flange thickness and the hub diameter</li>
+<li>the key length and the shaft diameter</li>
+</ol>
+<div class="why">M<sub>t</sub> = μ P<sub>i</sub> N R<sub>f</sub>: friction between the flanges, not bolt shear.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Using torsional shear for the coupling bolts. They take direct shear.</li>
+<li>Forgetting the service or starting-torque factor (1.5) before sizing.</li>
+<li>Stopping at the pin shear check in a flexible coupling.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §9.21–9.24, <a class="bk" data-p="362">pp. 362–376</a> (Examples 9.20–9.25).</li>
+<li>Course slides: rigid flange, protected coupling, flexible coupling, <a class="ppt" data-p="533">pp. 533–542</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 17, "Flange couplings: rigid and flexible" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Need the dimensioned sketch of a protected flange coupling for your exam answer? Ask me and I'll describe the drawing view by view.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

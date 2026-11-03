@@ -16,7 +16,14 @@
 !/AMP/reference/
 !/AMP/assets/
 
-# To add a course later (e.g. MD), copy the four lines above and change AMP to MD.
+!/MD/
+/MD/*
+!/MD/index.html
+!/MD/lessons/
+!/MD/reference/
+!/MD/assets/
+
+# To add a course later (e.g. BEV), copy the AMP lines above and change AMP to the course folder.
 
 # Never publish source documents, even if one lands inside a published folder.
 *.pdf

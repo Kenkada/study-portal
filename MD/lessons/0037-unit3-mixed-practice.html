@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 3 Practice</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 3 · Lesson 37</p>
+<h1>Unit 3 mixed practice</h1>
+<p class="meta">About 45 minutes · Bhandari Examples not yet used, plus derivation and GATE drills · do it a few days after Lesson 36</p>
+<div class="win"><b>Your win:</b> you can switch freely between shafts, keys, couplings, belts, chains, clutches and brakes, recognising the method from the wording alone. You can also reproduce the key Unit 3 derivations from memory.</div>
+<div class="note"><p>The problems are shuffled on purpose. Name the method first, solve on paper, then type the number.</p></div>
+
+<h2>Part A: derivations from memory (write them, then check)</h2>
+<div class="recall-set"><span class="label">Close the lessons. Derive, then open to compare.</span>
+<details class="recall"><summary>Belt: tension ratio with centrifugal tension, and P<sub>max</sub> = 3P<sub>c</sub>.</summary><div>Element: dP = f dN; dN = (P − mv²)dφ ⇒ ln[(P₁ − mv²)/(P₂ − mv²)] = fα. Power = (P<sub>max</sub> − mv²)kv; d/dv = 0 ⇒ P<sub>max</sub> = 3mv² = 3P<sub>c</sub>. See <a class="lesson" data-l="0030"></a>.</div></details>
+<details class="recall"><summary>Clutch: uniform pressure and uniform wear torque.</summary><div>dP = 2πpr dr, dM = 2πμpr² dr. p constant: M = (μP/3)(D³ − d³)/(D² − d²). pr constant: M = μP(D + d)/4. See <a class="lesson" data-l="0033"></a>.</div></details>
+<details class="recall"><summary>Long-shoe equivalent μ′.</summary><div>Wear δr ∝ cos φ ∝ p ⇒ p = p<sub>max</sub> cos φ; N = ½Rwp<sub>max</sub>(2θ + sin 2θ); M = 2μR²wp<sub>max</sub> sin θ ⇒ μ′ = 4μ sin θ/(2θ + sin 2θ). See <a class="lesson" data-l="0035"></a>.</div></details>
+<details class="recall"><summary>Equivalent torque and bending moment for a shaft.</summary><div>τ<sub>max</sub> = (16/πd³)√(M² + T²) ⇒ T<sub>e</sub> = √(M² + T²); σ₁ = (16/πd³)[M + √(M² + T²)] ⇒ M<sub>e</sub> = ½[M + √(M² + T²)]. See <a class="lesson" data-l="0025"></a>.</div></details>
+<details class="recall"><summary>Key length for equal strength with the shaft.</summary><div>τbl(d/2) = (π/16)d³τ ⇒ l = πd²/8b = 1.571d for b = d/4. See <a class="lesson" data-l="0027"></a>.</div></details>
+<details class="recall"><summary>Chain: sprocket diameter and polygonal speed variation.</summary><div>D = p/sin(180°/z); Δv/v = 1 − cos(180°/z). See <a class="lesson" data-l="0032"></a>.</div></details>
+</div>
+
+<h2>Part B: name the method (GATE-style)</h2>
+<div class="mcq" data-correct="3">
+<p class="q">A motor drives a mill through a gearbox. Where should the friction clutch go, and why?</p>
+<ol class="opts">
+<li>On the mill shaft, where speed is low and shocks are small</li>
+<li>Anywhere, since the clutch torque is the same everywhere</li>
+<li>Between motor and gearbox, where torque is lowest</li>
+<li>Between gearbox and mill, where torque is highest</li>
+</ol>
+<div class="why">Same power at higher speed means lower torque, so a smaller and cheaper clutch (<a class="bk" data-p="453"></a>).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">A shaft must keep two gears in accurate mesh, and the given data includes a twist limit in degrees per metre. What do you do?</p>
+<ol class="opts">
+<li>Size it for both strength and rigidity and take the larger diameter</li>
+<li>Size it for strength only, since rigidity follows automatically</li>
+<li>Size it for rigidity only, since strength never governs gear shafts</li>
+<li>Use the ASME code, since it already includes the twist limit</li>
+</ol>
+<div class="why">Ex. 9.9: strength gave 33 mm, rigidity 45 mm. Either can govern.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">Which arrangement needs the tight side on top?</p>
+<ol class="opts">
+<li>A horizontal flat-belt drive</li>
+<li>A horizontal V-belt drive</li>
+<li>A vertical flat-belt drive</li>
+<li>A horizontal chain drive</li>
+</ol>
+<div class="why">Chains: tight side on top so the slack strand doesn't foul the teeth. Belts: slack side on top to increase the wrap.</div>
+</div>
+
+<h2>Part C: solve (Bhandari Examples)</h2>
+<div class="num" data-answer="31.12" data-tol="1" data-unit="mm">
+<p class="q">Ex. 9.8 (<a class="bk" data-p="341"></a>): the Ex. 9.5 shaft (M<sub>t</sub> = 381 972 N·mm over 800 mm between gear and pulley) with a twist limit of 3°/m; G = 79 300. Diameter on rigidity?</p>
+<details class="sol"><p>θ = 3 × 0.8 = 2.4°. d⁴ = 584(381 972)(800)/(79 300 × 2.4) ⇒ d = 31.12 mm (strength gave 48.5, so strength governs here).</p></details>
+</div>
+<div class="num" data-answer="13.66" data-tol="1" data-unit="mm">
+<p class="q">Ex. 13.6 (<a class="bk" data-p="521"></a>): cast-iron pulley (FG 150, fs 5), 4 elliptical arms (major = 2 × minor, major axis in the plane of rotation); tensions 750 and 250 N; pulley Ø300, hub Ø60. Minor axis near the hub (half the arms loaded)?</p>
+<details class="sol"><p>M<sub>t</sub> = 500 × 150 = 75 000; P per arm = 2M<sub>t</sub>/(RN) = 250 N; arm length to the hub section = 150 − 30 = 120 mm, so M<sub>b</sub> = 30 000. With σ = 30 and I = πa⁴/8, y = a: a = 13.66 → 15 mm, b = 30 mm.</p></details>
+</div>
+<div class="num" data-answer="5" data-tol="1" data-unit="surfaces">
+<p class="q">Ex. 11.7 (<a class="bk" data-p="458"></a>): wet scooter clutch with cork lining, 10 N·m, μ = 0.2, p<sub>a</sub> = 0.1, d/D = 65/95, uniform wear; add 5% for radial oil slots. Number of contacting surfaces?</p>
+<details class="sol"><p>P = π(0.1)(65)(30)/2 = 306.3 N; z = 4(10 000)/(0.2 × 306.3 × 160) = 4.08; × 1.05 = 4.28, so <b>5</b>.</p></details>
+</div>
+<div class="num" data-answer="4598" data-tol="1" data-unit="N">
+<p class="q">Ex. 12.6 (<a class="bk" data-p="479"></a>): short-shoe brake holding a 500 kg load on a 150 mm cable drum; the brake drum (R = 200 mm) turns 4× faster than the cable drum; μ = 0.2. Required shoe force (torque balance through the gearing)?</p>
+<details class="sol"><p>Same power: n₁(500 × 9.81 × 150) = 4n₁(0.2P × 200) ⇒ P = 4598 N. With pv ≤ 2 and p = 1 N/mm²: v = 2 m/s at the brake drum, so the load can be lowered at 0.375 m/s.</p></details>
+</div>
+<div class="num" data-answer="2182" data-tol="1.5" data-unit="N·m">
+<p class="q">Ex. 12.9 (<a class="bk" data-p="488"></a>): four-shoe internal brake, w = 50, p<sub>max</sub> = 1, μ = 0.3, R = 250, h = C = 200, θ₁ = 15°, θ₂ = 75° (so sin φ<sub>max</sub> = sin 75°). Total torque?</p>
+<details class="sol"><p>M<sub>f</sub> = 350 082, M<sub>n</sub> = 1 355 173 ⇒ P = 5025 N. Leading-shoe torque 686 298 N·mm; trailing p′<sub>max</sub> = 0.589, so 404 500. Pair: 1.091 × 10⁶; two pairs: 2182 N·m.</p></details>
+</div>
+<div class="num" data-answer="28.63" data-tol="1.5" data-unit="mm">
+<p class="q">Ex. 12.13 (<a class="bk" data-p="495"></a>): light two-wheeler, 1500 N·m, 3 calipers × 2 circular pads, μ = 0.35, p<sub>av</sub> = 2 MPa, R/e = 0.2 (δ = 0.9693). Pad radius?</p>
+<details class="sol"><p>Per pad 250 N·m. R<sub>f</sub> = δe = 0.9693(R/0.2) = 4.8465R. 250 000 = 0.35(2πR²)(4.8465R) ⇒ R = 28.6 → 30 mm.</p></details>
+</div>
+<div class="num" data-answer="12.95" data-tol="1.5" data-unit="kW">
+<p class="q">Ex. 14.7 (<a class="bk" data-p="560"></a>): simple chain 10B (rated 11.67 kW at 1400 rpm for 17 teeth), 19-tooth driver (K₂ = 1.11), smooth operation (K<sub>s</sub> = 1). Rated power the drive can be recommended for?</p>
+<details class="sol"><p>Rearranging Eq. 14.8: kW = rating × K₁ × K₂/K<sub>s</sub> = 11.67 × 1 × 1.11/1.0 = 12.95 kW.</p></details>
+</div>
+
+<div class="src"><ul>
+<li>Bhandari Chs 9, 11, 12, 13, 14: Short-Answer Questions at the end of each chapter are good theory drill (<a class="bk" data-p="388"></a>, <a class="bk" data-p="470"></a>, <a class="bk" data-p="496"></a>, <a class="bk" data-p="542"></a>, <a class="bk" data-p="562"></a>).</li>
+</ul></div>
+<div class="ask"><p>Missed a derivation in Part A? Tell me which one and I'll give you a fill-in-the-gaps version to rebuild it.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit3-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

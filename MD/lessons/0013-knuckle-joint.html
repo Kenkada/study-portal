@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knuckle Joint</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 2 · Lesson 13</p>
+<h1>Design of the knuckle joint</h1>
+<p class="meta">About 25 minutes · Bhandari §4.11–4.12</p>
+<div class="win"><b>Your win:</b> you can design a knuckle joint: rod, pin (shear <em>and</em> bending), eye and fork, with every stress checked. You'll also be able to finish the knuckle half of Tutorial Q6.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lesson 12)</span>
+<details class="recall"><summary>Which two calculations give the cotter width b?</summary><div>Double shear (P = 2btτ) and bending of a loose cotter. Take the larger.</div></details>
+<details class="recall"><summary>Why can't a cotter joint join rotating shafts?</summary><div>It is designed for axial load only; torque needs a coupling.</div></details>
+</div>
+
+<h2>1. What it is</h2>
+<p>A knuckle (forked-pin) joint connects two rods whose axes coincide or intersect in one plane. It carries axial <b>tension</b> and allows limited angular movement about the pin (<a class="bk" data-p="94"></a>). Rod B ends in an <b>eye</b>, rod A in a <b>fork</b> (double eye). A <b>pin</b> through both is held by a split pin. Uses: roof-truss tie bars, suspension-bridge links, valve gear, lever fulcrums, bicycle chain links. Advantages: simple, few parts, quick to assemble.</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 230" role="img" aria-label="Plan view of knuckle joint with fork, eye and pin">
+  <line x1="10" y1="115" x2="650" y2="115" class="dash"/>
+  <rect x="20" y="99" width="140" height="32" class="part"/><text x="50" y="92" class="small">rod A, D (D₁ = 1.1D near joint)</text>
+  <!-- fork -->
+  <path d="M160,92 L230,92 L230,62 L330,62 A28,28 0 0 1 330,118 L230,118 Z" class="part" transform="translate(0,-8)"/>
+  <path d="M160,138 L230,138 L230,168 L330,168 A28,28 0 0 0 330,112 L230,112 Z" class="part" transform="translate(0,8)"/>
+  <rect x="160" y="84" width="70" height="62" class="part"/>
+  <!-- eye -->
+  <path d="M600,99 L400,99 L360,96 A20,20 0 0 0 360,134 L400,131 L600,131 Z" class="part2"/>
+  <rect x="300" y="88" width="62" height="54" class="part2"/>
+  <!-- pin -->
+  <rect x="320" y="34" width="22" height="162" class="hot"/>
+  <rect x="312" y="28" width="38" height="10" class="hot"/>
+  <text x="352" y="30" class="acc">pin, d (head d₁ = 1.5d)</text>
+  <text x="300" y="160" class="small">eye, thickness b</text>
+  <text x="236" y="45" class="small">fork, each a thick</text>
+  <text x="480" y="92" class="small">rod B</text>
+  <line x1="40" y1="200" x2="10" y2="200" class="acc"/><polygon points="10,200 20,195 20,205" class="fill-acc"/><text x="22" y="222" class="acc">P</text>
+  <line x1="610" y1="200" x2="645" y2="200" class="acc"/><polygon points="648,200 638,195 638,205" class="fill-acc"/><text x="620" y="222" class="acc">P</text>
+  <text x="372" y="190" class="small">outer diameter of eye and fork: d₀ = 2d</text>
+</svg>
+<figcaption>Simplified plan view (after Bhandari Fig. 4.18). The eye sits between the two prongs of the fork, so the pin is in double shear.</figcaption>
+</figure>
+
+<h2>2. The failure equations</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Failure</th><th>Equation (Bhandari Eqs 4.26)</th></tr></thead>
+<tbody>
+<tr><td>Tension in rod</td><td>\(P = \frac{\pi}{4}D^2\sigma_t\); enlarged D₁ = 1.1D</td></tr>
+<tr><td>Double shear of pin</td><td>\(P = 2\cdot\frac{\pi}{4}d^2\tau\Rightarrow d = \sqrt{2P/\pi\tau}\)</td></tr>
+<tr><td>Bending of a loose pin</td><td>\(\sigma_b = \dfrac{32\,(P/2)\left[\frac{b}{4}+\frac{a}{3}\right]}{\pi d^3}\) (uniform load in the eye, triangular in the fork)</td></tr>
+<tr><td>Crushing of pin in eye / in fork</td><td>\(P = b\,d\,\sigma_c\); \(P = 2a\,d\,\sigma_c\)</td></tr>
+<tr><td>Tension in eye / fork</td><td>\(P = b(d_0-d)\sigma_t\); \(P = 2a(d_0-d)\sigma_t\)</td></tr>
+<tr><td>Shear of eye / fork</td><td>\(P = b(d_0-d)\tau\); \(P = 2a(d_0-d)\tau\)</td></tr>
+</tbody></table></div>
+<div class="formula"><span class="label">Standard proportions</span>
+<p>d = D (first guess) · d₀ = 2d · d₁ = 1.5d · a = 0.75D · b = 1.25D · D₁ = 1.1D · gap x ≈ 10 mm (<a class="bk" data-p="99"></a>)</p>
+</div>
+<div class="formula"><span class="label">Procedure (§4.12)</span>
+<p>D → D₁ → a, b → pin d (larger of shear and bending) → d₀, d₁ → check eye (tension, crushing, shear) → check fork (tension, crushing, shear).</p>
+</div>
+
+<h2>3. Worked example (Bhandari Ex. 4.5)</h2>
+<div class="example">
+<div class="ex-head"><b>Example 4.5</b> (<a class="bk" data-p="100"></a>). Design a knuckle joint for 50 kN. 30C8 (S<sub>yt</sub> = 400), S<sub>yc</sub> = S<sub>yt</sub>, (fs) = 5, S<sub>sy</sub> = 0.5S<sub>yt</sub>.</div>
+<div class="ex-body">
+<ol class="steps">
+<li>σ<sub>t</sub> = σ<sub>c</sub> = σ<sub>b</sub> = 80, τ = 40 N/mm².</li>
+<li>\(D = \sqrt{4(50\,000)/\pi(80)} = 28.2\), so 30 mm. D₁ = 33, so 35 mm. a = 0.75D = 22.5 → 25 mm; b = 1.25D = 37.5 → 40 mm.</li>
+<li>Pin by shear: \(d = \sqrt{2P/\pi\tau} = 28.2\). Pin by bending: \(d^3 = \frac{32}{\pi(80)}\cdot25\,000\left[\frac{40}{4}+\frac{25}{3}\right]\Rightarrow d = 38.8\). <b>Bending governs</b>, so d = 40 mm.</li>
+<li>d₀ = 2d = 80 mm, d₁ = 1.5d = 60 mm.</li>
+<li>Eye: σ<sub>t</sub> = P/b(d₀−d) = 31.25, σ<sub>c</sub> = P/bd = 31.25, τ = 31.25. All OK.</li>
+<li>Fork: σ<sub>t</sub> = P/2a(d₀−d) = 25, σ<sub>c</sub> = P/2ad = 25, τ = 25. All OK.</li>
+</ol>
+</div></div>
+<p class="small">Notice that bending, not shear, set the pin size. Questions that ask for the pin "by shear" alone are incomplete. Write both.</p>
+
+<h2>4. Practice: Tutorial Q6 (knuckle part)</h2>
+<div class="problem"><span class="ptitle">Tutorial Q6 (<a class="tut"></a>)</span>Knuckle joint for 65 kN, 40C8 (S<sub>yt</sub> = 460), (fs) = 4, distortion energy theory; bending and crushing 30% above tensile. So σ<sub>t</sub> = 115, σ<sub>b</sub> = σ<sub>c</sub> = 149.5, τ = 66.36 N/mm². Use D = 28 mm, a = 21 mm, b = 35 mm.</div>
+<div class="num" data-answer="24.97" data-tol="1" data-unit="mm">
+<p class="q">(a) Pin diameter from double shear.</p>
+<details class="sol"><p>\(d = \sqrt{2(65\,000)/\pi(66.36)} = 24.97\) mm.</p></details>
+</div>
+<div class="num" data-answer="32.67" data-tol="1" data-unit="mm">
+<p class="q">(b) Pin diameter from bending.</p>
+<details class="sol"><p>\(d^3 = \frac{32}{\pi(149.5)}\cdot32\,500\left[\frac{35}{4}+\frac{21}{3}\right] = 34\,880\Rightarrow d = 32.67\). Bending governs, so take d = 35 mm, d₀ = 70 mm, d₁ = 52.5 mm.</p></details>
+</div>
+<div class="num" data-answer="53.1" data-tol="1.5" data-unit="N/mm²">
+<p class="q">(c) Check: tensile stress in the eye with d = 35, d₀ = 70, b = 35.</p>
+<details class="sol"><p>\(P/b(d_0 - d) = 65\,000/(35\times35) = 53.1 &lt; 115\) ✓. Crushing in the eye is also 53.1 &lt; 149.5 ✓; shear in the eye 53.1 &lt; 66.36 ✓. Fork: 65 000/(2·21·35) = 44.2 for tension, crushing and shear, all OK.</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">Why is the load on the pin taken as triangular in the fork but uniform in the eye?</p>
+<ol class="opts">
+<li>The fork is always made of a weaker material</li>
+<li>The fork prongs deflect, so pressure peaks inside</li>
+<li>The eye is longer, so the load spreads evenly</li>
+<li>Bhandari assumes it only to simplify the algebra</li>
+</ol>
+<div class="why">A loose pin bends. Pressure in each fork prong is highest at the inner edge, next to the eye, and falls towards the outside, so it is modelled as triangular, acting at a/3 from the inner face (Fig. 4.22).</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">In which application would you use a knuckle joint rather than a cotter joint?</p>
+<ol class="opts">
+<li>Piston rod to crosshead of a steam engine</li>
+<li>Foundation bolt holding a machine to its base</li>
+<li>Connecting two rotating shafts carrying torque</li>
+<li>Tie bars of a roof truss needing small rotation</li>
+</ol>
+<div class="why">A knuckle joint allows angular movement about the pin, which suits trusses, links and lever fulcrums. The first two are classic cotter joints. Rotating shafts need couplings.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Designing the pin for shear only. Check bending, which usually governs.</li>
+<li>Using 2a for the eye or b for the fork in the crushing check: the eye has thickness b, the fork has two prongs of a.</li>
+<li>Forgetting that d₀ − d is the net width at the pin hole.</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §4.11–4.12, <a class="bk" data-p="94">pp. 94–101</a> (Example 4.5).</li>
+<li>Course slides: knuckle joint, design of fork end, <a class="ppt" data-p="272">pp. 272–280</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lecture 14 (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Unsure where the b/4 + a/3 bending arm comes from? Ask me and I'll derive it from the load diagram step by step.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit2-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

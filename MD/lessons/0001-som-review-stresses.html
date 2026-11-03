@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stress Review</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 1</p>
+<h1>Strength of materials review: direct, bending and torsional stress</h1>
+<p class="meta">About 20 minutes · Bhandari §4.2–4.8</p>
+<div class="win"><b>Your win:</b> given a part, its loads and a material, you can find the allowable stress and every stress the loads cause. That covers direct, shear, bending, torsion and eccentric loading. Every later lesson is built from these five.</div>
+
+<div class="why-box">
+<p>Every design problem in this course has three parts: allowable stress from the material, induced stress from the loads, and setting one equal to the other to get a size. This lesson is the toolkit for the middle part. Your question bank starts with exactly these problems (hollow shaft under thrust, bending and torque; eccentrically loaded column).</p>
+</div>
+
+<h2>1. Allowable stress comes from the material, never from the question</h2>
+<p>Bhandari is firm about this (<a class="bk" data-p="84"></a>): you <em>derive</em> the allowable stress from a strength and a factor of safety (fs).</p>
+<div class="formula"><span class="label">Allowable stresses (Eqs 4.1, 4.2, 4.11)</span>
+\[ \sigma = \frac{S_{yt}}{(fs)}\ \text{(ductile)} \qquad \sigma = \frac{S_{ut}}{(fs)}\ \text{(brittle, e.g. cast iron)} \qquad \tau = \frac{S_{sy}}{(fs)},\ \ S_{sy}=0.5\,S_{yt} \]
+</div>
+<p class="side">Units: 1 MPa = 1 N/mm². Bhandari works in N, mm and N/mm² throughout, so torque goes in N·mm. Convert N·m to N·mm (× 1000) before substituting.</p>
+<p>A material code tells you the strength. <b>FG 200</b> is grey cast iron with \(S_{ut}=200\) N/mm² (brittle, so use \(S_{ut}\)). <b>30C8</b> is plain carbon steel (ductile, so use \(S_{yt}\), which the question usually gives).</p>
+
+<h2>2. The five stress formulas</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Load</th><th>Stress</th><th>Solid round bar of diameter d</th><th>Where it peaks</th></tr></thead>
+<tbody>
+<tr><td>Axial force P</td><td>\(\sigma = P/A\)</td><td>\(\sigma = 4P/\pi d^2\)</td><td>uniform</td></tr>
+<tr><td>Transverse force P (rivet, pin)</td><td>\(\tau = P/A\)</td><td>\(\tau = 4P/\pi d^2\) (single shear)</td><td>average value</td></tr>
+<tr><td>Bending moment \(M_b\)</td><td>\(\sigma_b = M_b y / I\)</td><td>\(\sigma_b = 32M_b/\pi d^3\)</td><td>outer fibre</td></tr>
+<tr><td>Torque \(M_t\)</td><td>\(\tau = M_t r / J\)</td><td>\(\tau = 16M_t/\pi d^3\)</td><td>outer fibre</td></tr>
+<tr><td>Eccentric axial force P at e</td><td>\(\sigma = \dfrac{P}{A} \pm \dfrac{P e y}{I}\)</td><td>direct plus bending, superposed</td><td>the fibre where both add</td></tr>
+</tbody></table></div>
+<p>Section properties (<a class="bk" data-p="82"></a>): rectangle \(I = bd^3/12\) (d is the side perpendicular to the neutral axis); circle \(I = \pi d^4/64\), \(J = \pi d^4/32\); hollow circle \(I=\pi(d_o^4-d_i^4)/64\), \(J = 2I\).</p>
+
+<div class="formula"><span class="label">Torque from power, and angle of twist (Eqs 4.18, 4.21, 4.23)</span>
+\[ kW = \frac{2\pi n M_t}{60\times10^6}\ \ (M_t\ \text{in N·mm},\ n\ \text{in rpm}) \qquad \theta = \frac{M_t\, l}{J G}\ \text{rad} = \frac{584\, M_t\, l}{G d^4}\ \text{deg} \]
+</div>
+<p class="side">Steel: E = 207 000 N/mm², G = 80 000 N/mm², μ = 0.29. Grey cast iron: E = 100 000, G = 40 000 (<a class="bk" data-p="80"></a>–81).</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 640 210" role="img" aria-label="Eccentric load equals direct load plus a couple">
+  <!-- column 1: eccentric -->
+  <rect x="40" y="60" width="70" height="110" class="part"/>
+  <line x1="75" y1="50" x2="75" y2="180" class="dash"/>
+  <line x1="100" y1="20" x2="100" y2="58" class="acc"/><polygon points="95,50 105,50 100,60" class="fill-acc"/>
+  <text x="104" y="32" class="acc">P</text>
+  <line x1="75" y1="190" x2="100" y2="190" class="thin"/><text x="80" y="204" class="small">e</text>
+  <text x="140" y="120">=</text>
+  <!-- column 2: centric -->
+  <rect x="170" y="60" width="70" height="110" class="part"/>
+  <line x1="205" y1="20" x2="205" y2="58" class="acc"/><polygon points="200,50 210,50 205,60" class="fill-acc"/>
+  <text x="210" y="32" class="acc">P</text>
+  <text x="182" y="125" class="small">P/A</text>
+  <text x="270" y="120">+</text>
+  <!-- column 3: couple -->
+  <rect x="300" y="60" width="70" height="110" class="part"/>
+  <path d="M318,48 A22,14 0 0 1 352,48" class="acc"/><polygon points="352,42 356,52 346,50" class="fill-acc"/>
+  <text x="318" y="34" class="acc">P·e</text>
+  <text x="306" y="125" class="small">±Pey/I</text>
+  <text x="400" y="120">→</text>
+  <!-- stress distribution -->
+  <line x1="440" y1="150" x2="600" y2="150" class="axis"/>
+  <polygon points="450,150 590,150 590,70 450,130" class="hot"/>
+  <text x="440" y="170" class="small">left fibre</text><text x="560" y="170" class="small">right fibre</text>
+  <text x="520" y="70" class="small acc">max = P/A + Pey/I</text>
+  <text x="450" y="125" class="small" text-anchor="start">min</text>
+</svg>
+<figcaption>Eccentric loading (<a class="bk" data-p="83"></a>–84): move P to the axis and add the couple P·e. Then superpose the uniform P/A and the linear bending stress.</figcaption>
+</figure>
+
+<h2>3. Worked example: three loads on one hollow shaft</h2>
+<div class="example">
+<div class="ex-head"><b>Question bank Q1</b> (<a class="qb" data-p="5"></a>). Hollow shaft, \(d_o = 40\) mm, \(d_i = 25\) mm. Torque 120 N·m, axial thrust 10 kN and bending moment 80 N·m all act together. Find the maximum compressive stress and the maximum shear stress.</div>
+<div class="ex-body">
+<ol class="steps">
+<li><b>Section properties.</b> \(A = \frac{\pi}{4}(40^2-25^2) = 765.8\) mm², \(I = \frac{\pi}{64}(40^4-25^4) = 106\,489\) mm⁴, \(J = 2I = 212\,978\) mm⁴.</li>
+<li><b>Direct stress from the thrust (compressive).</b> \(\sigma_d = 10\,000/765.8 = 13.06\) N/mm².</li>
+<li><b>Bending stress at the outer fibre.</b> \(\sigma_b = M_b y/I = 80\,000 \times 20 / 106\,489 = 15.03\) N/mm². On the side that is compressed by bending, it adds to the thrust stress.</li>
+<li><b>Maximum compressive stress</b> (normal stress on the cross-section): \(\sigma_x = -(13.06 + 15.03) = -28.08\) N/mm².</li>
+<li><b>Torsional shear stress.</b> \(\tau = M_t r / J = 120\,000 \times 20/212\,978 = 11.27\) N/mm².</li>
+<li><b>Combine (preview of Lesson 2).</b> Principal stresses: \(\sigma_{1,2} = \frac{\sigma_x}{2} \pm \sqrt{(\sigma_x/2)^2 + \tau^2} = -14.04 \pm 18.00\). So \(\sigma_2 = -32.05\) N/mm² is the largest compressive stress at the point, and \(\tau_{max} = 18.00\) N/mm².</li>
+</ol>
+<p class="small">The question means the last step. Reporting only −28.08 and 11.27 loses marks, because the combined state is worse than either stress alone.</p>
+</div></div>
+
+<h2>4. Practice</h2>
+<div class="num" data-answer="19.23" data-tol="1.5" data-unit="mm">
+<p class="q">A solid steel shaft transmits 10 kW at 720 rpm. \(S_{yt} = 380\) N/mm², (fs) = 2, \(S_{sy} = 0.5S_{yt}\). Ignore bending. Find the minimum diameter.</p>
+<details class="sol">
+<p>\(M_t = \dfrac{10 \times 60\times10^6}{2\pi(720)} = 132\,629\) N·mm. Allowable \(\tau = 0.5(380)/2 = 95\) N/mm².</p>
+<p>\(95 = \dfrac{16(132\,629)}{\pi d^3}\Rightarrow d = 19.23\) mm, so choose 20 mm.</p>
+</details>
+</div>
+
+<div class="num" data-answer="20.60" data-tol="1.5" data-unit="mm">
+<p class="q">Bhandari Example 4.1: two plates carrying 50 kN are joined by three rivets in single shear. Material 10C4, \(S_{yt}=250\) N/mm², \(S_{sy} = 0.5S_{yt}\), (fs) = 2.5. Find the rivet diameter (before rounding up).</p>
+<details class="sol">
+<p>\(\tau = 0.5(250)/2.5 = 50\) N/mm². \(3 \cdot \frac{\pi}{4}d^2 \cdot 50 = 50\,000 \Rightarrow d = 20.60\) mm, so use 22 mm (<a class="bk" data-p="84"></a>).</p>
+</details>
+</div>
+
+<div class="num" data-answer="43.1" data-tol="2" data-unit="kN">
+<p class="q">Question bank Q10 (<a class="qb" data-p="17"></a>): a hollow column (\(d_o = 190\) mm, \(d_i = 0.8 d_o\)) carries a bracket load P whose line of action is 500 mm from the column axis. Steel FeE 200 (\(S_{yt}=200\)), (fs) = 4, and only maximum <em>tensile</em> stress counts. Find the largest P.</p>
+<details class="sol">
+<p>\(A = 10\,207\) mm², \(I = 37.77\times10^6\) mm⁴, allowable \(\sigma_t = 50\) N/mm².</p>
+<p>The load compresses the column directly (−P/A), while bending puts the far fibre in tension (+P·e·y/I). Net tension: \(P\left(-\frac{1}{10\,207} + \frac{500 \times 95}{37.77\times10^6}\right) = 50\Rightarrow P = 43\,115\) N ≈ 43.1 kN.</p>
+</details>
+</div>
+
+<div class="num" data-answer="1.43" data-tol="2" data-unit="degrees">
+<p class="q">A 40 mm solid steel shaft, 1 m long, carries 500 N·m of torque. G = 80 000 N/mm². What is the angle of twist?</p>
+<details class="sol"><p>\(\theta = \dfrac{584 M_t l}{G d^4} = \dfrac{584(500\,000)(1000)}{80\,000(40^4)} = 1.43°\).</p></details>
+</div>
+
+<div class="mcq" data-correct="3">
+<p class="q">A bracket is made of grey cast iron FG 200, with (fs) = 3.5. What allowable tensile stress do you design with?</p>
+<ol class="opts">
+<li>200 / 3.5 × 0.5 = 28.6 N/mm²</li>
+<li>Yield strength / 3.5, from tables</li>
+<li>200 / 3.5 = 57.1 N/mm²</li>
+<li>200 × 3.5 = 700 N/mm²</li>
+</ol>
+<div class="why">Cast iron is brittle: it fractures without yielding, so the ultimate strength \(S_{ut}\) = 200 N/mm² (the number in FG 200) divided by (fs) gives the allowable stress (Eq. 4.2). This is Bhandari Example 4.12.</div>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">The diameter of a solid shaft is doubled and the torque stays the same. What happens to the maximum torsional shear stress?</p>
+<ol class="opts">
+<li>It halves</li>
+<li>It drops to one-eighth</li>
+<li>It drops to one-quarter</li>
+<li>It stays the same</li>
+</ol>
+<div class="why">\(\tau = 16M_t/\pi d^3\), so stress varies as \(1/d^3\). Doubling d divides the stress by 8. This is why shaft diameters come out as cube roots.</div>
+</div>
+
+<div class="mcq" data-correct="4">
+<p class="q">For a rectangular beam section of width b and depth d, bent about the axis parallel to b, which expression is I?</p>
+<ol class="opts">
+<li>\(db^3/12\)</li>
+<li>\(bd^2/6\)</li>
+<li>\(\pi bd^3/64\)</li>
+<li>\(bd^3/12\)</li>
+</ol>
+<div class="why">The dimension perpendicular to the neutral axis gets cubed (Eq. 4.13). \(bd^2/6\) is the section modulus Z = I/y, not I.</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap">
+<ul>
+<li>Mixing N·m and N·mm. A shaft 10× too thin is the usual result.</li>
+<li>Using \(S_{yt}\) for cast iron. Brittle parts are designed on \(S_{ut}\).</li>
+<li>Forgetting that direct and bending stresses add on one side and subtract on the other. Find the side where they add.</li>
+<li>Rounding too early. Keep four significant figures until the final size, then round <em>up</em> to a standard size.</li>
+</ul>
+</div>
+
+<div class="src">
+<ul>
+<li>Bhandari §4.2–4.8, <a class="bk" data-p="77">pp. 77–85</a>: factor of safety, the stress formulas, eccentric loading, design of simple parts.</li>
+<li>Course slides: simple stresses, bending and torsion, <a class="ppt" data-p="149">pp. 149–174</a>.</li>
+<li>NPTEL, Design of Machine Elements I, Module 2, Lectures 5–6 (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul>
+</div>
+
+<div class="ask"><p>Stuck on a section property, a sign convention or a unit? Ask me in the chat. Paste the problem and the step where your number went off, and I'll find the mistake with you.</p></div>
+
+<p class="small">Next lesson combines these stresses at one point (principal stresses) and decides when the combination causes failure. Quick reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>

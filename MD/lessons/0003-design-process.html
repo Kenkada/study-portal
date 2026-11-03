@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Process</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/course-map.js" defer></script>
+<script src="../assets/lesson.js" defer></script>
+</head>
+<body>
+<main class="page">
+<p class="kicker">Unit 1 · Lesson 3</p>
+<h1>The mechanical engineering design process</h1>
+<p class="meta">About 20 minutes · Bhandari §1.1–1.8 · course slides pp. 4–85</p>
+<div class="win"><b>Your win:</b> you can lay out the design process in the syllabus's own words (need, analysis, conceptual design, technical viability, economic and financial viability), illustrate it with a product, and generate preferred-number size ranges. These are reliable 5-mark theory questions plus a guaranteed short numerical.</div>
+
+<div class="recall-set"><span class="label">Warm-up (Lessons 1–2)</span>
+<details class="recall"><summary>Which failure theory for a ductile shaft when you want the quick, conservative answer?</summary><div>Maximum shear stress theory: \(\frac{16}{\pi d^3}\sqrt{M_b^2+M_t^2} = \frac{0.5S_{yt}}{(fs)}\).</div></details>
+<details class="recall"><summary>Torque in N·mm from kW and rpm?</summary><div>\(M_t = \dfrac{60\times10^6\,(kW)}{2\pi n}\)</div></details>
+</div>
+
+<h2>1. Where the syllabus words come from</h2>
+<p>Bhandari defines machine design as the use of scientific principles, technical information and imagination to describe a machine that performs specific functions with maximum economy and efficiency (<a class="bk" data-p="1"></a>). The words in your syllabus (need, analysis, conceptual design, technical viability, economic and financial viability) are the steps of the <b>feasibility study</b>, the first phase of Morris Asimow's "morphology of design" (<em>Introduction to Design</em>, 1962; summarised in <a href="https://en.wikipedia.org/wiki/Morris_Asimow" target="_blank" rel="noopener">his biography</a>).</p>
+
+<figure>
+<svg class="fig" viewBox="0 0 660 250" role="img" aria-label="Feasibility study flow from need to viable concepts">
+  <g font-size="12.5">
+  <rect x="10" y="20" width="110" height="54" rx="6" class="hot"/><text x="65" y="44" text-anchor="middle">1. Need</text><text x="65" y="60" text-anchor="middle" class="small">is it real?</text>
+  <rect x="140" y="20" width="120" height="54" rx="6" class="part2"/><text x="200" y="40" text-anchor="middle">2. Analysis of</text><text x="200" y="56" text-anchor="middle">the problem</text><text x="200" y="70" text-anchor="middle" class="small">specs, constraints</text>
+  <rect x="280" y="20" width="120" height="54" rx="6" class="part2"/><text x="340" y="40" text-anchor="middle">3. Conceptual</text><text x="340" y="56" text-anchor="middle">design</text><text x="340" y="70" text-anchor="middle" class="small">many feasible concepts</text>
+  <line x1="120" y1="47" x2="138" y2="47" class="ln"/><line x1="260" y1="47" x2="278" y2="47" class="ln"/>
+  <line x1="400" y1="47" x2="430" y2="47" class="ln"/>
+  <rect x="430" y="8" width="220" height="178" rx="8" class="cool"/>
+  <text x="540" y="28" text-anchor="middle" class="blu">Screening filters</text>
+  <rect x="445" y="40" width="190" height="40" rx="5" class="part2"/><text x="540" y="58" text-anchor="middle">4a. Technical viability</text><text x="540" y="72" text-anchor="middle" class="small">physically realisable?</text>
+  <rect x="445" y="88" width="190" height="40" rx="5" class="part2"/><text x="540" y="106" text-anchor="middle">4b. Economic viability</text><text x="540" y="120" text-anchor="middle" class="small">worth more than it costs?</text>
+  <rect x="445" y="136" width="190" height="40" rx="5" class="part2"/><text x="540" y="154" text-anchor="middle">4c. Financial viability</text><text x="540" y="168" text-anchor="middle" class="small">can we fund it?</text>
+  <line x1="540" y1="186" x2="540" y2="210" class="ln"/>
+  <text x="540" y="230" text-anchor="middle">→ useful concepts → preliminary design → detailed design → drawings</text>
+  <path d="M430,200 C300,240 120,220 65,80" class="dash"/>
+  <text x="140" y="214" class="small">iterate: a failed filter sends you back</text>
+  </g>
+</svg>
+<figcaption>The feasibility study in the syllabus's words. Later phases (preliminary design, detailed design, production) follow once a useful concept survives the filters.</figcaption>
+</figure>
+
+<div class="tbl-wrap"><table>
+<thead><tr><th>Stage</th><th>What you do</th><th>Example: a hand-operated screw jack for cars</th></tr></thead>
+<tbody>
+<tr><td><b>Need</b></td><td>Recognise a real (or latent) need. Often vague at first.</td><td>Motorists need to lift a car to change a tyre at the roadside.</td></tr>
+<tr><td><b>Analysis</b> (problem definition)</td><td>Turn the need into specifications: inputs, outputs, space, life, cost, quantity, limits.</td><td>Lift 10 kN by 300 mm; effort ≤ 150 N; mass ≤ 5 kg; cost ≤ ₹1500; self-locking.</td></tr>
+<tr><td><b>Conceptual design</b> (synthesis)</td><td>Generate several feasible concepts (mechanisms).</td><td>Screw jack, scissor jack, hydraulic bottle jack, lever jack.</td></tr>
+<tr><td><b>Technical viability</b></td><td>Can it be built and made to work with available materials, processes and knowledge? Does analysis show it meets the specs?</td><td>Square-thread screw: self-locking and simple. Hydraulic: needs seals and precision machining.</td></tr>
+<tr><td><b>Economic viability</b></td><td>Does the value to the user exceed the total cost (making, using, maintaining)?</td><td>The screw jack is cheapest and maintenance-free. The hydraulic jack costs more but lifts with less effort.</td></tr>
+<tr><td><b>Financial viability</b></td><td>Can the organisation fund development, tooling and production until it earns money back?</td><td>Existing lathes cut the threads, so tooling cost is small.</td></tr>
+</tbody></table></div>
+<p class="side">Your professor's slides use Shigley's phases: recognition of need → definition of problem → synthesis → analysis and optimisation → evaluation → presentation (<a class="ppt" data-p="16">slides pp. 16–22</a>). They are the same ideas in different words. If a question asks for "phases of design", give the Shigley list. If it uses the syllabus words, give the table above.</p>
+
+<h3>Bhandari's five-step procedure for a machine</h3>
+<p>Once a concept is chosen, Bhandari lists the working steps (<a class="bk" data-p="2"></a>–3):</p>
+<ol>
+<li><b>Product specifications:</b> capacity, life, cost, reliability, dimensions, weight.</li>
+<li><b>Selection of mechanism:</b> compare alternatives on cost, availability of materials and processes.</li>
+<li><b>Layout of configuration:</b> a block diagram of the main elements and the joining methods.</li>
+<li><b>Design of individual components:</b> forces → material → likely failure mode and criterion → dimensions with a factor of safety. <em>This course is mostly this step.</em></li>
+<li><b>Preparation of drawings:</b> assembly and part drawings with materials, tolerances and surface finish, plus lists of standard and special parts.</li>
+</ol>
+
+<h3>Basic requirements of a machine element</h3>
+<p>Strength, rigidity, wear resistance, minimum dimensions and weight, manufacturability, safety, conformance to standards, reliability, maintainability, minimum life-cycle cost (<a class="bk" data-p="3"></a>; <a class="ppt" data-p="30">slides pp. 30–33</a>). Learn the list. It is often asked as "explain any five".</p>
+
+<h2>2. Standards and preferred numbers</h2>
+<p>A <b>standard</b> limits variety (IS, DIN, ISO). A <b>code</b> specifies analysis, design, testing and erection to reach a stated level of safety, e.g. IS 807 for cranes (<a class="bk" data-p="10"></a>). Standard parts are cheaper (mass-produced), interchangeable, reliable, and save design effort.</p>
+<p><b>Preferred numbers</b> (Renard series, IS 1076) are geometric progressions used to choose size ranges (<a class="bk" data-p="11"></a>):</p>
+<div class="formula"><span class="label">Series factors</span>
+\[ R5: \sqrt[5]{10}=1.58 \quad R10: \sqrt[10]{10}=1.26 \quad R20: \sqrt[20]{10}=1.12 \quad R40: 1.06 \quad R80: 1.03 \]
+<p>Derived series R20/4 = every 4th term of R20, so ratio = \(1.122^4 = 1.585\). Range from \(a\) to \(b\) in \(m\) steps: ratio \(f = (b/a)^{1/m}\).</p>
+</div>
+<p>R5 from 1 to 10: <b>1, 1.6, 2.5, 4, 6.3, 10</b>. R10: <b>1, 1.25, 1.6, 2, 2.5, 3.15, 4, 5, 6.3, 8, 10</b>. Small sizes differ by small amounts and large sizes by large amounts, so the whole range is covered by the fewest sizes.</p>
+
+<div class="calc"><span class="label">Size-range generator: first size, last size, number of sizes</span>
+<div class="inputs">
+<label>first (a)<input data-v="a" type="number" value="100"></label>
+<label>last (b)<input data-v="b" type="number" value="1000"></label>
+<label>number of sizes<input data-v="n" type="number" value="11"></label>
+</div>
+<div class="outs">
+<output data-expr="pow(b/a,1/(n-1))" data-label="ratio f =" data-dp="4"></output>
+<output data-expr="Array.from({length:n},(x,k)=>+(a*pow(pow(b/a,1/(n-1)),k)).toPrecision(3)).join(', ')" data-label="sizes:"></output>
+</div></div>
+
+<h2>3. Practice</h2>
+<div class="num" data-answer="400" data-tol="0.5">
+<p class="q">Question bank Q7 (<a class="qb" data-p="14"></a>): build the derived series R20/4 (100, …, 1000). What is its fourth number?</p>
+<details class="sol"><p>Ratio \(= (\sqrt[20]{10})^4 = 1.5848\). Series: 100, 158.5 → 160, 251.2 → 250, 398.0 → <b>400</b>, 630.8 → 630, 999.7 → 1000 (Bhandari Example 1.2).</p></details>
+</div>
+<div class="num" data-answer="315" data-tol="0.5" data-unit="mm">
+<p class="q">Question bank Q8: standardise eleven shaft diameters from 100 to 1000 mm. What is the sixth diameter?</p>
+<details class="sol"><p>\(f = (1000/100)^{1/10} = 10^{1/10}\), which is the R10 series. Diameters: 100, 125, 160, 200, 250, <b>315</b>, 400, 500, 630, 800, 1000 mm (Example 1.4).</p></details>
+</div>
+<div class="num" data-answer="24" data-tol="2" data-unit="kW">
+<p class="q">A maker plans five tractor models from 7.5 kW to 75 kW in geometric steps. What is the third model's rating, rounded?</p>
+<details class="sol"><p>\(f = (75/7.5)^{1/4} = 1.7783\). Third model \(= 7.5(1.7783)^2 = 23.7\), so about 24 kW (Example 1.3).</p></details>
+</div>
+
+<div class="mcq" data-correct="2">
+<p class="q">A team shows a proposed gearbox can be made with existing materials, processes and know-how. Which step is this?</p>
+<ol class="opts">
+<li>Economic viability of the chosen concept</li>
+<li>Technical viability of the chosen concept</li>
+<li>Financial viability of the chosen concept</li>
+<li>Recognition of need for the concept</li>
+</ol>
+<div class="why">Technical viability (Asimow: "physical realisability") asks whether the concept can be built and will work. Economic viability asks whether its value exceeds its cost. Financial viability asks whether the money to develop and produce it can be found.</div>
+</div>
+<div class="mcq" data-correct="4">
+<p class="q">What distinguishes a code from a standard?</p>
+<ol class="opts">
+<li>A code is national, a standard international</li>
+<li>A code lists only dimensions of parts</li>
+<li>A code is optional, a standard compulsory</li>
+<li>A code sets procedures to ensure safety</li>
+</ol>
+<div class="why">Bhandari: a standard limits variety (sizes, materials, processes); a code specifies analysis, design, manufacture, testing and erection to achieve a specified level of safety, e.g. pressure-vessel and crane codes (<a class="bk" data-p="10"></a>).</div>
+</div>
+<div class="mcq" data-correct="1">
+<p class="q">In Bhandari's procedure, which step selects the failure criterion, such as yield strength or endurance limit?</p>
+<ol class="opts">
+<li>Design of individual components</li>
+<li>Product specifications for the machine</li>
+<li>Layout of the selected configuration</li>
+<li>Preparation of assembly drawings</li>
+</ol>
+<div class="why">Step 4 (design of individual components) covers forces, then material, then likely failure mode and criterion, then dimensions with a factor of safety (<a class="bk" data-p="3"></a>).</div>
+</div>
+
+<h2>Exam traps</h2>
+<div class="trap"><ul>
+<li>Mixing up economic viability (value vs. cost) and financial viability (can it be funded).</li>
+<li>Giving only a list. A 5-mark answer needs one line of explanation per stage <em>and</em> a running example.</li>
+<li>Preferred numbers: round to the standard table values (3.15, not 3.16; 6.3, not 6.31).</li>
+</ul></div>
+
+<div class="src"><ul>
+<li>Bhandari §1.1–1.8, <a class="bk" data-p="1">pp. 1–14</a> (preferred numbers on pp. 11–14, Examples 1.1–1.4).</li>
+<li>Course slides: phases of design, requirements, standards and preferred numbers, <a class="ppt" data-p="4">pp. 4–64</a>.</li>
+<li>Asimow's morphology of design, as summarised in a university model answer: <a href="https://dbatu.ac.in/wp-content/uploads/2017/10/MMD101_ModelAnswer.pdf" target="_blank" rel="noopener">DBATU MMD101 model answer (PDF)</a>.</li>
+<li>NPTEL Design of Machine Elements I, Lectures 1–2, "Design philosophy" and "Design procedure" (<a href="https://nptel.ac.in/courses/112105124" target="_blank" rel="noopener">course page</a>).</li>
+</ul></div>
+<div class="ask"><p>Want to practise a 5-mark answer? Write "phases of design for a bicycle" in the chat and I'll mark it the way an examiner would.</p></div>
+<p class="small">Reference: <a class="ref" data-r="unit1-formulas.html"></a>.</p>
+</main>
+</body>
+</html>
